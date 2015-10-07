@@ -32,14 +32,40 @@ function hexToAesl(hex)
 	return rgbToAesl(hexToRgb(hex));
 }
 
-Blockly.AESL['thymio_onevent_button'] = function(block) {
+Blockly.AESL['thymio_onevent_buttons'] = function(block) {
 	var handler = Blockly.AESL.statementToCode(block, 'HANDLER');
 	var code =
 		'onevent buttons\n' +
 		handler;
 	
 	code = Blockly.AESL.scrub_(block, code);
-	Blockly.AESL.definitions_['onevent button'] = code;
+	Blockly.AESL.definitions_['onevent buttons'] = code;
+	return null;
+};
+
+Blockly.AESL['thymio_onevent_button'] = function(block) {
+	var button = block.getFieldValue('BUTTON');
+	var handler = Blockly.AESL.statementToCode(block, 'HANDLER');
+	
+	var buttonevent;
+	if(button == 'CENTER') {
+		buttonevent = 'button.center';
+	} else if(button == 'FORWARD') {
+		buttonevent = 'button.forward';
+	} else if(button == 'BACKWARD') {
+		buttonevent = 'button.backward';
+	} else if(button == 'LEFT') {
+		buttonevent = 'button.left';
+	} else if(button == 'RIGHT') {
+		buttonevent = 'button.right';
+	}
+	
+	var code =
+		'onevent ' + buttonevent + '\n' +
+		handler;
+	
+	code = Blockly.AESL.scrub_(block, code);
+	Blockly.AESL.definitions_['onevent ' + buttonevent] = code;
 	return null;
 };
 

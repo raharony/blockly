@@ -14,6 +14,21 @@ goog.require('Blockly.Blocks');
  */
 Blockly.Blocks.thymio.HUE = 27;
 
+Blockly.Blocks['thymio_onevent_buttons'] = {
+  /**
+   * Block for Thymio buttons event.
+   * @this Blockly.Block
+   */
+  init: function() {
+    this.setHelpUrl(Blockly.Msg.TEXT_THYMIO_EVENT_BUTTONS_HELPURL);
+    this.setTooltip(Blockly.Msg.TEXT_THYMIO_EVENT_BUTTONS_TOOLTIP);
+    this.appendDummyInput()
+    	.appendField('on button event')
+    this.appendStatementInput('HANDLER')
+
+  },
+};
+
 Blockly.Blocks['thymio_onevent_button'] = {
   /**
    * Block for Thymio button event.
@@ -22,8 +37,12 @@ Blockly.Blocks['thymio_onevent_button'] = {
   init: function() {
     this.setHelpUrl(Blockly.Msg.TEXT_THYMIO_EVENT_BUTTON_HELPURL);
     this.setTooltip(Blockly.Msg.TEXT_THYMIO_EVENT_BUTTON_TOOLTIP);
+    
+    var dropdown = new Blockly.FieldDropdown([['center', 'CENTER'], ['forward', 'FORWARD'], ['backward', 'BACKWARD'], ['left', 'LEFT'], ['right', 'RIGHT']]);
     this.appendDummyInput()
-    	.appendField('onevent button')
+    	.appendField('on')
+    	.appendField(dropdown, 'BUTTON')
+    	.appendField('button press')
     this.appendStatementInput('HANDLER')
 
   },
