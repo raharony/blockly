@@ -102,5 +102,5 @@ Blockly.AESL['thymio_button_pressed'] = function(block) {
 		buttonname = 'button.right';
 	}
 	
-	return [buttonname, Blockly.AESL.ORDER_ATOMIC];
+	return [buttonname + ' == 1', Blockly.AESL.ORDER_LOGICAL_AND];
 };
