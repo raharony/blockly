@@ -1108,3 +1108,5 @@ Blockly.Msg.TEXT_THYMIO_LEDS_HELPURL = 'https://www.thymio.org/en:thymiotutoriel
 Blockly.Msg.TEXT_THYMIO_LEDS_TOOLTIP = 'Sets a LED to a specified color';
 Blockly.Msg.TEXT_THYMIO_BUTTON_PRESSED_HELPURL = 'https://www.thymio.org/en:thymiotutorielp2';
 Blockly.Msg.TEXT_THYMIO_BUTTON_PRESSED_TOOLTIP = 'Checks if a button is pressed';
+Blockly.Msg.TEXT_THYMIO_GET_SENSOR_STATE_HELPURL = 'https://www.thymio.org/en:thymiotutorielp2';
+Blockly.Msg.TEXT_THYMIO_GET_SENSOR_STATE_TOOLTIP = 'Retrieves the state of a sensor';
