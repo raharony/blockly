@@ -23,9 +23,8 @@ Blockly.Blocks['thymio_onevent_buttons'] = {
     this.setHelpUrl(Blockly.Msg.TEXT_THYMIO_EVENT_BUTTONS_HELPURL);
     this.setTooltip(Blockly.Msg.TEXT_THYMIO_EVENT_BUTTONS_TOOLTIP);
     this.appendDummyInput()
-    	.appendField('on button event')
-    this.appendStatementInput('HANDLER')
-
+    	.appendField('on button event');
+    this.appendStatementInput('HANDLER');
   },
 };
 
@@ -42,9 +41,8 @@ Blockly.Blocks['thymio_onevent_button'] = {
     this.appendDummyInput()
     	.appendField('on')
     	.appendField(dropdown, 'BUTTON')
-    	.appendField('button press')
-    this.appendStatementInput('HANDLER')
-
+    	.appendField('button press');
+    this.appendStatementInput('HANDLER');
   },
 };
 
@@ -54,8 +52,8 @@ Blockly.Blocks['thymio_leds'] = {
    * @this Blockly.Block
    */
   init: function() {
-    this.setHelpUrl(Blockly.Msg.TEXT_THYMIO_LEDS_TOP_HELPURL);
-    this.setTooltip(Blockly.Msg.TEXT_THYMIO_LEDS_TOP_TOOLTIP);
+    this.setHelpUrl(Blockly.Msg.TEXT_THYMIO_LEDS_HELPURL);
+    this.setTooltip(Blockly.Msg.TEXT_THYMIO_LEDS_TOOLTIP);
     this.setPreviousStatement(true);
     this.setNextStatement(true);
     
@@ -64,6 +62,23 @@ Blockly.Blocks['thymio_leds'] = {
     	.appendField('set')
     	.appendField(dropdown, 'LED')
     	.appendField('led to')
-    	.appendField(new Blockly.FieldColour('#ff0000'), 'COLOR')
+    	.appendField(new Blockly.FieldColour('#ff0000'), 'COLOR');
+  },
+};
+
+Blockly.Blocks['thymio_button_pressed'] = {
+  /**
+   * Block for checking whether a button is pressed
+   * @this Blockly.Block
+   */
+  init: function() {
+    this.setHelpUrl(Blockly.Msg.TEXT_THYMIO_BUTTON_PRESSED_HELPURL);
+    this.setTooltip(Blockly.Msg.TEXT_THYMIO_BUTTON_PRESSED_TOOLTIP);
+    
+    var dropdown = new Blockly.FieldDropdown([['center', 'CENTER'], ['forward', 'FORWARD'], ['backward', 'BACKWARD'], ['left', 'LEFT'], ['right', 'RIGHT']]);
+    this.setOutput(true, 'Boolean');
+    this.appendDummyInput()
+    	.appendField(dropdown, 'BUTTON')
+		.appendField('button pressed');
   },
 };

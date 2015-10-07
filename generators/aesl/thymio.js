@@ -85,3 +85,22 @@ Blockly.AESL['thymio_leds'] = function(block) {
 	var code = 'call ' + ledvar + '(' + color.r + ',' + color.g + ',' + color.b + ')\n';
 	return code;
 };
+
+Blockly.AESL['thymio_button_pressed'] = function(block) {
+	var button = block.getFieldValue('BUTTON');
+	
+	var buttonname;
+	if(button == 'CENTER') {
+		buttonname = 'button.center';
+	} else if(button == 'FORWARD') {
+		buttonname = 'button.forward';
+	} else if(button == 'BACKWARD') {
+		buttonname = 'button.backward';
+	} else if(button == 'LEFT') {
+		buttonname = 'button.left';
+	} else if(button == 'RIGHT') {
+		buttonname = 'button.right';
+	}
+	
+	return [buttonname, Blockly.AESL.ORDER_ATOMIC];
+};
