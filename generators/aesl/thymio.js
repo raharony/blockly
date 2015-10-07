@@ -1,0 +1,61 @@
+/**
+ * @fileoverview Generating AESL for Thymio blocks.
+ * @author fabian@hahn.graphics (Fabian Hahn)
+ */
+'use strict';
+
+goog.provide('Blockly.AESL.thymio');
+
+goog.require('Blockly.AESL');
+
+function hexToRgb(hex)
+{
+    var result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
+    return result ? {
+        r: parseInt(result[1], 16),
+        g: parseInt(result[2], 16),
+        b: parseInt(result[3], 16)
+    } : null;
+}
+
+function rgbToAesl(rgb)
+{
+    return rgb ? {
+        r: Math.round(rgb.r / 8),
+        g: Math.round(rgb.g / 8),
+        b: Math.round(rgb.b / 8)
+    } : null;
+}
+
+function hexToAesl(hex)
+{
+	return rgbToAesl(hexToRgb(hex));
+}
+
+Blockly.AESL['thymio_onevent_button'] = function(block) {
+	var handler = Blockly.AESL.statementToCode(block, 'HANDLER');
+	var code =
+		'onevent buttons\n' +
+		handler;
+	
+	code = Blockly.AESL.scrub_(block, code);
+	Blockly.AESL.definitions_['onevent button'] = code;
+	return null;
+};
+
+Blockly.AESL['thymio_leds'] = function(block) {
+	var led = block.getFieldValue('LED');
+	var color = hexToAesl(block.getFieldValue('COLOR'));
+	
+	var ledvar;
+	if(led == 'TOP') {
+		ledvar = 'leds.top';
+	} else if(led == 'BOTTOMLEFT') {
+		ledvar = 'leds.bottom.left';
+	} else {
+		ledvar = 'leds.bottom.right';
+	}
+	
+	var code = 'call ' + ledvar + '(' + color.r + ',' + color.g + ',' + color.b + ')\n';
+	return code;
+};

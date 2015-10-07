@@ -40,6 +40,8 @@
 <script src="../generators/dart/colour.js"></script>
 <script src="../generators/dart/variables.js"></script>
 <script src="../generators/dart/procedures.js"></script>
+<script src="../generators/aesl.js"></script>
+<script src="../generators/aesl/thymio.js"></script>
 <script src="../msg/messages.js"></script>
 <script src="../blocks/logic.js"></script>
 <script src="../blocks/loops.js"></script>
@@ -49,6 +51,7 @@
 <script src="../blocks/colour.js"></script>
 <script src="../blocks/variables.js"></script>
 <script src="../blocks/procedures.js"></script>
+<script src="../blocks/thymio.js"></script>
 <!-- Load the Google Drive SDK Realtime libraries. -->
 <script src="https://apis.google.com/js/api.js"></script>
 <script>
@@ -520,6 +523,10 @@ h1 {
         </value>
       </block>
     </category>
+    <category name="Thymio">
+      <block type="thymio_onevent_button"></block>
+      <block type="thymio_leds"></block>
+    </category>
     <sep></sep>
     <category name="Variables" colour="330" custom="VARIABLE"></category>
     <category name="Functions" colour="290" custom="PROCEDURE"></category>
@@ -550,6 +557,8 @@ h1 {
     <input type="button" value="To PHP" onclick="toCode('PHP')">
     &nbsp;
     <input type="button" value="To Dart" onclick="toCode('Dart')">
+    &nbsp;
+    <input type="button" value="To AESL" onclick="toCode('AESL')">
     <br>
     <textarea id="importExport" style="width: 26%; height: 12em"></textarea>
   </p>
