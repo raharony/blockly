@@ -18,7 +18,7 @@ Blockly.AESL.INDENT = '\t';
 
 /**
  * List of illegal variable names.
- * This is not intended to be a security feature.  Blockly is 100% client-side,
+ * This is not intended to be a security feature. Blockly is 100% client-side,
  * so bypassing this list is trivial.  This is intended to prevent users from
  * accidentally clobbering a built-in object or function.
  * @private
@@ -31,24 +31,25 @@ Blockly.AESL.addReservedWords(
 
 /**
  * Order of operation ENUMs.
- * see aseba/compiler/parser.cpp
+ * see https://www.thymio.org/en:asebalanguage#toc8
  */
 Blockly.AESL.ORDER_ATOMIC = 0;
-Blockly.AESL.ORDER_LOGICAL_NOT = 1;
+Blockly.AESL.ORDER_INDEX = 1;
+Blockly.AESL.ORDER_MINUS = 1;
 Blockly.AESL.ORDER_BINARY_NOT = 2;
 Blockly.AESL.ORDER_ABS = 3;
-Blockly.AESL.ORDER_UNARY = 4;
-Blockly.AESL.ORDER_MULT = 5;
-Blockly.AESL.ORDER_ADD = 6;
-Blockly.AESL.ORDER_SHIFT = 7;
-Blockly.AESL.ORDER_BINARY_AND = 8;
-Blockly.AESL.ORDER_BINARY_XOR = 9;
-Blockly.AESL.ORDER_BINARY_OR = 10;
-Blockly.AESL.ORDER_CONDITION = 11;
-Blockly.AESL.ORDER_LOGICAL_NOT = 12;
-Blockly.AESL.ORDER_LOGICAL_AND = 13;
-Blockly.AESL.ORDER_LOGICAL_OR = 14;
-Blockly.AESL.ORDER_ASSIGNMENT = 15;
+Blockly.AESL.ORDER_MULT = 4;
+Blockly.AESL.ORDER_ADD = 5;
+Blockly.AESL.ORDER_SHIFT = 6;
+Blockly.AESL.ORDER_BINARY_AND = 7;
+Blockly.AESL.ORDER_BINARY_XOR = 8;
+Blockly.AESL.ORDER_BINARY_OR = 9;
+Blockly.AESL.ORDER_CONDITION = 10;
+Blockly.AESL.ORDER_LOGICAL_NOT = 11;
+Blockly.AESL.ORDER_LOGICAL_AND = 12;
+Blockly.AESL.ORDER_LOGICAL_OR = 13;
+Blockly.AESL.ORDER_ASSIGNMENT = 14;
+Blockly.AESL.ORDER_INCREMENT = 15;
 Blockly.AESL.ORDER_NONE = 99;
 
 /**
