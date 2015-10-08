@@ -35,10 +35,9 @@ function hexToAesl(hex)
 Blockly.AESL['thymio_onevent_buttons'] = function(block)
 {
 	var handler = Blockly.AESL.statementToCode(block, 'HANDLER');
-	var code = 'onevent buttons\n' + handler;
-
-	code = Blockly.AESL.scrub_(block, code);
-	Blockly.AESL.definitions_['onevent buttons'] = code;
+	handler = Blockly.AESL.scrub_(block, handler);
+	
+	Blockly.AESL.addEventHandler('buttons', handler);
 	return null;
 };
 
@@ -46,6 +45,7 @@ Blockly.AESL['thymio_onevent_button'] = function(block)
 {
 	var button = block.getFieldValue('BUTTON');
 	var handler = Blockly.AESL.statementToCode(block, 'HANDLER');
+	handler = Blockly.AESL.scrub_(block, handler);
 
 	var buttonevent;
 	if(button == 'CENTER') {
@@ -60,10 +60,7 @@ Blockly.AESL['thymio_onevent_button'] = function(block)
 		buttonevent = 'button.right';
 	}
 
-	var code = 'onevent ' + buttonevent + '\n' + handler;
-
-	code = Blockly.AESL.scrub_(block, code);
-	Blockly.AESL.definitions_['onevent ' + buttonevent] = code;
+	Blockly.AESL.addEventHandler(buttonevent, handler);
 	return null;
 };
 
