@@ -117,3 +117,28 @@ Blockly.Blocks['thymio_get_sensor_state'] = {
 		this.appendDummyInput().appendField('Thymio').appendField(dropdown, 'SENSOR');
 	},
 };
+
+Blockly.Blocks['thymio_set_variable'] = {
+	/**
+	 * Block for setting a Thymio variable
+	 * 
+	 * @this Blockly.Block
+	 */
+	init : function()
+	{
+		this.setHelpUrl(Blockly.Msg.TEXT_THYMIO_SET_VARIABLE_HELPURL);
+		this.setTooltip(Blockly.Msg.TEXT_THYMIO_SET_VARIABLE_TOOLTIP);
+		this.setPreviousStatement(true);
+		this.setNextStatement(true);
+
+		var variables = [];		
+		variables.push(['left motor speed', 'motor.left.target']);
+		variables.push(['right motor speed', 'motor.right.target']);
+		variables.push(['microphone threshold', 'mic.threshold']);
+		variables.push(['timer 1 period','timer.period[0]']);
+		variables.push(['timer 2 period','timer.period[1]']);
+
+		var dropdown = new Blockly.FieldDropdown(variables);
+		this.appendValueInput('VALUE').setCheck('Number').appendField('set Thymio').appendField(dropdown, 'VARIABLE').appendField('to');
+	},
+};

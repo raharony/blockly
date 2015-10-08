@@ -1110,3 +1110,5 @@ Blockly.Msg.TEXT_THYMIO_BUTTON_PRESSED_HELPURL = 'https://www.thymio.org/en:thym
 Blockly.Msg.TEXT_THYMIO_BUTTON_PRESSED_TOOLTIP = 'Checks if a button is pressed';
 Blockly.Msg.TEXT_THYMIO_GET_SENSOR_STATE_HELPURL = 'https://www.thymio.org/en:thymiotutorielp2';
 Blockly.Msg.TEXT_THYMIO_GET_SENSOR_STATE_TOOLTIP = 'Retrieves the state of a sensor';
+Blockly.Msg.TEXT_THYMIO_SET_VARIABLE_HELPURL = 'https://www.thymio.org/en:thymiotutorielp2';
+Blockly.Msg.TEXT_THYMIO_SET_VARIABLE_TOOLTIP = 'Sets a variable on the Thymio';

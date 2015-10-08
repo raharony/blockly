@@ -110,3 +110,12 @@ Blockly.AESL['thymio_get_sensor_state'] = function(block)
 	var sensor = block.getFieldValue('SENSOR');
 	return [sensor, Blockly.AESL.ORDER_ATOMIC];
 };
+
+Blockly.AESL['thymio_set_variable'] = function(block)
+{
+	var variable = block.getFieldValue('VARIABLE');
+	var value = Blockly.AESL.valueToCode(block, 'VALUE', Blockly.AESL.ORDER_ASSIGNMENT) || '0';
+
+	var code = variable + ' = ' + value + '\n';
+	return code;
+};
