@@ -35,5 +35,8 @@ AeslTests = [
 'onevent button.backward\n' +
 '	call leds.top(32,0,0)\n' +
 '	motor.left.target = 0\n' +
-'	motor.right.target = 0\n']
+'	motor.right.target = 0\n'],
+['<xml xmlns="http://www.w3.org/1999/xhtml"><block type="thymio_onevent_button" x="63" y="63"><field name="BUTTON">CENTER</field><statement name="HANDLER"><block type="thymio_set_variable"><field name="VARIABLE">motor.left.target</field><value name="VALUE"><block type="math_arithmetic"><field name="OP">MULTIPLY</field><value name="A"><block type="math_arithmetic"><field name="OP">ADD</field><value name="A"><block type="math_number"><field name="NUM">200</field></block></value><value name="B"><block type="math_number"><field name="NUM">50</field></block></value></block></value><value name="B"><block type="math_arithmetic"><field name="OP">MULTIPLY</field><value name="A"><block type="math_number"><field name="NUM">2</field></block></value><value name="B"><block type="math_number"><field name="NUM">1</field></block></value></block></value></block></value></block></statement></block></xml>',
+'onevent button.center\n' +
+'	motor.left.target = (200 + 50) * (2 * 1)\n']
 ];
