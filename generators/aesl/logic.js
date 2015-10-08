@@ -84,3 +84,19 @@ Blockly.AESL['logic_operation'] = function(block)
 	var code = argument0 + ' ' + operator + ' ' + argument1;
 	return [code, order];
 };
+
+Blockly.AESL['logic_negate'] = function(block)
+{
+	// Negation.
+	var order = Blockly.AESL.ORDER_LOGICAL_NOT;
+	var argument0 = Blockly.AESL.valueToCode(block, 'BOOL', order) || '0 == 0';
+	var code = 'not ' + argument0;
+	return [code, order];
+};
+
+Blockly.AESL['logic_boolean'] = function(block)
+{
+	// Boolean values true and false.
+	var code = (block.getFieldValue('BOOL') == 'TRUE') ? '0 == 0' : '0 == 1';
+	return [code, Blockly.AESL.ORDER_CONDITION];
+};
