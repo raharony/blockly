@@ -70,4 +70,13 @@ AeslTests = [
 '		call leds.top(6,13,32)\n' +
 '	end\n' +
 '	call leds.top(0,0,0)\n'],
+['<xml xmlns="http://www.w3.org/1999/xhtml"><block type="thymio_onevent_button" x="188" y="88"><field name="BUTTON">CENTER</field><statement name="HANDLER"><block type="controls_repeat"><field name="TIMES">10</field><statement name="DO"><block type="controls_repeat"><field name="TIMES">10</field><statement name="DO"><block type="thymio_leds"><field name="LED">TOP</field><field name="COLOR">#ff0000</field></block></statement></block></statement></block></statement></block></xml>',
+'var i\n' +
+'var i2\n\n\n' +
+'onevent button.center\n' +
+'	for i2 in 1:10 do\n' +
+'		for i in 1:10 do\n' +
+'			call leds.top(32,0,0)\n' +
+'		end\n' +
+'	end\n'],
 ];
