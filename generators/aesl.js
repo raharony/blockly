@@ -141,10 +141,25 @@ Blockly.AESL.scrubNakedValue = function(line) {
 };
 
 /**
+ * Adds a handler to a Thymio event
+ * @param {string} name of the event
+ * @param {string} AESL code to execute for the event
+ */
+Blockly.AESL.addEventHandler = function(event, handler) {
+	if(!Object.prototype.hasOwnProperty.call(Blockly.AESL.definitions_, 'onevent ' + event)) {
+		Blockly.AESL.definitions_['onevent ' + event] = 'onevent ' + event + '\n';
+	} else {
+		Blockly.AESL.definitions_['onevent ' + event] += '\n';
+	}
+	
+	Blockly.AESL.definitions_['onevent ' + event] += handler;
+}
+
+/**
  * Encode a string as a properly escaped AESL string, complete with
  * quotes.
  * @param {string} string Text to encode.
- * @return {string} JavaScript string.
+ * @return {string} AESL string.
  * @private
  */
 Blockly.AESL.quote_ = function(string) {
@@ -156,12 +171,12 @@ Blockly.AESL.quote_ = function(string) {
 };
 
 /**
- * Common tasks for generating JavaScript from blocks.
+ * Common tasks for generating AESL from blocks.
  * Handles comments for the specified block and any connected value blocks.
  * Calls any statements following this block.
  * @param {!Blockly.Block} block The current block.
- * @param {string} code The JavaScript code created for this block.
- * @return {string} JavaScript code with comments and subsequent blocks added.
+ * @param {string} code The AESL code created for this block.
+ * @return {string} AESL code with comments and subsequent blocks added.
  * @private
  */
 Blockly.AESL.scrub_ = function(block, code) {
