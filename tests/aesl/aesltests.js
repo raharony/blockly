@@ -38,5 +38,19 @@ AeslTests = [
 '	motor.right.target = 0\n'],
 ['<xml xmlns="http://www.w3.org/1999/xhtml"><block type="thymio_onevent_button" x="63" y="63"><field name="BUTTON">CENTER</field><statement name="HANDLER"><block type="thymio_set_variable"><field name="VARIABLE">motor.left.target</field><value name="VALUE"><block type="math_arithmetic"><field name="OP">MULTIPLY</field><value name="A"><block type="math_arithmetic"><field name="OP">ADD</field><value name="A"><block type="math_number"><field name="NUM">200</field></block></value><value name="B"><block type="math_number"><field name="NUM">50</field></block></value></block></value><value name="B"><block type="math_arithmetic"><field name="OP">MULTIPLY</field><value name="A"><block type="math_number"><field name="NUM">2</field></block></value><value name="B"><block type="math_number"><field name="NUM">1</field></block></value></block></value></block></value></block></statement></block></xml>',
 'onevent button.center\n' +
-'	motor.left.target = (200 + 50) * (2 * 1)\n']
+'	motor.left.target = (200 + 50) * (2 * 1)\n'],
+['<xml xmlns="http://www.w3.org/1999/xhtml"><block type="thymio_onevent_buttons" x="38" y="63"><statement name="HANDLER"><block type="controls_if"><mutation else="1"></mutation><value name="IF0"><block type="logic_operation"><field name="OP">OR</field><value name="A"><block type="logic_operation"><field name="OP">AND</field><value name="A"><block type="thymio_button_pressed"><field name="BUTTON">FORWARD</field></block></value><value name="B"><block type="thymio_button_pressed"><field name="BUTTON">BACKWARD</field></block></value></block></value><value name="B"><block type="logic_operation"><field name="OP">AND</field><value name="A"><block type="thymio_button_pressed"><field name="BUTTON">LEFT</field></block></value><value name="B"><block type="thymio_button_pressed"><field name="BUTTON">RIGHT</field></block></value></block></value></block></value><statement name="DO0"><block type="thymio_leds"><field name="LED">TOP</field><field name="COLOR">#33ff33</field></block></statement><statement name="ELSE"><block type="thymio_leds"><field name="LED">TOP</field><field name="COLOR">#ff0000</field></block></statement></block></statement></block></xml>',
+'onevent buttons\n' +
+'	if (button.forward == 1) and (button.backward == 1) or (button.left == 1) and (button.right == 1) then\n' +
+'		call leds.top(6,32,6)\n' +
+'	else\n' +
+'		call leds.top(32,0,0)\n' +
+'	end\n'],
+['<xml xmlns="http://www.w3.org/1999/xhtml"><block type="thymio_onevent_buttons" x="38" y="63"><statement name="HANDLER"><block type="controls_if"><mutation else="1"></mutation><value name="IF0"><block type="logic_operation"><field name="OP">AND</field><value name="A"><block type="logic_operation"><field name="OP">OR</field><value name="A"><block type="thymio_button_pressed"><field name="BUTTON">FORWARD</field></block></value><value name="B"><block type="thymio_button_pressed"><field name="BUTTON">BACKWARD</field></block></value></block></value><value name="B"><block type="logic_operation"><field name="OP">OR</field><value name="A"><block type="thymio_button_pressed"><field name="BUTTON">LEFT</field></block></value><value name="B"><block type="thymio_button_pressed"><field name="BUTTON">RIGHT</field></block></value></block></value></block></value><statement name="DO0"><block type="thymio_leds"><field name="LED">TOP</field><field name="COLOR">#33ff33</field></block></statement><statement name="ELSE"><block type="thymio_leds"><field name="LED">TOP</field><field name="COLOR">#ff0000</field></block></statement></block></statement></block></xml>',
+'onevent buttons\n' +
+'	if (button.forward == 1 or button.backward == 1) and (button.left == 1 or button.right == 1) then\n' +
+'		call leds.top(6,32,6)\n' +
+'	else\n' +
+'		call leds.top(32,0,0)\n' +
+'	end\n'],
 ];
