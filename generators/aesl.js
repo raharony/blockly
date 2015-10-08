@@ -69,39 +69,71 @@ Blockly.AESL.init = function(workspace) {
   } else {
     Blockly.AESL.variableDB_.reset();
   }
-
-  var defvars = [];
-  var variables = Blockly.Variables.allVariables(workspace);
-  for (var i = 0; i < variables.length; i++) {
-    defvars[i] = 'var ' +
-        Blockly.AESL.variableDB_.getName(variables[i],
-        Blockly.Variables.NAME_TYPE) + ';';
-  }
-  Blockly.AESL.definitions_['variables'] = defvars.join('\n');
 };
 
 /**
  * Prepend the generated code with the variable definitions.
+ * 
  * @param {string} code Generated code.
  * @return {string} Completed code.
  */
-Blockly.AESL.finish = function(code) {
-  // Convert the definitions dictionary into a list.
-  var definitions = [];
-  for (var name in Blockly.AESL.definitions_) {
-    definitions.push(Blockly.AESL.definitions_[name]);
-  }
-  // Clean up temporary data.
-  delete Blockly.AESL.definitions_;
-  delete Blockly.AESL.functionNames_;
-  Blockly.AESL.variableDB_.reset();
-  return definitions.join('\n\n') + '\n\n\n' + code;
+Blockly.AESL.finish = function(code)
+{
+	// generate global variable definitions
+	if(typeof workspace !== 'undefined') {
+		var variables = Blockly.Variables.allVariables(workspace); // look at workspace variables first
+		for(var i = 0; i < variables.length; i++) {
+			// just touch it here so variableDB will pick it up
+			Blockly.AESL.variableDB_.getName(variables[i], Blockly.Variables.NAME_TYPE);
+		}
+	}
+	
+	// AESL doesn't support local variables, so what we do here is simply create new global variable
+	// for each time the variable db was asked for a variable name. This is a bit of a hack since
+	// it accesses the Blockly.Names internals, but as far as I can see the only way to do this
+	// without changing the Blockly core.
+
+	var defvars = [];
+	var vdb = Blockly.AESL.variableDB_.dbReverse_;
+	for(var property in vdb) {
+	    if (Object.prototype.hasOwnProperty.call(vdb, property)) {
+	        defvars.push('var ' + property);
+	    }
+	}
+	
+	if(defvars.length) {
+		defvars.push(''); // if there is at least one variable, add a trailing newline
+	}
+	
+	var parts = [];
+	
+	// variables first
+	parts.push(defvars.join('\n'));
+	
+	// code next
+	if(code.length) {
+		parts.push(code);
+	}
+	
+	// all other definitions (subs, events) last
+	for(var name in Blockly.AESL.definitions_) {
+		parts.push(Blockly.AESL.definitions_[name]);
+	}
+	
+	// Clean up temporary data.
+	delete Blockly.AESL.definitions_;
+	delete Blockly.AESL.functionNames_;
+	Blockly.AESL.variableDB_.reset();
+	
+	return parts.join('\n\n');
 };
 
 /**
  * Naked values are top-level blocks with outputs that aren't plugged into
  * anything.
- * @param {string} line Line of generated code.
+ * 
+ * @param {string}
+ *            line Line of generated code.
  * @return {string} Legal line of code.
  */
 Blockly.AESL.scrubNakedValue = function(line) {
