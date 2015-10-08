@@ -105,5 +105,12 @@ AeslTests = [
 '	motor.left.target = 0\n' +
 '	motor.right.target = 0\n' +
 '	call leds.bottom.left(0,0,0)\n' +
-'	call leds.bottom.right(0,0,0)\n'], 
+'	call leds.bottom.right(0,0,0)\n'],
+['<xml xmlns="http://www.w3.org/1999/xhtml"><block type="thymio_onevent_button" x="88" y="38"><field name="BUTTON">CENTER</field><statement name="HANDLER"><block type="thymio_leds"><field name="LED">TOP</field><field name="COLOR">#000000</field><next><block type="thymio_leds"><field name="LED">BOTTOMLEFT</field><field name="COLOR">#000000</field><next><block type="thymio_leds"><field name="LED">BOTTOMRIGHT</field><field name="COLOR">#000000</field></block></next></block></next></block></statement></block><block type="thymio_onevent_button" x="87" y="187"><field name="BUTTON">CENTER</field><statement name="HANDLER"><block type="thymio_set_variable"><field name="VARIABLE">motor.left.target</field><value name="VALUE"><block type="math_number"><field name="NUM">0</field></block></value><next><block type="thymio_set_variable"><field name="VARIABLE">motor.right.target</field><value name="VALUE"><block type="math_number"><field name="NUM">0</field></block></value></block></next></block></statement></block></xml>',
+'onevent button.center\n' +
+'	call leds.top(0,0,0)\n' +
+'	call leds.bottom.left(0,0,0)\n' +
+'	call leds.bottom.right(0,0,0)\n\n' +
+'	motor.left.target = 0\n' +
+'	motor.right.target = 0\n'],
 ];
