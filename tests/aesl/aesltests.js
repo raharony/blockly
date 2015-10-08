@@ -60,4 +60,7 @@ AeslTests = [
 '	else\n' +
 '		call leds.top(32,0,0)\n' +
 '	end\n'],
+['<xml xmlns="http://www.w3.org/1999/xhtml"><block type="controls_if" x="213" y="88"><value name="IF0"><block type="logic_compare"><field name="OP">EQ</field><value name="A"><block type="logic_boolean"><field name="BOOL">TRUE</field></block></value><value name="B"><block type="logic_boolean"><field name="BOOL">TRUE</field></block></value></block></value></block></xml>',
+'if 0 == 1 then\n' +
+'end\n'], 
 ];
