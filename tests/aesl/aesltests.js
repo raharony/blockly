@@ -62,5 +62,12 @@ AeslTests = [
 '	end\n'],
 ['<xml xmlns="http://www.w3.org/1999/xhtml"><block type="controls_if" x="213" y="88"><value name="IF0"><block type="logic_compare"><field name="OP">EQ</field><value name="A"><block type="logic_boolean"><field name="BOOL">TRUE</field></block></value><value name="B"><block type="logic_boolean"><field name="BOOL">TRUE</field></block></value></block></value></block></xml>',
 'if 0 == 1 then\n' +
-'end\n'], 
+'end\n'],
+['<xml xmlns="http://www.w3.org/1999/xhtml"><block type="thymio_onevent_button" x="88" y="38"><field name="BUTTON">CENTER</field><statement name="HANDLER"><block type="controls_whileUntil"><field name="MODE">WHILE</field><value name="BOOL"><block type="thymio_button_pressed"><field name="BUTTON">CENTER</field></block></value><statement name="DO"><block type="thymio_leds"><field name="LED">TOP</field><field name="COLOR">#ff0000</field><next><block type="thymio_leds"><field name="LED">TOP</field><field name="COLOR">#3366ff</field></block></next></block></statement><next><block type="thymio_leds"><field name="LED">TOP</field><field name="COLOR">#000000</field></block></next></block></statement></block></xml>',
+'onevent button.center\n' +
+'	while button.center == 1 do\n' +
+'		call leds.top(32,0,0)\n' +
+'		call leds.top(6,13,32)\n' +
+'	end\n' +
+'	call leds.top(0,0,0)\n'],
 ];
