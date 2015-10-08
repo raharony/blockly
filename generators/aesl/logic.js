@@ -59,3 +59,28 @@ Blockly.AESL['logic_compare'] = function(block)
 	var code = argument0 + ' ' + operator + ' ' + argument1;
 	return [code, order];
 };
+
+Blockly.AESL['logic_operation'] = function(block)
+{
+	// Operations 'and', 'or'.
+	var operator = (block.getFieldValue('OP') == 'AND') ? 'and' : 'or';
+	var order = (operator == 'and') ? Blockly.AESL.ORDER_LOGICAL_AND : Blockly.AESL.ORDER_LOGICAL_OR;
+	var argument0 = Blockly.AESL.valueToCode(block, 'A', order);
+	var argument1 = Blockly.AESL.valueToCode(block, 'B', order);
+	
+	if(!argument0 && !argument1) {
+		// If there are no arguments, then the return value is false.
+		return ['0 == 1', Blockly.AESL.ORDER_CONDITION];
+	} else {
+		if(!argument0) {
+			return [argument1, order];
+		}
+		
+		if(!argument1) {
+			return [argument0, order];
+		}
+	}
+	
+	var code = argument0 + ' ' + operator + ' ' + argument1;
+	return [code, order];
+};
