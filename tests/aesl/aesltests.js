@@ -79,4 +79,31 @@ AeslTests = [
 '			call leds.top(32,0,0)\n' +
 '		end\n' +
 '	end\n'],
+['<xml xmlns="http://www.w3.org/1999/xhtml"><block type="thymio_onevent_buttons" x="38" y="-187"><statement name="HANDLER"><block type="controls_if"><mutation elseif="2"></mutation><value name="IF0"><block type="logic_operation"><field name="OP">AND</field><value name="A"><block type="thymio_button_pressed"><field name="BUTTON">BACKWARD</field></block></value><value name="B"><block type="thymio_button_pressed"><field name="BUTTON">RIGHT</field></block></value></block></value><statement name="DO0"><block type="thymio_set_variable"><field name="VARIABLE">motor.left.target</field><value name="VALUE"><block type="math_number"><field name="NUM">500</field></block></value><next><block type="thymio_set_variable"><field name="VARIABLE">motor.right.target</field><value name="VALUE"><block type="math_number"><field name="NUM">0</field></block></value></block></next></block></statement><value name="IF1"><block type="logic_operation"><field name="OP">AND</field><value name="A"><block type="thymio_button_pressed"><field name="BUTTON">BACKWARD</field></block></value><value name="B"><block type="thymio_button_pressed"><field name="BUTTON">LEFT</field></block></value></block></value><statement name="DO1"><block type="thymio_set_variable"><field name="VARIABLE">motor.left.target</field><value name="VALUE"><block type="math_number"><field name="NUM">0</field></block></value><next><block type="thymio_set_variable"><field name="VARIABLE">motor.right.target</field><value name="VALUE"><block type="math_arithmetic"><field name="OP">MULTIPLY</field><value name="A"><block type="math_arithmetic"><field name="OP">ADD</field><value name="A"><block type="math_number"><field name="NUM">200</field></block></value><value name="B"><block type="math_number"><field name="NUM">50</field></block></value></block></value><value name="B"><block type="math_arithmetic"><field name="OP">ADD</field><value name="A"><block type="math_number"><field name="NUM">1</field></block></value><value name="B"><block type="math_number"><field name="NUM">1</field></block></value></block></value></block></value></block></next></block></statement><value name="IF2"><block type="thymio_button_pressed"><field name="BUTTON">BACKWARD</field></block></value><statement name="DO2"><block type="controls_repeat"><field name="TIMES">10</field><statement name="DO"><block type="thymio_leds"><field name="LED">TOP</field><field name="COLOR">#ff0000</field><next><block type="thymio_leds"><field name="LED">TOP</field><field name="COLOR">#000000</field></block></next></block></statement></block></statement></block></statement></block><block type="thymio_onevent_button" x="738" y="-187"><field name="BUTTON">FORWARD</field><statement name="HANDLER"><block type="thymio_set_variable"><field name="VARIABLE">motor.left.target</field><value name="VALUE"><block type="math_number"><field name="NUM">500</field></block></value><next><block type="thymio_set_variable"><field name="VARIABLE">motor.right.target</field><value name="VALUE"><block type="math_number"><field name="NUM">500</field></block></value></block></next></block></statement></block><block type="thymio_onevent_button" x="737" y="-87"><field name="BUTTON">LEFT</field><statement name="HANDLER"><block type="thymio_leds"><field name="LED">BOTTOMLEFT</field><field name="COLOR">#33ff33</field></block></statement></block><block type="thymio_onevent_button" x="737" y="-12"><field name="BUTTON">RIGHT</field><statement name="HANDLER"><block type="thymio_leds"><field name="LED">BOTTOMRIGHT</field><field name="COLOR">#33ff33</field></block></statement></block><block type="thymio_onevent_button" x="737" y="63"><field name="BUTTON">CENTER</field><statement name="HANDLER"><block type="thymio_set_variable"><field name="VARIABLE">motor.left.target</field><value name="VALUE"><block type="math_number"><field name="NUM">0</field></block></value><next><block type="thymio_set_variable"><field name="VARIABLE">motor.right.target</field><value name="VALUE"><block type="math_number"><field name="NUM">0</field></block></value><next><block type="thymio_leds"><field name="LED">BOTTOMLEFT</field><field name="COLOR">#000000</field><next><block type="thymio_leds"><field name="LED">BOTTOMRIGHT</field><field name="COLOR">#000000</field></block></next></block></next></block></next></block></statement></block></xml>',
+'var i\n\n\n' +
+'onevent buttons\n' +
+'	if (button.backward == 1) and (button.right == 1) then\n' +
+'		motor.left.target = 500\n' +
+'		motor.right.target = 0\n' +
+'	elseif (button.backward == 1) and (button.left == 1) then\n' +
+'		motor.left.target = 0\n' +
+'		motor.right.target = (200 + 50) * (1 + 1)\n' +
+'	elseif button.backward == 1 then\n' +
+'		for i in 1:10 do\n' +
+'			call leds.top(32,0,0)\n' +
+'			call leds.top(0,0,0)\n' +
+'		end\n' +
+'	end\n\n\n' +
+'onevent button.forward\n' +
+'	motor.left.target = 500\n' +
+'	motor.right.target = 500\n\n\n' +
+'onevent button.left\n' +
+'	call leds.bottom.left(6,32,6)\n\n\n' +
+'onevent button.right\n' +
+'	call leds.bottom.right(6,32,6)\n\n\n' +
+'onevent button.center\n' +
+'	motor.left.target = 0\n' +
+'	motor.right.target = 0\n' +
+'	call leds.bottom.left(0,0,0)\n' +
+'	call leds.bottom.right(0,0,0)\n'], 
 ];
