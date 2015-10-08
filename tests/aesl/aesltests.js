@@ -26,5 +26,14 @@ AeslTests = [
 '	call leds.top(6,32,6)\n' +
 'else\n' +
 '	call leds.top(32,0,0)\n' +
-'end\n']
+'end\n'],
+['<xml xmlns="http://www.w3.org/1999/xhtml"><block type="thymio_onevent_button" x="138" y="38"><field name="BUTTON">FORWARD</field><statement name="HANDLER"><block type="thymio_leds"><field name="LED">TOP</field><field name="COLOR">#33ff33</field><next><block type="thymio_set_variable"><field name="VARIABLE">motor.left.target</field><value name="VALUE"><block type="math_number"><field name="NUM">500</field></block></value><next><block type="thymio_set_variable"><field name="VARIABLE">motor.right.target</field><value name="VALUE"><block type="math_number"><field name="NUM">500</field></block></value></block></next></block></next></block></statement></block><block type="thymio_onevent_button" x="138" y="163"><field name="BUTTON">BACKWARD</field><statement name="HANDLER"><block type="thymio_leds"><field name="LED">TOP</field><field name="COLOR">#ff0000</field><next><block type="thymio_set_variable"><field name="VARIABLE">motor.left.target</field><value name="VALUE"><block type="math_number"><field name="NUM">0</field></block></value><next><block type="thymio_set_variable"><field name="VARIABLE">motor.right.target</field><value name="VALUE"><block type="math_number"><field name="NUM">0</field></block></value></block></next></block></next></block></statement></block></xml>',
+'onevent button.forward\n' +
+'	call leds.top(6,32,6)\n' +
+'	motor.left.target = 500\n' +
+'	motor.right.target = 500\n\n\n' +
+'onevent button.backward\n' +
+'	call leds.top(32,0,0)\n' +
+'	motor.left.target = 0\n' +
+'	motor.right.target = 0\n']
 ];
