@@ -53,4 +53,11 @@ AeslTests = [
 '	else\n' +
 '		call leds.top(32,0,0)\n' +
 '	end\n'],
+['<xml xmlns="http://www.w3.org/1999/xhtml"><block type="thymio_onevent_buttons" x="138" y="37"><statement name="HANDLER"><block type="controls_if"><mutation else="1"></mutation><value name="IF0"><block type="logic_negate"><value name="BOOL"><block type="logic_boolean"><field name="BOOL">FALSE</field></block></value></block></value><statement name="DO0"><block type="thymio_leds"><field name="LED">TOP</field><field name="COLOR">#33ff33</field></block></statement><statement name="ELSE"><block type="thymio_leds"><field name="LED">TOP</field><field name="COLOR">#ff0000</field></block></statement></block></statement></block></xml>',
+'onevent buttons\n' +
+'	if not 0 == 1 then\n' +
+'		call leds.top(6,32,6)\n' +
+'	else\n' +
+'		call leds.top(32,0,0)\n' +
+'	end\n'],
 ];
