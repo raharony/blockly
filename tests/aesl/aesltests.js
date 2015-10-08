@@ -113,4 +113,18 @@ AeslTests = [
 '	call leds.bottom.right(0,0,0)\n\n' +
 '	motor.left.target = 0\n' +
 '	motor.right.target = 0\n'],
+['<xml xmlns="http://www.w3.org/1999/xhtml"><block type="thymio_onevent_button" x="163" y="112"><field name="BUTTON">CENTER</field><statement name="HANDLER"><block type="variables_set"><field name="VAR">speed</field><value name="VALUE"><block type="math_number"><field name="NUM">0</field></block></value><next><block type="thymio_set_variable"><field name="VARIABLE">motor.left.target</field><value name="VALUE"><block type="variables_get"><field name="VAR">speed</field></block></value><next><block type="thymio_set_variable"><field name="VARIABLE">motor.right.target</field><value name="VALUE"><block type="variables_get"><field name="VAR">speed</field></block></value></block></next></block></next></block></statement></block><block type="thymio_onevent_button" x="163" y="262"><field name="BUTTON">FORWARD</field><statement name="HANDLER"><block type="variables_set"><field name="VAR">speed</field><value name="VALUE"><block type="math_arithmetic"><field name="OP">ADD</field><value name="A"><block type="variables_get"><field name="VAR">speed</field></block></value><value name="B"><block type="math_number"><field name="NUM">50</field></block></value></block></value><next><block type="thymio_set_variable"><field name="VARIABLE">motor.left.target</field><value name="VALUE"><block type="variables_get"><field name="VAR">speed</field></block></value><next><block type="thymio_set_variable"><field name="VARIABLE">motor.right.target</field><value name="VALUE"><block type="variables_get"><field name="VAR">speed</field></block></value></block></next></block></next></block></statement></block><block type="thymio_onevent_button" x="163" y="412"><field name="BUTTON">BACKWARD</field><statement name="HANDLER"><block type="variables_set"><field name="VAR">speed</field><value name="VALUE"><block type="math_arithmetic"><field name="OP">MINUS</field><value name="A"><block type="variables_get"><field name="VAR">speed</field></block></value><value name="B"><block type="math_number"><field name="NUM">50</field></block></value></block></value><next><block type="thymio_set_variable"><field name="VARIABLE">motor.left.target</field><value name="VALUE"><block type="variables_get"><field name="VAR">speed</field></block></value><next><block type="thymio_set_variable"><field name="VARIABLE">motor.right.target</field><value name="VALUE"><block type="variables_get"><field name="VAR">speed</field></block></value></block></next></block></next></block></statement></block></xml>',
+'var speed\n\n\n' +
+'onevent button.center\n' +
+'	speed = 0\n' +
+'	motor.left.target = speed\n' +
+'	motor.right.target = speed\n\n\n' +
+'onevent button.forward\n' +
+'	speed = speed + 50\n' +
+'	motor.left.target = speed\n' +
+'	motor.right.target = speed\n\n\n' +
+'onevent button.backward\n' +
+'	speed = speed - 50\n' +
+'	motor.left.target = speed\n' +
+'	motor.right.target = speed\n'],
 ];
