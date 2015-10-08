@@ -8,6 +8,19 @@ goog.provide('Blockly.AESL.loops');
 
 goog.require('Blockly.AESL');
 
+Blockly.AESL['controls_repeat'] = function(block)
+{
+	var repeats = String(Number(block.getFieldValue('TIMES')));
+
+	var branch = Blockly.AESL.statementToCode(block, 'DO');
+	
+	var loopVar = Blockly.AESL.variableDB_.getDistinctName('i', Blockly.Variables.NAME_TYPE);
+	
+	var code = 'for ' + loopVar + ' in 1:' + repeats + ' do\n' + branch + 'end\n';
+	
+	return code;
+};
+
 Blockly.AESL['controls_whileUntil'] = function(block)
 {
 	// Do while/until loop.
