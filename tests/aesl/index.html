@@ -29,7 +29,8 @@
 function run()
 {
 	console.log('Running tests...');
-	var success = true;
+	var success = 0;
+	var n = 0;
 		
 	AeslTests.forEach(function(test)
 	{
@@ -52,17 +53,17 @@ function run()
 		
 		if(code != test[1]) {
 			console.log('Test failed!\n\nExpected:\n' + expected + '\n\nActual:\n' + code);
-			success = false;
 		} else {
 			console.log('Test succeeded!');
+			success++;
 		}
+		
+		n++;
 	});
 	
-	if(success) {
-		alert('all tests passed!');
-	} else {
-		alert('some tests failed!');
-	}
+	var msg = success + '/' + n + ' tests passed!';
+	console.log(msg);
+	alert(msg);
 }
 </script>
 

@@ -11,5 +11,20 @@ AeslTests = [
 'onevent button.left\n' +
 '	call leds.bottom.left(32,13,0)\n\n\n' +
 'onevent button.backward\n' +
-'	call leds.top(13,6,32)\n']	 
+'	call leds.top(13,6,32)\n'],
+['<xml xmlns="http://www.w3.org/1999/xhtml"><block type="thymio_onevent_buttons" x="188" y="63"><statement name="HANDLER"><block type="controls_if"><mutation elseif="1" else="1"></mutation><value name="IF0"><block type="thymio_button_pressed"><field name="BUTTON">FORWARD</field></block></value><statement name="DO0"><block type="thymio_leds"><field name="LED">TOP</field><field name="COLOR">#ff0000</field></block></statement><value name="IF1"><block type="thymio_button_pressed"><field name="BUTTON">BACKWARD</field></block></value><statement name="DO1"><block type="thymio_leds"><field name="LED">TOP</field><field name="COLOR">#33ff33</field></block></statement><statement name="ELSE"><block type="thymio_leds"><field name="LED">TOP</field><field name="COLOR">#000000</field></block></statement></block></statement></block></xml>',
+'onevent buttons\n' +
+'	if button.forward == 1 then\n' +
+'		call leds.top(32,0,0)\n' +
+'	elseif button.backward == 1 then\n' +
+'		call leds.top(6,32,6)\n' +
+'	else\n' +
+'		call leds.top(0,0,0)\n' +
+'	end\n'],
+['<xml xmlns="http://www.w3.org/1999/xhtml"><block type="controls_if" x="113" y="63"><mutation else="1"></mutation><value name="IF0"><block type="logic_compare"><field name="OP">GT</field><value name="A"><block type="thymio_get_sensor_state"><field name="SENSOR">motor.left.speed</field></block></value><value name="B"><block type="math_number"><field name="NUM">100</field></block></value></block></value><statement name="DO0"><block type="thymio_leds"><field name="LED">TOP</field><field name="COLOR">#33ff33</field></block></statement><statement name="ELSE"><block type="thymio_leds"><field name="LED">TOP</field><field name="COLOR">#ff0000</field></block></statement></block></xml>',
+'if motor.left.speed > 100 then\n' +
+'	call leds.top(6,32,6)\n' +
+'else\n' +
+'	call leds.top(32,0,0)\n' +
+'end\n']
 ];
