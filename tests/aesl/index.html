@@ -36,8 +36,9 @@ function run()
 		
 	AeslTests.forEach(function(test)
 	{
-		var xmlText = test[0];
-		var expected = test[1];
+		var name = test[0];
+		var xmlText = test[1];
+		var expected = test[2];
 
 		// Parse the XML into a tree.
 		try {
@@ -53,10 +54,10 @@ function run()
 		
 		var code = Blockly.AESL.workspaceToCode(workspace);
 		
-		if(code != test[1]) {
-			console.log('Test failed!\n\nExpected:\n' + expected + '\n\nActual:\n' + code);
+		if(code != expected) {
+			console.log('Test "' + name + '" failed!\n\nExpected:\n[' + expected + ']\n\nActual:\n[' + code + ']');
 		} else {
-			console.log('Test succeeded!');
+			console.log('Test "' + name + '" succeeded!');
 			success++;
 		}
 		
