@@ -1102,10 +1102,8 @@ Blockly.Msg.PROCEDURES_IFRETURN_WARNING = 'Warning: This block may be used only 
 /// thymio
 Blockly.Msg.TEXT_THYMIO_EVENT_HELPURL = 'https://www.thymio.org/en:thymiotutorielp2';
 Blockly.Msg.TEXT_THYMIO_EVENT_TOOLTIP = 'React to an event';
-Blockly.Msg.TEXT_THYMIO_EVENT_BUTTONS_HELPURL = 'https://www.thymio.org/en:thymiotutorielp2';
-Blockly.Msg.TEXT_THYMIO_EVENT_BUTTONS_TOOLTIP = 'Event reacting to a button press';
 Blockly.Msg.TEXT_THYMIO_EVENT_BUTTON_HELPURL = 'https://www.thymio.org/en:thymiotutorielp2';
-Blockly.Msg.TEXT_THYMIO_EVENT_BUTTON_TOOLTIP = 'Event reacting to a specific button press';
+Blockly.Msg.TEXT_THYMIO_EVENT_BUTTON_TOOLTIP = 'React to a button press or release event';
 Blockly.Msg.TEXT_THYMIO_LEDS_HELPURL = 'https://www.thymio.org/en:thymiotutorielp2';
 Blockly.Msg.TEXT_THYMIO_LEDS_TOOLTIP = 'Sets a LED to a specified color';
 Blockly.Msg.TEXT_THYMIO_BUTTON_PRESSED_HELPURL = 'https://www.thymio.org/en:thymiotutorielp2';

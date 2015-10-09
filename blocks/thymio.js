@@ -50,22 +50,7 @@ Blockly.Blocks['thymio_event'] = {
 	},
 };
 
-Blockly.Blocks['thymio_onevent_buttons'] = {
-	/**
-	 * Block for Thymio buttons event.
-	 * 
-	 * @this Blockly.Block
-	 */
-	init : function()
-	{
-		this.setHelpUrl(Blockly.Msg.TEXT_THYMIO_EVENT_BUTTONS_HELPURL);
-		this.setTooltip(Blockly.Msg.TEXT_THYMIO_EVENT_BUTTONS_TOOLTIP);
-		this.appendDummyInput().appendField('on button event');
-		this.appendStatementInput('HANDLER');
-	},
-};
-
-Blockly.Blocks['thymio_onevent_button'] = {
+Blockly.Blocks['thymio_event_button'] = {
 	/**
 	 * Block for Thymio button event.
 	 * 
@@ -76,8 +61,10 @@ Blockly.Blocks['thymio_onevent_button'] = {
 		this.setHelpUrl(Blockly.Msg.TEXT_THYMIO_EVENT_BUTTON_HELPURL);
 		this.setTooltip(Blockly.Msg.TEXT_THYMIO_EVENT_BUTTON_TOOLTIP);
 
-		var dropdown = new Blockly.FieldDropdown([['center', 'CENTER'], ['forward', 'FORWARD'], ['backward', 'BACKWARD'], ['left', 'LEFT'], ['right', 'RIGHT']]);
-		this.appendDummyInput().appendField('on').appendField(dropdown, 'BUTTON').appendField('button press');
+		var buttonDropdown = new Blockly.FieldDropdown([['center', 'button.center'], ['forward', 'button.forward'], ['backward', 'button.backward'], ['left', 'button.left'], ['right', 'button.right']]);
+		var modeDropdown = new Blockly.FieldDropdown([['press', 'PRESS'], ['release', 'RELEASE']]);
+		
+		this.appendDummyInput().appendField('on').appendField(buttonDropdown, 'BUTTON').appendField('button').appendField(modeDropdown, 'MODE');
 		this.appendStatementInput('HANDLER');
 	},
 };

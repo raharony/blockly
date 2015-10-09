@@ -36,41 +36,26 @@ Blockly.AESL['thymio_event'] = function(block)
 {
 	var event = block.getFieldValue('EVENT');
 	var handler = Blockly.AESL.statementToCode(block, 'HANDLER');
-	handler = Blockly.AESL.scrub_(block, handler);
-
+	
 	Blockly.AESL.addEventHandler(event, handler);
 	return null;
 };
 
-Blockly.AESL['thymio_onevent_buttons'] = function(block)
-{
-	var handler = Blockly.AESL.statementToCode(block, 'HANDLER');
-	handler = Blockly.AESL.scrub_(block, handler);
-	
-	Blockly.AESL.addEventHandler('buttons', handler);
-	return null;
-};
-
-Blockly.AESL['thymio_onevent_button'] = function(block)
+Blockly.AESL['thymio_event_button'] = function(block)
 {
 	var button = block.getFieldValue('BUTTON');
+	var mode = block.getFieldValue('MODE');
 	var handler = Blockly.AESL.statementToCode(block, 'HANDLER');
-	handler = Blockly.AESL.scrub_(block, handler);
-
-	var buttonevent;
-	if(button == 'CENTER') {
-		buttonevent = 'button.center';
-	} else if(button == 'FORWARD') {
-		buttonevent = 'button.forward';
-	} else if(button == 'BACKWARD') {
-		buttonevent = 'button.backward';
-	} else if(button == 'LEFT') {
-		buttonevent = 'button.left';
-	} else if(button == 'RIGHT') {
-		buttonevent = 'button.right';
+	
+	var code = '\twhen ' + button + ' == ' + (mode == 'PRESS' ? '1' : '0') + ' do\n';
+	
+	if(handler.length > 0) {
+		code += Blockly.AESL.prefixLines(handler, '\t');
 	}
+	
+	code += '\tend\n';
 
-	Blockly.AESL.addEventHandler(buttonevent, handler);
+	Blockly.AESL.addEventHandler(button, code);
 	return null;
 };
 
