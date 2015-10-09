@@ -187,6 +187,34 @@ var spaghettiXml = [
 
 </script>
 
+<script>
+goog.require('goog.dom');
+goog.require('goog.net.XhrIo');
+goog.require('goog.structs.Map');
+goog.require('goog.Uri.QueryData');
+
+function run()
+{
+	toCode('AESL');
+	
+	var aesl = 
+		'<!DOCTYPE aesl-source>' +
+		'<network>' +
+		'<keywords flag="true"/>' +
+		'<node nodeId="1" name="thymio-II">' +
+		document.getElementById('importExport').value +
+		'</node>' +
+		'</network>';		
+	
+	var payload = 'file=' + aesl;
+	
+	goog.net.XhrIo.send('http://localhost:3000/nodes/thymio-II', function(e)
+	{
+		console.log('Received response.');
+	}, 'PUT', payload);
+}
+</script>
+
 <style>
 html, body {
   height: 100%;
@@ -576,6 +604,8 @@ h1 {
     <input type="button" value="To Dart" onclick="toCode('Dart')">
     &nbsp;
     <input type="button" value="To AESL" onclick="toCode('AESL')">
+    &nbsp;
+    <input type="button" value="Run on Thymio" onclick="run()">
     <br>
     <textarea id="importExport" style="width: 26%; height: 12em"></textarea>
   </p>
