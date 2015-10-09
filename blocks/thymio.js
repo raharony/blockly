@@ -13,6 +13,43 @@ goog.require('Blockly.Blocks');
  */
 Blockly.Blocks.thymio.HUE = 27;
 
+Blockly.Blocks['thymio_event'] = {
+	/**
+	 * Block for Thymio events.
+	 * 
+	 * @this Blockly.Block
+	 */
+	init : function()
+	{
+		this.setHelpUrl(Blockly.Msg.TEXT_THYMIO_EVENT_HELPURL);
+		this.setTooltip(Blockly.Msg.TEXT_THYMIO_EVENT_TOOLTIP);
+		
+		var eventList = [];		
+		eventList.push(['back button pressed/released', 'button.backward']);
+		eventList.push(['left button pressed/released', 'button.left']);
+		eventList.push(['center button pressed/released', 'button.center']);
+		eventList.push(['forward button pressed/released','button.forward']);
+		eventList.push(['right button pressed/released','button.right']);
+		eventList.push(['button values probed', 'buttons']);
+		eventList.push(['proximity sensors read', 'prox']);
+		eventList.push(['IR sensor values received', 'prox.comm']);
+		eventList.push(['shock detected', 'tap']);
+		eventList.push(['accelerometer read', 'acc']);
+		eventList.push(['sound intensity above threshold', 'mic']);
+		eventList.push(['sound finished playing', 'sound.finished']);
+		eventList.push(['temperature read', 'temperature']);
+		eventList.push(['infrared signal', 'rc5']);
+		eventList.push(['motor PID executed', 'motor']);
+		eventList.push(['first timer expired', 'timer0']);
+		eventList.push(['second timer expired', 'timer1']);
+
+		var dropdown = new Blockly.FieldDropdown(eventList);
+		
+		this.appendDummyInput().appendField('on').appendField(dropdown, 'EVENT').appendField(' event');
+		this.appendStatementInput('HANDLER');
+	},
+};
+
 Blockly.Blocks['thymio_onevent_buttons'] = {
 	/**
 	 * Block for Thymio buttons event.

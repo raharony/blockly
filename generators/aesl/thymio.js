@@ -32,6 +32,16 @@ function hexToAesl(hex)
 	return rgbToAesl(hexToRgb(hex));
 }
 
+Blockly.AESL['thymio_event'] = function(block)
+{
+	var event = block.getFieldValue('EVENT');
+	var handler = Blockly.AESL.statementToCode(block, 'HANDLER');
+	handler = Blockly.AESL.scrub_(block, handler);
+
+	Blockly.AESL.addEventHandler(event, handler);
+	return null;
+};
+
 Blockly.AESL['thymio_onevent_buttons'] = function(block)
 {
 	var handler = Blockly.AESL.statementToCode(block, 'HANDLER');

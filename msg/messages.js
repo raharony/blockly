@@ -1100,6 +1100,8 @@ Blockly.Msg.PROCEDURES_IFRETURN_TOOLTIP = 'If a value is true, then return a sec
 Blockly.Msg.PROCEDURES_IFRETURN_WARNING = 'Warning: This block may be used only within a function definition.';
 
 /// thymio
+Blockly.Msg.TEXT_THYMIO_EVENT_HELPURL = 'https://www.thymio.org/en:thymiotutorielp2';
+Blockly.Msg.TEXT_THYMIO_EVENT_TOOLTIP = 'React to an event';
 Blockly.Msg.TEXT_THYMIO_EVENT_BUTTONS_HELPURL = 'https://www.thymio.org/en:thymiotutorielp2';
 Blockly.Msg.TEXT_THYMIO_EVENT_BUTTONS_TOOLTIP = 'Event reacting to a button press';
 Blockly.Msg.TEXT_THYMIO_EVENT_BUTTON_HELPURL = 'https://www.thymio.org/en:thymiotutorielp2';
