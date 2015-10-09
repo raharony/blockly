@@ -193,6 +193,23 @@ goog.require('goog.net.XhrIo');
 goog.require('goog.structs.Map');
 goog.require('goog.Uri.QueryData');
 
+function exportTest()
+{
+	toXml();
+	var xml = document.getElementById('importExport').value;
+	
+	toCode('AESL');
+	var aesl = document.getElementById('importExport').value;
+	
+	var test = '[\'test name\',\n \'' +
+		xml.replace(/\n/g, '\\n\' + \n \'') +
+		'\',\n \'' +
+		aesl.replace(/\n/g, '\\n\' + \n \'') +
+		'\'],';
+	
+	document.getElementById('importExport').value = test;
+}
+
 function run()
 {
 	toCode('AESL');
@@ -604,6 +621,8 @@ h1 {
     <input type="button" value="To Dart" onclick="toCode('Dart')">
     &nbsp;
     <input type="button" value="To AESL" onclick="toCode('AESL')">
+    &nbsp;
+    <input type="button" value="Export Test" onclick="exportTest()">
     &nbsp;
     <input type="button" value="Run on Thymio" onclick="run()">
     <br>
