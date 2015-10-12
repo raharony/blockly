@@ -69,6 +69,36 @@ Blockly.Blocks['thymio_event_button'] = {
 	},
 };
 
+Blockly.Blocks['thymio_event_prox'] = {
+	/**
+	 * Block for Thymio proximity event.
+	 * 
+	 * @this Blockly.Block
+	 */
+	init : function()
+	{
+		this.setHelpUrl(Blockly.Msg.TEXT_THYMIO_EVENT_PROX_HELPURL);
+		this.setTooltip(Blockly.Msg.TEXT_THYMIO_EVENT_PROX_TOOLTIP);
+
+		var sensorList = [];		
+		sensorList.push(['front left', 'prox.horizontal[0]']);
+		sensorList.push(['front left/middle', 'prox.horizontal[1]']);
+		sensorList.push(['front middle', 'prox.horizontal[2]']);
+		sensorList.push(['front right/middle', 'prox.horizontal[3]']);
+		sensorList.push(['front right', 'prox.horizontal[4]']);
+		sensorList.push(['rear left', 'prox.horizontal[5]']);
+		sensorList.push(['rear right', 'prox.horizontal[6]']);
+		sensorList.push(['ground left', 'prox.ground.delta[0]']);
+		sensorList.push(['ground right', 'prox.ground.delta[1]']);
+		
+		var sensorDropdown = new Blockly.FieldDropdown(sensorList);
+		var modeDropdown = new Blockly.FieldDropdown([['block', 'BLOCK'], ['clear', 'CLEAR']]);
+		
+		this.appendDummyInput().appendField('on').appendField(sensorDropdown, 'SENSOR').appendField('proximity sensor').appendField(modeDropdown, 'MODE');
+		this.appendStatementInput('HANDLER');
+	},
+};
+
 Blockly.Blocks['thymio_led'] = {
 	/**
 	 * Block to set Thymio LEDs.
@@ -166,6 +196,8 @@ Blockly.Blocks['thymio_get_sensor_state'] = {
 		sensorList.push(['front right proximity sensor', 'prox.horizontal[4]']);
 		sensorList.push(['rear left proximity sensor', 'prox.horizontal[5]']);
 		sensorList.push(['rear right proximity sensor', 'prox.horizontal[6]']);
+		sensorList.push(['ground left proximity sensor', 'prox.ground.delta[0]']);
+		sensorList.push(['ground right proximity sensor', 'prox.ground.delta[1]']);
 		sensorList.push(['left motor speed', 'motor.left.speed']);
 		sensorList.push(['right motor speed', 'motor.right.speed']);
 		sensorList.push(['accelorometer x', 'acc[0]']);
