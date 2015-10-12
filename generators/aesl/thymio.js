@@ -59,21 +59,20 @@ Blockly.AESL['thymio_event_button'] = function(block)
 	return null;
 };
 
-Blockly.AESL['thymio_leds'] = function(block)
+Blockly.AESL['thymio_led'] = function(block)
 {
 	var led = block.getFieldValue('LED');
 	var color = hexToAesl(block.getFieldValue('COLOR'));
 
-	var ledvar;
-	if(led == 'TOP') {
-		ledvar = 'leds.top';
-	} else if(led == 'BOTTOMLEFT') {
-		ledvar = 'leds.bottom.left';
-	} else {
-		ledvar = 'leds.bottom.right';
-	}
+	var code = 'call ' + led + '(' + color.r + ',' + color.g + ',' + color.b + ')\n';
+	return code;
+};
 
-	var code = 'call ' + ledvar + '(' + color.r + ',' + color.g + ',' + color.b + ')\n';
+Blockly.AESL['thymio_led_off'] = function(block)
+{
+	var led = block.getFieldValue('LED');
+
+	var code = 'call ' + led + '(0,0,0)\n';
 	return code;
 };
 

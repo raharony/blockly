@@ -69,21 +69,39 @@ Blockly.Blocks['thymio_event_button'] = {
 	},
 };
 
-Blockly.Blocks['thymio_leds'] = {
+Blockly.Blocks['thymio_led'] = {
 	/**
-	 * Block for Thymio LEDs.
+	 * Block to set Thymio LEDs.
 	 * 
 	 * @this Blockly.Block
 	 */
 	init : function()
 	{
-		this.setHelpUrl(Blockly.Msg.TEXT_THYMIO_LEDS_HELPURL);
-		this.setTooltip(Blockly.Msg.TEXT_THYMIO_LEDS_TOOLTIP);
+		this.setHelpUrl(Blockly.Msg.TEXT_THYMIO_LED_HELPURL);
+		this.setTooltip(Blockly.Msg.TEXT_THYMIO_LED_TOOLTIP);
 		this.setPreviousStatement(true);
 		this.setNextStatement(true);
 
-		var dropdown = new Blockly.FieldDropdown([['top', 'TOP'], ['bottom left', 'BOTTOMLEFT'], ['bottom right', 'BOTTOMRIGHT']]);
+		var dropdown = new Blockly.FieldDropdown([['top', 'leds.top'], ['bottom left', 'leds.bottom.left'], ['bottom right', 'leds.bottom.right']]);
 		this.appendDummyInput().appendField('set').appendField(dropdown, 'LED').appendField('led to').appendField(new Blockly.FieldColour('#ff0000'), 'COLOR');
+	},
+};
+
+Blockly.Blocks['thymio_led_off'] = {
+	/**
+	 * Block to turn off Thymio LEDs.
+	 * 
+	 * @this Blockly.Block
+	 */
+	init : function()
+	{
+		this.setHelpUrl(Blockly.Msg.TEXT_THYMIO_LED_OFF_HELPURL);
+		this.setTooltip(Blockly.Msg.TEXT_THYMIO_LED_OFF_TOOLTIP);
+		this.setPreviousStatement(true);
+		this.setNextStatement(true);
+
+		var dropdown = new Blockly.FieldDropdown([['top', 'leds.top'], ['bottom left', 'leds.bottom.left'], ['bottom right', 'leds.bottom.right']]);
+		this.appendDummyInput().appendField('turn off').appendField(dropdown, 'LED').appendField('led');
 	},
 };
 
