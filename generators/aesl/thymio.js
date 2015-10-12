@@ -120,6 +120,20 @@ Blockly.AESL['thymio_led_off'] = function(block)
 	return code;
 };
 
+Blockly.AESL['thymio_sound_system'] = function(block)
+{
+	var sound = block.getFieldValue('SOUND');
+
+	var code = 'call sound.system(' + sound + ')\n';
+	return code;
+};
+
+Blockly.AESL['thymio_sound_stop'] = function(block)
+{
+	var code = 'call sound.system(-1)\n';
+	return code;
+};
+
 Blockly.AESL['thymio_button_pressed'] = function(block)
 {
 	var button = block.getFieldValue('BUTTON');

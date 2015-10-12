@@ -155,6 +155,50 @@ Blockly.Blocks['thymio_led_off'] = {
 	},
 };
 
+Blockly.Blocks['thymio_sound_system'] = {
+	/**
+	 * Block to play Thymio system sounds.
+	 * 
+	 * @this Blockly.Block
+	 */
+	init : function()
+	{
+		this.setHelpUrl(Blockly.Msg.TEXT_THYMIO_SOUND_SYSTEM_HELPURL);
+		this.setTooltip(Blockly.Msg.TEXT_THYMIO_SOUND_SYSTEM_TOOLTIP);
+		this.setPreviousStatement(true);
+		this.setNextStatement(true);
+		
+		var soundList = [];
+		soundList.push(['startup', '0']);
+		soundList.push(['shutdown', '1']);
+		soundList.push(['arrow', '2']);
+		soundList.push(['central', '3']);
+		soundList.push(['scary', '4']);
+		soundList.push(['collision', '5']);
+		soundList.push(['target friendly', '6']);
+		soundList.push(['target detected', '7']);
+		var dropdown = new Blockly.FieldDropdown(soundList);
+		
+		this.appendDummyInput().appendField('play').appendField(dropdown, 'SOUND').appendField('sound');
+	},
+};
+
+Blockly.Blocks['thymio_sound_stop'] = {
+	/**
+	 * Block to cause Thymio to stop playing sound.
+	 * 
+	 * @this Blockly.Block
+	 */
+	init : function()
+	{
+		this.setHelpUrl(Blockly.Msg.TEXT_THYMIO_SOUND_STOP_HELPURL);
+		this.setTooltip(Blockly.Msg.TEXT_THYMIO_SOUND_STOP_TOOLTIP);
+		this.setPreviousStatement(true);
+		this.setNextStatement(true);
+		this.appendDummyInput().appendField('stop playing sound');
+	},
+};
+
 Blockly.Blocks['thymio_button_pressed'] = {
 	/**
 	 * Block for checking whether a button is pressed
