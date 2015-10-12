@@ -1405,4 +1405,120 @@ AeslTests = [
  '		callsub foo\n' + 
  '	end\n' + 
  ''],
+['proximity events',
+ '<xml xmlns="http://www.w3.org/1999/xhtml">\n' + 
+ '  <block type="thymio_event_prox" x="63" y="38">\n' + 
+ '    <field name="SENSOR">prox.horizontal[2]</field>\n' + 
+ '    <field name="MODE">BLOCK</field>\n' + 
+ '    <statement name="HANDLER">\n' + 
+ '      <block type="thymio_set_variable">\n' + 
+ '        <field name="VARIABLE">motor.left.target</field>\n' + 
+ '        <value name="VALUE">\n' + 
+ '          <block type="math_number">\n' + 
+ '            <field name="NUM">500</field>\n' + 
+ '          </block>\n' + 
+ '        </value>\n' + 
+ '        <next>\n' + 
+ '          <block type="thymio_set_variable">\n' + 
+ '            <field name="VARIABLE">motor.right.target</field>\n' + 
+ '            <value name="VALUE">\n' + 
+ '              <block type="math_number">\n' + 
+ '                <field name="NUM">500</field>\n' + 
+ '              </block>\n' + 
+ '            </value>\n' + 
+ '          </block>\n' + 
+ '        </next>\n' + 
+ '      </block>\n' + 
+ '    </statement>\n' + 
+ '  </block>\n' + 
+ '  <block type="thymio_event_prox" x="438" y="38">\n' + 
+ '    <field name="SENSOR">prox.ground.delta[0]</field>\n' + 
+ '    <field name="MODE">CLEAR</field>\n' + 
+ '    <statement name="HANDLER">\n' + 
+ '      <block type="thymio_led">\n' + 
+ '        <field name="LED">leds.bottom.left</field>\n' + 
+ '        <field name="COLOR">#33ff33</field>\n' + 
+ '      </block>\n' + 
+ '    </statement>\n' + 
+ '  </block>\n' + 
+ '  <block type="thymio_event_prox" x="438" y="113">\n' + 
+ '    <field name="SENSOR">prox.ground.delta[0]</field>\n' + 
+ '    <field name="MODE">BLOCK</field>\n' + 
+ '    <statement name="HANDLER">\n' + 
+ '      <block type="thymio_led_off">\n' + 
+ '        <field name="LED">leds.bottom.left</field>\n' + 
+ '      </block>\n' + 
+ '    </statement>\n' + 
+ '  </block>\n' + 
+ '  <block type="thymio_event_prox" x="63" y="163">\n' + 
+ '    <field name="SENSOR">prox.horizontal[2]</field>\n' + 
+ '    <field name="MODE">CLEAR</field>\n' + 
+ '    <statement name="HANDLER">\n' + 
+ '      <block type="thymio_set_variable">\n' + 
+ '        <field name="VARIABLE">motor.left.target</field>\n' + 
+ '        <value name="VALUE">\n' + 
+ '          <block type="math_number">\n' + 
+ '            <field name="NUM">0</field>\n' + 
+ '          </block>\n' + 
+ '        </value>\n' + 
+ '        <next>\n' + 
+ '          <block type="thymio_set_variable">\n' + 
+ '            <field name="VARIABLE">motor.right.target</field>\n' + 
+ '            <value name="VALUE">\n' + 
+ '              <block type="math_number">\n' + 
+ '                <field name="NUM">0</field>\n' + 
+ '              </block>\n' + 
+ '            </value>\n' + 
+ '          </block>\n' + 
+ '        </next>\n' + 
+ '      </block>\n' + 
+ '    </statement>\n' + 
+ '  </block>\n' + 
+ '  <block type="thymio_event_prox" x="438" y="188">\n' + 
+ '    <field name="SENSOR">prox.ground.delta[1]</field>\n' + 
+ '    <field name="MODE">CLEAR</field>\n' + 
+ '    <statement name="HANDLER">\n' + 
+ '      <block type="thymio_led">\n' + 
+ '        <field name="LED">leds.bottom.right</field>\n' + 
+ '        <field name="COLOR">#33ff33</field>\n' + 
+ '      </block>\n' + 
+ '    </statement>\n' + 
+ '  </block>\n' + 
+ '  <block type="thymio_event_prox" x="438" y="263">\n' + 
+ '    <field name="SENSOR">prox.ground.delta[1]</field>\n' + 
+ '    <field name="MODE">BLOCK</field>\n' + 
+ '    <statement name="HANDLER">\n' + 
+ '      <block type="thymio_led_off">\n' + 
+ '        <field name="LED">leds.bottom.right</field>\n' + 
+ '      </block>\n' + 
+ '    </statement>\n' + 
+ '  </block>\n' + 
+ '</xml>',
+ 'onevent prox\n' + 
+ '	when prox.horizontal[2] > 2000 do\n' + 
+ '		motor.left.target = 500\n' + 
+ '		motor.right.target = 500\n' + 
+ '	end\n' + 
+ '\n' + 
+ '	when prox.ground.delta[0] < 400 do\n' + 
+ '		call leds.bottom.left(6,32,6)\n' + 
+ '	end\n' + 
+ '\n' + 
+ '	when prox.ground.delta[0] > 450 do\n' + 
+ '		call leds.bottom.left(0,0,0)\n' + 
+ '	end\n' + 
+ '\n' + 
+ '	when prox.horizontal[2] < 1000 do\n' + 
+ '		motor.left.target = 0\n' + 
+ '		motor.right.target = 0\n' + 
+ '	end\n' + 
+ '\n' + 
+ '	when prox.ground.delta[1] < 400 do\n' + 
+ '		call leds.bottom.right(6,32,6)\n' + 
+ '	end\n' + 
+ '\n' + 
+ '	when prox.ground.delta[1] > 450 do\n' + 
+ '		call leds.bottom.right(0,0,0)\n' + 
+ '	end\n' + 
+ ''],
 ];
