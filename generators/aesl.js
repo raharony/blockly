@@ -102,7 +102,7 @@ Blockly.AESL.finish = function(code)
 	    	// We abuse the variables db to generate our definitions, but subroutines use the same db
 	    	// to avoid name clashes. We thus keep track of all generated subroutines and exclude them
 	    	// here for variable definitions
-	    	if(Blockly.AESL.subroutines.indexOf(property) == -1) {
+	    	if(!(property in Blockly.AESL.subroutines)) {
 	    		defvars.push('var ' + property);
 	    	}
 	    }
@@ -122,7 +122,12 @@ Blockly.AESL.finish = function(code)
 		parts.push(code);
 	}
 	
-	// all other definitions (subs, events) last
+	// subroutines next
+	for(var name in Blockly.AESL.subroutines) {
+		parts.push(Blockly.AESL.subroutines[name]);
+	}
+	
+	// all other definitions (events) last
 	for(var name in Blockly.AESL.definitions_) {
 		parts.push(Blockly.AESL.definitions_[name]);
 	}
@@ -169,8 +174,7 @@ Blockly.AESL.addEventHandler = function(event, handler) {
  * @param {string} AESL code to execute for the subroutine
  */
 Blockly.AESL.addSubroutine = function(name, code) {
-	Blockly.AESL.subroutines.push(name);
-	Blockly.AESL.definitions_['sub ' + name] = 'sub ' + name + '\n' + code;
+	Blockly.AESL.subroutines[name] = 'sub ' + name + '\n' + code;
 }
 
 /**
