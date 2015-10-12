@@ -1057,6 +1057,11 @@ AeslTests = [
  '        <next>\n' + 
  '          <block type="procedures_callnoreturn">\n' + 
  '            <mutation name="updateSpeed"></mutation>\n' + 
+ '            <next>\n' + 
+ '              <block type="procedures_callnoreturn">\n' + 
+ '                <mutation name="updateColor"></mutation>\n' + 
+ '              </block>\n' + 
+ '            </next>\n' + 
  '          </block>\n' + 
  '        </next>\n' + 
  '      </block>\n' + 
@@ -1080,64 +1085,167 @@ AeslTests = [
  '                <field name="VAR">speed</field>\n' + 
  '              </block>\n' + 
  '            </value>\n' + 
- '            <next>\n' + 
- '              <block type="controls_if">\n' + 
- '                <mutation elseif="1" else="1"></mutation>\n' + 
- '                <value name="IF0">\n' + 
- '                  <block type="logic_compare">\n' + 
- '                    <field name="OP">GT</field>\n' + 
- '                    <value name="A">\n' + 
- '                      <block type="variables_get">\n' + 
- '                        <field name="VAR">speed</field>\n' + 
- '                      </block>\n' + 
- '                    </value>\n' + 
- '                    <value name="B">\n' + 
- '                      <block type="math_number">\n' + 
- '                        <field name="NUM">0</field>\n' + 
- '                      </block>\n' + 
- '                    </value>\n' + 
- '                  </block>\n' + 
- '                </value>\n' + 
- '                <statement name="DO0">\n' + 
- '                  <block type="thymio_led">\n' + 
- '                    <field name="LED">leds.top</field>\n' + 
- '                    <field name="COLOR">#33ff33</field>\n' + 
- '                  </block>\n' + 
- '                </statement>\n' + 
- '                <value name="IF1">\n' + 
- '                  <block type="logic_compare">\n' + 
- '                    <field name="OP">LT</field>\n' + 
- '                    <value name="A">\n' + 
- '                      <block type="variables_get">\n' + 
- '                        <field name="VAR">speed</field>\n' + 
- '                      </block>\n' + 
- '                    </value>\n' + 
- '                    <value name="B">\n' + 
- '                      <block type="math_number">\n' + 
- '                        <field name="NUM">0</field>\n' + 
- '                      </block>\n' + 
- '                    </value>\n' + 
- '                  </block>\n' + 
- '                </value>\n' + 
- '                <statement name="DO1">\n' + 
- '                  <block type="thymio_led">\n' + 
- '                    <field name="LED">leds.top</field>\n' + 
- '                    <field name="COLOR">#ff0000</field>\n' + 
- '                  </block>\n' + 
- '                </statement>\n' + 
- '                <statement name="ELSE">\n' + 
- '                  <block type="thymio_led_off">\n' + 
- '                    <field name="LED">leds.top</field>\n' + 
- '                  </block>\n' + 
- '                </statement>\n' + 
- '              </block>\n' + 
- '            </next>\n' + 
  '          </block>\n' + 
  '        </next>\n' + 
  '      </block>\n' + 
  '    </statement>\n' + 
  '  </block>\n' + 
- '  <block type="thymio_event_button" x="112" y="163">\n' + 
+ '  <block type="procedures_defnoreturn" x="488" y="163">\n' + 
+ '    <field name="NAME">updateColor</field>\n' + 
+ '    <statement name="STACK">\n' + 
+ '      <block type="controls_if">\n' + 
+ '        <mutation elseif="1" else="1"></mutation>\n' + 
+ '        <value name="IF0">\n' + 
+ '          <block type="logic_compare">\n' + 
+ '            <field name="OP">GT</field>\n' + 
+ '            <value name="A">\n' + 
+ '              <block type="variables_get">\n' + 
+ '                <field name="VAR">speed</field>\n' + 
+ '              </block>\n' + 
+ '            </value>\n' + 
+ '            <value name="B">\n' + 
+ '              <block type="math_number">\n' + 
+ '                <field name="NUM">0</field>\n' + 
+ '              </block>\n' + 
+ '            </value>\n' + 
+ '          </block>\n' + 
+ '        </value>\n' + 
+ '        <statement name="DO0">\n' + 
+ '          <block type="variables_set">\n' + 
+ '            <field name="VAR">intensity</field>\n' + 
+ '            <value name="VALUE">\n' + 
+ '              <block type="math_arithmetic">\n' + 
+ '                <field name="OP">DIVIDE</field>\n' + 
+ '                <value name="A">\n' + 
+ '                  <shadow type="math_number">\n' + 
+ '                    <field name="NUM">32</field>\n' + 
+ '                  </shadow>\n' + 
+ '                  <block type="math_arithmetic">\n' + 
+ '                    <field name="OP">MULTIPLY</field>\n' + 
+ '                    <value name="A">\n' + 
+ '                      <shadow type="math_number">\n' + 
+ '                        <field name="NUM">32</field>\n' + 
+ '                      </shadow>\n' + 
+ '                    </value>\n' + 
+ '                    <value name="B">\n' + 
+ '                      <shadow type="math_number">\n' + 
+ '                        <field name="NUM">32</field>\n' + 
+ '                      </shadow>\n' + 
+ '                      <block type="variables_get">\n' + 
+ '                        <field name="VAR">speed</field>\n' + 
+ '                      </block>\n' + 
+ '                    </value>\n' + 
+ '                  </block>\n' + 
+ '                </value>\n' + 
+ '                <value name="B">\n' + 
+ '                  <shadow type="math_number">\n' + 
+ '                    <field name="NUM">500</field>\n' + 
+ '                  </shadow>\n' + 
+ '                </value>\n' + 
+ '              </block>\n' + 
+ '            </value>\n' + 
+ '            <next>\n' + 
+ '              <block type="thymio_led_rgb">\n' + 
+ '                <field name="LED">leds.top</field>\n' + 
+ '                <value name="RED">\n' + 
+ '                  <block type="math_number">\n' + 
+ '                    <field name="NUM">0</field>\n' + 
+ '                  </block>\n' + 
+ '                </value>\n' + 
+ '                <value name="GREEN">\n' + 
+ '                  <block type="variables_get">\n' + 
+ '                    <field name="VAR">intensity</field>\n' + 
+ '                  </block>\n' + 
+ '                </value>\n' + 
+ '                <value name="BLUE">\n' + 
+ '                  <block type="math_number">\n' + 
+ '                    <field name="NUM">0</field>\n' + 
+ '                  </block>\n' + 
+ '                </value>\n' + 
+ '              </block>\n' + 
+ '            </next>\n' + 
+ '          </block>\n' + 
+ '        </statement>\n' + 
+ '        <value name="IF1">\n' + 
+ '          <block type="logic_compare">\n' + 
+ '            <field name="OP">LT</field>\n' + 
+ '            <value name="A">\n' + 
+ '              <block type="variables_get">\n' + 
+ '                <field name="VAR">speed</field>\n' + 
+ '              </block>\n' + 
+ '            </value>\n' + 
+ '            <value name="B">\n' + 
+ '              <block type="math_number">\n' + 
+ '                <field name="NUM">0</field>\n' + 
+ '              </block>\n' + 
+ '            </value>\n' + 
+ '          </block>\n' + 
+ '        </value>\n' + 
+ '        <statement name="DO1">\n' + 
+ '          <block type="variables_set">\n' + 
+ '            <field name="VAR">intensity</field>\n' + 
+ '            <value name="VALUE">\n' + 
+ '              <block type="math_arithmetic">\n' + 
+ '                <field name="OP">DIVIDE</field>\n' + 
+ '                <value name="A">\n' + 
+ '                  <shadow type="math_number">\n' + 
+ '                    <field name="NUM">-32</field>\n' + 
+ '                  </shadow>\n' + 
+ '                  <block type="math_arithmetic">\n' + 
+ '                    <field name="OP">MULTIPLY</field>\n' + 
+ '                    <value name="A">\n' + 
+ '                      <shadow type="math_number">\n' + 
+ '                        <field name="NUM">-32</field>\n' + 
+ '                      </shadow>\n' + 
+ '                    </value>\n' + 
+ '                    <value name="B">\n' + 
+ '                      <shadow type="math_number">\n' + 
+ '                        <field name="NUM">-32</field>\n' + 
+ '                      </shadow>\n' + 
+ '                      <block type="variables_get">\n' + 
+ '                        <field name="VAR">speed</field>\n' + 
+ '                      </block>\n' + 
+ '                    </value>\n' + 
+ '                  </block>\n' + 
+ '                </value>\n' + 
+ '                <value name="B">\n' + 
+ '                  <shadow type="math_number">\n' + 
+ '                    <field name="NUM">500</field>\n' + 
+ '                  </shadow>\n' + 
+ '                </value>\n' + 
+ '              </block>\n' + 
+ '            </value>\n' + 
+ '            <next>\n' + 
+ '              <block type="thymio_led_rgb">\n' + 
+ '                <field name="LED">leds.top</field>\n' + 
+ '                <value name="RED">\n' + 
+ '                  <block type="variables_get">\n' + 
+ '                    <field name="VAR">intensity</field>\n' + 
+ '                  </block>\n' + 
+ '                </value>\n' + 
+ '                <value name="GREEN">\n' + 
+ '                  <block type="math_number">\n' + 
+ '                    <field name="NUM">0</field>\n' + 
+ '                  </block>\n' + 
+ '                </value>\n' + 
+ '                <value name="BLUE">\n' + 
+ '                  <block type="math_number">\n' + 
+ '                    <field name="NUM">0</field>\n' + 
+ '                  </block>\n' + 
+ '                </value>\n' + 
+ '              </block>\n' + 
+ '            </next>\n' + 
+ '          </block>\n' + 
+ '        </statement>\n' + 
+ '        <statement name="ELSE">\n' + 
+ '          <block type="thymio_led_off">\n' + 
+ '            <field name="LED">leds.top</field>\n' + 
+ '          </block>\n' + 
+ '        </statement>\n' + 
+ '      </block>\n' + 
+ '    </statement>\n' + 
+ '  </block>\n' + 
+ '  <block type="thymio_event_button" x="113" y="188">\n' + 
  '    <field name="BUTTON">button.forward</field>\n' + 
  '    <field name="MODE">PRESS</field>\n' + 
  '    <statement name="HANDLER">\n' + 
@@ -1147,10 +1255,8 @@ AeslTests = [
  '          <block type="math_arithmetic">\n' + 
  '            <field name="OP">ADD</field>\n' + 
  '            <value name="A">\n' + 
- '              <shadow type="math_number">\n' + 
- '                \n' + 
- '                <field name="NUM">1</field>\n' + 
- '              \n' + 
+ '              <shadow type="math_number"> \n' + 
+ '                <field name="NUM">1</field> \n' + 
  '              </shadow>\n' + 
  '              <block type="variables_get">\n' + 
  '                <field name="VAR">speed</field>\n' + 
@@ -1166,12 +1272,17 @@ AeslTests = [
  '        <next>\n' + 
  '          <block type="procedures_callnoreturn">\n' + 
  '            <mutation name="updateSpeed"></mutation>\n' + 
+ '            <next>\n' + 
+ '              <block type="procedures_callnoreturn">\n' + 
+ '                <mutation name="updateColor"></mutation>\n' + 
+ '              </block>\n' + 
+ '            </next>\n' + 
  '          </block>\n' + 
  '        </next>\n' + 
  '      </block>\n' + 
  '    </statement>\n' + 
  '  </block>\n' + 
- '  <block type="thymio_event_button" x="112" y="288">\n' + 
+ '  <block type="thymio_event_button" x="113" y="338">\n' + 
  '    <field name="BUTTON">button.backward</field>\n' + 
  '    <field name="MODE">PRESS</field>\n' + 
  '    <statement name="HANDLER">\n' + 
@@ -1181,10 +1292,8 @@ AeslTests = [
  '          <block type="math_arithmetic">\n' + 
  '            <field name="OP">MINUS</field>\n' + 
  '            <value name="A">\n' + 
- '              <shadow type="math_number">\n' + 
- '                \n' + 
- '                <field name="NUM">1</field>\n' + 
- '              \n' + 
+ '              <shadow type="math_number"> \n' + 
+ '                <field name="NUM">1</field> \n' + 
  '              </shadow>\n' + 
  '              <block type="variables_get">\n' + 
  '                <field name="VAR">speed</field>\n' + 
@@ -1200,6 +1309,11 @@ AeslTests = [
  '        <next>\n' + 
  '          <block type="procedures_callnoreturn">\n' + 
  '            <mutation name="updateSpeed"></mutation>\n' + 
+ '            <next>\n' + 
+ '              <block type="procedures_callnoreturn">\n' + 
+ '                <mutation name="updateColor"></mutation>\n' + 
+ '              </block>\n' + 
+ '            </next>\n' + 
  '          </block>\n' + 
  '        </next>\n' + 
  '      </block>\n' + 
@@ -1207,15 +1321,21 @@ AeslTests = [
  '  </block>\n' + 
  '</xml>',
  'var speed\n' + 
+ 'var intensity\n' + 
  '\n' + 
  '\n' + 
  'sub updateSpeed\n' + 
  '	motor.left.target = speed\n' + 
  '	motor.right.target = speed\n' + 
+ '\n' + 
+ '\n' + 
+ 'sub updateColor\n' + 
  '	if speed > 0 then\n' + 
- '		call leds.top(6,32,6)\n' + 
+ '		intensity = (32 * speed) / 500\n' + 
+ '		call leds.top(0,intensity,0)\n' + 
  '	elseif speed < 0 then\n' + 
- '		call leds.top(32,0,0)\n' + 
+ '		intensity = (-32 * speed) / 500\n' + 
+ '		call leds.top(intensity,0,0)\n' + 
  '	else\n' + 
  '		call leds.top(0,0,0)\n' + 
  '	end\n' + 
@@ -1225,6 +1345,7 @@ AeslTests = [
  '	when button.center == 1 do\n' + 
  '		speed = 0\n' + 
  '		callsub updateSpeed\n' + 
+ '		callsub updateColor\n' + 
  '	end\n' + 
  '\n' + 
  '\n' + 
@@ -1232,6 +1353,7 @@ AeslTests = [
  '	when button.forward == 1 do\n' + 
  '		speed = speed + 100\n' + 
  '		callsub updateSpeed\n' + 
+ '		callsub updateColor\n' + 
  '	end\n' + 
  '\n' + 
  '\n' + 
@@ -1239,6 +1361,7 @@ AeslTests = [
  '	when button.backward == 1 do\n' + 
  '		speed = speed - 100\n' + 
  '		callsub updateSpeed\n' + 
+ '		callsub updateColor\n' + 
  '	end\n' + 
  ''],
 ['disallow subs calling other subs',
