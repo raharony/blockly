@@ -68,6 +68,17 @@ Blockly.AESL['thymio_led'] = function(block)
 	return code;
 };
 
+Blockly.AESL['thymio_led_rgb'] = function(block)
+{
+	var led = block.getFieldValue('LED');
+	var red = Blockly.AESL.valueToCode(block, 'RED', Blockly.AESL.ORDER_NONE);
+	var green = Blockly.AESL.valueToCode(block, 'GREEN', Blockly.AESL.ORDER_NONE);
+	var blue = Blockly.AESL.valueToCode(block, 'BLUE', Blockly.AESL.ORDER_NONE);
+
+	var code = 'call ' + led + '(' + red + ',' + green + ',' + blue + ')\n';
+	return code;
+};
+
 Blockly.AESL['thymio_led_off'] = function(block)
 {
 	var led = block.getFieldValue('LED');
