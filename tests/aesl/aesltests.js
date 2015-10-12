@@ -5,16 +5,16 @@ AeslTests = [
  '    <field name="BUTTON">button.center</field>\n' + 
  '    <field name="MODE">PRESS</field>\n' + 
  '    <statement name="HANDLER">\n' + 
- '      <block type="thymio_leds">\n' + 
- '        <field name="LED">TOP</field>\n' + 
+ '      <block type="thymio_led">\n' + 
+ '        <field name="LED">leds.top</field>\n' + 
  '        <field name="COLOR">#000000</field>\n' + 
  '        <next>\n' + 
- '          <block type="thymio_leds">\n' + 
- '            <field name="LED">BOTTOMLEFT</field>\n' + 
+ '          <block type="thymio_led">\n' + 
+ '            <field name="LED">leds.bottom.left</field>\n' + 
  '            <field name="COLOR">#000000</field>\n' + 
  '            <next>\n' + 
- '              <block type="thymio_leds">\n' + 
- '                <field name="LED">BOTTOMRIGHT</field>\n' + 
+ '              <block type="thymio_led">\n' + 
+ '                <field name="LED">leds.bottom.right</field>\n' + 
  '                <field name="COLOR">#000000</field>\n' + 
  '              </block>\n' + 
  '            </next>\n' + 
@@ -27,8 +27,8 @@ AeslTests = [
  '    <field name="BUTTON">button.right</field>\n' + 
  '    <field name="MODE">PRESS</field>\n' + 
  '    <statement name="HANDLER">\n' + 
- '      <block type="thymio_leds">\n' + 
- '        <field name="LED">BOTTOMRIGHT</field>\n' + 
+ '      <block type="thymio_led">\n' + 
+ '        <field name="LED">leds.bottom.right</field>\n' + 
  '        <field name="COLOR">#33cc00</field>\n' + 
  '      </block>\n' + 
  '    </statement>\n' + 
@@ -37,8 +37,8 @@ AeslTests = [
  '    <field name="BUTTON">button.forward</field>\n' + 
  '    <field name="MODE">PRESS</field>\n' + 
  '    <statement name="HANDLER">\n' + 
- '      <block type="thymio_leds">\n' + 
- '        <field name="LED">TOP</field>\n' + 
+ '      <block type="thymio_led">\n' + 
+ '        <field name="LED">leds.top</field>\n' + 
  '        <field name="COLOR">#cc33cc</field>\n' + 
  '      </block>\n' + 
  '    </statement>\n' + 
@@ -47,8 +47,8 @@ AeslTests = [
  '    <field name="BUTTON">button.left</field>\n' + 
  '    <field name="MODE">PRESS</field>\n' + 
  '    <statement name="HANDLER">\n' + 
- '      <block type="thymio_leds">\n' + 
- '        <field name="LED">BOTTOMLEFT</field>\n' + 
+ '      <block type="thymio_led">\n' + 
+ '        <field name="LED">leds.bottom.left</field>\n' + 
  '        <field name="COLOR">#ff6600</field>\n' + 
  '      </block>\n' + 
  '    </statement>\n' + 
@@ -57,8 +57,8 @@ AeslTests = [
  '    <field name="BUTTON">button.backward</field>\n' + 
  '    <field name="MODE">PRESS</field>\n' + 
  '    <statement name="HANDLER">\n' + 
- '      <block type="thymio_leds">\n' + 
- '        <field name="LED">TOP</field>\n' + 
+ '      <block type="thymio_led">\n' + 
+ '        <field name="LED">leds.top</field>\n' + 
  '        <field name="COLOR">#6633ff</field>\n' + 
  '      </block>\n' + 
  '    </statement>\n' + 
@@ -108,8 +108,8 @@ AeslTests = [
  '          </block>\n' + 
  '        </value>\n' + 
  '        <statement name="DO0">\n' + 
- '          <block type="thymio_leds">\n' + 
- '            <field name="LED">TOP</field>\n' + 
+ '          <block type="thymio_led">\n' + 
+ '            <field name="LED">leds.top</field>\n' + 
  '            <field name="COLOR">#ff0000</field>\n' + 
  '          </block>\n' + 
  '        </statement>\n' + 
@@ -119,14 +119,14 @@ AeslTests = [
  '          </block>\n' + 
  '        </value>\n' + 
  '        <statement name="DO1">\n' + 
- '          <block type="thymio_leds">\n' + 
- '            <field name="LED">TOP</field>\n' + 
+ '          <block type="thymio_led">\n' + 
+ '            <field name="LED">leds.top</field>\n' + 
  '            <field name="COLOR">#33ff33</field>\n' + 
  '          </block>\n' + 
  '        </statement>\n' + 
  '        <statement name="ELSE">\n' + 
- '          <block type="thymio_leds">\n' + 
- '            <field name="LED">TOP</field>\n' + 
+ '          <block type="thymio_led">\n' + 
+ '            <field name="LED">leds.top</field>\n' + 
  '            <field name="COLOR">#000000</field>\n' + 
  '          </block>\n' + 
  '        </statement>\n' + 
@@ -163,14 +163,14 @@ AeslTests = [
  '      </block>\n' + 
  '    </value>\n' + 
  '    <statement name="DO0">\n' + 
- '      <block type="thymio_leds">\n' + 
- '        <field name="LED">TOP</field>\n' + 
+ '      <block type="thymio_led">\n' + 
+ '        <field name="LED">leds.top</field>\n' + 
  '        <field name="COLOR">#33ff33</field>\n' + 
  '      </block>\n' + 
  '    </statement>\n' + 
  '    <statement name="ELSE">\n' + 
- '      <block type="thymio_leds">\n' + 
- '        <field name="LED">TOP</field>\n' + 
+ '      <block type="thymio_led">\n' + 
+ '        <field name="LED">leds.top</field>\n' + 
  '        <field name="COLOR">#ff0000</field>\n' + 
  '      </block>\n' + 
  '    </statement>\n' + 
@@ -188,8 +188,8 @@ AeslTests = [
  '    <field name="BUTTON">button.forward</field>\n' + 
  '    <field name="MODE">PRESS</field>\n' + 
  '    <statement name="HANDLER">\n' + 
- '      <block type="thymio_leds">\n' + 
- '        <field name="LED">TOP</field>\n' + 
+ '      <block type="thymio_led">\n' + 
+ '        <field name="LED">leds.top</field>\n' + 
  '        <field name="COLOR">#33ff33</field>\n' + 
  '        <next>\n' + 
  '          <block type="thymio_set_variable">\n' + 
@@ -218,8 +218,8 @@ AeslTests = [
  '    <field name="BUTTON">button.backward</field>\n' + 
  '    <field name="MODE">PRESS</field>\n' + 
  '    <statement name="HANDLER">\n' + 
- '      <block type="thymio_leds">\n' + 
- '        <field name="LED">TOP</field>\n' + 
+ '      <block type="thymio_led">\n' + 
+ '        <field name="LED">leds.top</field>\n' + 
  '        <field name="COLOR">#ff0000</field>\n' + 
  '        <next>\n' + 
  '          <block type="thymio_set_variable">\n' + 
@@ -373,14 +373,14 @@ AeslTests = [
  '          </block>\n' + 
  '        </value>\n' + 
  '        <statement name="DO0">\n' + 
- '          <block type="thymio_leds">\n' + 
- '            <field name="LED">TOP</field>\n' + 
+ '          <block type="thymio_led">\n' + 
+ '            <field name="LED">leds.top</field>\n' + 
  '            <field name="COLOR">#33ff33</field>\n' + 
  '          </block>\n' + 
  '        </statement>\n' + 
  '        <statement name="ELSE">\n' + 
- '          <block type="thymio_leds">\n' + 
- '            <field name="LED">TOP</field>\n' + 
+ '          <block type="thymio_led">\n' + 
+ '            <field name="LED">leds.top</field>\n' + 
  '            <field name="COLOR">#ff0000</field>\n' + 
  '          </block>\n' + 
  '        </statement>\n' + 
@@ -438,14 +438,14 @@ AeslTests = [
  '          </block>\n' + 
  '        </value>\n' + 
  '        <statement name="DO0">\n' + 
- '          <block type="thymio_leds">\n' + 
- '            <field name="LED">TOP</field>\n' + 
+ '          <block type="thymio_led">\n' + 
+ '            <field name="LED">leds.top</field>\n' + 
  '            <field name="COLOR">#33ff33</field>\n' + 
  '          </block>\n' + 
  '        </statement>\n' + 
  '        <statement name="ELSE">\n' + 
- '          <block type="thymio_leds">\n' + 
- '            <field name="LED">TOP</field>\n' + 
+ '          <block type="thymio_led">\n' + 
+ '            <field name="LED">leds.top</field>\n' + 
  '            <field name="COLOR">#ff0000</field>\n' + 
  '          </block>\n' + 
  '        </statement>\n' + 
@@ -477,14 +477,14 @@ AeslTests = [
  '          </block>\n' + 
  '        </value>\n' + 
  '        <statement name="DO0">\n' + 
- '          <block type="thymio_leds">\n' + 
- '            <field name="LED">TOP</field>\n' + 
+ '          <block type="thymio_led">\n' + 
+ '            <field name="LED">leds.top</field>\n' + 
  '            <field name="COLOR">#33ff33</field>\n' + 
  '          </block>\n' + 
  '        </statement>\n' + 
  '        <statement name="ELSE">\n' + 
- '          <block type="thymio_leds">\n' + 
- '            <field name="LED">TOP</field>\n' + 
+ '          <block type="thymio_led">\n' + 
+ '            <field name="LED">leds.top</field>\n' + 
  '            <field name="COLOR">#ff0000</field>\n' + 
  '          </block>\n' + 
  '        </statement>\n' + 
@@ -536,20 +536,20 @@ AeslTests = [
  '          </block>\n' + 
  '        </value>\n' + 
  '        <statement name="DO">\n' + 
- '          <block type="thymio_leds">\n' + 
- '            <field name="LED">TOP</field>\n' + 
+ '          <block type="thymio_led">\n' + 
+ '            <field name="LED">leds.top</field>\n' + 
  '            <field name="COLOR">#ff0000</field>\n' + 
  '            <next>\n' + 
- '              <block type="thymio_leds">\n' + 
- '                <field name="LED">TOP</field>\n' + 
+ '              <block type="thymio_led">\n' + 
+ '                <field name="LED">leds.top</field>\n' + 
  '                <field name="COLOR">#3366ff</field>\n' + 
  '              </block>\n' + 
  '            </next>\n' + 
  '          </block>\n' + 
  '        </statement>\n' + 
  '        <next>\n' + 
- '          <block type="thymio_leds">\n' + 
- '            <field name="LED">TOP</field>\n' + 
+ '          <block type="thymio_led">\n' + 
+ '            <field name="LED">leds.top</field>\n' + 
  '            <field name="COLOR">#000000</field>\n' + 
  '          </block>\n' + 
  '        </next>\n' + 
@@ -578,16 +578,16 @@ AeslTests = [
  '          <block type="controls_repeat">\n' + 
  '            <field name="TIMES">100</field>\n' + 
  '            <statement name="DO">\n' + 
- '              <block type="thymio_leds">\n' + 
- '                <field name="LED">TOP</field>\n' + 
+ '              <block type="thymio_led">\n' + 
+ '                <field name="LED">leds.top</field>\n' + 
  '                <field name="COLOR">#ff0000</field>\n' + 
  '              </block>\n' + 
  '            </statement>\n' + 
  '          </block>\n' + 
  '        </statement>\n' + 
  '        <next>\n' + 
- '          <block type="thymio_leds">\n' + 
- '            <field name="LED">TOP</field>\n' + 
+ '          <block type="thymio_led">\n' + 
+ '            <field name="LED">leds.top</field>\n' + 
  '            <field name="COLOR">#000000</field>\n' + 
  '          </block>\n' + 
  '        </next>\n' + 
@@ -725,12 +725,12 @@ AeslTests = [
  '          <block type="controls_repeat">\n' + 
  '            <field name="TIMES">10</field>\n' + 
  '            <statement name="DO">\n' + 
- '              <block type="thymio_leds">\n' + 
- '                <field name="LED">TOP</field>\n' + 
+ '              <block type="thymio_led">\n' + 
+ '                <field name="LED">leds.top</field>\n' + 
  '                <field name="COLOR">#ff0000</field>\n' + 
  '                <next>\n' + 
- '                  <block type="thymio_leds">\n' + 
- '                    <field name="LED">TOP</field>\n' + 
+ '                  <block type="thymio_led">\n' + 
+ '                    <field name="LED">leds.top</field>\n' + 
  '                    <field name="COLOR">#000000</field>\n' + 
  '                  </block>\n' + 
  '                </next>\n' + 
@@ -769,8 +769,8 @@ AeslTests = [
  '    <field name="BUTTON">button.left</field>\n' + 
  '    <field name="MODE">PRESS</field>\n' + 
  '    <statement name="HANDLER">\n' + 
- '      <block type="thymio_leds">\n' + 
- '        <field name="LED">BOTTOMLEFT</field>\n' + 
+ '      <block type="thymio_led">\n' + 
+ '        <field name="LED">leds.bottom.left</field>\n' + 
  '        <field name="COLOR">#33ff33</field>\n' + 
  '      </block>\n' + 
  '    </statement>\n' + 
@@ -779,8 +779,8 @@ AeslTests = [
  '    <field name="BUTTON">button.right</field>\n' + 
  '    <field name="MODE">PRESS</field>\n' + 
  '    <statement name="HANDLER">\n' + 
- '      <block type="thymio_leds">\n' + 
- '        <field name="LED">BOTTOMRIGHT</field>\n' + 
+ '      <block type="thymio_led">\n' + 
+ '        <field name="LED">leds.bottom.right</field>\n' + 
  '        <field name="COLOR">#33ff33</field>\n' + 
  '      </block>\n' + 
  '    </statement>\n' + 
@@ -805,12 +805,12 @@ AeslTests = [
  '              </block>\n' + 
  '            </value>\n' + 
  '            <next>\n' + 
- '              <block type="thymio_leds">\n' + 
- '                <field name="LED">BOTTOMLEFT</field>\n' + 
+ '              <block type="thymio_led">\n' + 
+ '                <field name="LED">leds.bottom.left</field>\n' + 
  '                <field name="COLOR">#000000</field>\n' + 
  '                <next>\n' + 
- '                  <block type="thymio_leds">\n' + 
- '                    <field name="LED">BOTTOMRIGHT</field>\n' + 
+ '                  <block type="thymio_led">\n' + 
+ '                    <field name="LED">leds.bottom.right</field>\n' + 
  '                    <field name="COLOR">#000000</field>\n' + 
  '                  </block>\n' + 
  '                </next>\n' + 
@@ -873,16 +873,16 @@ AeslTests = [
  '    <field name="BUTTON">button.center</field>\n' + 
  '    <field name="MODE">PRESS</field>\n' + 
  '    <statement name="HANDLER">\n' + 
- '      <block type="thymio_leds">\n' + 
- '        <field name="LED">TOP</field>\n' + 
+ '      <block type="thymio_led">\n' + 
+ '        <field name="LED">leds.top</field>\n' + 
  '        <field name="COLOR">#000000</field>\n' + 
  '        <next>\n' + 
- '          <block type="thymio_leds">\n' + 
- '            <field name="LED">BOTTOMLEFT</field>\n' + 
+ '          <block type="thymio_led">\n' + 
+ '            <field name="LED">leds.bottom.left</field>\n' + 
  '            <field name="COLOR">#000000</field>\n' + 
  '            <next>\n' + 
- '              <block type="thymio_leds">\n' + 
- '                <field name="LED">BOTTOMRIGHT</field>\n' + 
+ '              <block type="thymio_led">\n' + 
+ '                <field name="LED">leds.bottom.right</field>\n' + 
  '                <field name="COLOR">#000000</field>\n' + 
  '              </block>\n' + 
  '            </next>\n' + 
@@ -1099,8 +1099,8 @@ AeslTests = [
  '                  </block>\n' + 
  '                </value>\n' + 
  '                <statement name="DO0">\n' + 
- '                  <block type="thymio_leds">\n' + 
- '                    <field name="LED">TOP</field>\n' + 
+ '                  <block type="thymio_led">\n' + 
+ '                    <field name="LED">leds.top</field>\n' + 
  '                    <field name="COLOR">#33ff33</field>\n' + 
  '                  </block>\n' + 
  '                </statement>\n' + 
@@ -1120,15 +1120,14 @@ AeslTests = [
  '                  </block>\n' + 
  '                </value>\n' + 
  '                <statement name="DO1">\n' + 
- '                  <block type="thymio_leds">\n' + 
- '                    <field name="LED">TOP</field>\n' + 
+ '                  <block type="thymio_led">\n' + 
+ '                    <field name="LED">leds.top</field>\n' + 
  '                    <field name="COLOR">#ff0000</field>\n' + 
  '                  </block>\n' + 
  '                </statement>\n' + 
  '                <statement name="ELSE">\n' + 
- '                  <block type="thymio_leds">\n' + 
- '                    <field name="LED">TOP</field>\n' + 
- '                    <field name="COLOR">#000000</field>\n' + 
+ '                  <block type="thymio_led_off">\n' + 
+ '                    <field name="LED">leds.top</field>\n' + 
  '                  </block>\n' + 
  '                </statement>\n' + 
  '              </block>\n' + 
@@ -1247,8 +1246,8 @@ AeslTests = [
  '  <block type="procedures_defnoreturn" x="38" y="63">\n' + 
  '    <field name="NAME">foo</field>\n' + 
  '    <statement name="STACK">\n' + 
- '      <block type="thymio_leds">\n' + 
- '        <field name="LED">TOP</field>\n' + 
+ '      <block type="thymio_led">\n' + 
+ '        <field name="LED">leds.top</field>\n' + 
  '        <field name="COLOR">#ff0000</field>\n' + 
  '      </block>\n' + 
  '    </statement>\n' + 
