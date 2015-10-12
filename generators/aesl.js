@@ -156,6 +156,26 @@ Blockly.AESL.addEventHandler = function(event, handler) {
 }
 
 /**
+ * Tests if a value block has a number type to be used in a condition or an assignment
+ * @param {Blockly.Block} block to check
+ */
+Blockly.AESL.checkValueBlockType = function(block) {
+	if(!block) {
+		return false;
+	}
+	
+	if(block.outputConnection.check_) {
+		if(block.outputConnection.check_.indexOf('Number') < 0) {
+			return false;
+		}
+	} else if(block.type != 'variables_get') {
+		return false;
+	}
+	
+	return true;
+}
+
+/**
  * Encode a string as a properly escaped AESL string, complete with
  * quotes.
  * @param {string} string Text to encode.

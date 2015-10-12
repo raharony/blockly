@@ -39,10 +39,10 @@ Blockly.AESL['logic_compare'] = function(block)
 	var blockA = this.getInputTargetBlock('A');
     var blockB = this.getInputTargetBlock('B');
 	
-    if((blockA && blockA.outputConnection.check_.indexOf('Number') < 0) || (blockB && blockB.outputConnection.check_.indexOf('Number') < 0)) {
+    if(!Blockly.AESL.checkValueBlockType(blockA) || !Blockly.AESL.checkValueBlockType(blockB)) {
     	return ['0 == 1', Blockly.AESL.ORDER_CONDITION];
     }
-	
+    
 	// Comparison operator.
 	var OPERATORS = {
 		'EQ' : '==',
