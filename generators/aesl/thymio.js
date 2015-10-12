@@ -137,21 +137,7 @@ Blockly.AESL['thymio_sound_stop'] = function(block)
 Blockly.AESL['thymio_button_pressed'] = function(block)
 {
 	var button = block.getFieldValue('BUTTON');
-
-	var buttonname;
-	if(button == 'CENTER') {
-		buttonname = 'button.center';
-	} else if(button == 'FORWARD') {
-		buttonname = 'button.forward';
-	} else if(button == 'BACKWARD') {
-		buttonname = 'button.backward';
-	} else if(button == 'LEFT') {
-		buttonname = 'button.left';
-	} else if(button == 'RIGHT') {
-		buttonname = 'button.right';
-	}
-
-	return [buttonname + ' == 1', Blockly.AESL.ORDER_LOGICAL_AND];
+	return [button + ' == 1', Blockly.AESL.ORDER_LOGICAL_AND];
 };
 
 Blockly.AESL['thymio_prox_check'] = function(block)
