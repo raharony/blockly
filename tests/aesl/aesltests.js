@@ -1764,4 +1764,79 @@ AeslTests = [
  '		active = 1\n' + 
  '	end\n' + 
  ''],
+['playing and stopping system sounds',
+ '<xml xmlns="http://www.w3.org/1999/xhtml">\n' + 
+ '  <block type="thymio_event_button" x="63" y="213">\n' + 
+ '    <field name="BUTTON">button.forward</field>\n' + 
+ '    <field name="MODE">PRESS</field>\n' + 
+ '    <statement name="HANDLER">\n' + 
+ '      <block type="thymio_sound_system">\n' + 
+ '        <field name="SOUND">0</field>\n' + 
+ '      </block>\n' + 
+ '    </statement>\n' + 
+ '  </block>\n' + 
+ '  <block type="thymio_event_button" x="338" y="213">\n' + 
+ '    <field name="BUTTON">button.center</field>\n' + 
+ '    <field name="MODE">PRESS</field>\n' + 
+ '    <statement name="HANDLER">\n' + 
+ '      <block type="thymio_sound_stop"></block>\n' + 
+ '    </statement>\n' + 
+ '  </block>\n' + 
+ '  <block type="thymio_event_button" x="63" y="313">\n' + 
+ '    <field name="BUTTON">button.backward</field>\n' + 
+ '    <field name="MODE">PRESS</field>\n' + 
+ '    <statement name="HANDLER">\n' + 
+ '      <block type="thymio_sound_system">\n' + 
+ '        <field name="SOUND">1</field>\n' + 
+ '      </block>\n' + 
+ '    </statement>\n' + 
+ '  </block>\n' + 
+ '  <block type="thymio_event_button" x="63" y="413">\n' + 
+ '    <field name="BUTTON">button.left</field>\n' + 
+ '    <field name="MODE">PRESS</field>\n' + 
+ '    <statement name="HANDLER">\n' + 
+ '      <block type="thymio_sound_system">\n' + 
+ '        <field name="SOUND">3</field>\n' + 
+ '      </block>\n' + 
+ '    </statement>\n' + 
+ '  </block>\n' + 
+ '  <block type="thymio_event_button" x="63" y="513">\n' + 
+ '    <field name="BUTTON">button.right</field>\n' + 
+ '    <field name="MODE">PRESS</field>\n' + 
+ '    <statement name="HANDLER">\n' + 
+ '      <block type="thymio_sound_system">\n' + 
+ '        <field name="SOUND">4</field>\n' + 
+ '      </block>\n' + 
+ '    </statement>\n' + 
+ '  </block>\n' + 
+ '</xml>',
+ 'onevent button.forward\n' + 
+ '	when button.forward == 1 do\n' + 
+ '		call sound.system(0)\n' + 
+ '	end\n' + 
+ '\n' + 
+ '\n' + 
+ 'onevent button.center\n' + 
+ '	when button.center == 1 do\n' + 
+ '		call sound.system(-1)\n' + 
+ '	end\n' + 
+ '\n' + 
+ '\n' + 
+ 'onevent button.backward\n' + 
+ '	when button.backward == 1 do\n' + 
+ '		call sound.system(1)\n' + 
+ '	end\n' + 
+ '\n' + 
+ '\n' + 
+ 'onevent button.left\n' + 
+ '	when button.left == 1 do\n' + 
+ '		call sound.system(3)\n' + 
+ '	end\n' + 
+ '\n' + 
+ '\n' + 
+ 'onevent button.right\n' + 
+ '	when button.right == 1 do\n' + 
+ '		call sound.system(4)\n' + 
+ '	end\n' + 
+ ''],
 ];
