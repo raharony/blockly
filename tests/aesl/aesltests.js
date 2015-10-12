@@ -104,7 +104,7 @@ AeslTests = [
  '        <mutation elseif="1" else="1"></mutation>\n' + 
  '        <value name="IF0">\n' + 
  '          <block type="thymio_button_pressed">\n' + 
- '            <field name="BUTTON">FORWARD</field>\n' + 
+ '            <field name="BUTTON">button.forward</field>\n' + 
  '          </block>\n' + 
  '        </value>\n' + 
  '        <statement name="DO0">\n' + 
@@ -115,7 +115,7 @@ AeslTests = [
  '        </statement>\n' + 
  '        <value name="IF1">\n' + 
  '          <block type="thymio_button_pressed">\n' + 
- '            <field name="BUTTON">BACKWARD</field>\n' + 
+ '            <field name="BUTTON">button.backward</field>\n' + 
  '          </block>\n' + 
  '        </value>\n' + 
  '        <statement name="DO1">\n' + 
@@ -345,12 +345,12 @@ AeslTests = [
  '                <field name="OP">AND</field>\n' + 
  '                <value name="A">\n' + 
  '                  <block type="thymio_button_pressed">\n' + 
- '                    <field name="BUTTON">FORWARD</field>\n' + 
+ '                    <field name="BUTTON">button.forward</field>\n' + 
  '                  </block>\n' + 
  '                </value>\n' + 
  '                <value name="B">\n' + 
  '                  <block type="thymio_button_pressed">\n' + 
- '                    <field name="BUTTON">BACKWARD</field>\n' + 
+ '                    <field name="BUTTON">button.backward</field>\n' + 
  '                  </block>\n' + 
  '                </value>\n' + 
  '              </block>\n' + 
@@ -360,12 +360,12 @@ AeslTests = [
  '                <field name="OP">AND</field>\n' + 
  '                <value name="A">\n' + 
  '                  <block type="thymio_button_pressed">\n' + 
- '                    <field name="BUTTON">LEFT</field>\n' + 
+ '                    <field name="BUTTON">button.left</field>\n' + 
  '                  </block>\n' + 
  '                </value>\n' + 
  '                <value name="B">\n' + 
  '                  <block type="thymio_button_pressed">\n' + 
- '                    <field name="BUTTON">RIGHT</field>\n' + 
+ '                    <field name="BUTTON">button.right</field>\n' + 
  '                  </block>\n' + 
  '                </value>\n' + 
  '              </block>\n' + 
@@ -410,12 +410,12 @@ AeslTests = [
  '                <field name="OP">OR</field>\n' + 
  '                <value name="A">\n' + 
  '                  <block type="thymio_button_pressed">\n' + 
- '                    <field name="BUTTON">FORWARD</field>\n' + 
+ '                    <field name="BUTTON">button.forward</field>\n' + 
  '                  </block>\n' + 
  '                </value>\n' + 
  '                <value name="B">\n' + 
  '                  <block type="thymio_button_pressed">\n' + 
- '                    <field name="BUTTON">BACKWARD</field>\n' + 
+ '                    <field name="BUTTON">button.backward</field>\n' + 
  '                  </block>\n' + 
  '                </value>\n' + 
  '              </block>\n' + 
@@ -425,12 +425,12 @@ AeslTests = [
  '                <field name="OP">OR</field>\n' + 
  '                <value name="A">\n' + 
  '                  <block type="thymio_button_pressed">\n' + 
- '                    <field name="BUTTON">LEFT</field>\n' + 
+ '                    <field name="BUTTON">button.left</field>\n' + 
  '                  </block>\n' + 
  '                </value>\n' + 
  '                <value name="B">\n' + 
  '                  <block type="thymio_button_pressed">\n' + 
- '                    <field name="BUTTON">RIGHT</field>\n' + 
+ '                    <field name="BUTTON">button.right</field>\n' + 
  '                  </block>\n' + 
  '                </value>\n' + 
  '              </block>\n' + 
@@ -532,7 +532,7 @@ AeslTests = [
  '        <field name="MODE">WHILE</field>\n' + 
  '        <value name="BOOL">\n' + 
  '          <block type="thymio_button_pressed">\n' + 
- '            <field name="BUTTON">CENTER</field>\n' + 
+ '            <field name="BUTTON">button.center</field>\n' + 
  '          </block>\n' + 
  '        </value>\n' + 
  '        <statement name="DO">\n' + 
@@ -621,12 +621,12 @@ AeslTests = [
  '            <field name="OP">AND</field>\n' + 
  '            <value name="A">\n' + 
  '              <block type="thymio_button_pressed">\n' + 
- '                <field name="BUTTON">BACKWARD</field>\n' + 
+ '                <field name="BUTTON">button.backward</field>\n' + 
  '              </block>\n' + 
  '            </value>\n' + 
  '            <value name="B">\n' + 
  '              <block type="thymio_button_pressed">\n' + 
- '                <field name="BUTTON">RIGHT</field>\n' + 
+ '                <field name="BUTTON">button.right</field>\n' + 
  '              </block>\n' + 
  '            </value>\n' + 
  '          </block>\n' + 
@@ -656,12 +656,12 @@ AeslTests = [
  '            <field name="OP">AND</field>\n' + 
  '            <value name="A">\n' + 
  '              <block type="thymio_button_pressed">\n' + 
- '                <field name="BUTTON">BACKWARD</field>\n' + 
+ '                <field name="BUTTON">button.backward</field>\n' + 
  '              </block>\n' + 
  '            </value>\n' + 
  '            <value name="B">\n' + 
  '              <block type="thymio_button_pressed">\n' + 
- '                <field name="BUTTON">LEFT</field>\n' + 
+ '                <field name="BUTTON">button.left</field>\n' + 
  '              </block>\n' + 
  '            </value>\n' + 
  '          </block>\n' + 
@@ -718,7 +718,7 @@ AeslTests = [
  '        </statement>\n' + 
  '        <value name="IF2">\n' + 
  '          <block type="thymio_button_pressed">\n' + 
- '            <field name="BUTTON">BACKWARD</field>\n' + 
+ '            <field name="BUTTON">button.backward</field>\n' + 
  '          </block>\n' + 
  '        </value>\n' + 
  '        <statement name="DO2">\n' + 
