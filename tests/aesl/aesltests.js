@@ -1521,4 +1521,247 @@ AeslTests = [
  '		call leds.bottom.right(0,0,0)\n' + 
  '	end\n' + 
  ''],
+['proximity checks',
+ '<xml xmlns="http://www.w3.org/1999/xhtml">\n' + 
+ '  <block type="thymio_event" x="13" y="13">\n' + 
+ '    <field name="EVENT">prox</field>\n' + 
+ '    <statement name="HANDLER">\n' + 
+ '      <block type="controls_if">\n' + 
+ '        <value name="IF0">\n' + 
+ '          <block type="logic_compare">\n' + 
+ '            <field name="OP">GT</field>\n' + 
+ '            <value name="A">\n' + 
+ '              <block type="variables_get">\n' + 
+ '                <field name="VAR">active</field>\n' + 
+ '              </block>\n' + 
+ '            </value>\n' + 
+ '            <value name="B">\n' + 
+ '              <block type="math_number">\n' + 
+ '                <field name="NUM">0</field>\n' + 
+ '              </block>\n' + 
+ '            </value>\n' + 
+ '          </block>\n' + 
+ '        </value>\n' + 
+ '        <statement name="DO0">\n' + 
+ '          <block type="controls_if">\n' + 
+ '            <mutation elseif="2" else="1"></mutation>\n' + 
+ '            <value name="IF0">\n' + 
+ '              <block type="logic_operation">\n' + 
+ '                <field name="OP">AND</field>\n' + 
+ '                <value name="A">\n' + 
+ '                  <block type="thymio_prox_check">\n' + 
+ '                    <field name="SENSOR">prox.ground.delta[0]</field>\n' + 
+ '                    <field name="MODE">BLOCK</field>\n' + 
+ '                  </block>\n' + 
+ '                </value>\n' + 
+ '                <value name="B">\n' + 
+ '                  <block type="thymio_prox_check">\n' + 
+ '                    <field name="SENSOR">prox.ground.delta[1]</field>\n' + 
+ '                    <field name="MODE">BLOCK</field>\n' + 
+ '                  </block>\n' + 
+ '                </value>\n' + 
+ '              </block>\n' + 
+ '            </value>\n' + 
+ '            <statement name="DO0">\n' + 
+ '              <block type="thymio_set_variable">\n' + 
+ '                <field name="VARIABLE">motor.left.target</field>\n' + 
+ '                <value name="VALUE">\n' + 
+ '                  <block type="math_number">\n' + 
+ '                    <field name="NUM">500</field>\n' + 
+ '                  </block>\n' + 
+ '                </value>\n' + 
+ '                <next>\n' + 
+ '                  <block type="thymio_set_variable">\n' + 
+ '                    <field name="VARIABLE">motor.right.target</field>\n' + 
+ '                    <value name="VALUE">\n' + 
+ '                      <block type="math_number">\n' + 
+ '                        <field name="NUM">500</field>\n' + 
+ '                      </block>\n' + 
+ '                    </value>\n' + 
+ '                  </block>\n' + 
+ '                </next>\n' + 
+ '              </block>\n' + 
+ '            </statement>\n' + 
+ '            <value name="IF1">\n' + 
+ '              <block type="logic_operation">\n' + 
+ '                <field name="OP">AND</field>\n' + 
+ '                <value name="A">\n' + 
+ '                  <block type="thymio_prox_check">\n' + 
+ '                    <field name="SENSOR">prox.ground.delta[0]</field>\n' + 
+ '                    <field name="MODE">BLOCK</field>\n' + 
+ '                  </block>\n' + 
+ '                </value>\n' + 
+ '                <value name="B">\n' + 
+ '                  <block type="thymio_prox_check">\n' + 
+ '                    <field name="SENSOR">prox.ground.delta[1]</field>\n' + 
+ '                    <field name="MODE">CLEAR</field>\n' + 
+ '                  </block>\n' + 
+ '                </value>\n' + 
+ '              </block>\n' + 
+ '            </value>\n' + 
+ '            <statement name="DO1">\n' + 
+ '              <block type="thymio_set_variable">\n' + 
+ '                <field name="VARIABLE">motor.left.target</field>\n' + 
+ '                <value name="VALUE">\n' + 
+ '                  <block type="math_number">\n' + 
+ '                    <field name="NUM">-500</field>\n' + 
+ '                  </block>\n' + 
+ '                </value>\n' + 
+ '                <next>\n' + 
+ '                  <block type="thymio_set_variable">\n' + 
+ '                    <field name="VARIABLE">motor.right.target</field>\n' + 
+ '                    <value name="VALUE">\n' + 
+ '                      <block type="math_number">\n' + 
+ '                        <field name="NUM">-250</field>\n' + 
+ '                      </block>\n' + 
+ '                    </value>\n' + 
+ '                  </block>\n' + 
+ '                </next>\n' + 
+ '              </block>\n' + 
+ '            </statement>\n' + 
+ '            <value name="IF2">\n' + 
+ '              <block type="logic_operation">\n' + 
+ '                <field name="OP">AND</field>\n' + 
+ '                <value name="A">\n' + 
+ '                  <block type="thymio_prox_check">\n' + 
+ '                    <field name="SENSOR">prox.ground.delta[0]</field>\n' + 
+ '                    <field name="MODE">CLEAR</field>\n' + 
+ '                  </block>\n' + 
+ '                </value>\n' + 
+ '                <value name="B">\n' + 
+ '                  <block type="thymio_prox_check">\n' + 
+ '                    <field name="SENSOR">prox.ground.delta[1]</field>\n' + 
+ '                    <field name="MODE">BLOCK</field>\n' + 
+ '                  </block>\n' + 
+ '                </value>\n' + 
+ '              </block>\n' + 
+ '            </value>\n' + 
+ '            <statement name="DO2">\n' + 
+ '              <block type="thymio_set_variable">\n' + 
+ '                <field name="VARIABLE">motor.left.target</field>\n' + 
+ '                <value name="VALUE">\n' + 
+ '                  <block type="math_number">\n' + 
+ '                    <field name="NUM">-250</field>\n' + 
+ '                  </block>\n' + 
+ '                </value>\n' + 
+ '                <next>\n' + 
+ '                  <block type="thymio_set_variable">\n' + 
+ '                    <field name="VARIABLE">motor.right.target</field>\n' + 
+ '                    <value name="VALUE">\n' + 
+ '                      <block type="math_number">\n' + 
+ '                        <field name="NUM">-500</field>\n' + 
+ '                      </block>\n' + 
+ '                    </value>\n' + 
+ '                  </block>\n' + 
+ '                </next>\n' + 
+ '              </block>\n' + 
+ '            </statement>\n' + 
+ '            <statement name="ELSE">\n' + 
+ '              <block type="thymio_set_variable">\n' + 
+ '                <field name="VARIABLE">motor.left.target</field>\n' + 
+ '                <value name="VALUE">\n' + 
+ '                  <block type="math_number">\n' + 
+ '                    <field name="NUM">0</field>\n' + 
+ '                  </block>\n' + 
+ '                </value>\n' + 
+ '                <next>\n' + 
+ '                  <block type="thymio_set_variable">\n' + 
+ '                    <field name="VARIABLE">motor.right.target</field>\n' + 
+ '                    <value name="VALUE">\n' + 
+ '                      <block type="math_number">\n' + 
+ '                        <field name="NUM">0</field>\n' + 
+ '                      </block>\n' + 
+ '                    </value>\n' + 
+ '                  </block>\n' + 
+ '                </next>\n' + 
+ '              </block>\n' + 
+ '            </statement>\n' + 
+ '          </block>\n' + 
+ '        </statement>\n' + 
+ '      </block>\n' + 
+ '    </statement>\n' + 
+ '  </block>\n' + 
+ '  <block type="thymio_event_button" x="13" y="488">\n' + 
+ '    <field name="BUTTON">button.center</field>\n' + 
+ '    <field name="MODE">PRESS</field>\n' + 
+ '    <statement name="HANDLER">\n' + 
+ '      <block type="variables_set">\n' + 
+ '        <field name="VAR">active</field>\n' + 
+ '        <value name="VALUE">\n' + 
+ '          <block type="math_number">\n' + 
+ '            <field name="NUM">0</field>\n' + 
+ '          </block>\n' + 
+ '        </value>\n' + 
+ '        <next>\n' + 
+ '          <block type="thymio_set_variable">\n' + 
+ '            <field name="VARIABLE">motor.left.target</field>\n' + 
+ '            <value name="VALUE">\n' + 
+ '              <block type="math_number">\n' + 
+ '                <field name="NUM">0</field>\n' + 
+ '              </block>\n' + 
+ '            </value>\n' + 
+ '            <next>\n' + 
+ '              <block type="thymio_set_variable">\n' + 
+ '                <field name="VARIABLE">motor.right.target</field>\n' + 
+ '                <value name="VALUE">\n' + 
+ '                  <block type="math_number">\n' + 
+ '                    <field name="NUM">0</field>\n' + 
+ '                  </block>\n' + 
+ '                </value>\n' + 
+ '              </block>\n' + 
+ '            </next>\n' + 
+ '          </block>\n' + 
+ '        </next>\n' + 
+ '      </block>\n' + 
+ '    </statement>\n' + 
+ '  </block>\n' + 
+ '  <block type="thymio_event_button" x="363" y="488">\n' + 
+ '    <field name="BUTTON">button.forward</field>\n' + 
+ '    <field name="MODE">PRESS</field>\n' + 
+ '    <statement name="HANDLER">\n' + 
+ '      <block type="variables_set">\n' + 
+ '        <field name="VAR">active</field>\n' + 
+ '        <value name="VALUE">\n' + 
+ '          <block type="math_number">\n' + 
+ '            <field name="NUM">1</field>\n' + 
+ '          </block>\n' + 
+ '        </value>\n' + 
+ '      </block>\n' + 
+ '    </statement>\n' + 
+ '  </block>\n' + 
+ '</xml>',
+ 'var active\n' + 
+ '\n' + 
+ '\n' + 
+ 'onevent prox\n' + 
+ '	if active > 0 then\n' + 
+ '		if prox.ground.delta[0] > 450 and prox.ground.delta[1] > 450 then\n' + 
+ '			motor.left.target = 500\n' + 
+ '			motor.right.target = 500\n' + 
+ '		elseif prox.ground.delta[0] > 450 and prox.ground.delta[1] < 400 then\n' + 
+ '			motor.left.target = -500\n' + 
+ '			motor.right.target = -250\n' + 
+ '		elseif prox.ground.delta[0] < 400 and prox.ground.delta[1] > 450 then\n' + 
+ '			motor.left.target = -250\n' + 
+ '			motor.right.target = -500\n' + 
+ '		else\n' + 
+ '			motor.left.target = 0\n' + 
+ '			motor.right.target = 0\n' + 
+ '		end\n' + 
+ '	end\n' + 
+ '\n' + 
+ '\n' + 
+ 'onevent button.center\n' + 
+ '	when button.center == 1 do\n' + 
+ '		active = 0\n' + 
+ '		motor.left.target = 0\n' + 
+ '		motor.right.target = 0\n' + 
+ '	end\n' + 
+ '\n' + 
+ '\n' + 
+ 'onevent button.forward\n' + 
+ '	when button.forward == 1 do\n' + 
+ '		active = 1\n' + 
+ '	end\n' + 
+ ''],
 ];
