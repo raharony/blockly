@@ -215,12 +215,18 @@ function run()
 {
 	toCode('AESL');
 	
+	var code = document.getElementById('importExport').value.replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;')
+        .replace(/"/g, '&quot;')
+        .replace(/'/g, '&apos;');
+	
 	var aesl = 
 		'<!DOCTYPE aesl-source>' +
 		'<network>' +
 		'<keywords flag="true"/>' +
 		'<node nodeId="1" name="thymio-II">' +
-		document.getElementById('importExport').value +
+		code +
 		'</node>' +
 		'</network>';		
 	
