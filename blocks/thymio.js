@@ -80,7 +80,7 @@ Blockly.Blocks['thymio_event_prox'] = {
 		this.setHelpUrl(Blockly.Msg.TEXT_THYMIO_EVENT_PROX_HELPURL);
 		this.setTooltip(Blockly.Msg.TEXT_THYMIO_EVENT_PROX_TOOLTIP);
 
-		var sensorList = [];		
+		var sensorList = [];
 		sensorList.push(['front left', 'prox.horizontal[0]']);
 		sensorList.push(['front left/middle', 'prox.horizontal[1]']);
 		sensorList.push(['front middle', 'prox.horizontal[2]']);
@@ -169,6 +169,36 @@ Blockly.Blocks['thymio_button_pressed'] = {
 		var dropdown = new Blockly.FieldDropdown([['center', 'CENTER'], ['forward', 'FORWARD'], ['backward', 'BACKWARD'], ['left', 'LEFT'], ['right', 'RIGHT']]);
 		this.setOutput(true, 'Boolean');
 		this.appendDummyInput().appendField(dropdown, 'BUTTON').appendField('button pressed');
+	},
+};
+
+Blockly.Blocks['thymio_prox_check'] = {
+	/**
+	 * Block for checking whether a proximity sensor is blocked or cleared
+	 * 
+	 * @this Blockly.Block
+	 */
+	init : function()
+	{
+		this.setHelpUrl(Blockly.Msg.TEXT_THYMIO_PROX_BLOCKED_HELPURL);
+		this.setTooltip(Blockly.Msg.TEXT_THYMIO_PROX_BLOCKED_TOOLTIP);
+		
+		var sensorList = [];
+		sensorList.push(['front left', 'prox.horizontal[0]']);
+		sensorList.push(['front left/middle', 'prox.horizontal[1]']);
+		sensorList.push(['front middle', 'prox.horizontal[2]']);
+		sensorList.push(['front right/middle', 'prox.horizontal[3]']);
+		sensorList.push(['front right', 'prox.horizontal[4]']);
+		sensorList.push(['rear left', 'prox.horizontal[5]']);
+		sensorList.push(['rear right', 'prox.horizontal[6]']);
+		sensorList.push(['ground left', 'prox.ground.delta[0]']);
+		sensorList.push(['ground right', 'prox.ground.delta[1]']);
+
+		var sensorDropdown = new Blockly.FieldDropdown(sensorList);
+		var modeDropdown = new Blockly.FieldDropdown([['blocked', 'BLOCK'], ['clear', 'CLEAR']]);
+		
+		this.setOutput(true, 'Boolean');
+		this.appendDummyInput().appendField(sensorDropdown, 'SENSOR').appendField('proximity sensor').appendField(modeDropdown, 'MODE');
 	},
 };
 

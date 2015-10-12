@@ -140,6 +140,29 @@ Blockly.AESL['thymio_button_pressed'] = function(block)
 	return [buttonname + ' == 1', Blockly.AESL.ORDER_LOGICAL_AND];
 };
 
+Blockly.AESL['thymio_prox_check'] = function(block)
+{
+	var sensor = block.getFieldValue('SENSOR');
+	var mode = block.getFieldValue('MODE');
+	
+	var condition = '';
+	if(mode == 'BLOCK') {
+		if(sensor.indexOf('prox.ground') == 0) {
+			condition = ' > 450';
+		} else {
+			condition = ' > 2000';
+		}
+	} else {
+		if(sensor.indexOf('prox.ground') == 0) {
+			condition = ' < 400';
+		} else {
+			condition = ' < 1000';
+		}		
+	}
+	
+	return [sensor + condition, Blockly.AESL.ORDER_CONDITION];
+};
+
 Blockly.AESL['thymio_get_sensor_state'] = function(block)
 {
 	var sensor = block.getFieldValue('SENSOR');
