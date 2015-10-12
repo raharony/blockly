@@ -1041,4 +1041,246 @@ AeslTests = [
  '		speed = speed + 100\n' + 
  '	end\n' + 
  ''],
+['subroutine being called from several event handlers',
+ '<xml xmlns="http://www.w3.org/1999/xhtml">\n' + 
+ '  <block type="thymio_event_button" x="112" y="38">\n' + 
+ '    <field name="BUTTON">button.center</field>\n' + 
+ '    <field name="MODE">PRESS</field>\n' + 
+ '    <statement name="HANDLER">\n' + 
+ '      <block type="variables_set">\n' + 
+ '        <field name="VAR">speed</field>\n' + 
+ '        <value name="VALUE">\n' + 
+ '          <block type="math_number">\n' + 
+ '            <field name="NUM">0</field>\n' + 
+ '          </block>\n' + 
+ '        </value>\n' + 
+ '        <next>\n' + 
+ '          <block type="procedures_callnoreturn">\n' + 
+ '            <mutation name="updateSpeed"></mutation>\n' + 
+ '          </block>\n' + 
+ '        </next>\n' + 
+ '      </block>\n' + 
+ '    </statement>\n' + 
+ '  </block>\n' + 
+ '  <block type="procedures_defnoreturn" x="488" y="38">\n' + 
+ '    <field name="NAME">updateSpeed</field>\n' + 
+ '    <statement name="STACK">\n' + 
+ '      <block type="thymio_set_variable">\n' + 
+ '        <field name="VARIABLE">motor.left.target</field>\n' + 
+ '        <value name="VALUE">\n' + 
+ '          <block type="variables_get">\n' + 
+ '            <field name="VAR">speed</field>\n' + 
+ '          </block>\n' + 
+ '        </value>\n' + 
+ '        <next>\n' + 
+ '          <block type="thymio_set_variable">\n' + 
+ '            <field name="VARIABLE">motor.right.target</field>\n' + 
+ '            <value name="VALUE">\n' + 
+ '              <block type="variables_get">\n' + 
+ '                <field name="VAR">speed</field>\n' + 
+ '              </block>\n' + 
+ '            </value>\n' + 
+ '            <next>\n' + 
+ '              <block type="controls_if">\n' + 
+ '                <mutation elseif="1" else="1"></mutation>\n' + 
+ '                <value name="IF0">\n' + 
+ '                  <block type="logic_compare">\n' + 
+ '                    <field name="OP">GT</field>\n' + 
+ '                    <value name="A">\n' + 
+ '                      <block type="variables_get">\n' + 
+ '                        <field name="VAR">speed</field>\n' + 
+ '                      </block>\n' + 
+ '                    </value>\n' + 
+ '                    <value name="B">\n' + 
+ '                      <block type="math_number">\n' + 
+ '                        <field name="NUM">0</field>\n' + 
+ '                      </block>\n' + 
+ '                    </value>\n' + 
+ '                  </block>\n' + 
+ '                </value>\n' + 
+ '                <statement name="DO0">\n' + 
+ '                  <block type="thymio_leds">\n' + 
+ '                    <field name="LED">TOP</field>\n' + 
+ '                    <field name="COLOR">#33ff33</field>\n' + 
+ '                  </block>\n' + 
+ '                </statement>\n' + 
+ '                <value name="IF1">\n' + 
+ '                  <block type="logic_compare">\n' + 
+ '                    <field name="OP">LT</field>\n' + 
+ '                    <value name="A">\n' + 
+ '                      <block type="variables_get">\n' + 
+ '                        <field name="VAR">speed</field>\n' + 
+ '                      </block>\n' + 
+ '                    </value>\n' + 
+ '                    <value name="B">\n' + 
+ '                      <block type="math_number">\n' + 
+ '                        <field name="NUM">0</field>\n' + 
+ '                      </block>\n' + 
+ '                    </value>\n' + 
+ '                  </block>\n' + 
+ '                </value>\n' + 
+ '                <statement name="DO1">\n' + 
+ '                  <block type="thymio_leds">\n' + 
+ '                    <field name="LED">TOP</field>\n' + 
+ '                    <field name="COLOR">#ff0000</field>\n' + 
+ '                  </block>\n' + 
+ '                </statement>\n' + 
+ '                <statement name="ELSE">\n' + 
+ '                  <block type="thymio_leds">\n' + 
+ '                    <field name="LED">TOP</field>\n' + 
+ '                    <field name="COLOR">#000000</field>\n' + 
+ '                  </block>\n' + 
+ '                </statement>\n' + 
+ '              </block>\n' + 
+ '            </next>\n' + 
+ '          </block>\n' + 
+ '        </next>\n' + 
+ '      </block>\n' + 
+ '    </statement>\n' + 
+ '  </block>\n' + 
+ '  <block type="thymio_event_button" x="112" y="163">\n' + 
+ '    <field name="BUTTON">button.forward</field>\n' + 
+ '    <field name="MODE">PRESS</field>\n' + 
+ '    <statement name="HANDLER">\n' + 
+ '      <block type="variables_set">\n' + 
+ '        <field name="VAR">speed</field>\n' + 
+ '        <value name="VALUE">\n' + 
+ '          <block type="math_arithmetic">\n' + 
+ '            <field name="OP">ADD</field>\n' + 
+ '            <value name="A">\n' + 
+ '              <shadow type="math_number">\n' + 
+ '                \n' + 
+ '                <field name="NUM">1</field>\n' + 
+ '              \n' + 
+ '              </shadow>\n' + 
+ '              <block type="variables_get">\n' + 
+ '                <field name="VAR">speed</field>\n' + 
+ '              </block>\n' + 
+ '            </value>\n' + 
+ '            <value name="B">\n' + 
+ '              <shadow type="math_number">\n' + 
+ '                <field name="NUM">100</field>\n' + 
+ '              </shadow>\n' + 
+ '            </value>\n' + 
+ '          </block>\n' + 
+ '        </value>\n' + 
+ '        <next>\n' + 
+ '          <block type="procedures_callnoreturn">\n' + 
+ '            <mutation name="updateSpeed"></mutation>\n' + 
+ '          </block>\n' + 
+ '        </next>\n' + 
+ '      </block>\n' + 
+ '    </statement>\n' + 
+ '  </block>\n' + 
+ '  <block type="thymio_event_button" x="112" y="288">\n' + 
+ '    <field name="BUTTON">button.backward</field>\n' + 
+ '    <field name="MODE">PRESS</field>\n' + 
+ '    <statement name="HANDLER">\n' + 
+ '      <block type="variables_set">\n' + 
+ '        <field name="VAR">speed</field>\n' + 
+ '        <value name="VALUE">\n' + 
+ '          <block type="math_arithmetic">\n' + 
+ '            <field name="OP">MINUS</field>\n' + 
+ '            <value name="A">\n' + 
+ '              <shadow type="math_number">\n' + 
+ '                \n' + 
+ '                <field name="NUM">1</field>\n' + 
+ '              \n' + 
+ '              </shadow>\n' + 
+ '              <block type="variables_get">\n' + 
+ '                <field name="VAR">speed</field>\n' + 
+ '              </block>\n' + 
+ '            </value>\n' + 
+ '            <value name="B">\n' + 
+ '              <shadow type="math_number">\n' + 
+ '                <field name="NUM">100</field>\n' + 
+ '              </shadow>\n' + 
+ '            </value>\n' + 
+ '          </block>\n' + 
+ '        </value>\n' + 
+ '        <next>\n' + 
+ '          <block type="procedures_callnoreturn">\n' + 
+ '            <mutation name="updateSpeed"></mutation>\n' + 
+ '          </block>\n' + 
+ '        </next>\n' + 
+ '      </block>\n' + 
+ '    </statement>\n' + 
+ '  </block>\n' + 
+ '</xml>',
+ 'var speed\n' + 
+ '\n' + 
+ '\n' + 
+ 'sub updateSpeed\n' + 
+ '	motor.left.target = speed\n' + 
+ '	motor.right.target = speed\n' + 
+ '	if speed > 0 then\n' + 
+ '		call leds.top(6,32,6)\n' + 
+ '	elseif speed < 0 then\n' + 
+ '		call leds.top(32,0,0)\n' + 
+ '	else\n' + 
+ '		call leds.top(0,0,0)\n' + 
+ '	end\n' + 
+ '\n' + 
+ '\n' + 
+ 'onevent button.center\n' + 
+ '	when button.center == 1 do\n' + 
+ '		speed = 0\n' + 
+ '		callsub updateSpeed\n' + 
+ '	end\n' + 
+ '\n' + 
+ '\n' + 
+ 'onevent button.forward\n' + 
+ '	when button.forward == 1 do\n' + 
+ '		speed = speed + 100\n' + 
+ '		callsub updateSpeed\n' + 
+ '	end\n' + 
+ '\n' + 
+ '\n' + 
+ 'onevent button.backward\n' + 
+ '	when button.backward == 1 do\n' + 
+ '		speed = speed - 100\n' + 
+ '		callsub updateSpeed\n' + 
+ '	end\n' + 
+ ''],
+['disallow subs calling other subs',
+ '<xml xmlns="http://www.w3.org/1999/xhtml">\n' + 
+ '  <block type="procedures_defnoreturn" x="38" y="63">\n' + 
+ '    <field name="NAME">foo</field>\n' + 
+ '    <statement name="STACK">\n' + 
+ '      <block type="thymio_leds">\n' + 
+ '        <field name="LED">TOP</field>\n' + 
+ '        <field name="COLOR">#ff0000</field>\n' + 
+ '      </block>\n' + 
+ '    </statement>\n' + 
+ '  </block>\n' + 
+ '  <block type="procedures_defnoreturn" x="37" y="163">\n' + 
+ '    <field name="NAME">bar</field>\n' + 
+ '    <statement name="STACK">\n' + 
+ '      <block type="procedures_callnoreturn">\n' + 
+ '        <mutation name="foo"></mutation>\n' + 
+ '      </block>\n' + 
+ '    </statement>\n' + 
+ '  </block>\n' + 
+ '  <block type="thymio_event_button" x="37" y="262">\n' + 
+ '    <field name="BUTTON">button.center</field>\n' + 
+ '    <field name="MODE">PRESS</field>\n' + 
+ '    <statement name="HANDLER">\n' + 
+ '      <block type="procedures_callnoreturn">\n' + 
+ '        <mutation name="foo"></mutation>\n' + 
+ '      </block>\n' + 
+ '    </statement>\n' + 
+ '  </block>\n' + 
+ '</xml>',
+ 'sub foo\n' + 
+ '	call leds.top(32,0,0)\n' + 
+ '\n' + 
+ '\n' + 
+ 'sub bar\n' + 
+ '\n' + 
+ '\n' + 
+ 'onevent button.center\n' + 
+ '	when button.center == 1 do\n' + 
+ '		callsub foo\n' + 
+ '	end\n' + 
+ ''],
 ];
