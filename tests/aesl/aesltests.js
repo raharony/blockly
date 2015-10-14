@@ -1839,4 +1839,114 @@ AeslTests = [
  '		call sound.system(4)\n' + 
  '	end\n' + 
  ''],
+['when condition',
+ '<xml xmlns="http://www.w3.org/1999/xhtml">\n' + 
+ '  <block type="thymio_event" x="62" y="63">\n' + 
+ '    <field name="EVENT">prox</field>\n' + 
+ '    <statement name="HANDLER">\n' + 
+ '      <block type="thymio_when">\n' + 
+ '        <value name="WHEN">\n' + 
+ '          <block type="logic_operation">\n' + 
+ '            <field name="OP">OR</field>\n' + 
+ '            <value name="A">\n' + 
+ '              <block type="thymio_prox_check">\n' + 
+ '                <field name="SENSOR">prox.ground.delta[0]</field>\n' + 
+ '                <field name="MODE">BLOCK</field>\n' + 
+ '              </block>\n' + 
+ '            </value>\n' + 
+ '            <value name="B">\n' + 
+ '              <block type="thymio_prox_check">\n' + 
+ '                <field name="SENSOR">prox.ground.delta[1]</field>\n' + 
+ '                <field name="MODE">BLOCK</field>\n' + 
+ '              </block>\n' + 
+ '            </value>\n' + 
+ '          </block>\n' + 
+ '        </value>\n' + 
+ '        <statement name="DO">\n' + 
+ '          <block type="thymio_set_variable">\n' + 
+ '            <field name="VARIABLE">motor.left.target</field>\n' + 
+ '            <value name="VALUE">\n' + 
+ '              <block type="math_arithmetic">\n' + 
+ '                <field name="OP">ADD</field>\n' + 
+ '                <value name="A">\n' + 
+ '                  <shadow type="math_number">\n' + 
+ '                    <field name="NUM">1</field>\n' + 
+ '                  </shadow>\n' + 
+ '                  <block type="thymio_get_sensor_state">\n' + 
+ '                    <field name="SENSOR">motor.left.speed</field>\n' + 
+ '                  </block>\n' + 
+ '                </value>\n' + 
+ '                <value name="B">\n' + 
+ '                  <shadow type="math_number">\n' + 
+ '                    <field name="NUM">100</field>\n' + 
+ '                  </shadow>\n' + 
+ '                </value>\n' + 
+ '              </block>\n' + 
+ '            </value>\n' + 
+ '            <next>\n' + 
+ '              <block type="thymio_set_variable">\n' + 
+ '                <field name="VARIABLE">motor.right.target</field>\n' + 
+ '                <value name="VALUE">\n' + 
+ '                  <block type="math_arithmetic">\n' + 
+ '                    <field name="OP">ADD</field>\n' + 
+ '                    <value name="A">\n' + 
+ '                      <shadow type="math_number">\n' + 
+ '                        <field name="NUM">1</field>\n' + 
+ '                      </shadow>\n' + 
+ '                      <block type="thymio_get_sensor_state">\n' + 
+ '                        <field name="SENSOR">motor.right.speed</field>\n' + 
+ '                      </block>\n' + 
+ '                    </value>\n' + 
+ '                    <value name="B">\n' + 
+ '                      <shadow type="math_number">\n' + 
+ '                        <field name="NUM">100</field>\n' + 
+ '                      </shadow>\n' + 
+ '                    </value>\n' + 
+ '                  </block>\n' + 
+ '                </value>\n' + 
+ '              </block>\n' + 
+ '            </next>\n' + 
+ '          </block>\n' + 
+ '        </statement>\n' + 
+ '      </block>\n' + 
+ '    </statement>\n' + 
+ '  </block>\n' + 
+ '  <block type="thymio_event_button" x="62" y="262">\n' + 
+ '    <field name="BUTTON">button.center</field>\n' + 
+ '    <field name="MODE">PRESS</field>\n' + 
+ '    <statement name="HANDLER">\n' + 
+ '      <block type="thymio_set_variable">\n' + 
+ '        <field name="VARIABLE">motor.left.target</field>\n' + 
+ '        <value name="VALUE">\n' + 
+ '          <block type="math_number">\n' + 
+ '            <field name="NUM">0</field>\n' + 
+ '          </block>\n' + 
+ '        </value>\n' + 
+ '        <next>\n' + 
+ '          <block type="thymio_set_variable">\n' + 
+ '            <field name="VARIABLE">motor.right.target</field>\n' + 
+ '            <value name="VALUE">\n' + 
+ '              <block type="math_number">\n' + 
+ '                <field name="NUM">0</field>\n' + 
+ '              </block>\n' + 
+ '            </value>\n' + 
+ '          </block>\n' + 
+ '        </next>\n' + 
+ '      </block>\n' + 
+ '    </statement>\n' + 
+ '  </block>\n' + 
+ '</xml>',
+ 'onevent prox\n' + 
+ '	when prox.ground.delta[0] > 450 or prox.ground.delta[1] > 450 do\n' + 
+ '		motor.left.target = motor.left.speed + 100\n' + 
+ '		motor.right.target = motor.right.speed + 100\n' + 
+ '	end\n' + 
+ '\n' + 
+ '\n' + 
+ 'onevent button.center\n' + 
+ '	when button.center == 1 do\n' + 
+ '		motor.left.target = 0\n' + 
+ '		motor.right.target = 0\n' + 
+ '	end\n' + 
+ ''],
 ];
