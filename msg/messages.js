@@ -1102,6 +1102,8 @@ Blockly.Msg.PROCEDURES_IFRETURN_WARNING = 'Warning: This block may be used only 
 /// thymio
 Blockly.Msg.TEXT_THYMIO_WHEN_HELPURL = 'https://www.thymio.org/en:thymiotutorielp2';
 Blockly.Msg.TEXT_THYMIO_WHEN_TOOLTIP = 'Check for a change of condition';
+Blockly.Msg.TEXT_THYMIO_FOR_HELPURL = 'https://www.thymio.org/en:thymiotutorielp2';
+Blockly.Msg.TEXT_THYMIO_FOR_TOOLTIP = 'Counts a variable up from a start to an end value';
 Blockly.Msg.TEXT_THYMIO_EVENT_HELPURL = 'https://www.thymio.org/en:thymiotutorielp2';
 Blockly.Msg.TEXT_THYMIO_EVENT_TOOLTIP = 'React to an event';
 Blockly.Msg.TEXT_THYMIO_EVENT_BUTTON_HELPURL = 'https://www.thymio.org/en:thymiotutorielp2';

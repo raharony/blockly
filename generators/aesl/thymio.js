@@ -41,6 +41,17 @@ Blockly.AESL['thymio_when'] = function(block)
 	return code;
 };
 
+Blockly.AESL['thymio_for'] = function(block)
+{
+	var iterator = Blockly.AESL.variableDB_.getName(block.getFieldValue('ITER'), Blockly.Variables.NAME_TYPE);
+	var from = parseInt(block.getFieldValue('FROM'));
+	var to = parseInt(block.getFieldValue('TO'));
+	var branch = Blockly.AESL.statementToCode(block, 'DO');
+	
+	var code = 'for ' + iterator + ' in ' + from + ':' + to + ' do\n' + branch + 'end\n';
+	return code;
+};
+
 Blockly.AESL['thymio_event'] = function(block)
 {
 	var event = block.getFieldValue('EVENT');

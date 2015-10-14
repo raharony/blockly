@@ -31,6 +31,52 @@ Blockly.Blocks['thymio_when'] = {
 	},
 };
 
+Blockly.Blocks['thymio_for'] = {
+	/**
+	 * Block for Thymio count loops.
+	 * 
+	 * @this Blockly.Block
+	 */
+	init : function()
+	{
+		this.setHelpUrl(Blockly.Msg.TEXT_THYMIO_FOR_HELPURL);
+		this.setTooltip(Blockly.Msg.TEXT_THYMIO_FOR_TOOLTIP);
+		this.setPreviousStatement(true);
+		this.setNextStatement(true);
+
+		var variableField = new Blockly.FieldVariable('');
+		var fromField = new Blockly.FieldTextInput('0', Blockly.FieldTextInput.numberValidator);
+		var toField = new Blockly.FieldTextInput('0', Blockly.FieldTextInput.numberValidator);
+
+		this.appendDummyInput().appendField('for').appendField(variableField, 'ITER').appendField('from').appendField(fromField, 'FROM').appendField('to').appendField(toField, 'TO');
+		this.appendStatementInput('DO').appendField('do');
+	},
+	/**
+	 * Return all variables referenced by this block.
+	 * 
+	 * @return {!Array.<string>} List of variable names.
+	 * @this Blockly.Block
+	 */
+	getVars : function()
+	{
+		return [this.getFieldValue('ITER')];
+	},
+	/**
+	 * Notification that a variable is renaming. If the name matches one of this
+	 * block's variables, rename it.
+	 * 
+	 * @param {string} oldName Previous name of variable.
+	 * @param {string} newName Renamed variable.
+	 * @this Blockly.Block
+	 */
+	renameVar : function(oldName, newName)
+	{
+		if(Blockly.Names.equals(oldName, this.getFieldValue('ITER'))) {
+			this.setFieldValue(newName, 'ITER');
+		}
+	},
+};
+
 Blockly.Blocks['thymio_event'] = {
 	/**
 	 * Block for Thymio events.
