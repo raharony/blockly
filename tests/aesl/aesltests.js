@@ -1949,4 +1949,94 @@ AeslTests = [
  '		motor.right.target = 0\n' + 
  '	end\n' + 
  ''],
+['for loop computation',
+ '<xml xmlns="http://www.w3.org/1999/xhtml">\n' + 
+ '  <block type="variables_set" x="113" y="62">\n' + 
+ '    <field name="VAR">result</field>\n' + 
+ '    <value name="VALUE">\n' + 
+ '      <block type="math_number">\n' + 
+ '        <field name="NUM">0</field>\n' + 
+ '      </block>\n' + 
+ '    </value>\n' + 
+ '    <next>\n' + 
+ '      <block type="thymio_for">\n' + 
+ '        <field name="ITER">i</field>\n' + 
+ '        <field name="FROM">1</field>\n' + 
+ '        <field name="TO">10</field>\n' + 
+ '        <statement name="DO">\n' + 
+ '          <block type="variables_set">\n' + 
+ '            <field name="VAR">result</field>\n' + 
+ '            <value name="VALUE">\n' + 
+ '              <block type="math_arithmetic">\n' + 
+ '                <field name="OP">ADD</field>\n' + 
+ '                <value name="A">\n' + 
+ '                  <shadow type="math_number">\n' + 
+ '                    <field name="NUM">1</field>\n' + 
+ '                  </shadow>\n' + 
+ '                  <block type="variables_get">\n' + 
+ '                    <field name="VAR">result</field>\n' + 
+ '                  </block>\n' + 
+ '                </value>\n' + 
+ '                <value name="B">\n' + 
+ '                  <shadow type="math_number">\n' + 
+ '                    <field name="NUM">1</field>\n' + 
+ '                  </shadow>\n' + 
+ '                  <block type="variables_get">\n' + 
+ '                    <field name="VAR">i</field>\n' + 
+ '                  </block>\n' + 
+ '                </value>\n' + 
+ '              </block>\n' + 
+ '            </value>\n' + 
+ '          </block>\n' + 
+ '        </statement>\n' + 
+ '        <next>\n' + 
+ '          <block type="controls_if">\n' + 
+ '            <mutation else="1"></mutation>\n' + 
+ '            <value name="IF0">\n' + 
+ '              <block type="logic_compare">\n' + 
+ '                <field name="OP">EQ</field>\n' + 
+ '                <value name="A">\n' + 
+ '                  <block type="variables_get">\n' + 
+ '                    <field name="VAR">result</field>\n' + 
+ '                  </block>\n' + 
+ '                </value>\n' + 
+ '                <value name="B">\n' + 
+ '                  <block type="math_number">\n' + 
+ '                    <field name="NUM">55</field>\n' + 
+ '                  </block>\n' + 
+ '                </value>\n' + 
+ '              </block>\n' + 
+ '            </value>\n' + 
+ '            <statement name="DO0">\n' + 
+ '              <block type="thymio_led">\n' + 
+ '                <field name="LED">leds.top</field>\n' + 
+ '                <field name="COLOR">#33ff33</field>\n' + 
+ '              </block>\n' + 
+ '            </statement>\n' + 
+ '            <statement name="ELSE">\n' + 
+ '              <block type="thymio_led">\n' + 
+ '                <field name="LED">leds.top</field>\n' + 
+ '                <field name="COLOR">#ff0000</field>\n' + 
+ '              </block>\n' + 
+ '            </statement>\n' + 
+ '          </block>\n' + 
+ '        </next>\n' + 
+ '      </block>\n' + 
+ '    </next>\n' + 
+ '  </block>\n' + 
+ '</xml>',
+ 'var result\n' + 
+ 'var i\n' + 
+ '\n' + 
+ '\n' + 
+ 'result = 0\n' + 
+ 'for i in 1:10 do\n' + 
+ '	result = result + i\n' + 
+ 'end\n' + 
+ 'if result == 55 then\n' + 
+ '	call leds.top(6,32,6)\n' + 
+ 'else\n' + 
+ '	call leds.top(32,0,0)\n' + 
+ 'end\n' + 
+ ''],
 ];
