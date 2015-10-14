@@ -13,6 +13,24 @@ goog.require('Blockly.Blocks');
  */
 Blockly.Blocks.thymio.HUE = 27;
 
+Blockly.Blocks['thymio_when'] = {
+	/**
+	 * Block for Thymio when conditions.
+	 * 
+	 * @this Blockly.Block
+	 */
+	init : function()
+	{
+		this.setHelpUrl(Blockly.Msg.TEXT_THYMIO_WHEN_HELPURL);
+		this.setTooltip(Blockly.Msg.TEXT_THYMIO_WHEN_TOOLTIP);
+		this.setPreviousStatement(true);
+	    this.setNextStatement(true);
+		
+		this.appendValueInput('WHEN').setCheck('Boolean').appendField('when');
+		this.appendStatementInput('DO').appendField('do');
+	},
+};
+
 Blockly.Blocks['thymio_event'] = {
 	/**
 	 * Block for Thymio events.
