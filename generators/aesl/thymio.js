@@ -264,3 +264,22 @@ Blockly.AESL['thymio_binary'] = function(block)
 	var code = argument0 + ' ' + operator + ' ' + argument1;
 	return [code, order];
 };
+
+Blockly.AESL['thymio_unary'] = function(block)
+{
+	var operator = block.getFieldValue('OP');
+	
+	var order;
+	if(operator == '-') {
+		order = Blockly.AESL.ORDER_MINUS;
+	} else if(operator == 'abs') {
+		order = Blockly.AESL.ORDER_ABS;
+	} else if(operator == '~') {
+		order = Blockly.AESL.ORDER_BINARY_NOT;
+	}
+	
+	var value = Blockly.AESL.valueToCode(block, 'VALUE', order) || '0';
+	
+	var code = operator + (operator == 'abs' ? ' ' : '') + value;
+	return [code, order];
+};

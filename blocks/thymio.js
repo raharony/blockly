@@ -507,3 +507,24 @@ Blockly.Blocks['thymio_binary'] = {
 	}
 };
 
+Blockly.Blocks['thymio_unary'] = {
+	/**
+	 * Block for Thymio unary operators.
+	 * @this Blockly.Block
+	 */
+	init : function()
+	{
+		this.setHelpUrl(Blockly.Msg.TEXT_THYMIO_UNARY_HELPURL);
+		this.setTooltip(Blockly.Msg.TEXT_THYMIO_UNARY_TOOLTIP);
+		
+		var operators = [];
+		
+		operators.push(['negative', '-']);
+		operators.push(['absolute', 'abs']);
+		operators.push(['binary not', '~']);
+		
+		this.setOutput(true, 'Number');
+		this.appendValueInput('VALUE').setCheck('Number').appendField(new Blockly.FieldDropdown(operators), 'OP');
+	}
+};
+
