@@ -89,11 +89,6 @@ Blockly.Blocks['thymio_event'] = {
 		this.setTooltip(Blockly.Msg.TEXT_THYMIO_EVENT_TOOLTIP);
 		
 		var eventList = [];		
-		eventList.push(['back button pressed/released', 'button.backward']);
-		eventList.push(['left button pressed/released', 'button.left']);
-		eventList.push(['center button pressed/released', 'button.center']);
-		eventList.push(['forward button pressed/released','button.forward']);
-		eventList.push(['right button pressed/released','button.right']);
 		eventList.push(['button values probed', 'buttons']);
 		eventList.push(['proximity sensors read', 'prox']);
 		eventList.push(['IR sensor values received', 'prox.comm']);
@@ -126,7 +121,7 @@ Blockly.Blocks['thymio_event_button'] = {
 		this.setTooltip(Blockly.Msg.TEXT_THYMIO_EVENT_BUTTON_TOOLTIP);
 
 		var buttonDropdown = new Blockly.FieldDropdown([['center', 'button.center'], ['forward', 'button.forward'], ['backward', 'button.backward'], ['left', 'button.left'], ['right', 'button.right']]);
-		var modeDropdown = new Blockly.FieldDropdown([['press', 'PRESS'], ['release', 'RELEASE']]);
+		var modeDropdown = new Blockly.FieldDropdown([['pressed', 'PRESS'], ['released', 'RELEASE']]);
 		
 		this.appendDummyInput().appendField('on').appendField(buttonDropdown, 'BUTTON').appendField('button').appendField(modeDropdown, 'MODE');
 		this.appendStatementInput('HANDLER');
@@ -364,11 +359,6 @@ Blockly.Blocks['thymio_get_sensor_state'] = {
 		this.setTooltip(Blockly.Msg.TEXT_THYMIO_GET_SENSOR_STATE_TOOLTIP);
 
 		var sensorList = [];		
-		sensorList.push(['backward button', 'button.backward']);
-		sensorList.push(['left button', 'button.left']);
-		sensorList.push(['center button', 'button.center']);
-		sensorList.push(['forward button','button.forward']);
-		sensorList.push(['right button','button.right']);
 		sensorList.push(['front left proximity sensor', 'prox.horizontal[0]']);
 		sensorList.push(['front left/middle proximity sensor', 'prox.horizontal[1]']);
 		sensorList.push(['front middle proximity sensor', 'prox.horizontal[2]']);
@@ -376,8 +366,8 @@ Blockly.Blocks['thymio_get_sensor_state'] = {
 		sensorList.push(['front right proximity sensor', 'prox.horizontal[4]']);
 		sensorList.push(['rear left proximity sensor', 'prox.horizontal[5]']);
 		sensorList.push(['rear right proximity sensor', 'prox.horizontal[6]']);
-		sensorList.push(['ground left proximity sensor', 'prox.ground.delta[0]']);
-		sensorList.push(['ground right proximity sensor', 'prox.ground.delta[1]']);
+		sensorList.push(['left ground sensor', 'prox.ground.delta[0]']);
+		sensorList.push(['right ground sensor', 'prox.ground.delta[1]']);
 		sensorList.push(['left motor speed', 'motor.left.speed']);
 		sensorList.push(['right motor speed', 'motor.right.speed']);
 		sensorList.push(['accelorometer x', 'acc[0]']);
