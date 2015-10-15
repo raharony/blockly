@@ -374,3 +374,85 @@ Blockly.Blocks['thymio_set_variable'] = {
 		this.appendValueInput('VALUE').setCheck('Number').appendField('set Thymio').appendField(dropdown, 'VARIABLE').appendField('to');
 	},
 };
+
+Blockly.Blocks['thymio_declare_array'] = {
+	/**
+	 * Block to declare Thymio arrays.
+	 * 
+	 * @this Blockly.Block
+	 */
+	init : function()
+	{
+		this.setHelpUrl(Blockly.Msg.TEXT_THYMIO_DECLARE_ARRAY_HELPURL);
+		this.setTooltip(Blockly.Msg.TEXT_THYMIO_DECLARE_ARRAY_TOOLTIP);
+
+		var variableField = new Blockly.FieldVariable('a');
+		var sizeField = new Blockly.FieldTextInput('3', Blockly.FieldTextInput.numberValidator);
+
+		this.appendDummyInput().appendField('declare').appendField(variableField, 'VAR').appendField('as array of size').appendField(sizeField, 'SIZE');
+	},
+	/**
+	 * Return all variables referenced by this block.
+	 * 
+	 * @return {!Array.<string>} List of variable names.
+	 * @this Blockly.Block
+	 */
+	getVars : function()
+	{
+		return [this.getFieldValue('VAR')];
+	},
+	/**
+	 * Notification that a variable is renaming. If the name matches one of this
+	 * block's variables, rename it.
+	 * 
+	 * @param {string} oldName Previous name of variable.
+	 * @param {string} newName Renamed variable.
+	 * @this Blockly.Block
+	 */
+	renameVar : function(oldName, newName)
+	{
+		if(Blockly.Names.equals(oldName, this.getFieldValue('VAR'))) {
+			this.setFieldValue(newName, 'VAR');
+		}
+	},
+};
+
+Blockly.Blocks['thymio_set_array'] = {
+	/**
+	 * Block for setting a array element
+	 * 
+	 * @this Blockly.Block
+	 */
+	init : function()
+	{
+		this.setHelpUrl(Blockly.Msg.TEXT_THYMIO_SET_ARRAY_HELPURL);
+		this.setTooltip(Blockly.Msg.TEXT_THYMIO_SET_ARRAY_TOOLTIP);
+		this.setPreviousStatement(true);
+		this.setNextStatement(true);
+
+		var variableField = new Blockly.FieldVariable('a');
+
+	    this.appendValueInput('INDEX').setCheck('Number').appendField('set array').appendField(variableField, 'VAR').appendField('element');
+	    this.appendValueInput('VALUE').setCheck('Number').appendField('to');
+	    this.setInputsInline(true);
+	},
+};
+
+Blockly.Blocks['thymio_get_array'] = {
+	/**
+	 * Block for getting a array element
+	 * 
+	 * @this Blockly.Block
+	 */
+	init : function()
+	{
+		this.setHelpUrl(Blockly.Msg.TEXT_THYMIO_GET_ARRAY_HELPURL);
+		this.setTooltip(Blockly.Msg.TEXT_THYMIO_GET_ARRAY_TOOLTIP);
+
+		var variableField = new Blockly.FieldVariable('a');
+		
+		this.setOutput(true, 'Number');
+		this.appendValueInput('INDEX').setCheck('Number').appendField('get array').appendField(variableField, 'VAR').appendField('element');
+	    this.setInputsInline(true);
+	},
+};

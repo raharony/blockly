@@ -71,6 +71,7 @@ Blockly.AESL.init = function(workspace) {
   }
   
   Blockly.AESL.subroutines = [];
+  Blockly.AESL.arrays = [];
 };
 
 /**
@@ -102,7 +103,9 @@ Blockly.AESL.finish = function(code)
 	    	// We abuse the variables db to generate our definitions, but subroutines use the same db
 	    	// to avoid name clashes. We thus keep track of all generated subroutines and exclude them
 	    	// here for variable definitions
-	    	if(!(property in Blockly.AESL.subroutines)) {
+	    	if(property in Blockly.AESL.arrays) {
+	    		defvars.push('var ' + property + '[' + Blockly.AESL.arrays[property] + ']');
+	    	} else if(!(property in Blockly.AESL.subroutines)) {
 	    		defvars.push('var ' + property);
 	    	}
 	    }
@@ -137,6 +140,7 @@ Blockly.AESL.finish = function(code)
 	delete Blockly.AESL.functionNames_;
 	Blockly.AESL.variableDB_.reset();
 	Blockly.AESL.subroutines = [];
+	Blockly.AESL.arrays = [];
 	
 	return parts.join('\n\n');
 };

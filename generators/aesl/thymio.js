@@ -197,3 +197,31 @@ Blockly.AESL['thymio_set_variable'] = function(block)
 	var code = variable + ' = ' + value + '\n';
 	return code;
 };
+
+Blockly.AESL['thymio_declare_array'] = function(block)
+{
+	var variable = Blockly.AESL.variableDB_.getName(block.getFieldValue('VAR'), Blockly.Variables.NAME_TYPE);	
+	var size = parseInt(block.getFieldValue('SIZE'));
+	
+	Blockly.AESL.arrays[variable] = size + 1; // generate arrays of one size too large so we can start indexing at one
+	return null;
+};
+
+Blockly.AESL['thymio_set_array'] = function(block)
+{
+	var variable = Blockly.AESL.variableDB_.getName(block.getFieldValue('VAR'), Blockly.Variables.NAME_TYPE);
+	var index = Blockly.AESL.valueToCode(block, 'INDEX', Blockly.AESL.ORDER_INDEX) || '0';
+	var value = Blockly.AESL.valueToCode(block, 'VALUE', Blockly.AESL.ORDER_ASSIGNMENT) || '0';
+
+	var code = variable + '[' + index + '] = ' + value + '\n';
+	return code;
+};
+
+Blockly.AESL['thymio_get_array'] = function(block)
+{
+	var variable = Blockly.AESL.variableDB_.getName(block.getFieldValue('VAR'), Blockly.Variables.NAME_TYPE);
+	var index = Blockly.AESL.valueToCode(block, 'INDEX', Blockly.AESL.ORDER_NONE) || '0';
+
+	var code = variable + '[' + index + ']'; 
+	return [code, Blockly.AESL.ORDER_INDEX];
+};
