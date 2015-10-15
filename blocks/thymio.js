@@ -45,8 +45,8 @@ Blockly.Blocks['thymio_for'] = {
 		this.setNextStatement(true);
 
 		var variableField = new Blockly.FieldVariable('');
-		var fromField = new Blockly.FieldTextInput('0', Blockly.FieldTextInput.numberValidator);
-		var toField = new Blockly.FieldTextInput('0', Blockly.FieldTextInput.numberValidator);
+		var fromField = new Blockly.FieldTextInput('1', Blockly.FieldTextInput.numberValidator);
+		var toField = new Blockly.FieldTextInput('10', Blockly.FieldTextInput.numberValidator);
 
 		this.appendDummyInput().appendField('for').appendField(variableField, 'ITER').appendField('from').appendField(fromField, 'FROM').appendField('to').appendField(toField, 'TO');
 		this.appendStatementInput('DO').appendField('do');
