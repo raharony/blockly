@@ -2689,4 +2689,48 @@ AeslTests = [
  'onevent timer0\n' + 
  '	call leds.top(0,0,0)\n' + 
  ''],
+['play notes on proximity',
+ '<xml xmlns="http://www.w3.org/1999/xhtml">\n' + 
+ '  <block type="thymio_event" x="38" y="38">\n' + 
+ '    <field name="EVENT">prox</field>\n' + 
+ '    <statement name="HANDLER">\n' + 
+ '      <block type="controls_if">\n' + 
+ '        <value name="IF0">\n' + 
+ '          <block type="logic_compare">\n' + 
+ '            <field name="OP">GT</field>\n' + 
+ '            <value name="A">\n' + 
+ '              <block type="thymio_get_sensor_state">\n' + 
+ '                <field name="SENSOR">prox.horizontal[2]</field>\n' + 
+ '              </block>\n' + 
+ '            </value>\n' + 
+ '            <value name="B">\n' + 
+ '              <block type="math_number">\n' + 
+ '                <field name="NUM">0</field>\n' + 
+ '              </block>\n' + 
+ '            </value>\n' + 
+ '          </block>\n' + 
+ '        </value>\n' + 
+ '        <statement name="DO0">\n' + 
+ '          <block type="thymio_sound_note">\n' + 
+ '            <value name="FREQ">\n' + 
+ '              <block type="thymio_get_sensor_state">\n' + 
+ '                <field name="SENSOR">prox.horizontal[2]</field>\n' + 
+ '              </block>\n' + 
+ '            </value>\n' + 
+ '            <value name="DURATION">\n' + 
+ '              <block type="math_number">\n' + 
+ '                <field name="NUM">10</field>\n' + 
+ '              </block>\n' + 
+ '            </value>\n' + 
+ '          </block>\n' + 
+ '        </statement>\n' + 
+ '      </block>\n' + 
+ '    </statement>\n' + 
+ '  </block>\n' + 
+ '</xml>',
+ 'onevent prox\n' + 
+ '	if prox.horizontal[2] > 0 then\n' + 
+ '		call sound.freq(prox.horizontal[2],10)\n' + 
+ '	end\n' + 
+ ''],
 ];
