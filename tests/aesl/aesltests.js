@@ -2339,4 +2339,35 @@ AeslTests = [
  '\n' + 
  'crazy = 0 + (1 - 2 * (3 / (4 % (5 << (6 >> (7 & (8 | 9 ^ 10)))))))\n' + 
  ''],
+['unary mix',
+ '<xml xmlns="http://www.w3.org/1999/xhtml">\n' + 
+ '  <block type="variables_set" x="38" y="138">\n' + 
+ '    <field name="VAR">item</field>\n' + 
+ '    <value name="VALUE">\n' + 
+ '      <block type="thymio_unary">\n' + 
+ '        <field name="OP">-</field>\n' + 
+ '        <value name="VALUE">\n' + 
+ '          <block type="thymio_unary">\n' + 
+ '            <field name="OP">abs</field>\n' + 
+ '            <value name="VALUE">\n' + 
+ '              <block type="thymio_unary">\n' + 
+ '                <field name="OP">~</field>\n' + 
+ '                <value name="VALUE">\n' + 
+ '                  <block type="math_number">\n' + 
+ '                    <field name="NUM">0</field>\n' + 
+ '                  </block>\n' + 
+ '                </value>\n' + 
+ '              </block>\n' + 
+ '            </value>\n' + 
+ '          </block>\n' + 
+ '        </value>\n' + 
+ '      </block>\n' + 
+ '    </value>\n' + 
+ '  </block>\n' + 
+ '</xml>',
+ 'var item\n' + 
+ '\n' + 
+ '\n' + 
+ 'item = -(abs ~0)\n' + 
+ ''],
 ];
