@@ -481,3 +481,29 @@ Blockly.Blocks['thymio_arithmetic'] = {
 		this.setInputsInline(true);
 	}
 };
+
+Blockly.Blocks['thymio_binary'] = {
+	/**
+	 * Block for Thymio binary operators.
+	 * @this Blockly.Block
+	 */
+	init : function()
+	{
+		this.setHelpUrl(Blockly.Msg.TEXT_THYMIO_BINARY_HELPURL);
+		this.setTooltip(Blockly.Msg.TEXT_THYMIO_BINARY_TOOLTIP);
+		
+		var operators = [];
+		
+		operators.push(['left shift', '<<']);
+		operators.push(['right shift', '>>']);
+		operators.push(['and', '&']);
+		operators.push(['or', '|']);
+		operators.push(['xor', '^']);
+		
+		this.setOutput(true, 'Number');
+		this.appendValueInput('A').setCheck('Number');
+		this.appendValueInput('B').setCheck('Number').appendField(new Blockly.FieldDropdown(operators), 'OP');
+		this.setInputsInline(true);
+	}
+};
+

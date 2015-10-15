@@ -242,3 +242,25 @@ Blockly.AESL['thymio_arithmetic'] = function(block)
 	var code = argument0 + ' ' + operator + ' ' + argument1;
 	return [code, order];
 };
+
+Blockly.AESL['thymio_binary'] = function(block)
+{
+	var operator = block.getFieldValue('OP');
+	
+	var order;
+	if(operator == '<<' || operator == '>>') {
+		order = Blockly.AESL.ORDER_SHIFT;
+	} else if(operator == '&') {
+		order = Blockly.AESL.ORDER_BINARY_AND;
+	} else if(operator == '|') {
+		order = Blockly.AESL.ORDER_BINARY_OR;
+	} else if(operator == '^') {
+		order = Blockly.AESL.ORDER_BINARY_XOR;
+	}
+	
+	var argument0 = Blockly.AESL.valueToCode(block, 'A', order) || '0';
+	var argument1 = Blockly.AESL.valueToCode(block, 'B', order) || '0';
+	
+	var code = argument0 + ' ' + operator + ' ' + argument1;
+	return [code, order];
+};

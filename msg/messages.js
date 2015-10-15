@@ -1136,3 +1136,5 @@ Blockly.Msg.TEXT_THYMIO_GET_ARRAY_HELPURL = 'https://www.thymio.org/en:thymiotut
 Blockly.Msg.TEXT_THYMIO_GET_ARRAY_TOOLTIP = 'Gets the value of an array element';
 Blockly.Msg.TEXT_THYMIO_ARITHMETIC_HELPURL = 'https://www.thymio.org/en:thymiotutorielp2';
 Blockly.Msg.TEXT_THYMIO_ARITHMETIC_TOOLTIP = 'Computes arithmetic expressions';
+Blockly.Msg.TEXT_THYMIO_BINARY_HELPURL = 'https://www.thymio.org/en:thymiotutorielp2';
+Blockly.Msg.TEXT_THYMIO_BINARY_TOOLTIP = 'Computes binary expressions';
