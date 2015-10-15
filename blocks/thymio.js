@@ -456,3 +456,28 @@ Blockly.Blocks['thymio_get_array'] = {
 	    this.setInputsInline(true);
 	},
 };
+
+Blockly.Blocks['thymio_arithmetic'] = {
+	/**
+	 * Block for Thymio arithmetic operators.
+	 * @this Blockly.Block
+	 */
+	init : function()
+	{
+		this.setHelpUrl(Blockly.Msg.TEXT_THYMIO_ARITHMETIC_HELPURL);
+		this.setTooltip(Blockly.Msg.TEXT_THYMIO_ARITHMETIC_TOOLTIP);
+		
+		var operators = [];
+		
+		operators.push(['+', '+']);
+		operators.push(['-', '-']);
+		operators.push(['*', '*']);
+		operators.push(['÷', '/']);
+		operators.push(['mod', '%']);
+		
+		this.setOutput(true, 'Number');
+		this.appendValueInput('A').setCheck('Number');
+		this.appendValueInput('B').setCheck('Number').appendField(new Blockly.FieldDropdown(operators), 'OP');
+		this.setInputsInline(true);
+	}
+};

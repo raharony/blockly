@@ -225,3 +225,20 @@ Blockly.AESL['thymio_get_array'] = function(block)
 	var code = variable + '[' + index + ']'; 
 	return [code, Blockly.AESL.ORDER_INDEX];
 };
+
+Blockly.AESL['thymio_arithmetic'] = function(block)
+{
+	var operator = block.getFieldValue('OP');
+	
+	var order = Blockly.AESL.ORDER_MULT;
+		
+	if(operator == '+' || operator == '-') {
+		order = Blockly.AESL.ORDER_ADD;
+	}
+	
+	var argument0 = Blockly.AESL.valueToCode(block, 'A', order) || '0';
+	var argument1 = Blockly.AESL.valueToCode(block, 'B', order) || '0';
+	
+	var code = argument0 + ' ' + operator + ' ' + argument1;
+	return [code, order];
+};
