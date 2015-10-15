@@ -1431,9 +1431,9 @@ AeslTests = [
  '      </block>\n' + 
  '    </statement>\n' + 
  '  </block>\n' + 
- '  <block type="thymio_event_prox" x="438" y="38">\n' + 
+ '  <block type="thymio_event_prox_ground" x="438" y="38">\n' + 
  '    <field name="SENSOR">prox.ground.delta[0]</field>\n' + 
- '    <field name="MODE">CLEAR</field>\n' + 
+ '    <field name="MODE">WHITE</field>\n' + 
  '    <statement name="HANDLER">\n' + 
  '      <block type="thymio_led">\n' + 
  '        <field name="LED">leds.bottom.left</field>\n' + 
@@ -1441,9 +1441,9 @@ AeslTests = [
  '      </block>\n' + 
  '    </statement>\n' + 
  '  </block>\n' + 
- '  <block type="thymio_event_prox" x="438" y="113">\n' + 
+ '  <block type="thymio_event_prox_ground" x="438" y="113">\n' + 
  '    <field name="SENSOR">prox.ground.delta[0]</field>\n' + 
- '    <field name="MODE">BLOCK</field>\n' + 
+ '    <field name="MODE">BLACK</field>\n' + 
  '    <statement name="HANDLER">\n' + 
  '      <block type="thymio_led_off">\n' + 
  '        <field name="LED">leds.bottom.left</field>\n' + 
@@ -1474,9 +1474,9 @@ AeslTests = [
  '      </block>\n' + 
  '    </statement>\n' + 
  '  </block>\n' + 
- '  <block type="thymio_event_prox" x="438" y="188">\n' + 
+ '  <block type="thymio_event_prox_ground" x="438" y="188">\n' + 
  '    <field name="SENSOR">prox.ground.delta[1]</field>\n' + 
- '    <field name="MODE">CLEAR</field>\n' + 
+ '    <field name="MODE">WHITE</field>\n' + 
  '    <statement name="HANDLER">\n' + 
  '      <block type="thymio_led">\n' + 
  '        <field name="LED">leds.bottom.right</field>\n' + 
@@ -1484,9 +1484,9 @@ AeslTests = [
  '      </block>\n' + 
  '    </statement>\n' + 
  '  </block>\n' + 
- '  <block type="thymio_event_prox" x="438" y="263">\n' + 
+ '  <block type="thymio_event_prox_ground" x="438" y="263">\n' + 
  '    <field name="SENSOR">prox.ground.delta[1]</field>\n' + 
- '    <field name="MODE">BLOCK</field>\n' + 
+ '    <field name="MODE">BLACK</field>\n' + 
  '    <statement name="HANDLER">\n' + 
  '      <block type="thymio_led_off">\n' + 
  '        <field name="LED">leds.bottom.right</field>\n' + 
@@ -1549,15 +1549,15 @@ AeslTests = [
  '              <block type="logic_operation">\n' + 
  '                <field name="OP">AND</field>\n' + 
  '                <value name="A">\n' + 
- '                  <block type="thymio_prox_check">\n' + 
+ '                  <block type="thymio_prox_ground_check">\n' + 
  '                    <field name="SENSOR">prox.ground.delta[0]</field>\n' + 
- '                    <field name="MODE">BLOCK</field>\n' + 
+ '                    <field name="MODE">BLACK</field>\n' + 
  '                  </block>\n' + 
  '                </value>\n' + 
  '                <value name="B">\n' + 
- '                  <block type="thymio_prox_check">\n' + 
+ '                  <block type="thymio_prox_ground_check">\n' + 
  '                    <field name="SENSOR">prox.ground.delta[1]</field>\n' + 
- '                    <field name="MODE">BLOCK</field>\n' + 
+ '                    <field name="MODE">BLACK</field>\n' + 
  '                  </block>\n' + 
  '                </value>\n' + 
  '              </block>\n' + 
@@ -1586,15 +1586,15 @@ AeslTests = [
  '              <block type="logic_operation">\n' + 
  '                <field name="OP">AND</field>\n' + 
  '                <value name="A">\n' + 
- '                  <block type="thymio_prox_check">\n' + 
+ '                  <block type="thymio_prox_ground_check">\n' + 
  '                    <field name="SENSOR">prox.ground.delta[0]</field>\n' + 
- '                    <field name="MODE">BLOCK</field>\n' + 
+ '                    <field name="MODE">BLACK</field>\n' + 
  '                  </block>\n' + 
  '                </value>\n' + 
  '                <value name="B">\n' + 
- '                  <block type="thymio_prox_check">\n' + 
+ '                  <block type="thymio_prox_ground_check">\n' + 
  '                    <field name="SENSOR">prox.ground.delta[1]</field>\n' + 
- '                    <field name="MODE">CLEAR</field>\n' + 
+ '                    <field name="MODE">WHITE</field>\n' + 
  '                  </block>\n' + 
  '                </value>\n' + 
  '              </block>\n' + 
@@ -1623,15 +1623,15 @@ AeslTests = [
  '              <block type="logic_operation">\n' + 
  '                <field name="OP">AND</field>\n' + 
  '                <value name="A">\n' + 
- '                  <block type="thymio_prox_check">\n' + 
+ '                  <block type="thymio_prox_ground_check">\n' + 
  '                    <field name="SENSOR">prox.ground.delta[0]</field>\n' + 
- '                    <field name="MODE">CLEAR</field>\n' + 
+ '                    <field name="MODE">WHITE</field>\n' + 
  '                  </block>\n' + 
  '                </value>\n' + 
  '                <value name="B">\n' + 
- '                  <block type="thymio_prox_check">\n' + 
+ '                  <block type="thymio_prox_ground_check">\n' + 
  '                    <field name="SENSOR">prox.ground.delta[1]</field>\n' + 
- '                    <field name="MODE">BLOCK</field>\n' + 
+ '                    <field name="MODE">BLACK</field>\n' + 
  '                  </block>\n' + 
  '                </value>\n' + 
  '              </block>\n' + 
@@ -1849,15 +1849,15 @@ AeslTests = [
  '          <block type="logic_operation">\n' + 
  '            <field name="OP">OR</field>\n' + 
  '            <value name="A">\n' + 
- '              <block type="thymio_prox_check">\n' + 
+ '              <block type="thymio_prox_ground_check">\n' + 
  '                <field name="SENSOR">prox.ground.delta[0]</field>\n' + 
- '                <field name="MODE">BLOCK</field>\n' + 
+ '                <field name="MODE">BLACK</field>\n' + 
  '              </block>\n' + 
  '            </value>\n' + 
  '            <value name="B">\n' + 
- '              <block type="thymio_prox_check">\n' + 
+ '              <block type="thymio_prox_ground_check">\n' + 
  '                <field name="SENSOR">prox.ground.delta[1]</field>\n' + 
- '                <field name="MODE">BLOCK</field>\n' + 
+ '                <field name="MODE">BLACK</field>\n' + 
  '              </block>\n' + 
  '            </value>\n' + 
  '          </block>\n' + 
@@ -1869,8 +1869,10 @@ AeslTests = [
  '              <block type="math_arithmetic">\n' + 
  '                <field name="OP">ADD</field>\n' + 
  '                <value name="A">\n' + 
- '                  <shadow type="math_number">\n' + 
- '                    <field name="NUM">1</field>\n' + 
+ '                  <shadow type="math_number"> \n' + 
+ '                    \n' + 
+ '                    <field name="NUM">1</field> \n' + 
+ '                  \n' + 
  '                  </shadow>\n' + 
  '                  <block type="thymio_get_sensor_state">\n' + 
  '                    <field name="SENSOR">motor.left.speed</field>\n' + 
@@ -1890,8 +1892,10 @@ AeslTests = [
  '                  <block type="math_arithmetic">\n' + 
  '                    <field name="OP">ADD</field>\n' + 
  '                    <value name="A">\n' + 
- '                      <shadow type="math_number">\n' + 
- '                        <field name="NUM">1</field>\n' + 
+ '                      <shadow type="math_number"> \n' + 
+ '                        \n' + 
+ '                        <field name="NUM">1</field> \n' + 
+ '                      \n' + 
  '                      </shadow>\n' + 
  '                      <block type="thymio_get_sensor_state">\n' + 
  '                        <field name="SENSOR">motor.right.speed</field>\n' + 
