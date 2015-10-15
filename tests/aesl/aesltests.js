@@ -2651,4 +2651,42 @@ AeslTests = [
  '	prox.comm.tx = message\n' + 
  '	timer.period[0] = 100\n' + 
  ''],
+['remote control receiver',
+ '<xml xmlns="http://www.w3.org/1999/xhtml">\n' + 
+ '  <block type="thymio_event" x="88" y="38">\n' + 
+ '    <field name="EVENT">rc5</field>\n' + 
+ '    <statement name="HANDLER">\n' + 
+ '      <block type="thymio_led">\n' + 
+ '        <field name="LED">leds.top</field>\n' + 
+ '        <field name="COLOR">#33ff33</field>\n' + 
+ '        <next>\n' + 
+ '          <block type="thymio_set_variable">\n' + 
+ '            <field name="VARIABLE">timer.period[0]</field>\n' + 
+ '            <value name="VALUE">\n' + 
+ '              <block type="math_number">\n' + 
+ '                <field name="NUM">100</field>\n' + 
+ '              </block>\n' + 
+ '            </value>\n' + 
+ '          </block>\n' + 
+ '        </next>\n' + 
+ '      </block>\n' + 
+ '    </statement>\n' + 
+ '  </block>\n' + 
+ '  <block type="thymio_event" x="88" y="163">\n' + 
+ '    <field name="EVENT">timer0</field>\n' + 
+ '    <statement name="HANDLER">\n' + 
+ '      <block type="thymio_led_off">\n' + 
+ '        <field name="LED">leds.top</field>\n' + 
+ '      </block>\n' + 
+ '    </statement>\n' + 
+ '  </block>\n' + 
+ '</xml>',
+ 'onevent rc5\n' + 
+ '	call leds.top(6,32,6)\n' + 
+ '	timer.period[0] = 100\n' + 
+ '\n' + 
+ '\n' + 
+ 'onevent timer0\n' + 
+ '	call leds.top(0,0,0)\n' + 
+ ''],
 ];
