@@ -620,6 +620,18 @@ h1 {
       </block>
       <block type="thymio_led_off"></block>
       <block type="thymio_sound_system"></block>
+      <block type="thymio_sound_note">
+        <value name="FREQ">
+          <block type="math_number">
+            <field name="NUM">440</field>
+          </block>
+        </value>
+        <value name="DURATION">
+          <block type="math_number">
+            <field name="NUM">10</field>
+          </block>
+        </value>      
+      </block>
       <block type="thymio_sound_stop"></block>
       <block type="thymio_button_pressed"></block>
       <block type="thymio_prox_check"></block>

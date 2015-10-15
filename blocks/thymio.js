@@ -263,6 +263,26 @@ Blockly.Blocks['thymio_sound_system'] = {
 	},
 };
 
+Blockly.Blocks['thymio_sound_note'] = {
+	/**
+	 * Block to play Thymio sound notes.
+	 * 
+	 * @this Blockly.Block
+	 */
+	init : function()
+	{
+		this.setHelpUrl(Blockly.Msg.TEXT_THYMIO_SOUND_NOTE_HELPURL);
+		this.setTooltip(Blockly.Msg.TEXT_THYMIO_SOUND_NOTE_TOOLTIP);
+		this.setPreviousStatement(true);
+		this.setNextStatement(true);
+		
+		this.appendValueInput('FREQ').setCheck('Number').appendField('play');
+		this.appendValueInput('DURATION').setCheck('Number').appendField('Hz note for');
+		this.appendDummyInput().appendField('/ 60 seconds')
+		this.setInputsInline(true);
+	},
+};
+
 Blockly.Blocks['thymio_sound_stop'] = {
 	/**
 	 * Block to cause Thymio to stop playing sound.

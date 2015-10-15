@@ -165,6 +165,15 @@ Blockly.AESL['thymio_sound_system'] = function(block)
 	return code;
 };
 
+Blockly.AESL['thymio_sound_note'] = function(block)
+{
+	var freq = Blockly.AESL.valueToCode(block, 'FREQ', Blockly.AESL.ORDER_NONE) || '0';
+	var duration = Blockly.AESL.valueToCode(block, 'DURATION', Blockly.AESL.ORDER_NONE) || '0';
+
+	var code = 'call sound.freq(' + freq + ',' + duration + ')\n';
+	return code;
+};
+
 Blockly.AESL['thymio_sound_stop'] = function(block)
 {
 	var code = 'call sound.system(-1)\n';
