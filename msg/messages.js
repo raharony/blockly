@@ -1144,3 +1144,5 @@ Blockly.Msg.TEXT_THYMIO_BINARY_HELPURL = 'https://www.thymio.org/en:thymiotutori
 Blockly.Msg.TEXT_THYMIO_BINARY_TOOLTIP = 'Computes binary expressions';
 Blockly.Msg.TEXT_THYMIO_UNARY_HELPURL = 'https://www.thymio.org/en:thymiotutorielp2';
 Blockly.Msg.TEXT_THYMIO_UNARY_TOOLTIP = 'Performs unary operations';
+Blockly.Msg.TEXT_THYMIO_COMMUNICATION_HELPURL = 'https://www.thymio.org/en:thymiotutorielp2';
+Blockly.Msg.TEXT_THYMIO_COMMUNICATION_TOOLTIP = 'Controls Thymio\'s communication feature';

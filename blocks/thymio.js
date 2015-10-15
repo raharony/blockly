@@ -91,7 +91,7 @@ Blockly.Blocks['thymio_event'] = {
 		var eventList = [];		
 		eventList.push(['button values probed', 'buttons']);
 		eventList.push(['proximity sensors read', 'prox']);
-		eventList.push(['IR sensor values received', 'prox.comm']);
+		eventList.push(['communication value received', 'prox.comm']);
 		eventList.push(['shock detected', 'tap']);
 		eventList.push(['accelerometer read', 'acc']);
 		eventList.push(['sound intensity above threshold', 'mic']);
@@ -375,6 +375,7 @@ Blockly.Blocks['thymio_get_sensor_state'] = {
 		sensorList.push(['accelorometer z', 'acc[2]']);
 		sensorList.push(['temperature', 'temperature']);
 		sensorList.push(['microphone intensity', 'mic.intensity']);
+		sensorList.push(['received communication', 'prox.comm.rx']);
 
 		var dropdown = new Blockly.FieldDropdown(sensorList);
 		this.setOutput(true, 'Number');
@@ -401,6 +402,7 @@ Blockly.Blocks['thymio_set_variable'] = {
 		variables.push(['microphone threshold', 'mic.threshold']);
 		variables.push(['first timer period','timer.period[0]']);
 		variables.push(['second timer period','timer.period[1]']);
+		variables.push(['communication to transmit','prox.comm.tx']);
 
 		var dropdown = new Blockly.FieldDropdown(variables);
 		this.appendValueInput('VALUE').setCheck('Number').appendField('set Thymio').appendField(dropdown, 'VARIABLE').appendField('to');
@@ -560,3 +562,20 @@ Blockly.Blocks['thymio_unary'] = {
 	}
 };
 
+Blockly.Blocks['thymio_communication'] = {
+	/**
+	 * Block for controlling Thymio's communication feature
+	 * @this Blockly.Block
+	 */
+	init : function()
+	{
+		this.setHelpUrl(Blockly.Msg.TEXT_THYMIO_COMMUNICATION_HELPURL);
+		this.setTooltip(Blockly.Msg.TEXT_THYMIO_COMMUNICATION_TOOLTIP);
+		this.setPreviousStatement(true);
+		this.setNextStatement(true);
+		
+		var modeDropdown = new Blockly.FieldDropdown([['enable', 'ENABLE'], ['disable', 'DISABLE']]);
+		
+		this.appendDummyInput().appendField(modeDropdown, 'MODE').appendField('communication');
+	}
+};

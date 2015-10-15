@@ -307,3 +307,18 @@ Blockly.AESL['thymio_unary'] = function(block)
 	var code = operator + (operator == 'abs' ? ' ' : '') + value;
 	return [code, order];
 };
+
+Blockly.AESL['thymio_communication'] = function(block)
+{
+	var mode = block.getFieldValue('MODE');
+	
+	var code;
+	if(mode == 'ENABLE') {	
+		code = 'call prox.comm.enable(1)\n';
+	} else {
+		code = 'call prox.comm.enable(0)\n';
+	}
+	
+	return code;
+};
+
