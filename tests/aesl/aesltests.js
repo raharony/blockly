@@ -2374,4 +2374,281 @@ AeslTests = [
  '\n' + 
  'item = -(abs ~0)\n' + 
  ''],
+['communication client',
+ '<xml xmlns="http://www.w3.org/1999/xhtml">\n' + 
+ '  <block type="thymio_event_button" x="138" y="38">\n' + 
+ '    <field name="BUTTON">button.forward</field>\n' + 
+ '    <field name="MODE">PRESS</field>\n' + 
+ '    <statement name="HANDLER">\n' + 
+ '      <block type="thymio_communication">\n' + 
+ '        <field name="MODE">ENABLE</field>\n' + 
+ '        <next>\n' + 
+ '          <block type="thymio_set_variable">\n' + 
+ '            <field name="VARIABLE">prox.comm.tx</field>\n' + 
+ '            <value name="VALUE">\n' + 
+ '              <block type="math_number">\n' + 
+ '                <field name="NUM">1</field>\n' + 
+ '              </block>\n' + 
+ '            </value>\n' + 
+ '          </block>\n' + 
+ '        </next>\n' + 
+ '      </block>\n' + 
+ '    </statement>\n' + 
+ '  </block>\n' + 
+ '  <block type="thymio_event_button" x="538" y="38">\n' + 
+ '    <field name="BUTTON">button.backward</field>\n' + 
+ '    <field name="MODE">PRESS</field>\n' + 
+ '    <statement name="HANDLER">\n' + 
+ '      <block type="thymio_communication">\n' + 
+ '        <field name="MODE">ENABLE</field>\n' + 
+ '        <next>\n' + 
+ '          <block type="thymio_set_variable">\n' + 
+ '            <field name="VARIABLE">prox.comm.tx</field>\n' + 
+ '            <value name="VALUE">\n' + 
+ '              <block type="math_number">\n' + 
+ '                <field name="NUM">0</field>\n' + 
+ '              </block>\n' + 
+ '            </value>\n' + 
+ '          </block>\n' + 
+ '        </next>\n' + 
+ '      </block>\n' + 
+ '    </statement>\n' + 
+ '  </block>\n' + 
+ '  <block type="thymio_event_button" x="137" y="138">\n' + 
+ '    <field name="BUTTON">button.center</field>\n' + 
+ '    <field name="MODE">PRESS</field>\n' + 
+ '    <statement name="HANDLER">\n' + 
+ '      <block type="thymio_led_off">\n' + 
+ '        <field name="LED">leds.top</field>\n' + 
+ '        <next>\n' + 
+ '          <block type="thymio_communication">\n' + 
+ '            <field name="MODE">DISABLE</field>\n' + 
+ '          </block>\n' + 
+ '        </next>\n' + 
+ '      </block>\n' + 
+ '    </statement>\n' + 
+ '  </block>\n' + 
+ '  <block type="thymio_event" x="138" y="237">\n' + 
+ '    <field name="EVENT">prox.comm</field>\n' + 
+ '    <statement name="HANDLER">\n' + 
+ '      <block type="thymio_led_rgb">\n' + 
+ '        <field name="LED">leds.top</field>\n' + 
+ '        <value name="RED">\n' + 
+ '          <block type="thymio_get_sensor_state">\n' + 
+ '            <field name="SENSOR">prox.comm.rx</field>\n' + 
+ '          </block>\n' + 
+ '        </value>\n' + 
+ '        <value name="GREEN">\n' + 
+ '          <block type="math_number">\n' + 
+ '            <field name="NUM">0</field>\n' + 
+ '          </block>\n' + 
+ '        </value>\n' + 
+ '        <value name="BLUE">\n' + 
+ '          <block type="math_number">\n' + 
+ '            <field name="NUM">0</field>\n' + 
+ '          </block>\n' + 
+ '        </value>\n' + 
+ '      </block>\n' + 
+ '    </statement>\n' + 
+ '  </block>\n' + 
+ '</xml>',
+ 'onevent button.forward\n' + 
+ '	when button.forward == 1 do\n' + 
+ '		call prox.comm.enable(1)\n' + 
+ '		prox.comm.tx = 1\n' + 
+ '	end\n' + 
+ '\n' + 
+ '\n' + 
+ 'onevent button.backward\n' + 
+ '	when button.backward == 1 do\n' + 
+ '		call prox.comm.enable(1)\n' + 
+ '		prox.comm.tx = 0\n' + 
+ '	end\n' + 
+ '\n' + 
+ '\n' + 
+ 'onevent button.center\n' + 
+ '	when button.center == 1 do\n' + 
+ '		call leds.top(0,0,0)\n' + 
+ '		call prox.comm.enable(0)\n' + 
+ '	end\n' + 
+ '\n' + 
+ '\n' + 
+ 'onevent prox.comm\n' + 
+ '	call leds.top(prox.comm.rx,0,0)\n' + 
+ ''], 
+['communication server',
+ '<xml xmlns="http://www.w3.org/1999/xhtml">\n' + 
+ '  <block type="thymio_communication" x="63" y="62">\n' + 
+ '    <field name="MODE">ENABLE</field>\n' + 
+ '  </block>\n' + 
+ '  <block type="thymio_event" x="62" y="113">\n' + 
+ '    <field name="EVENT">prox.comm</field>\n' + 
+ '    <statement name="HANDLER">\n' + 
+ '      <block type="thymio_when">\n' + 
+ '        <value name="WHEN">\n' + 
+ '          <block type="logic_compare">\n' + 
+ '            <field name="OP">EQ</field>\n' + 
+ '            <value name="A">\n' + 
+ '              <block type="thymio_get_sensor_state">\n' + 
+ '                <field name="SENSOR">prox.comm.rx</field>\n' + 
+ '              </block>\n' + 
+ '            </value>\n' + 
+ '            <value name="B">\n' + 
+ '              <block type="math_number">\n' + 
+ '                <field name="NUM">1</field>\n' + 
+ '              </block>\n' + 
+ '            </value>\n' + 
+ '          </block>\n' + 
+ '        </value>\n' + 
+ '        <statement name="DO">\n' + 
+ '          <block type="thymio_led">\n' + 
+ '            <field name="LED">leds.top</field>\n' + 
+ '            <field name="COLOR">#33ff33</field>\n' + 
+ '            <next>\n' + 
+ '              <block type="variables_set">\n' + 
+ '                <field name="VAR">message</field>\n' + 
+ '                <value name="VALUE">\n' + 
+ '                  <block type="math_number">\n' + 
+ '                    <field name="NUM">0</field>\n' + 
+ '                  </block>\n' + 
+ '                </value>\n' + 
+ '                <next>\n' + 
+ '                  <block type="thymio_set_variable">\n' + 
+ '                    <field name="VARIABLE">timer.period[0]</field>\n' + 
+ '                    <value name="VALUE">\n' + 
+ '                      <block type="math_number">\n' + 
+ '                        <field name="NUM">100</field>\n' + 
+ '                      </block>\n' + 
+ '                    </value>\n' + 
+ '                  </block>\n' + 
+ '                </next>\n' + 
+ '              </block>\n' + 
+ '            </next>\n' + 
+ '          </block>\n' + 
+ '        </statement>\n' + 
+ '        <next>\n' + 
+ '          <block type="thymio_when">\n' + 
+ '            <value name="WHEN">\n' + 
+ '              <block type="logic_compare">\n' + 
+ '                <field name="OP">EQ</field>\n' + 
+ '                <value name="A">\n' + 
+ '                  <block type="thymio_get_sensor_state">\n' + 
+ '                    <field name="SENSOR">prox.comm.rx</field>\n' + 
+ '                  </block>\n' + 
+ '                </value>\n' + 
+ '                <value name="B">\n' + 
+ '                  <block type="math_number">\n' + 
+ '                    <field name="NUM">0</field>\n' + 
+ '                  </block>\n' + 
+ '                </value>\n' + 
+ '              </block>\n' + 
+ '            </value>\n' + 
+ '            <statement name="DO">\n' + 
+ '              <block type="thymio_led_off">\n' + 
+ '                <field name="LED">leds.top</field>\n' + 
+ '                <next>\n' + 
+ '                  <block type="thymio_set_variable">\n' + 
+ '                    <field name="VARIABLE">prox.comm.tx</field>\n' + 
+ '                    <value name="VALUE">\n' + 
+ '                      <block type="math_number">\n' + 
+ '                        <field name="NUM">0</field>\n' + 
+ '                      </block>\n' + 
+ '                    </value>\n' + 
+ '                    <next>\n' + 
+ '                      <block type="thymio_set_variable">\n' + 
+ '                        <field name="VARIABLE">timer.period[0]</field>\n' + 
+ '                        <value name="VALUE">\n' + 
+ '                          <block type="math_number">\n' + 
+ '                            <field name="NUM">0</field>\n' + 
+ '                          </block>\n' + 
+ '                        </value>\n' + 
+ '                      </block>\n' + 
+ '                    </next>\n' + 
+ '                  </block>\n' + 
+ '                </next>\n' + 
+ '              </block>\n' + 
+ '            </statement>\n' + 
+ '          </block>\n' + 
+ '        </next>\n' + 
+ '      </block>\n' + 
+ '    </statement>\n' + 
+ '  </block>\n' + 
+ '  <block type="thymio_event" x="537" y="112">\n' + 
+ '    <field name="EVENT">timer0</field>\n' + 
+ '    <statement name="HANDLER">\n' + 
+ '      <block type="variables_set">\n' + 
+ '        <field name="VAR">message</field>\n' + 
+ '        <value name="VALUE">\n' + 
+ '          <block type="thymio_arithmetic">\n' + 
+ '            <field name="OP">%</field>\n' + 
+ '            <value name="A">\n' + 
+ '              <block type="thymio_arithmetic">\n' + 
+ '                <field name="OP">+</field>\n' + 
+ '                <value name="A">\n' + 
+ '                  <block type="variables_get">\n' + 
+ '                    <field name="VAR">message</field>\n' + 
+ '                  </block>\n' + 
+ '                </value>\n' + 
+ '                <value name="B">\n' + 
+ '                  <block type="math_number">\n' + 
+ '                    <field name="NUM">1</field>\n' + 
+ '                  </block>\n' + 
+ '                </value>\n' + 
+ '              </block>\n' + 
+ '            </value>\n' + 
+ '            <value name="B">\n' + 
+ '              <block type="math_number">\n' + 
+ '                <field name="NUM">33</field>\n' + 
+ '              </block>\n' + 
+ '            </value>\n' + 
+ '          </block>\n' + 
+ '        </value>\n' + 
+ '        <next>\n' + 
+ '          <block type="thymio_set_variable">\n' + 
+ '            <field name="VARIABLE">prox.comm.tx</field>\n' + 
+ '            <value name="VALUE">\n' + 
+ '              <block type="variables_get">\n' + 
+ '                <field name="VAR">message</field>\n' + 
+ '              </block>\n' + 
+ '            </value>\n' + 
+ '            <next>\n' + 
+ '              <block type="thymio_set_variable">\n' + 
+ '                <field name="VARIABLE">timer.period[0]</field>\n' + 
+ '                <value name="VALUE">\n' + 
+ '                  <block type="math_number">\n' + 
+ '                    <field name="NUM">100</field>\n' + 
+ '                  </block>\n' + 
+ '                </value>\n' + 
+ '              </block>\n' + 
+ '            </next>\n' + 
+ '          </block>\n' + 
+ '        </next>\n' + 
+ '      </block>\n' + 
+ '    </statement>\n' + 
+ '  </block>\n' + 
+ '</xml>',
+ 'var message\n' + 
+ '\n' + 
+ '\n' + 
+ 'call prox.comm.enable(1)\n' + 
+ '\n' + 
+ '\n' + 
+ 'onevent prox.comm\n' + 
+ '	when prox.comm.rx == 1 do\n' + 
+ '		call leds.top(6,32,6)\n' + 
+ '		message = 0\n' + 
+ '		timer.period[0] = 100\n' + 
+ '	end\n' + 
+ '	when prox.comm.rx == 0 do\n' + 
+ '		call leds.top(0,0,0)\n' + 
+ '		prox.comm.tx = 0\n' + 
+ '		timer.period[0] = 0\n' + 
+ '	end\n' + 
+ '\n' + 
+ '\n' + 
+ 'onevent timer0\n' + 
+ '	message = (message + 1) % 33\n' + 
+ '	prox.comm.tx = message\n' + 
+ '	timer.period[0] = 100\n' + 
+ ''],
 ];
