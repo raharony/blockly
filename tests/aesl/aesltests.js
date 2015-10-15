@@ -2223,4 +2223,120 @@ AeslTests = [
  '		call leds.top(0,0,0)\n' + 
  '	end\n' + 
  ''],
+['arithmetic and binary crazyness',
+ '<xml xmlns="http://www.w3.org/1999/xhtml">\n' + 
+ '  <block type="variables_set" x="-138" y="112">\n' + 
+ '    <field name="VAR">crazy</field>\n' + 
+ '    <value name="VALUE">\n' + 
+ '      <block type="thymio_arithmetic">\n' + 
+ '        <field name="OP">+</field>\n' + 
+ '        <value name="A">\n' + 
+ '          <block type="math_number">\n' + 
+ '            <field name="NUM">0</field>\n' + 
+ '          </block>\n' + 
+ '        </value>\n' + 
+ '        <value name="B">\n' + 
+ '          <block type="thymio_arithmetic">\n' + 
+ '            <field name="OP">-</field>\n' + 
+ '            <value name="A">\n' + 
+ '              <block type="math_number">\n' + 
+ '                <field name="NUM">1</field>\n' + 
+ '              </block>\n' + 
+ '            </value>\n' + 
+ '            <value name="B">\n' + 
+ '              <block type="thymio_arithmetic">\n' + 
+ '                <field name="OP">*</field>\n' + 
+ '                <value name="A">\n' + 
+ '                  <block type="math_number">\n' + 
+ '                    <field name="NUM">2</field>\n' + 
+ '                  </block>\n' + 
+ '                </value>\n' + 
+ '                <value name="B">\n' + 
+ '                  <block type="thymio_arithmetic">\n' + 
+ '                    <field name="OP">/</field>\n' + 
+ '                    <value name="A">\n' + 
+ '                      <block type="math_number">\n' + 
+ '                        <field name="NUM">3</field>\n' + 
+ '                      </block>\n' + 
+ '                    </value>\n' + 
+ '                    <value name="B">\n' + 
+ '                      <block type="thymio_arithmetic">\n' + 
+ '                        <field name="OP">%</field>\n' + 
+ '                        <value name="A">\n' + 
+ '                          <block type="math_number">\n' + 
+ '                            <field name="NUM">4</field>\n' + 
+ '                          </block>\n' + 
+ '                        </value>\n' + 
+ '                        <value name="B">\n' + 
+ '                          <block type="thymio_binary">\n' + 
+ '                            <field name="OP">&lt;&lt;</field>\n' + 
+ '                            <value name="A">\n' + 
+ '                              <block type="math_number">\n' + 
+ '                                <field name="NUM">5</field>\n' + 
+ '                              </block>\n' + 
+ '                            </value>\n' + 
+ '                            <value name="B">\n' + 
+ '                              <block type="thymio_binary">\n' + 
+ '                                <field name="OP">&gt;&gt;</field>\n' + 
+ '                                <value name="A">\n' + 
+ '                                  <block type="math_number">\n' + 
+ '                                    <field name="NUM">6</field>\n' + 
+ '                                  </block>\n' + 
+ '                                </value>\n' + 
+ '                                <value name="B">\n' + 
+ '                                  <block type="thymio_binary">\n' + 
+ '                                    <field name="OP">&amp;</field>\n' + 
+ '                                    <value name="A">\n' + 
+ '                                      <block type="math_number">\n' + 
+ '                                        <field name="NUM">7</field>\n' + 
+ '                                      </block>\n' + 
+ '                                    </value>\n' + 
+ '                                    <value name="B">\n' + 
+ '                                      <block type="thymio_binary">\n' + 
+ '                                        <field name="OP">|</field>\n' + 
+ '                                        <value name="A">\n' + 
+ '                                          <block type="math_number">\n' + 
+ '                                            <field name="NUM">8</field>\n' + 
+ '                                          </block>\n' + 
+ '                                        </value>\n' + 
+ '                                        <value name="B">\n' + 
+ '                                          <block type="thymio_binary">\n' + 
+ '                                            <field name="OP">^</field>\n' + 
+ '                                            <value name="A">\n' + 
+ '                                              <block type="math_number">\n' + 
+ '                                                <field name="NUM">9</field>\n' + 
+ '                                              </block>\n' + 
+ '                                            </value>\n' + 
+ '                                            <value name="B">\n' + 
+ '                                              <block type="math_number">\n' + 
+ '                                                <field name="NUM">10</field>\n' + 
+ '                                              </block>\n' + 
+ '                                            </value>\n' + 
+ '                                          </block>\n' + 
+ '                                        </value>\n' + 
+ '                                      </block>\n' + 
+ '                                    </value>\n' + 
+ '                                  </block>\n' + 
+ '                                </value>\n' + 
+ '                              </block>\n' + 
+ '                            </value>\n' + 
+ '                          </block>\n' + 
+ '                        </value>\n' + 
+ '                      </block>\n' + 
+ '                    </value>\n' + 
+ '                  </block>\n' + 
+ '                </value>\n' + 
+ '              </block>\n' + 
+ '            </value>\n' + 
+ '          </block>\n' + 
+ '        </value>\n' + 
+ '      </block>\n' + 
+ '    </value>\n' + 
+ '  </block>\n' + 
+ '</xml>',
+ 'var crazy\n' + 
+ '\n' + 
+ '\n' + 
+ 'crazy = 0 + (1 - 2 * (3 / (4 % (5 << (6 >> (7 & (8 | 9 ^ 10)))))))\n' + 
+ ''],
 ];
