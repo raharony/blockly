@@ -501,7 +501,7 @@ Blockly.Blocks['thymio_binary'] = {
 		operators.push(['xor', '^']);
 		
 		this.setOutput(true, 'Number');
-		this.appendValueInput('A').setCheck('Number');
+		this.appendValueInput('A').setCheck('Number').appendField('binary');
 		this.appendValueInput('B').setCheck('Number').appendField(new Blockly.FieldDropdown(operators), 'OP');
 		this.setInputsInline(true);
 	}
