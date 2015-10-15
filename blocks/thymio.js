@@ -152,13 +152,34 @@ Blockly.Blocks['thymio_event_prox'] = {
 		sensorList.push(['front right', 'prox.horizontal[4]']);
 		sensorList.push(['rear left', 'prox.horizontal[5]']);
 		sensorList.push(['rear right', 'prox.horizontal[6]']);
-		sensorList.push(['ground left', 'prox.ground.delta[0]']);
-		sensorList.push(['ground right', 'prox.ground.delta[1]']);
 		
 		var sensorDropdown = new Blockly.FieldDropdown(sensorList);
-		var modeDropdown = new Blockly.FieldDropdown([['block', 'BLOCK'], ['clear', 'CLEAR']]);
+		var modeDropdown = new Blockly.FieldDropdown([['blocked', 'BLOCK'], ['cleared', 'CLEAR']]);
 		
 		this.appendDummyInput().appendField('on').appendField(sensorDropdown, 'SENSOR').appendField('proximity sensor').appendField(modeDropdown, 'MODE');
+		this.appendStatementInput('HANDLER');
+	},
+};
+
+Blockly.Blocks['thymio_event_prox_ground'] = {
+	/**
+	 * Block for Thymio ground proximity event.
+	 * 
+	 * @this Blockly.Block
+	 */
+	init : function()
+	{
+		this.setHelpUrl(Blockly.Msg.TEXT_THYMIO_EVENT_PROX_GROUND_HELPURL);
+		this.setTooltip(Blockly.Msg.TEXT_THYMIO_EVENT_PROX_GROUND_TOOLTIP);
+
+		var sensorList = [];
+		sensorList.push(['left', 'prox.ground.delta[0]']);
+		sensorList.push(['right', 'prox.ground.delta[1]']);
+		
+		var sensorDropdown = new Blockly.FieldDropdown(sensorList);
+		var modeDropdown = new Blockly.FieldDropdown([['black', 'BLACK'], ['white', 'WHITE']]);
+		
+		this.appendDummyInput().appendField('on').appendField(sensorDropdown, 'SENSOR').appendField('ground sensor').appendField(modeDropdown, 'MODE');
 		this.appendStatementInput('HANDLER');
 	},
 };
@@ -288,8 +309,8 @@ Blockly.Blocks['thymio_prox_check'] = {
 	 */
 	init : function()
 	{
-		this.setHelpUrl(Blockly.Msg.TEXT_THYMIO_PROX_BLOCKED_HELPURL);
-		this.setTooltip(Blockly.Msg.TEXT_THYMIO_PROX_BLOCKED_TOOLTIP);
+		this.setHelpUrl(Blockly.Msg.TEXT_THYMIO_PROX_CHECK_HELPURL);
+		this.setTooltip(Blockly.Msg.TEXT_THYMIO_PROX_CHECK_TOOLTIP);
 		
 		var sensorList = [];
 		sensorList.push(['front left', 'prox.horizontal[0]']);
@@ -299,14 +320,35 @@ Blockly.Blocks['thymio_prox_check'] = {
 		sensorList.push(['front right', 'prox.horizontal[4]']);
 		sensorList.push(['rear left', 'prox.horizontal[5]']);
 		sensorList.push(['rear right', 'prox.horizontal[6]']);
-		sensorList.push(['ground left', 'prox.ground.delta[0]']);
-		sensorList.push(['ground right', 'prox.ground.delta[1]']);
 
 		var sensorDropdown = new Blockly.FieldDropdown(sensorList);
-		var modeDropdown = new Blockly.FieldDropdown([['blocked', 'BLOCK'], ['clear', 'CLEAR']]);
+		var modeDropdown = new Blockly.FieldDropdown([['blocked', 'BLOCK'], ['cleared', 'CLEAR']]);
 		
 		this.setOutput(true, 'Boolean');
 		this.appendDummyInput().appendField(sensorDropdown, 'SENSOR').appendField('proximity sensor').appendField(modeDropdown, 'MODE');
+	},
+};
+
+Blockly.Blocks['thymio_prox_ground_check'] = {
+	/**
+	 * Block for checking whether a ground proximity sensor is white or black
+	 * 
+	 * @this Blockly.Block
+	 */
+	init : function()
+	{
+		this.setHelpUrl(Blockly.Msg.TEXT_THYMIO_PROX_GROUND_CHECK_HELPURL);
+		this.setTooltip(Blockly.Msg.TEXT_THYMIO_PROX_GROUND_CHECK_TOOLTIP);
+		
+		var sensorList = [];
+		sensorList.push(['left', 'prox.ground.delta[0]']);
+		sensorList.push(['right', 'prox.ground.delta[1]']);
+
+		var sensorDropdown = new Blockly.FieldDropdown(sensorList);
+		var modeDropdown = new Blockly.FieldDropdown([['black', 'BLACK'], ['white', 'WHITE']]);
+		
+		this.setOutput(true, 'Boolean');
+		this.appendDummyInput().appendField(sensorDropdown, 'SENSOR').appendField('ground sensor').appendField(modeDropdown, 'MODE');
 	},
 };
 

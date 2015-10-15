@@ -87,17 +87,34 @@ Blockly.AESL['thymio_event_prox'] = function(block)
 	
 	var condition = '';
 	if(mode == 'BLOCK') {
-		if(sensor.indexOf('prox.ground') == 0) {
-			condition = ' > 450';
-		} else {
-			condition = ' > 2000';
-		}
+		condition = ' > 2000';
 	} else {
-		if(sensor.indexOf('prox.ground') == 0) {
-			condition = ' < 400';
-		} else {
-			condition = ' < 1000';
-		}		
+		condition = ' < 1000';
+	}
+	
+	var code = '\twhen ' + sensor + condition + ' do\n';
+	
+	if(handler.length > 0) {
+		code += Blockly.AESL.prefixLines(handler, '\t');
+	}
+	
+	code += '\tend\n';
+
+	Blockly.AESL.addEventHandler('prox', code);
+	return null;
+};
+
+Blockly.AESL['thymio_event_prox_ground'] = function(block)
+{
+	var sensor = block.getFieldValue('SENSOR');
+	var mode = block.getFieldValue('MODE');
+	var handler = Blockly.AESL.statementToCode(block, 'HANDLER');
+	
+	var condition = '';
+	if(mode == 'BLACK') {
+		condition = ' > 450';
+	} else {
+		condition = ' < 400';
 	}
 	
 	var code = '\twhen ' + sensor + condition + ' do\n';
@@ -167,17 +184,24 @@ Blockly.AESL['thymio_prox_check'] = function(block)
 	
 	var condition = '';
 	if(mode == 'BLOCK') {
-		if(sensor.indexOf('prox.ground') == 0) {
-			condition = ' > 450';
-		} else {
-			condition = ' > 2000';
-		}
+		condition = ' > 2000';
 	} else {
-		if(sensor.indexOf('prox.ground') == 0) {
-			condition = ' < 400';
-		} else {
-			condition = ' < 1000';
-		}		
+		condition = ' < 1000';
+	}
+	
+	return [sensor + condition, Blockly.AESL.ORDER_CONDITION];
+};
+
+Blockly.AESL['thymio_prox_ground_check'] = function(block)
+{
+	var sensor = block.getFieldValue('SENSOR');
+	var mode = block.getFieldValue('MODE');
+	
+	var condition = '';
+	if(mode == 'BLACK') {
+		condition = ' > 450';
+	} else {
+		condition = ' < 400';
 	}
 	
 	return [sensor + condition, Blockly.AESL.ORDER_CONDITION];
