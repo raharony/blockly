@@ -97,7 +97,7 @@ Blockly.Blocks['thymio_event'] = {
 		eventList.push(['sound intensity above threshold', 'mic']);
 		eventList.push(['sound finished playing', 'sound.finished']);
 		eventList.push(['temperature read', 'temperature']);
-		eventList.push(['infrared signal', 'rc5']);
+		eventList.push(['remote control signal', 'rc5']);
 		eventList.push(['motor PID executed', 'motor']);
 		eventList.push(['first timer expired', 'timer0']);
 		eventList.push(['second timer expired', 'timer1']);
@@ -376,6 +376,8 @@ Blockly.Blocks['thymio_get_sensor_state'] = {
 		sensorList.push(['temperature', 'temperature']);
 		sensorList.push(['microphone intensity', 'mic.intensity']);
 		sensorList.push(['received communication', 'prox.comm.rx']);
+		sensorList.push(['remote control address', 'rc5.address']);
+		sensorList.push(['remote control command', 'rc5.command']);
 
 		var dropdown = new Blockly.FieldDropdown(sensorList);
 		this.setOutput(true, 'Number');
