@@ -2039,4 +2039,188 @@ AeslTests = [
  '	call leds.top(32,0,0)\n' + 
  'end\n' + 
  ''],
+['fibonacci numbers in an array',
+ '<xml xmlns="http://www.w3.org/1999/xhtml">\n' + 
+ '  <block type="thymio_declare_array" x="63" y="12">\n' + 
+ '    <field name="VAR">a</field>\n' + 
+ '    <field name="SIZE">10</field>\n' + 
+ '  </block>\n' + 
+ '  <block type="thymio_set_array" x="62" y="62">\n' + 
+ '    <field name="VAR">a</field>\n' + 
+ '    <value name="INDEX">\n' + 
+ '      <block type="math_number">\n' + 
+ '        <field name="NUM">1</field>\n' + 
+ '      </block>\n' + 
+ '    </value>\n' + 
+ '    <value name="VALUE">\n' + 
+ '      <block type="math_number">\n' + 
+ '        <field name="NUM">0</field>\n' + 
+ '      </block>\n' + 
+ '    </value>\n' + 
+ '    <next>\n' + 
+ '      <block type="thymio_set_array">\n' + 
+ '        <field name="VAR">a</field>\n' + 
+ '        <value name="INDEX">\n' + 
+ '          <block type="math_number">\n' + 
+ '            <field name="NUM">2</field>\n' + 
+ '          </block>\n' + 
+ '        </value>\n' + 
+ '        <value name="VALUE">\n' + 
+ '          <block type="math_number">\n' + 
+ '            <field name="NUM">1</field>\n' + 
+ '          </block>\n' + 
+ '        </value>\n' + 
+ '        <next>\n' + 
+ '          <block type="thymio_for">\n' + 
+ '            <field name="ITER">i</field>\n' + 
+ '            <field name="FROM">3</field>\n' + 
+ '            <field name="TO">10</field>\n' + 
+ '            <statement name="DO">\n' + 
+ '              <block type="thymio_set_array">\n' + 
+ '                <field name="VAR">a</field>\n' + 
+ '                <value name="INDEX">\n' + 
+ '                  <block type="variables_get">\n' + 
+ '                    <field name="VAR">i</field>\n' + 
+ '                  </block>\n' + 
+ '                </value>\n' + 
+ '                <value name="VALUE">\n' + 
+ '                  <block type="math_arithmetic">\n' + 
+ '                    <field name="OP">ADD</field>\n' + 
+ '                    <value name="A">\n' + 
+ '                      <shadow type="math_number">\n' + 
+ '                        \n' + 
+ '                        <field name="NUM">1</field>\n' + 
+ '                      \n' + 
+ '                      </shadow>\n' + 
+ '                      <block type="thymio_get_array">\n' + 
+ '                        <field name="VAR">a</field>\n' + 
+ '                        <value name="INDEX">\n' + 
+ '                          <block type="math_arithmetic">\n' + 
+ '                            <field name="OP">MINUS</field>\n' + 
+ '                            <value name="A">\n' + 
+ '                              <shadow type="math_number">\n' + 
+ '                                \n' + 
+ '                                <field name="NUM">1</field>\n' + 
+ '                              \n' + 
+ '                              </shadow>\n' + 
+ '                              <block type="variables_get">\n' + 
+ '                                <field name="VAR">i</field>\n' + 
+ '                              </block>\n' + 
+ '                            </value>\n' + 
+ '                            <value name="B">\n' + 
+ '                              <shadow type="math_number">\n' + 
+ '                                <field name="NUM">1</field>\n' + 
+ '                              </shadow>\n' + 
+ '                            </value>\n' + 
+ '                          </block>\n' + 
+ '                        </value>\n' + 
+ '                      </block>\n' + 
+ '                    </value>\n' + 
+ '                    <value name="B">\n' + 
+ '                      <shadow type="math_number">\n' + 
+ '                        \n' + 
+ '                        <field name="NUM">1</field>\n' + 
+ '                      \n' + 
+ '                      </shadow>\n' + 
+ '                      <block type="thymio_get_array">\n' + 
+ '                        <field name="VAR">a</field>\n' + 
+ '                        <value name="INDEX">\n' + 
+ '                          <block type="math_arithmetic">\n' + 
+ '                            <field name="OP">MINUS</field>\n' + 
+ '                            <value name="A">\n' + 
+ '                              <shadow type="math_number">\n' + 
+ '                                \n' + 
+ '                                <field name="NUM">1</field>\n' + 
+ '                              \n' + 
+ '                              </shadow>\n' + 
+ '                              <block type="variables_get">\n' + 
+ '                                <field name="VAR">i</field>\n' + 
+ '                              </block>\n' + 
+ '                            </value>\n' + 
+ '                            <value name="B">\n' + 
+ '                              <shadow type="math_number">\n' + 
+ '                                <field name="NUM">2</field>\n' + 
+ '                              </shadow>\n' + 
+ '                            </value>\n' + 
+ '                          </block>\n' + 
+ '                        </value>\n' + 
+ '                      </block>\n' + 
+ '                    </value>\n' + 
+ '                  </block>\n' + 
+ '                </value>\n' + 
+ '              </block>\n' + 
+ '            </statement>\n' + 
+ '            <next>\n' + 
+ '              <block type="controls_if">\n' + 
+ '                <mutation else="1"></mutation>\n' + 
+ '                <value name="IF0">\n' + 
+ '                  <block type="logic_compare">\n' + 
+ '                    <field name="OP">EQ</field>\n' + 
+ '                    <value name="A">\n' + 
+ '                      <block type="thymio_get_array">\n' + 
+ '                        <field name="VAR">a</field>\n' + 
+ '                        <value name="INDEX">\n' + 
+ '                          <block type="math_number">\n' + 
+ '                            <field name="NUM">10</field>\n' + 
+ '                          </block>\n' + 
+ '                        </value>\n' + 
+ '                      </block>\n' + 
+ '                    </value>\n' + 
+ '                    <value name="B">\n' + 
+ '                      <block type="math_number">\n' + 
+ '                        <field name="NUM">34</field>\n' + 
+ '                      </block>\n' + 
+ '                    </value>\n' + 
+ '                  </block>\n' + 
+ '                </value>\n' + 
+ '                <statement name="DO0">\n' + 
+ '                  <block type="thymio_led">\n' + 
+ '                    <field name="LED">leds.top</field>\n' + 
+ '                    <field name="COLOR">#33ff33</field>\n' + 
+ '                  </block>\n' + 
+ '                </statement>\n' + 
+ '                <statement name="ELSE">\n' + 
+ '                  <block type="thymio_led">\n' + 
+ '                    <field name="LED">leds.top</field>\n' + 
+ '                    <field name="COLOR">#ff0000</field>\n' + 
+ '                  </block>\n' + 
+ '                </statement>\n' + 
+ '              </block>\n' + 
+ '            </next>\n' + 
+ '          </block>\n' + 
+ '        </next>\n' + 
+ '      </block>\n' + 
+ '    </next>\n' + 
+ '  </block>\n' + 
+ '  <block type="thymio_event_button" x="63" y="387">\n' + 
+ '    <field name="BUTTON">button.center</field>\n' + 
+ '    <field name="MODE">PRESS</field>\n' + 
+ '    <statement name="HANDLER">\n' + 
+ '      <block type="thymio_led_off">\n' + 
+ '        <field name="LED">leds.top</field>\n' + 
+ '      </block>\n' + 
+ '    </statement>\n' + 
+ '  </block>\n' + 
+ '</xml>',
+ 'var a[11]\n' + 
+ 'var i\n' + 
+ '\n' + 
+ '\n' + 
+ 'a[1] = 0\n' + 
+ 'a[2] = 1\n' + 
+ 'for i in 3:10 do\n' + 
+ '	a[i] = a[i - 1] + a[i - 2]\n' + 
+ 'end\n' + 
+ 'if a[10] == 34 then\n' + 
+ '	call leds.top(6,32,6)\n' + 
+ 'else\n' + 
+ '	call leds.top(32,0,0)\n' + 
+ 'end\n' + 
+ '\n' + 
+ '\n' + 
+ 'onevent button.center\n' + 
+ '	when button.center == 1 do\n' + 
+ '		call leds.top(0,0,0)\n' + 
+ '	end\n' + 
+ ''],
 ];
