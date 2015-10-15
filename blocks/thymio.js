@@ -399,8 +399,8 @@ Blockly.Blocks['thymio_set_variable'] = {
 		variables.push(['left motor speed', 'motor.left.target']);
 		variables.push(['right motor speed', 'motor.right.target']);
 		variables.push(['microphone threshold', 'mic.threshold']);
-		variables.push(['timer 1 period','timer.period[0]']);
-		variables.push(['timer 2 period','timer.period[1]']);
+		variables.push(['first timer period','timer.period[0]']);
+		variables.push(['second timer period','timer.period[1]']);
 
 		var dropdown = new Blockly.FieldDropdown(variables);
 		this.appendValueInput('VALUE').setCheck('Number').appendField('set Thymio').appendField(dropdown, 'VARIABLE').appendField('to');
