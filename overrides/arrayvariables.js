@@ -50,6 +50,7 @@ Blockly.Variables.flyoutCategory = function(blocks, gaps, margin, workspace)
 		
 		var getArrayIndexBlock = Blockly.Blocks['math_number'] ? Blockly.Block.obtain(workspace, 'math_number') : null;
 		if(getArrayIndexBlock) {
+			getArrayIndexBlock.setShadow(true);
 			getArrayIndexBlock.initSvg();
 			getArrayBlock.inputList[0].connection.connect(getArrayIndexBlock.outputConnection);
 			getArrayIndexBlock.setFieldValue('1', 'NUM');
@@ -58,6 +59,7 @@ Blockly.Variables.flyoutCategory = function(blocks, gaps, margin, workspace)
 		
 		var setArrayIndexBlock = Blockly.Blocks['math_number'] ? Blockly.Block.obtain(workspace, 'math_number') : null;
 		if(setArrayIndexBlock) {
+			setArrayIndexBlock.setShadow(true);
 			setArrayIndexBlock.initSvg();
 			setArrayBlock.inputList[0].connection.connect(setArrayIndexBlock.outputConnection);
 			setArrayIndexBlock.setFieldValue('1', 'NUM');
@@ -66,6 +68,7 @@ Blockly.Variables.flyoutCategory = function(blocks, gaps, margin, workspace)
 		
 		var setArrayValueBlock = Blockly.Blocks['math_number'] ? Blockly.Block.obtain(workspace, 'math_number') : null;
 		if(setArrayValueBlock) {
+			setArrayValueBlock.setShadow(true);
 			setArrayValueBlock.initSvg();
 			setArrayBlock.inputList[1].connection.connect(setArrayValueBlock.outputConnection);
 			setArrayValueBlock.render();
