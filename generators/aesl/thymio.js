@@ -265,8 +265,13 @@ Blockly.AESL['thymio_set_array'] = function(block)
 	var variable = Blockly.AESL.variableDB_.getName(block.getFieldValue('VAR'), Blockly.Variables.NAME_TYPE);
 	var index = Blockly.AESL.valueToCode(block, 'INDEX', Blockly.AESL.ORDER_INDEX) || '0';
 	var value = Blockly.AESL.valueToCode(block, 'VALUE', Blockly.AESL.ORDER_ASSIGNMENT) || '0';
-
+	
 	var code = variable + '[' + index + '] = ' + value + '\n';
+	
+	if(!(variable in Blockly.AESL.arrays)) { // if no array with this name has been defined yet, initialize one
+		Blockly.AESL.arrays[variable] = 2;
+	}
+	
 	return code;
 };
 
@@ -275,7 +280,12 @@ Blockly.AESL['thymio_get_array'] = function(block)
 	var variable = Blockly.AESL.variableDB_.getName(block.getFieldValue('VAR'), Blockly.Variables.NAME_TYPE);
 	var index = Blockly.AESL.valueToCode(block, 'INDEX', Blockly.AESL.ORDER_NONE) || '0';
 
-	var code = variable + '[' + index + ']'; 
+	var code = variable + '[' + index + ']';
+	
+	if(!(variable in Blockly.AESL.arrays)) { // if no array with this name has been defined yet, initialize one
+		Blockly.AESL.arrays[variable] = 2;
+	}
+	
 	return [code, Blockly.AESL.ORDER_INDEX];
 };
 

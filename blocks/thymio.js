@@ -559,6 +559,30 @@ Blockly.Blocks['thymio_set_array'] = {
 	    this.appendValueInput('VALUE').setCheck('Number').appendField('to');
 	    this.setInputsInline(true);
 	},
+	/**
+	 * Return all variables referenced by this block.
+	 * 
+	 * @return {!Array.<string>} List of variable names.
+	 * @this Blockly.Block
+	 */
+	getVars : function()
+	{
+		return [this.getFieldValue('VAR')];
+	},
+	/**
+	 * Notification that a variable is renaming. If the name matches one of this
+	 * block's variables, rename it.
+	 * 
+	 * @param {string} oldName Previous name of variable.
+	 * @param {string} newName Renamed variable.
+	 * @this Blockly.Block
+	 */
+	renameVar : function(oldName, newName)
+	{
+		if(Blockly.Names.equals(oldName, this.getFieldValue('VAR'))) {
+			this.setFieldValue(newName, 'VAR');
+		}
+	},
 };
 
 Blockly.Blocks['thymio_get_array'] = {
@@ -578,6 +602,30 @@ Blockly.Blocks['thymio_get_array'] = {
 		this.setOutput(true, 'Number');
 		this.appendValueInput('INDEX').setCheck('Number').appendField('get array').appendField(variableField, 'VAR').appendField('element');
 	    this.setInputsInline(true);
+	},
+	/**
+	 * Return all variables referenced by this block.
+	 * 
+	 * @return {!Array.<string>} List of variable names.
+	 * @this Blockly.Block
+	 */
+	getVars : function()
+	{
+		return [this.getFieldValue('VAR')];
+	},
+	/**
+	 * Notification that a variable is renaming. If the name matches one of this
+	 * block's variables, rename it.
+	 * 
+	 * @param {string} oldName Previous name of variable.
+	 * @param {string} newName Renamed variable.
+	 * @this Blockly.Block
+	 */
+	renameVar : function(oldName, newName)
+	{
+		if(Blockly.Names.equals(oldName, this.getFieldValue('VAR'))) {
+			this.setFieldValue(newName, 'VAR');
+		}
 	},
 };
 
