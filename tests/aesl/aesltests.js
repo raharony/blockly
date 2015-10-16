@@ -148,7 +148,7 @@ AeslTests = [
  '  <block type="controls_if" x="113" y="63">\n' + 
  '    <mutation else="1"></mutation>\n' + 
  '    <value name="IF0">\n' + 
- '      <block type="logic_compare">\n' + 
+ '      <block type="thymio_compare">\n' + 
  '        <field name="OP">GT</field>\n' + 
  '        <value name="A">\n' + 
  '          <block type="thymio_get_sensor_state">\n' + 
@@ -498,29 +498,6 @@ AeslTests = [
  '	else\n' + 
  '		call leds.top(32,0,0)\n' + 
  '	end\n' + 
- ''],
-['disallow boolean comparisons',
- '<xml xmlns="http://www.w3.org/1999/xhtml">\n' + 
- '  <block type="controls_if" x="213" y="88">\n' + 
- '    <value name="IF0">\n' + 
- '      <block type="logic_compare">\n' + 
- '        <field name="OP">EQ</field>\n' + 
- '        <value name="A">\n' + 
- '          <block type="logic_boolean">\n' + 
- '            <field name="BOOL">TRUE</field>\n' + 
- '          </block>\n' + 
- '        </value>\n' + 
- '        <value name="B">\n' + 
- '          <block type="logic_boolean">\n' + 
- '            <field name="BOOL">TRUE</field>\n' + 
- '          </block>\n' + 
- '        </value>\n' + 
- '      </block>\n' + 
- '    </value>\n' + 
- '  </block>\n' + 
- '</xml>',
- 'if 0 == 1 then\n' + 
- 'end\n' + 
  ''],
 ['repeat while loop',
  '<xml xmlns="http://www.w3.org/1999/xhtml">\n' + 
@@ -1096,7 +1073,7 @@ AeslTests = [
  '      <block type="controls_if">\n' + 
  '        <mutation elseif="1" else="1"></mutation>\n' + 
  '        <value name="IF0">\n' + 
- '          <block type="logic_compare">\n' + 
+ '          <block type="thymio_compare">\n' + 
  '            <field name="OP">GT</field>\n' + 
  '            <value name="A">\n' + 
  '              <block type="thymio_variable_get">\n' + 
@@ -1167,7 +1144,7 @@ AeslTests = [
  '          </block>\n' + 
  '        </statement>\n' + 
  '        <value name="IF1">\n' + 
- '          <block type="logic_compare">\n' + 
+ '          <block type="thymio_compare">\n' + 
  '            <field name="OP">LT</field>\n' + 
  '            <value name="A">\n' + 
  '              <block type="thymio_variable_get">\n' + 
@@ -1528,7 +1505,7 @@ AeslTests = [
  '    <statement name="HANDLER">\n' + 
  '      <block type="controls_if">\n' + 
  '        <value name="IF0">\n' + 
- '          <block type="logic_compare">\n' + 
+ '          <block type="thymio_compare">\n' + 
  '            <field name="OP">GT</field>\n' + 
  '            <value name="A">\n' + 
  '              <block type="thymio_variable_get">\n' + 
@@ -1997,7 +1974,7 @@ AeslTests = [
  '          <block type="controls_if">\n' + 
  '            <mutation else="1"></mutation>\n' + 
  '            <value name="IF0">\n' + 
- '              <block type="logic_compare">\n' + 
+ '              <block type="thymio_compare">\n' + 
  '                <field name="OP">EQ</field>\n' + 
  '                <value name="A">\n' + 
  '                  <block type="thymio_variable_get">\n' + 
@@ -2158,7 +2135,7 @@ AeslTests = [
  '              <block type="controls_if">\n' + 
  '                <mutation else="1"></mutation>\n' + 
  '                <value name="IF0">\n' + 
- '                  <block type="logic_compare">\n' + 
+ '                  <block type="thymio_compare">\n' + 
  '                    <field name="OP">EQ</field>\n' + 
  '                    <value name="A">\n' + 
  '                      <block type="thymio_get_array">\n' + 
@@ -2486,7 +2463,7 @@ AeslTests = [
  '    <statement name="HANDLER">\n' + 
  '      <block type="thymio_when">\n' + 
  '        <value name="WHEN">\n' + 
- '          <block type="logic_compare">\n' + 
+ '          <block type="thymio_compare">\n' + 
  '            <field name="OP">EQ</field>\n' + 
  '            <value name="A">\n' + 
  '              <block type="thymio_get_sensor_state">\n' + 
@@ -2529,7 +2506,7 @@ AeslTests = [
  '        <next>\n' + 
  '          <block type="thymio_when">\n' + 
  '            <value name="WHEN">\n' + 
- '              <block type="logic_compare">\n' + 
+ '              <block type="thymio_compare">\n' + 
  '                <field name="OP">EQ</field>\n' + 
  '                <value name="A">\n' + 
  '                  <block type="thymio_get_sensor_state">\n' + 
@@ -2696,7 +2673,7 @@ AeslTests = [
  '    <statement name="HANDLER">\n' + 
  '      <block type="controls_if">\n' + 
  '        <value name="IF0">\n' + 
- '          <block type="logic_compare">\n' + 
+ '          <block type="thymio_compare">\n' + 
  '            <field name="OP">GT</field>\n' + 
  '            <value name="A">\n' + 
  '              <block type="thymio_get_sensor_state">\n' + 
