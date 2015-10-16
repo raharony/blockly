@@ -242,6 +242,53 @@ Blockly.AESL['thymio_get_sensor_state'] = function(block)
 	return [sensor, Blockly.AESL.ORDER_ATOMIC];
 };
 
+Blockly.AESL['thymio_motors_start'] = function(block)
+{
+	var command = block.getFieldValue('COMMAND');
+	var speed = Blockly.AESL.valueToCode(block, 'SPEED', Blockly.AESL.ORDER_ASSIGNMENT) || '0';
+	
+	var leftTarget = 0;
+	var rightTarget = 0;
+	
+	if(command == 'FORWARD') {
+		leftTarget = speed;
+		rightTarget = speed;
+	} else if(command == 'BACKWARD') {
+		leftTarget = -speed;
+		rightTarget = -speed;
+	} else if(command == 'TURNLEFT') {
+		leftTarget = 0;
+		rightTarget = speed;
+	} else if(command == 'TURNRIGHT') {
+		leftTarget = speed;
+		rightTarget = 0;
+	} else if(command == 'TURNBACKWARDLEFT') {
+		leftTarget = 0;
+		rightTarget = -speed;
+	} else if(command == 'TURNBACKWARDRIGHT') {
+		leftTarget = -speed;
+		rightTarget = 0;
+	} else if(command == 'SPINCCW') {
+		leftTarget = -speed;
+		rightTarget = speed;
+	} else if(command == 'SPINCW') {
+		leftTarget = speed;
+		rightTarget = -speed;
+	}
+
+	var code = 'motor.left.target = ' + leftTarget + '\n' +
+		'motor.right.target = ' + rightTarget + '\n';
+	return code;
+};
+
+Blockly.AESL['thymio_motors_stop'] = function(block)
+{
+	var code = 'motor.left.target = 0\n' +
+		'motor.right.target = 0\n';
+	return code;
+};
+
+
 Blockly.AESL['thymio_actuator_set'] = function(block)
 {
 	var variable = block.getFieldValue('VARIABLE');

@@ -468,6 +468,53 @@ Blockly.Blocks['thymio_get_sensor_state'] = {
 	},
 };
 
+Blockly.Blocks['thymio_motors_start'] = {
+	/**
+	 * Block for starting Thymio's motors
+	 * 
+	 * @this Blockly.Block
+	 */
+	init : function()
+	{
+		this.setColour(Blockly.Blocks.thymio.ACTUATORS_HUE);
+		this.setHelpUrl(Blockly.Msg.TEXT_THYMIO_MOTORS_START_HELPURL);
+		this.setTooltip(Blockly.Msg.TEXT_THYMIO_MOTORS_START_TOOLTIP);
+		this.setPreviousStatement(true);
+		this.setNextStatement(true);
+		
+		var commands = [];
+		commands.push(['driving forward', 'FORWARD']);
+		commands.push(['driving backward', 'BACKWARD']);
+		commands.push(['turning left', 'TURNLEFT']);
+		commands.push(['turning right', 'TURNRIGHT']);
+		commands.push(['turning backward left', 'TURNBACKWARDLEFT']);
+		commands.push(['turning backward right', 'TURNBACKWARDRIGHT']);
+		commands.push(['spinning counterclockwise', 'SPINCCW']);
+		commands.push(['spinning clockwise', 'SPINCW']);		
+
+		var dropdown = new Blockly.FieldDropdown(commands);
+		this.appendValueInput('SPEED').setCheck('Number').appendField('start').appendField(dropdown, 'COMMAND').appendField('with speed');
+	},
+};
+
+Blockly.Blocks['thymio_motors_stop'] = {
+	/**
+	 * Block for stopping Thymio's motors
+	 * 
+	 * @this Blockly.Block
+	 */
+	init : function()
+	{
+		this.setColour(Blockly.Blocks.thymio.ACTUATORS_HUE);
+		this.setHelpUrl(Blockly.Msg.TEXT_THYMIO_MOTORS_STOP_HELPURL);
+		this.setTooltip(Blockly.Msg.TEXT_THYMIO_MOTORS_STOP_TOOLTIP);
+		this.setPreviousStatement(true);
+		this.setNextStatement(true);
+		
+		this.appendDummyInput().appendField('stop motors');
+	},
+};
+
 Blockly.Blocks['thymio_actuator_set'] = {
 	/**
 	 * Block for setting a Thymio actuator
