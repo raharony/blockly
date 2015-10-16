@@ -39,9 +39,9 @@ Blockly.Variables.flyoutCategory = function(blocks, gaps, margin, workspace)
 		if(variableList[i] === defaultVariable) {
 			continue;
 		}
-		var getBlock = Blockly.Blocks['variables_get'] ? Blockly.Block.obtain(workspace, 'variables_get') : null;
+		var getBlock = Blockly.Blocks['thymio_variable_get'] ? Blockly.Block.obtain(workspace, 'thymio_variable_get') : null;
 		getBlock && getBlock.initSvg();
-		var setBlock = Blockly.Blocks['variables_set'] ? Blockly.Block.obtain(workspace, 'variables_set') : null;
+		var setBlock = Blockly.Blocks['thymio_variable_set'] ? Blockly.Block.obtain(workspace, 'thymio_variable_set') : null;
 		setBlock && setBlock.initSvg();
 		var getArrayBlock = Blockly.Blocks['thymio_get_array'] ? Blockly.Block.obtain(workspace, 'thymio_get_array') : null;
 		getArrayBlock && getArrayBlock.initSvg();
