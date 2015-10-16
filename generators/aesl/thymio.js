@@ -256,6 +256,10 @@ Blockly.AESL['thymio_declare_array'] = function(block)
 	var variable = Blockly.AESL.variableDB_.getName(block.getFieldValue('VAR'), Blockly.Variables.NAME_TYPE);	
 	var size = parseInt(block.getFieldValue('SIZE'));
 	
+	if(size < 1) {
+		size = 1;
+	}
+	
 	Blockly.AESL.arrays[variable] = size + 1; // generate arrays of one size too large so we can start indexing at one
 	return null;
 };
