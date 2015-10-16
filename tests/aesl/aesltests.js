@@ -2851,4 +2851,182 @@ AeslTests = [
  'c[3] = 3\n' + 
  'c[0] = a + b[0]\n' + 
  ''],
+['motor controls',
+ '<xml xmlns="http://www.w3.org/1999/xhtml">\n' + 
+ '  <block type="thymio_event_button" x="163" y="88">\n' + 
+ '    <field name="BUTTON">button.center</field>\n' + 
+ '    <field name="MODE">PRESS</field>\n' + 
+ '    <statement name="HANDLER">\n' + 
+ '      <block type="thymio_motors_stop"></block>\n' + 
+ '    </statement>\n' + 
+ '  </block>\n' + 
+ '  <block type="thymio_event_button" x="163" y="188">\n' + 
+ '    <field name="BUTTON">button.forward</field>\n' + 
+ '    <field name="MODE">PRESS</field>\n' + 
+ '    <statement name="HANDLER">\n' + 
+ '      <block type="thymio_motors_start">\n' + 
+ '        <field name="COMMAND">FORWARD</field>\n' + 
+ '        <value name="SPEED">\n' + 
+ '          <shadow type="math_number">\n' + 
+ '            <field name="NUM">300</field>\n' + 
+ '          </shadow>\n' + 
+ '        </value>\n' + 
+ '      </block>\n' + 
+ '    </statement>\n' + 
+ '  </block>\n' + 
+ '  <block type="thymio_event_prox" x="613" y="188">\n' + 
+ '    <field name="SENSOR">prox.horizontal[0]</field>\n' + 
+ '    <field name="MODE">BLOCK</field>\n' + 
+ '    <statement name="HANDLER">\n' + 
+ '      <block type="thymio_motors_start">\n' + 
+ '        <field name="COMMAND">TURNLEFT</field>\n' + 
+ '        <value name="SPEED">\n' + 
+ '          <shadow type="math_number">\n' + 
+ '            <field name="NUM">300</field>\n' + 
+ '          </shadow>\n' + 
+ '        </value>\n' + 
+ '      </block>\n' + 
+ '    </statement>\n' + 
+ '  </block>\n' + 
+ '  <block type="thymio_event_button" x="163" y="263">\n' + 
+ '    <field name="BUTTON">button.backward</field>\n' + 
+ '    <field name="MODE">PRESS</field>\n' + 
+ '    <statement name="HANDLER">\n' + 
+ '      <block type="thymio_motors_start">\n' + 
+ '        <field name="COMMAND">BACKWARD</field>\n' + 
+ '        <value name="SPEED">\n' + 
+ '          <shadow type="math_number">\n' + 
+ '            <field name="NUM">300</field>\n' + 
+ '          </shadow>\n' + 
+ '        </value>\n' + 
+ '      </block>\n' + 
+ '    </statement>\n' + 
+ '  </block>\n' + 
+ '  <block type="thymio_event_prox" x="613" y="263">\n' + 
+ '    <field name="SENSOR">prox.horizontal[4]</field>\n' + 
+ '    <field name="MODE">BLOCK</field>\n' + 
+ '    <statement name="HANDLER">\n' + 
+ '      <block type="thymio_motors_start">\n' + 
+ '        <field name="COMMAND">TURNRIGHT</field>\n' + 
+ '        <value name="SPEED">\n' + 
+ '          <shadow type="math_number">\n' + 
+ '            <field name="NUM">300</field>\n' + 
+ '          </shadow>\n' + 
+ '        </value>\n' + 
+ '      </block>\n' + 
+ '    </statement>\n' + 
+ '  </block>\n' + 
+ '  <block type="thymio_event_button" x="163" y="338">\n' + 
+ '    <field name="BUTTON">button.left</field>\n' + 
+ '    <field name="MODE">PRESS</field>\n' + 
+ '    <statement name="HANDLER">\n' + 
+ '      <block type="thymio_motors_start">\n' + 
+ '        <field name="COMMAND">SPINCCW</field>\n' + 
+ '        <value name="SPEED">\n' + 
+ '          <shadow type="math_number">\n' + 
+ '            <field name="NUM">300</field>\n' + 
+ '          </shadow>\n' + 
+ '        </value>\n' + 
+ '      </block>\n' + 
+ '    </statement>\n' + 
+ '  </block>\n' + 
+ '  <block type="thymio_event_prox" x="613" y="338">\n' + 
+ '    <field name="SENSOR">prox.horizontal[5]</field>\n' + 
+ '    <field name="MODE">BLOCK</field>\n' + 
+ '    <statement name="HANDLER">\n' + 
+ '      <block type="thymio_motors_start">\n' + 
+ '        <field name="COMMAND">TURNBACKWARDLEFT</field>\n' + 
+ '        <value name="SPEED">\n' + 
+ '          <shadow type="math_number">\n' + 
+ '            <field name="NUM">300</field>\n' + 
+ '          </shadow>\n' + 
+ '        </value>\n' + 
+ '      </block>\n' + 
+ '    </statement>\n' + 
+ '  </block>\n' + 
+ '  <block type="thymio_event_button" x="162" y="413">\n' + 
+ '    <field name="BUTTON">button.right</field>\n' + 
+ '    <field name="MODE">PRESS</field>\n' + 
+ '    <statement name="HANDLER">\n' + 
+ '      <block type="thymio_motors_start">\n' + 
+ '        <field name="COMMAND">SPINCW</field>\n' + 
+ '        <value name="SPEED">\n' + 
+ '          <shadow type="math_number">\n' + 
+ '            <field name="NUM">300</field>\n' + 
+ '          </shadow>\n' + 
+ '        </value>\n' + 
+ '      </block>\n' + 
+ '    </statement>\n' + 
+ '  </block>\n' + 
+ '  <block type="thymio_event_prox" x="613" y="413">\n' + 
+ '    <field name="SENSOR">prox.horizontal[6]</field>\n' + 
+ '    <field name="MODE">BLOCK</field>\n' + 
+ '    <statement name="HANDLER">\n' + 
+ '      <block type="thymio_motors_start">\n' + 
+ '        <field name="COMMAND">TURNBACKWARDRIGHT</field>\n' + 
+ '        <value name="SPEED">\n' + 
+ '          <shadow type="math_number">\n' + 
+ '            <field name="NUM">300</field>\n' + 
+ '          </shadow>\n' + 
+ '        </value>\n' + 
+ '      </block>\n' + 
+ '    </statement>\n' + 
+ '  </block>\n' + 
+ '</xml>',
+ 'onevent button.center\n' + 
+ '	when button.center == 1 do\n' + 
+ '		motor.left.target = 0\n' + 
+ '		motor.right.target = 0\n' + 
+ '	end\n' + 
+ '\n' + 
+ '\n' + 
+ 'onevent button.forward\n' + 
+ '	when button.forward == 1 do\n' + 
+ '		motor.left.target = 300\n' + 
+ '		motor.right.target = 300\n' + 
+ '	end\n' + 
+ '\n' + 
+ '\n' + 
+ 'onevent prox\n' + 
+ '	when prox.horizontal[0] > 2000 do\n' + 
+ '		motor.left.target = 0\n' + 
+ '		motor.right.target = 300\n' + 
+ '	end\n' + 
+ '\n' + 
+ '	when prox.horizontal[4] > 2000 do\n' + 
+ '		motor.left.target = 300\n' + 
+ '		motor.right.target = 0\n' + 
+ '	end\n' + 
+ '\n' + 
+ '	when prox.horizontal[5] > 2000 do\n' + 
+ '		motor.left.target = 0\n' + 
+ '		motor.right.target = -300\n' + 
+ '	end\n' + 
+ '\n' + 
+ '	when prox.horizontal[6] > 2000 do\n' + 
+ '		motor.left.target = -300\n' + 
+ '		motor.right.target = 0\n' + 
+ '	end\n' + 
+ '\n' + 
+ '\n' + 
+ 'onevent button.backward\n' + 
+ '	when button.backward == 1 do\n' + 
+ '		motor.left.target = -300\n' + 
+ '		motor.right.target = -300\n' + 
+ '	end\n' + 
+ '\n' + 
+ '\n' + 
+ 'onevent button.left\n' + 
+ '	when button.left == 1 do\n' + 
+ '		motor.left.target = -300\n' + 
+ '		motor.right.target = 300\n' + 
+ '	end\n' + 
+ '\n' + 
+ '\n' + 
+ 'onevent button.right\n' + 
+ '	when button.right == 1 do\n' + 
+ '		motor.left.target = 300\n' + 
+ '		motor.right.target = -300\n' + 
+ '	end\n' + 
+ ''],
 ];
