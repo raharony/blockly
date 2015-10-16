@@ -11,7 +11,8 @@ goog.require('Blockly.AESL');
 Blockly.AESL['variables_get'] = function(block)
 {
 	// Variable getter.
-	var code = Blockly.AESL.variableDB_.getName(block.getFieldValue('VAR'), Blockly.Variables.NAME_TYPE);
+	var code = '@variable:' + Blockly.AESL.variableDB_.getName(block.getFieldValue('VAR'), Blockly.Variables.NAME_TYPE) + '@';
+	
 	return [code, Blockly.AESL.ORDER_ATOMIC];
 };
 
@@ -30,5 +31,5 @@ Blockly.AESL['variables_set'] = function(block)
     }
 	
 	// Variable setter.
-	return varName + ' = ' + argument0 + '\n';
+	return '@variable:' + varName + '@ = ' + argument0 + '\n';
 };

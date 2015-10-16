@@ -135,6 +135,21 @@ Blockly.AESL.finish = function(code)
 		parts.push(Blockly.AESL.definitions_[name]);
 	}
 	
+	var output = parts.join('\n\n');
+	
+	// replace variable hints with array access where necessary
+	for(var property in vdb) {
+	    if (Object.prototype.hasOwnProperty.call(vdb, property)) {
+	    	var regex = new RegExp("@variable:" + property + '@', "g");
+	    	
+	    	if(property in Blockly.AESL.arrays) {
+	    		output = output.replace(regex, property + '[0]'); // replace direct array variable access to access to first element
+	    	} else if(!(property in Blockly.AESL.subroutines)) {
+	    		output = output.replace(regex, property); // leave non-array access alone
+	    	}
+	    }
+	}
+	
 	// Clean up temporary data.
 	delete Blockly.AESL.definitions_;
 	delete Blockly.AESL.functionNames_;
@@ -142,7 +157,7 @@ Blockly.AESL.finish = function(code)
 	Blockly.AESL.subroutines = [];
 	Blockly.AESL.arrays = [];
 	
-	return parts.join('\n\n');
+	return output;
 };
 
 /**
