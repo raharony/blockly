@@ -936,7 +936,7 @@ AeslTests = [
  '      <block type="thymio_actuator_set">\n' + 
  '        <field name="VARIABLE">motor.left.target</field>\n' + 
  '        <value name="VALUE">\n' + 
- '          <block type="variables_get">\n' + 
+ '          <block type="thymio_variable_get">\n' + 
  '            <field name="VAR">speed</field>\n' + 
  '          </block>\n' + 
  '        </value>\n' + 
@@ -944,7 +944,7 @@ AeslTests = [
  '          <block type="thymio_actuator_set">\n' + 
  '            <field name="VARIABLE">motor.right.target</field>\n' + 
  '            <value name="VALUE">\n' + 
- '              <block type="variables_get">\n' + 
+ '              <block type="thymio_variable_get">\n' + 
  '                <field name="VAR">speed</field>\n' + 
  '              </block>\n' + 
  '            </value>\n' + 
@@ -957,7 +957,7 @@ AeslTests = [
  '    <field name="BUTTON">button.center</field>\n' + 
  '    <field name="MODE">PRESS</field>\n' + 
  '    <statement name="HANDLER">\n' + 
- '      <block type="variables_set">\n' + 
+ '      <block type="thymio_variable_set">\n' + 
  '        <field name="VAR">speed</field>\n' + 
  '        <value name="VALUE">\n' + 
  '          <block type="math_number">\n' + 
@@ -971,13 +971,13 @@ AeslTests = [
  '    <field name="BUTTON">button.backward</field>\n' + 
  '    <field name="MODE">PRESS</field>\n' + 
  '    <statement name="HANDLER">\n' + 
- '      <block type="variables_set">\n' + 
+ '      <block type="thymio_variable_set">\n' + 
  '        <field name="VAR">speed</field>\n' + 
  '        <value name="VALUE">\n' + 
  '          <block type="math_arithmetic">\n' + 
  '            <field name="OP">MINUS</field>\n' + 
  '            <value name="A">\n' + 
- '              <block type="variables_get">\n' + 
+ '              <block type="thymio_variable_get">\n' + 
  '                <field name="VAR">speed</field>\n' + 
  '              </block>\n' + 
  '            </value>\n' + 
@@ -995,13 +995,13 @@ AeslTests = [
  '    <field name="BUTTON">button.forward</field>\n' + 
  '    <field name="MODE">PRESS</field>\n' + 
  '    <statement name="HANDLER">\n' + 
- '      <block type="variables_set">\n' + 
+ '      <block type="thymio_variable_set">\n' + 
  '        <field name="VAR">speed</field>\n' + 
  '        <value name="VALUE">\n' + 
  '          <block type="math_arithmetic">\n' + 
  '            <field name="OP">ADD</field>\n' + 
  '            <value name="A">\n' + 
- '              <block type="variables_get">\n' + 
+ '              <block type="thymio_variable_get">\n' + 
  '                <field name="VAR">speed</field>\n' + 
  '              </block>\n' + 
  '            </value>\n' + 
@@ -1047,7 +1047,7 @@ AeslTests = [
  '    <field name="BUTTON">button.center</field>\n' + 
  '    <field name="MODE">PRESS</field>\n' + 
  '    <statement name="HANDLER">\n' + 
- '      <block type="variables_set">\n' + 
+ '      <block type="thymio_variable_set">\n' + 
  '        <field name="VAR">speed</field>\n' + 
  '        <value name="VALUE">\n' + 
  '          <block type="math_number">\n' + 
@@ -1073,7 +1073,7 @@ AeslTests = [
  '      <block type="thymio_actuator_set">\n' + 
  '        <field name="VARIABLE">motor.left.target</field>\n' + 
  '        <value name="VALUE">\n' + 
- '          <block type="variables_get">\n' + 
+ '          <block type="thymio_variable_get">\n' + 
  '            <field name="VAR">speed</field>\n' + 
  '          </block>\n' + 
  '        </value>\n' + 
@@ -1081,7 +1081,7 @@ AeslTests = [
  '          <block type="thymio_actuator_set">\n' + 
  '            <field name="VARIABLE">motor.right.target</field>\n' + 
  '            <value name="VALUE">\n' + 
- '              <block type="variables_get">\n' + 
+ '              <block type="thymio_variable_get">\n' + 
  '                <field name="VAR">speed</field>\n' + 
  '              </block>\n' + 
  '            </value>\n' + 
@@ -1099,7 +1099,7 @@ AeslTests = [
  '          <block type="logic_compare">\n' + 
  '            <field name="OP">GT</field>\n' + 
  '            <value name="A">\n' + 
- '              <block type="variables_get">\n' + 
+ '              <block type="thymio_variable_get">\n' + 
  '                <field name="VAR">speed</field>\n' + 
  '              </block>\n' + 
  '            </value>\n' + 
@@ -1111,7 +1111,7 @@ AeslTests = [
  '          </block>\n' + 
  '        </value>\n' + 
  '        <statement name="DO0">\n' + 
- '          <block type="variables_set">\n' + 
+ '          <block type="thymio_variable_set">\n' + 
  '            <field name="VAR">intensity</field>\n' + 
  '            <value name="VALUE">\n' + 
  '              <block type="math_arithmetic">\n' + 
@@ -1131,7 +1131,7 @@ AeslTests = [
  '                      <shadow type="math_number">\n' + 
  '                        <field name="NUM">32</field>\n' + 
  '                      </shadow>\n' + 
- '                      <block type="variables_get">\n' + 
+ '                      <block type="thymio_variable_get">\n' + 
  '                        <field name="VAR">speed</field>\n' + 
  '                      </block>\n' + 
  '                    </value>\n' + 
@@ -1153,7 +1153,7 @@ AeslTests = [
  '                  </block>\n' + 
  '                </value>\n' + 
  '                <value name="GREEN">\n' + 
- '                  <block type="variables_get">\n' + 
+ '                  <block type="thymio_variable_get">\n' + 
  '                    <field name="VAR">intensity</field>\n' + 
  '                  </block>\n' + 
  '                </value>\n' + 
@@ -1170,7 +1170,7 @@ AeslTests = [
  '          <block type="logic_compare">\n' + 
  '            <field name="OP">LT</field>\n' + 
  '            <value name="A">\n' + 
- '              <block type="variables_get">\n' + 
+ '              <block type="thymio_variable_get">\n' + 
  '                <field name="VAR">speed</field>\n' + 
  '              </block>\n' + 
  '            </value>\n' + 
@@ -1182,7 +1182,7 @@ AeslTests = [
  '          </block>\n' + 
  '        </value>\n' + 
  '        <statement name="DO1">\n' + 
- '          <block type="variables_set">\n' + 
+ '          <block type="thymio_variable_set">\n' + 
  '            <field name="VAR">intensity</field>\n' + 
  '            <value name="VALUE">\n' + 
  '              <block type="math_arithmetic">\n' + 
@@ -1202,7 +1202,7 @@ AeslTests = [
  '                      <shadow type="math_number">\n' + 
  '                        <field name="NUM">-32</field>\n' + 
  '                      </shadow>\n' + 
- '                      <block type="variables_get">\n' + 
+ '                      <block type="thymio_variable_get">\n' + 
  '                        <field name="VAR">speed</field>\n' + 
  '                      </block>\n' + 
  '                    </value>\n' + 
@@ -1219,7 +1219,7 @@ AeslTests = [
  '              <block type="thymio_led_rgb">\n' + 
  '                <field name="LED">leds.top</field>\n' + 
  '                <value name="RED">\n' + 
- '                  <block type="variables_get">\n' + 
+ '                  <block type="thymio_variable_get">\n' + 
  '                    <field name="VAR">intensity</field>\n' + 
  '                  </block>\n' + 
  '                </value>\n' + 
@@ -1249,7 +1249,7 @@ AeslTests = [
  '    <field name="BUTTON">button.forward</field>\n' + 
  '    <field name="MODE">PRESS</field>\n' + 
  '    <statement name="HANDLER">\n' + 
- '      <block type="variables_set">\n' + 
+ '      <block type="thymio_variable_set">\n' + 
  '        <field name="VAR">speed</field>\n' + 
  '        <value name="VALUE">\n' + 
  '          <block type="math_arithmetic">\n' + 
@@ -1258,7 +1258,7 @@ AeslTests = [
  '              <shadow type="math_number"> \n' + 
  '                <field name="NUM">1</field> \n' + 
  '              </shadow>\n' + 
- '              <block type="variables_get">\n' + 
+ '              <block type="thymio_variable_get">\n' + 
  '                <field name="VAR">speed</field>\n' + 
  '              </block>\n' + 
  '            </value>\n' + 
@@ -1286,7 +1286,7 @@ AeslTests = [
  '    <field name="BUTTON">button.backward</field>\n' + 
  '    <field name="MODE">PRESS</field>\n' + 
  '    <statement name="HANDLER">\n' + 
- '      <block type="variables_set">\n' + 
+ '      <block type="thymio_variable_set">\n' + 
  '        <field name="VAR">speed</field>\n' + 
  '        <value name="VALUE">\n' + 
  '          <block type="math_arithmetic">\n' + 
@@ -1295,7 +1295,7 @@ AeslTests = [
  '              <shadow type="math_number"> \n' + 
  '                <field name="NUM">1</field> \n' + 
  '              </shadow>\n' + 
- '              <block type="variables_get">\n' + 
+ '              <block type="thymio_variable_get">\n' + 
  '                <field name="VAR">speed</field>\n' + 
  '              </block>\n' + 
  '            </value>\n' + 
@@ -1531,7 +1531,7 @@ AeslTests = [
  '          <block type="logic_compare">\n' + 
  '            <field name="OP">GT</field>\n' + 
  '            <value name="A">\n' + 
- '              <block type="variables_get">\n' + 
+ '              <block type="thymio_variable_get">\n' + 
  '                <field name="VAR">active</field>\n' + 
  '              </block>\n' + 
  '            </value>\n' + 
@@ -1685,7 +1685,7 @@ AeslTests = [
  '    <field name="BUTTON">button.center</field>\n' + 
  '    <field name="MODE">PRESS</field>\n' + 
  '    <statement name="HANDLER">\n' + 
- '      <block type="variables_set">\n' + 
+ '      <block type="thymio_variable_set">\n' + 
  '        <field name="VAR">active</field>\n' + 
  '        <value name="VALUE">\n' + 
  '          <block type="math_number">\n' + 
@@ -1719,7 +1719,7 @@ AeslTests = [
  '    <field name="BUTTON">button.forward</field>\n' + 
  '    <field name="MODE">PRESS</field>\n' + 
  '    <statement name="HANDLER">\n' + 
- '      <block type="variables_set">\n' + 
+ '      <block type="thymio_variable_set">\n' + 
  '        <field name="VAR">active</field>\n' + 
  '        <value name="VALUE">\n' + 
  '          <block type="math_number">\n' + 
@@ -1955,7 +1955,7 @@ AeslTests = [
  ''],
 ['for loop computation',
  '<xml xmlns="http://www.w3.org/1999/xhtml">\n' + 
- '  <block type="variables_set" x="113" y="62">\n' + 
+ '  <block type="thymio_variable_set" x="113" y="62">\n' + 
  '    <field name="VAR">result</field>\n' + 
  '    <value name="VALUE">\n' + 
  '      <block type="math_number">\n' + 
@@ -1968,7 +1968,7 @@ AeslTests = [
  '        <field name="FROM">1</field>\n' + 
  '        <field name="TO">10</field>\n' + 
  '        <statement name="DO">\n' + 
- '          <block type="variables_set">\n' + 
+ '          <block type="thymio_variable_set">\n' + 
  '            <field name="VAR">result</field>\n' + 
  '            <value name="VALUE">\n' + 
  '              <block type="math_arithmetic">\n' + 
@@ -1977,7 +1977,7 @@ AeslTests = [
  '                  <shadow type="math_number">\n' + 
  '                    <field name="NUM">1</field>\n' + 
  '                  </shadow>\n' + 
- '                  <block type="variables_get">\n' + 
+ '                  <block type="thymio_variable_get">\n' + 
  '                    <field name="VAR">result</field>\n' + 
  '                  </block>\n' + 
  '                </value>\n' + 
@@ -1985,7 +1985,7 @@ AeslTests = [
  '                  <shadow type="math_number">\n' + 
  '                    <field name="NUM">1</field>\n' + 
  '                  </shadow>\n' + 
- '                  <block type="variables_get">\n' + 
+ '                  <block type="thymio_variable_get">\n' + 
  '                    <field name="VAR">i</field>\n' + 
  '                  </block>\n' + 
  '                </value>\n' + 
@@ -2000,7 +2000,7 @@ AeslTests = [
  '              <block type="logic_compare">\n' + 
  '                <field name="OP">EQ</field>\n' + 
  '                <value name="A">\n' + 
- '                  <block type="variables_get">\n' + 
+ '                  <block type="thymio_variable_get">\n' + 
  '                    <field name="VAR">result</field>\n' + 
  '                  </block>\n' + 
  '                </value>\n' + 
@@ -2083,7 +2083,7 @@ AeslTests = [
  '              <block type="thymio_set_array">\n' + 
  '                <field name="VAR">a</field>\n' + 
  '                <value name="INDEX">\n' + 
- '                  <block type="variables_get">\n' + 
+ '                  <block type="thymio_variable_get">\n' + 
  '                    <field name="VAR">i</field>\n' + 
  '                  </block>\n' + 
  '                </value>\n' + 
@@ -2107,7 +2107,7 @@ AeslTests = [
  '                                <field name="NUM">1</field>\n' + 
  '                              \n' + 
  '                              </shadow>\n' + 
- '                              <block type="variables_get">\n' + 
+ '                              <block type="thymio_variable_get">\n' + 
  '                                <field name="VAR">i</field>\n' + 
  '                              </block>\n' + 
  '                            </value>\n' + 
@@ -2137,7 +2137,7 @@ AeslTests = [
  '                                <field name="NUM">1</field>\n' + 
  '                              \n' + 
  '                              </shadow>\n' + 
- '                              <block type="variables_get">\n' + 
+ '                              <block type="thymio_variable_get">\n' + 
  '                                <field name="VAR">i</field>\n' + 
  '                              </block>\n' + 
  '                            </value>\n' + 
@@ -2229,7 +2229,7 @@ AeslTests = [
  ''],
 ['arithmetic and binary crazyness',
  '<xml xmlns="http://www.w3.org/1999/xhtml">\n' + 
- '  <block type="variables_set" x="-138" y="112">\n' + 
+ '  <block type="thymio_variable_set" x="-138" y="112">\n' + 
  '    <field name="VAR">crazy</field>\n' + 
  '    <value name="VALUE">\n' + 
  '      <block type="thymio_arithmetic">\n' + 
@@ -2345,7 +2345,7 @@ AeslTests = [
  ''],
 ['unary mix',
  '<xml xmlns="http://www.w3.org/1999/xhtml">\n' + 
- '  <block type="variables_set" x="38" y="138">\n' + 
+ '  <block type="thymio_variable_set" x="38" y="138">\n' + 
  '    <field name="VAR">item</field>\n' + 
  '    <value name="VALUE">\n' + 
  '      <block type="thymio_unary">\n' + 
@@ -2505,7 +2505,7 @@ AeslTests = [
  '            <field name="LED">leds.top</field>\n' + 
  '            <field name="COLOR">#33ff33</field>\n' + 
  '            <next>\n' + 
- '              <block type="variables_set">\n' + 
+ '              <block type="thymio_variable_set">\n' + 
  '                <field name="VAR">message</field>\n' + 
  '                <value name="VALUE">\n' + 
  '                  <block type="math_number">\n' + 
@@ -2576,7 +2576,7 @@ AeslTests = [
  '  <block type="thymio_event" x="537" y="112">\n' + 
  '    <field name="EVENT">timer0</field>\n' + 
  '    <statement name="HANDLER">\n' + 
- '      <block type="variables_set">\n' + 
+ '      <block type="thymio_variable_set">\n' + 
  '        <field name="VAR">message</field>\n' + 
  '        <value name="VALUE">\n' + 
  '          <block type="thymio_arithmetic">\n' + 
@@ -2585,7 +2585,7 @@ AeslTests = [
  '              <block type="thymio_arithmetic">\n' + 
  '                <field name="OP">+</field>\n' + 
  '                <value name="A">\n' + 
- '                  <block type="variables_get">\n' + 
+ '                  <block type="thymio_variable_get">\n' + 
  '                    <field name="VAR">message</field>\n' + 
  '                  </block>\n' + 
  '                </value>\n' + 
@@ -2607,7 +2607,7 @@ AeslTests = [
  '          <block type="thymio_actuator_set">\n' + 
  '            <field name="VARIABLE">prox.comm.tx</field>\n' + 
  '            <value name="VALUE">\n' + 
- '              <block type="variables_get">\n' + 
+ '              <block type="thymio_variable_get">\n' + 
  '                <field name="VAR">message</field>\n' + 
  '              </block>\n' + 
  '            </value>\n' + 
@@ -2739,7 +2739,7 @@ AeslTests = [
  '    <field name="VAR">c</field>\n' + 
  '    <field name="SIZE">3</field>\n' + 
  '  </block>\n' + 
- '  <block type="variables_set" x="63" y="87">\n' + 
+ '  <block type="thymio_variable_set" x="63" y="87">\n' + 
  '    <field name="VAR">a</field>\n' + 
  '    <value name="VALUE">\n' + 
  '      <block type="math_number">\n' + 
@@ -2747,7 +2747,7 @@ AeslTests = [
  '      </block>\n' + 
  '    </value>\n' + 
  '    <next>\n' + 
- '      <block type="variables_set">\n' + 
+ '      <block type="thymio_variable_set">\n' + 
  '        <field name="VAR">b</field>\n' + 
  '        <value name="VALUE">\n' + 
  '          <block type="math_number">\n' + 
@@ -2807,18 +2807,18 @@ AeslTests = [
  '                          </block>\n' + 
  '                        </value>\n' + 
  '                        <next>\n' + 
- '                          <block type="variables_set">\n' + 
+ '                          <block type="thymio_variable_set">\n' + 
  '                            <field name="VAR">c</field>\n' + 
  '                            <value name="VALUE">\n' + 
  '                              <block type="thymio_arithmetic">\n' + 
  '                                <field name="OP">+</field>\n' + 
  '                                <value name="A">\n' + 
- '                                  <block type="variables_get">\n' + 
+ '                                  <block type="thymio_variable_get">\n' + 
  '                                    <field name="VAR">a</field>\n' + 
  '                                  </block>\n' + 
  '                                </value>\n' + 
  '                                <value name="B">\n' + 
- '                                  <block type="variables_get">\n' + 
+ '                                  <block type="thymio_variable_get">\n' + 
  '                                    <field name="VAR">b</field>\n' + 
  '                                  </block>\n' + 
  '                                </value>\n' + 
