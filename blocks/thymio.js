@@ -82,6 +82,51 @@ Blockly.Blocks['thymio_for'] = {
 	},
 };
 
+Blockly.Blocks['thymio_subroutine_define'] = {
+	/**
+	 * Block to define Thymio subroutines
+	 * 
+	 * @this Blockly.Block
+	 */
+	init : function()
+	{
+		this.setColour(Blockly.Blocks.procedures.HUE);
+		this.setHelpUrl(Blockly.Msg.TEXT_THYMIO_SUBROUTINE_DEFINE_HELPURL);
+		this.setTooltip(Blockly.Msg.TEXT_THYMIO_SUBROUTINE_DEFINE_TOOLTIP);
+
+		var nameField = new Blockly.FieldTextInput('name', Blockly.Procedures.rename);
+
+		this.appendDummyInput().appendField('subroutine').appendField(nameField, 'NAME');
+		this.appendStatementInput('STACK');
+	},
+	/**
+	 * Dispose of any callers.
+	 * 
+	 * @this Blockly.Block
+	 */
+	dispose : function()
+	{
+		var name = this.getFieldValue('NAME');
+		Blockly.Procedures.disposeCallers(name, this.workspace);
+		// Call parent's destructor.
+		this.constructor.prototype.dispose.apply(this, arguments);
+	},
+
+	/**
+	 * Return the signature of this procedure definition.
+	 * 
+	 * @return {!Array} Tuple containing three elements: - the name of the
+	 *         defined procedure, - a list of all its arguments, - that it DOES
+	 *         NOT have a return value.
+	 * @this Blockly.Block
+	 */
+	getProcedureDef : function()
+	{
+		return [this.getFieldValue('NAME'), [], false];
+	},
+	callType_ : 'procedures_callnoreturn'
+};
+
 Blockly.Blocks['thymio_event'] = {
 	/**
 	 * Block for Thymio events.
