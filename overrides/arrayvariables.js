@@ -48,6 +48,14 @@ Blockly.Variables.flyoutCategory = function(blocks, gaps, margin, workspace)
 		var setArrayBlock = Blockly.Blocks['thymio_set_array'] ? Blockly.Block.obtain(workspace, 'thymio_set_array') : null;
 		setArrayBlock && setArrayBlock.initSvg();
 		
+		var setValueBlock = Blockly.Blocks['math_number'] ? Blockly.Block.obtain(workspace, 'math_number') : null;
+		if(setValueBlock) {
+			setValueBlock.setShadow(true);
+			setValueBlock.initSvg();
+			setBlock.inputList[0].connection.connect(setValueBlock.outputConnection);
+			setValueBlock.render();
+		}
+		
 		var getArrayIndexBlock = Blockly.Blocks['math_number'] ? Blockly.Block.obtain(workspace, 'math_number') : null;
 		if(getArrayIndexBlock) {
 			getArrayIndexBlock.setShadow(true);
