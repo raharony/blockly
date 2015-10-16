@@ -43,6 +43,5 @@ Blockly.Procedures.flyoutCategory = function(blocks, gaps, margin, workspace) {
   }
 
   var tuple = Blockly.Procedures.allProcedures(workspace.targetWorkspace);
-  console.log(tuple);
   populateProcedures(tuple[0], 'procedures_callnoreturn');
 };
