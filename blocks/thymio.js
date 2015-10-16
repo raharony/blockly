@@ -482,7 +482,7 @@ Blockly.Blocks['thymio_actuator_set'] = {
 		this.setPreviousStatement(true);
 		this.setNextStatement(true);
 
-		var variables = [];		
+		var variables = [];
 		variables.push(['left motor speed', 'motor.left.target']);
 		variables.push(['right motor speed', 'motor.right.target']);
 		variables.push(['microphone threshold', 'mic.threshold']);
@@ -494,6 +494,129 @@ Blockly.Blocks['thymio_actuator_set'] = {
 		this.appendValueInput('VALUE').setCheck('Number').appendField('set Thymio').appendField(dropdown, 'VARIABLE').appendField('to');
 	},
 };
+
+Blockly.Blocks['thymio_variable_get'] = {
+	/**
+	 * Block for variable getter. This is a copy paste of blockly's native variables_get block, except that this one returns only Numbers
+	 * 
+	 * @this Blockly.Block
+	 */
+	init : function()
+	{
+		this.setHelpUrl(Blockly.Msg.VARIABLES_GET_HELPURL);
+		this.setColour(Blockly.Blocks.variables.HUE);
+		this.appendDummyInput().appendField(new Blockly.FieldVariable(Blockly.Msg.VARIABLES_DEFAULT_NAME), 'VAR');
+		this.setOutput(true, 'Number');
+		this.setTooltip(Blockly.Msg.VARIABLES_GET_TOOLTIP);
+		this.contextMenuMsg_ = Blockly.Msg.VARIABLES_GET_CREATE_SET;
+	},
+	/**
+	 * Return all variables referenced by this block.
+	 * 
+	 * @return {!Array.<string>} List of variable names.
+	 * @this Blockly.Block
+	 */
+	getVars : function()
+	{
+		return [this.getFieldValue('VAR')];
+	},
+	/**
+	 * Notification that a variable is renaming. If the name matches one of this
+	 * block's variables, rename it.
+	 * 
+	 * @param {string}
+	 *            oldName Previous name of variable.
+	 * @param {string}
+	 *            newName Renamed variable.
+	 * @this Blockly.Block
+	 */
+	renameVar : function(oldName, newName)
+	{
+		if(Blockly.Names.equals(oldName, this.getFieldValue('VAR'))) {
+			this.setFieldValue(newName, 'VAR');
+		}
+	},
+	contextMenuType_ : 'thymio_variable_set',
+	/**
+	 * Add menu option to create getter/setter block for this setter/getter.
+	 * 
+	 * @param {!Array}
+	 *            options List of menu options to add to.
+	 * @this Blockly.Block
+	 */
+	customContextMenu : function(options)
+	{
+		var option = {
+			enabled : true
+		};
+		var name = this.getFieldValue('VAR');
+		option.text = this.contextMenuMsg_.replace('%1', name);
+		var xmlField = goog.dom.createDom('field', null, name);
+		xmlField.setAttribute('name', 'VAR');
+		var xmlBlock = goog.dom.createDom('block', null, xmlField);
+		xmlBlock.setAttribute('type', this.contextMenuType_);
+		option.callback = Blockly.ContextMenu.callbackFactory(this, xmlBlock);
+		options.push(option);
+	}
+};
+
+Blockly.Blocks['thymio_variable_set'] = {
+	/**
+	 * Block for variable setter. This is a copy paste of blockly's native variables_set block, except that this one accepts only Numbers
+	 * 
+	 * @this Blockly.Block
+	 */
+	init : function()
+	{
+		this.jsonInit({
+			"message0" : Blockly.Msg.VARIABLES_SET,
+			"args0" : [{
+				"type" : "field_variable",
+				"name" : "VAR",
+				"variable" : Blockly.Msg.VARIABLES_DEFAULT_NAME
+			}, {
+				"type" : "input_value",
+				"name" : "VALUE",
+				"check": "Number",
+			}],
+			"previousStatement" : null,
+			"nextStatement" : null,
+			"colour" : Blockly.Blocks.variables.HUE,
+			"tooltip" : Blockly.Msg.VARIABLES_SET_TOOLTIP,
+			"helpUrl" : Blockly.Msg.VARIABLES_SET_HELPURL
+		});
+		this.contextMenuMsg_ = Blockly.Msg.VARIABLES_SET_CREATE_GET;
+	},
+	/**
+	 * Return all variables referenced by this block.
+	 * 
+	 * @return {!Array.<string>} List of variable names.
+	 * @this Blockly.Block
+	 */
+	getVars : function()
+	{
+		return [this.getFieldValue('VAR')];
+	},
+	/**
+	 * Notification that a variable is renaming. If the name matches one of this
+	 * block's variables, rename it.
+	 * 
+	 * @param {string}
+	 *            oldName Previous name of variable.
+	 * @param {string}
+	 *            newName Renamed variable.
+	 * @this Blockly.Block
+	 */
+	renameVar : function(oldName, newName)
+	{
+		if(Blockly.Names.equals(oldName, this.getFieldValue('VAR'))) {
+			this.setFieldValue(newName, 'VAR');
+		}
+	},
+	contextMenuType_ : 'thymio_variable_get',
+	customContextMenu : Blockly.Blocks['thymio_variable_get'].customContextMenu
+};
+
 
 Blockly.Blocks['thymio_declare_array'] = {
 	/**
