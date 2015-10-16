@@ -1067,7 +1067,7 @@ AeslTests = [
  '      </block>\n' + 
  '    </statement>\n' + 
  '  </block>\n' + 
- '  <block type="procedures_defnoreturn" x="488" y="38">\n' + 
+ '  <block type="thymio_subroutine_define" x="488" y="38">\n' + 
  '    <field name="NAME">updateSpeed</field>\n' + 
  '    <statement name="STACK">\n' + 
  '      <block type="thymio_set_variable">\n' + 
@@ -1090,7 +1090,7 @@ AeslTests = [
  '      </block>\n' + 
  '    </statement>\n' + 
  '  </block>\n' + 
- '  <block type="procedures_defnoreturn" x="488" y="163">\n' + 
+ '  <block type="thymio_subroutine_define" x="488" y="163">\n' + 
  '    <field name="NAME">updateColor</field>\n' + 
  '    <statement name="STACK">\n' + 
  '      <block type="controls_if">\n' + 
@@ -1366,7 +1366,7 @@ AeslTests = [
  ''],
 ['disallow subs calling other subs',
  '<xml xmlns="http://www.w3.org/1999/xhtml">\n' + 
- '  <block type="procedures_defnoreturn" x="38" y="63">\n' + 
+ '  <block type="thymio_subroutine_define" x="38" y="63">\n' + 
  '    <field name="NAME">foo</field>\n' + 
  '    <statement name="STACK">\n' + 
  '      <block type="thymio_led">\n' + 
@@ -1375,7 +1375,7 @@ AeslTests = [
  '      </block>\n' + 
  '    </statement>\n' + 
  '  </block>\n' + 
- '  <block type="procedures_defnoreturn" x="37" y="163">\n' + 
+ '  <block type="thymio_subroutine_define" x="37" y="163">\n' + 
  '    <field name="NAME">bar</field>\n' + 
  '    <statement name="STACK">\n' + 
  '      <block type="procedures_callnoreturn">\n' + 
