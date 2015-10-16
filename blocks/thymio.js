@@ -14,7 +14,6 @@ goog.require('Blockly.Blocks');
 Blockly.Blocks.thymio.ACTUATORS_HUE = 60;
 Blockly.Blocks.thymio.SENSORS_HUE = 90;
 Blockly.Blocks.thymio.EVENTS_HUE = 10;
-Blockly.Blocks.thymio.ARRAYS_HUE = 156;
 
 Blockly.Blocks['thymio_when'] = {
 	/**
@@ -504,11 +503,11 @@ Blockly.Blocks['thymio_declare_array'] = {
 	 */
 	init : function()
 	{
-		this.setColour(Blockly.Blocks.thymio.ARRAYS_HUE);
+		this.setColour(Blockly.Blocks.variables.HUE);
 		this.setHelpUrl(Blockly.Msg.TEXT_THYMIO_DECLARE_ARRAY_HELPURL);
 		this.setTooltip(Blockly.Msg.TEXT_THYMIO_DECLARE_ARRAY_TOOLTIP);
 
-		var variableField = new Blockly.FieldVariable('a');
+		var variableField = new Blockly.FieldVariable(Blockly.Msg.VARIABLES_DEFAULT_NAME);
 		var sizeField = new Blockly.FieldTextInput('3', Blockly.FieldTextInput.numberValidator);
 
 		this.appendDummyInput().appendField('declare').appendField(variableField, 'VAR').appendField('as array of size').appendField(sizeField, 'SIZE');
@@ -547,13 +546,13 @@ Blockly.Blocks['thymio_set_array'] = {
 	 */
 	init : function()
 	{
-		this.setColour(Blockly.Blocks.thymio.ARRAYS_HUE);
+		this.setColour(Blockly.Blocks.variables.HUE);
 		this.setHelpUrl(Blockly.Msg.TEXT_THYMIO_SET_ARRAY_HELPURL);
 		this.setTooltip(Blockly.Msg.TEXT_THYMIO_SET_ARRAY_TOOLTIP);
 		this.setPreviousStatement(true);
 		this.setNextStatement(true);
 
-		var variableField = new Blockly.FieldVariable('a');
+		var variableField = new Blockly.FieldVariable(Blockly.Msg.VARIABLES_DEFAULT_NAME);
 
 	    this.appendValueInput('INDEX').setCheck('Number').appendField('set array').appendField(variableField, 'VAR').appendField('element');
 	    this.appendValueInput('VALUE').setCheck('Number').appendField('to');
@@ -593,11 +592,11 @@ Blockly.Blocks['thymio_get_array'] = {
 	 */
 	init : function()
 	{
-		this.setColour(Blockly.Blocks.thymio.ARRAYS_HUE);
+		this.setColour(Blockly.Blocks.variables.HUE);
 		this.setHelpUrl(Blockly.Msg.TEXT_THYMIO_GET_ARRAY_HELPURL);
 		this.setTooltip(Blockly.Msg.TEXT_THYMIO_GET_ARRAY_TOOLTIP);
 
-		var variableField = new Blockly.FieldVariable('a');
+		var variableField = new Blockly.FieldVariable(Blockly.Msg.VARIABLES_DEFAULT_NAME);
 		
 		this.setOutput(true, 'Number');
 		this.appendValueInput('INDEX').setCheck('Number').appendField('get array').appendField(variableField, 'VAR').appendField('element');
