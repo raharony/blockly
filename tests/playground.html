@@ -235,8 +235,20 @@ h1 {
       <block type="thymio_event_prox_ground"></block>
     </category>
     <category name="Logic" colour="210">
-      <block type="controls_if"></block>
-      <block type="thymio_when"></block>
+      <block type="controls_if">
+        <value name="IF0">
+          <shadow type="logic_boolean">
+            <field name="BOOL">TRUE</field>
+          </shadow>
+        </value>
+      </block>
+      <block type="thymio_when">
+        <value name="WHEN">
+          <shadow type="logic_boolean">
+            <field name="BOOL">TRUE</field>
+          </shadow>
+        </value>
+      </block>
       <block type="thymio_compare">
         <value name="A">
           <shadow type="math_number">
@@ -261,14 +273,26 @@ h1 {
           </shadow>
         </value>
       </block>
-      <block type="logic_negate"></block>
+      <block type="logic_negate">
+        <value name="BOOL">
+          <shadow type="logic_boolean">
+            <field name="BOOL">TRUE</field>
+          </shadow>
+        </value>
+      </block>
       <block type="logic_boolean"></block>
     </category>
     <category name="Loops" colour="120">
       <block type="controls_repeat">
         <field name="TIMES">10</field>
       </block>
-      <block type="controls_whileUntil"></block>
+      <block type="controls_whileUntil">
+        <value name="BOOL">
+          <shadow type="logic_boolean">
+            <field name="BOOL">TRUE</field>
+          </shadow>
+        </value>
+      </block>
       <block type="thymio_for">
         <field name="FROM">1</field>
         <field name="TO">10</field>
