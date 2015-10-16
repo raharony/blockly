@@ -5,6 +5,7 @@
 <title>Blockly Playground</title>
 <script src="../blockly_uncompressed.js"></script>
 <script src="../overrides/subroutines.js"></script>
+<script src="../overrides/arrayvariables.js"></script>
 <script src="../generators/javascript.js"></script>
 <script src="../generators/javascript/logic.js"></script>
 <script src="../generators/javascript/loops.js"></script>
@@ -382,28 +383,6 @@ h1 {
         </value>
       </block>
       <block type="thymio_unary"></block>
-    </category>
-    <category name="Arrays">
-      <block type="thymio_declare_array"></block>
-      <block type="thymio_set_array">
-        <value name="INDEX">
-          <block type="math_number">
-            <field name="NUM">1</field>
-          </block>
-        </value>
-        <value name="VALUE">
-          <block type="math_number">
-            <field name="NUM">0</field>
-          </block>
-        </value>        
-      </block>
-      <block type="thymio_get_array">
-        <value name="INDEX">
-          <block type="math_number">
-            <field name="NUM">1</field>
-          </block>
-        </value>
-      </block>
     </category>
     <sep></sep>
     <category name="Variables" colour="330" custom="VARIABLE"></category>
