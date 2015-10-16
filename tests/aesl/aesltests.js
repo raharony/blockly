@@ -2733,4 +2733,122 @@ AeslTests = [
  '		call sound.freq(prox.horizontal[2],10)\n' + 
  '	end\n' + 
  ''],
+['safe array access',
+ '<xml xmlns="http://www.w3.org/1999/xhtml">\n' + 
+ '  <block type="thymio_declare_array" x="63" y="38">\n' + 
+ '    <field name="VAR">c</field>\n' + 
+ '    <field name="SIZE">3</field>\n' + 
+ '  </block>\n' + 
+ '  <block type="variables_set" x="63" y="87">\n' + 
+ '    <field name="VAR">a</field>\n' + 
+ '    <value name="VALUE">\n' + 
+ '      <block type="math_number">\n' + 
+ '        <field name="NUM">0</field>\n' + 
+ '      </block>\n' + 
+ '    </value>\n' + 
+ '    <next>\n' + 
+ '      <block type="variables_set">\n' + 
+ '        <field name="VAR">b</field>\n' + 
+ '        <value name="VALUE">\n' + 
+ '          <block type="math_number">\n' + 
+ '            <field name="NUM">0</field>\n' + 
+ '          </block>\n' + 
+ '        </value>\n' + 
+ '        <next>\n' + 
+ '          <block type="thymio_set_array">\n' + 
+ '            <field name="VAR">b</field>\n' + 
+ '            <value name="INDEX">\n' + 
+ '              <block type="math_number">\n' + 
+ '                <field name="NUM">1</field>\n' + 
+ '              </block>\n' + 
+ '            </value>\n' + 
+ '            <value name="VALUE">\n' + 
+ '              <block type="math_number">\n' + 
+ '                <field name="NUM">0</field>\n' + 
+ '              </block>\n' + 
+ '            </value>\n' + 
+ '            <next>\n' + 
+ '              <block type="thymio_set_array">\n' + 
+ '                <field name="VAR">c</field>\n' + 
+ '                <value name="INDEX">\n' + 
+ '                  <block type="math_number">\n' + 
+ '                    <field name="NUM">1</field>\n' + 
+ '                  </block>\n' + 
+ '                </value>\n' + 
+ '                <value name="VALUE">\n' + 
+ '                  <block type="math_number">\n' + 
+ '                    <field name="NUM">1</field>\n' + 
+ '                  </block>\n' + 
+ '                </value>\n' + 
+ '                <next>\n' + 
+ '                  <block type="thymio_set_array">\n' + 
+ '                    <field name="VAR">c</field>\n' + 
+ '                    <value name="INDEX">\n' + 
+ '                      <block type="math_number">\n' + 
+ '                        <field name="NUM">2</field>\n' + 
+ '                      </block>\n' + 
+ '                    </value>\n' + 
+ '                    <value name="VALUE">\n' + 
+ '                      <block type="math_number">\n' + 
+ '                        <field name="NUM">2</field>\n' + 
+ '                      </block>\n' + 
+ '                    </value>\n' + 
+ '                    <next>\n' + 
+ '                      <block type="thymio_set_array">\n' + 
+ '                        <field name="VAR">c</field>\n' + 
+ '                        <value name="INDEX">\n' + 
+ '                          <block type="math_number">\n' + 
+ '                            <field name="NUM">3</field>\n' + 
+ '                          </block>\n' + 
+ '                        </value>\n' + 
+ '                        <value name="VALUE">\n' + 
+ '                          <block type="math_number">\n' + 
+ '                            <field name="NUM">3</field>\n' + 
+ '                          </block>\n' + 
+ '                        </value>\n' + 
+ '                        <next>\n' + 
+ '                          <block type="variables_set">\n' + 
+ '                            <field name="VAR">c</field>\n' + 
+ '                            <value name="VALUE">\n' + 
+ '                              <block type="thymio_arithmetic">\n' + 
+ '                                <field name="OP">+</field>\n' + 
+ '                                <value name="A">\n' + 
+ '                                  <block type="variables_get">\n' + 
+ '                                    <field name="VAR">a</field>\n' + 
+ '                                  </block>\n' + 
+ '                                </value>\n' + 
+ '                                <value name="B">\n' + 
+ '                                  <block type="variables_get">\n' + 
+ '                                    <field name="VAR">b</field>\n' + 
+ '                                  </block>\n' + 
+ '                                </value>\n' + 
+ '                              </block>\n' + 
+ '                            </value>\n' + 
+ '                          </block>\n' + 
+ '                        </next>\n' + 
+ '                      </block>\n' + 
+ '                    </next>\n' + 
+ '                  </block>\n' + 
+ '                </next>\n' + 
+ '              </block>\n' + 
+ '            </next>\n' + 
+ '          </block>\n' + 
+ '        </next>\n' + 
+ '      </block>\n' + 
+ '    </next>\n' + 
+ '  </block>\n' + 
+ '</xml>',
+ 'var c[4]\n' + 
+ 'var a\n' + 
+ 'var b[2]\n' + 
+ '\n' + 
+ '\n' + 
+ 'a = 0\n' + 
+ 'b[0] = 0\n' + 
+ 'b[1] = 0\n' + 
+ 'c[1] = 1\n' + 
+ 'c[2] = 2\n' + 
+ 'c[3] = 3\n' + 
+ 'c[0] = a + b[0]\n' + 
+ ''],
 ];
