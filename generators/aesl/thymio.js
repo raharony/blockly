@@ -367,6 +367,28 @@ Blockly.AESL['thymio_get_array'] = function(block)
 	return [code, Blockly.AESL.ORDER_INDEX];
 };
 
+Blockly.AESL['thymio_compare'] = function(block)
+{
+	var blockA = this.getInputTargetBlock('A');
+    var blockB = this.getInputTargetBlock('B');
+	
+	// Comparison operator.
+	var OPERATORS = {
+		'EQ' : '==',
+		'NEQ' : '!=',
+		'LT' : '<',
+		'LTE' : '<=',
+		'GT' : '>',
+		'GTE' : '>='
+	};
+	var operator = OPERATORS[block.getFieldValue('OP')];
+	var order = Blockly.AESL.ORDER_CONDITION;
+	var argument0 = Blockly.AESL.valueToCode(block, 'A', order) || '0';
+	var argument1 = Blockly.AESL.valueToCode(block, 'B', order) || '0';
+	var code = argument0 + ' ' + operator + ' ' + argument1;
+	return [code, order];
+};
+
 Blockly.AESL['thymio_arithmetic'] = function(block)
 {
 	var operator = block.getFieldValue('OP');

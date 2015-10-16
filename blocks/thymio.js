@@ -798,6 +798,39 @@ Blockly.Blocks['thymio_get_array'] = {
 	},
 };
 
+Blockly.Blocks['thymio_compare'] = {
+	/**
+	 * Block for comparison operator. This is a copy paste of blockly's native logic_compare block, except that this one accepts only Numbers
+	 * 
+	 * @this Blockly.Block
+	 */
+	init : function()
+	{
+		var OPERATORS = this.RTL ? [['=', 'EQ'], ['\u2260', 'NEQ'], ['>', 'LT'], ['\u2265', 'LTE'], ['<', 'GT'], ['\u2264', 'GTE']] : [['=', 'EQ'], ['\u2260', 'NEQ'], ['<', 'LT'], ['\u2264', 'LTE'], ['>', 'GT'], ['\u2265', 'GTE']];
+		this.setHelpUrl(Blockly.Msg.LOGIC_COMPARE_HELPURL);
+		this.setColour(Blockly.Blocks.logic.HUE);
+		this.setOutput(true, 'Boolean');
+		this.appendValueInput('A').setCheck('Number');
+		this.appendValueInput('B').setCheck('Number').appendField(new Blockly.FieldDropdown(OPERATORS), 'OP');
+		this.setInputsInline(true);
+		// Assign 'this' to a variable for use in the tooltip closure below.
+		var thisBlock = this;
+		this.setTooltip(function()
+		{
+			var op = thisBlock.getFieldValue('OP');
+			var TOOLTIPS = {
+				'EQ' : Blockly.Msg.LOGIC_COMPARE_TOOLTIP_EQ,
+				'NEQ' : Blockly.Msg.LOGIC_COMPARE_TOOLTIP_NEQ,
+				'LT' : Blockly.Msg.LOGIC_COMPARE_TOOLTIP_LT,
+				'LTE' : Blockly.Msg.LOGIC_COMPARE_TOOLTIP_LTE,
+				'GT' : Blockly.Msg.LOGIC_COMPARE_TOOLTIP_GT,
+				'GTE' : Blockly.Msg.LOGIC_COMPARE_TOOLTIP_GTE
+			};
+			return TOOLTIPS[op];
+		});
+	},
+};
+
 Blockly.Blocks['thymio_arithmetic'] = {
 	/**
 	 * Block for Thymio arithmetic operators.
