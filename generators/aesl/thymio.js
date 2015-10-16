@@ -242,7 +242,7 @@ Blockly.AESL['thymio_get_sensor_state'] = function(block)
 	return [sensor, Blockly.AESL.ORDER_ATOMIC];
 };
 
-Blockly.AESL['thymio_set_variable'] = function(block)
+Blockly.AESL['thymio_actuator_set'] = function(block)
 {
 	var variable = block.getFieldValue('VARIABLE');
 	var value = Blockly.AESL.valueToCode(block, 'VALUE', Blockly.AESL.ORDER_ASSIGNMENT) || '0';

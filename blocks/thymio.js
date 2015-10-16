@@ -468,17 +468,17 @@ Blockly.Blocks['thymio_get_sensor_state'] = {
 	},
 };
 
-Blockly.Blocks['thymio_set_variable'] = {
+Blockly.Blocks['thymio_actuator_set'] = {
 	/**
-	 * Block for setting a Thymio variable
+	 * Block for setting a Thymio actuator
 	 * 
 	 * @this Blockly.Block
 	 */
 	init : function()
 	{
 		this.setColour(Blockly.Blocks.thymio.ACTUATORS_HUE);
-		this.setHelpUrl(Blockly.Msg.TEXT_THYMIO_SET_VARIABLE_HELPURL);
-		this.setTooltip(Blockly.Msg.TEXT_THYMIO_SET_VARIABLE_TOOLTIP);
+		this.setHelpUrl(Blockly.Msg.TEXT_THYMIO_ACTUATOR_SET_HELPURL);
+		this.setTooltip(Blockly.Msg.TEXT_THYMIO_ACTUATOR_SET_TOOLTIP);
 		this.setPreviousStatement(true);
 		this.setNextStatement(true);
 
