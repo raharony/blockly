@@ -2030,7 +2030,7 @@ AeslTests = [
  '    <field name="VAR">a</field>\n' + 
  '    <value name="INDEX">\n' + 
  '      <block type="math_number">\n' + 
- '        <field name="NUM">1</field>\n' + 
+ '        <field name="NUM">0</field>\n' + 
  '      </block>\n' + 
  '    </value>\n' + 
  '    <value name="VALUE">\n' + 
@@ -2043,7 +2043,7 @@ AeslTests = [
  '        <field name="VAR">a</field>\n' + 
  '        <value name="INDEX">\n' + 
  '          <block type="math_number">\n' + 
- '            <field name="NUM">2</field>\n' + 
+ '            <field name="NUM">1</field>\n' + 
  '          </block>\n' + 
  '        </value>\n' + 
  '        <value name="VALUE">\n' + 
@@ -2054,8 +2054,8 @@ AeslTests = [
  '        <next>\n' + 
  '          <block type="thymio_for">\n' + 
  '            <field name="ITER">i</field>\n' + 
- '            <field name="FROM">3</field>\n' + 
- '            <field name="TO">10</field>\n' + 
+ '            <field name="FROM">2</field>\n' + 
+ '            <field name="TO">9</field>\n' + 
  '            <statement name="DO">\n' + 
  '              <block type="thymio_set_array">\n' + 
  '                <field name="VAR">a</field>\n' + 
@@ -2142,7 +2142,7 @@ AeslTests = [
  '                        <field name="VAR">a</field>\n' + 
  '                        <value name="INDEX">\n' + 
  '                          <block type="math_number">\n' + 
- '                            <field name="NUM">10</field>\n' + 
+ '                            <field name="NUM">9</field>\n' + 
  '                          </block>\n' + 
  '                        </value>\n' + 
  '                      </block>\n' + 
@@ -2183,16 +2183,16 @@ AeslTests = [
  '    </statement>\n' + 
  '  </block>\n' + 
  '</xml>',
- 'var a[11]\n' + 
+ 'var a[10]\n' + 
  'var i\n' + 
  '\n' + 
  '\n' + 
- 'a[1] = 0\n' + 
- 'a[2] = 1\n' + 
- 'for i in 3:10 do\n' + 
+ 'a[0] = 0\n' + 
+ 'a[1] = 1\n' + 
+ 'for i in 2:9 do\n' + 
  '	a[i] = a[i - 1] + a[i - 2]\n' + 
  'end\n' + 
- 'if a[10] == 34 then\n' + 
+ 'if a[9] == 34 then\n' + 
  '	call leds.top(6,32,6)\n' + 
  'else\n' + 
  '	call leds.top(32,0,0)\n' + 
@@ -2736,7 +2736,7 @@ AeslTests = [
  '            <field name="VAR">b</field>\n' + 
  '            <value name="INDEX">\n' + 
  '              <block type="math_number">\n' + 
- '                <field name="NUM">1</field>\n' + 
+ '                <field name="NUM">0</field>\n' + 
  '              </block>\n' + 
  '            </value>\n' + 
  '            <value name="VALUE">\n' + 
@@ -2749,7 +2749,7 @@ AeslTests = [
  '                <field name="VAR">c</field>\n' + 
  '                <value name="INDEX">\n' + 
  '                  <block type="math_number">\n' + 
- '                    <field name="NUM">1</field>\n' + 
+ '                    <field name="NUM">0</field>\n' + 
  '                  </block>\n' + 
  '                </value>\n' + 
  '                <value name="VALUE">\n' + 
@@ -2762,7 +2762,7 @@ AeslTests = [
  '                    <field name="VAR">c</field>\n' + 
  '                    <value name="INDEX">\n' + 
  '                      <block type="math_number">\n' + 
- '                        <field name="NUM">2</field>\n' + 
+ '                        <field name="NUM">1</field>\n' + 
  '                      </block>\n' + 
  '                    </value>\n' + 
  '                    <value name="VALUE">\n' + 
@@ -2775,7 +2775,7 @@ AeslTests = [
  '                        <field name="VAR">c</field>\n' + 
  '                        <value name="INDEX">\n' + 
  '                          <block type="math_number">\n' + 
- '                            <field name="NUM">3</field>\n' + 
+ '                            <field name="NUM">2</field>\n' + 
  '                          </block>\n' + 
  '                        </value>\n' + 
  '                        <value name="VALUE">\n' + 
@@ -2815,17 +2815,17 @@ AeslTests = [
  '    </next>\n' + 
  '  </block>\n' + 
  '</xml>',
- 'var c[4]\n' + 
+ 'var c[3]\n' + 
  'var a\n' + 
- 'var b[2]\n' + 
+ 'var b[1]\n' + 
  '\n' + 
  '\n' + 
  'a = 0\n' + 
  'b[0] = 0\n' + 
- 'b[1] = 0\n' + 
- 'c[1] = 1\n' + 
- 'c[2] = 2\n' + 
- 'c[3] = 3\n' + 
+ 'b[0] = 0\n' + 
+ 'c[0] = 1\n' + 
+ 'c[1] = 2\n' + 
+ 'c[2] = 3\n' + 
  'c[0] = a + b[0]\n' + 
  ''],
 ['motor controls',
