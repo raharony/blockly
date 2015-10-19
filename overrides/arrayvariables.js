@@ -61,7 +61,7 @@ Blockly.Variables.flyoutCategory = function(blocks, gaps, margin, workspace)
 			getArrayIndexBlock.setShadow(true);
 			getArrayIndexBlock.initSvg();
 			getArrayBlock.inputList[0].connection.connect(getArrayIndexBlock.outputConnection);
-			getArrayIndexBlock.setFieldValue('1', 'NUM');
+			getArrayIndexBlock.setFieldValue('0', 'NUM');
 			getArrayIndexBlock.render();
 		}		
 		
@@ -70,7 +70,7 @@ Blockly.Variables.flyoutCategory = function(blocks, gaps, margin, workspace)
 			setArrayIndexBlock.setShadow(true);
 			setArrayIndexBlock.initSvg();
 			setArrayBlock.inputList[0].connection.connect(setArrayIndexBlock.outputConnection);
-			setArrayIndexBlock.setFieldValue('1', 'NUM');
+			setArrayIndexBlock.setFieldValue('0', 'NUM');
 			setArrayIndexBlock.render();
 		}
 		
