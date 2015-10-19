@@ -334,7 +334,7 @@ Blockly.AESL['thymio_declare_array'] = function(block)
 		size = 1;
 	}
 	
-	Blockly.AESL.arrays[variable] = size + 1; // generate arrays of one size too large so we can start indexing at one
+	Blockly.AESL.arrays[variable] = size;
 	return null;
 };
 
@@ -347,7 +347,7 @@ Blockly.AESL['thymio_set_array'] = function(block)
 	var code = variable + '[' + index + '] = ' + value + '\n';
 	
 	if(!(variable in Blockly.AESL.arrays)) { // if no array with this name has been defined yet, initialize one
-		Blockly.AESL.arrays[variable] = 2;
+		Blockly.AESL.arrays[variable] = 1;
 	}
 	
 	return code;
@@ -361,7 +361,7 @@ Blockly.AESL['thymio_get_array'] = function(block)
 	var code = variable + '[' + index + ']';
 	
 	if(!(variable in Blockly.AESL.arrays)) { // if no array with this name has been defined yet, initialize one
-		Blockly.AESL.arrays[variable] = 2;
+		Blockly.AESL.arrays[variable] = 1;
 	}
 	
 	return [code, Blockly.AESL.ORDER_INDEX];
