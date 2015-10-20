@@ -208,6 +208,17 @@ Blockly.AESL['thymio_led_prox_ground'] = function(block)
 	return code;
 };
 
+Blockly.AESL['thymio_led_button'] = function(block)
+{
+	var forward = Blockly.AESL.valueToCode(block, 'FORWARD', Blockly.AESL.ORDER_NONE) || '0';
+	var right = Blockly.AESL.valueToCode(block, 'RIGHT', Blockly.AESL.ORDER_NONE) || '0';
+	var backward = Blockly.AESL.valueToCode(block, 'BACKWARD', Blockly.AESL.ORDER_NONE) || '0';
+	var left = Blockly.AESL.valueToCode(block, 'LEFT', Blockly.AESL.ORDER_NONE) || '0';
+
+	var code = 'call leds.buttons(' + forward + ',' + right + ',' + backward + ',' + left + ')\n';
+	return code;
+};
+
 Blockly.AESL['thymio_led_off'] = function(block)
 {
 	var led = block.getFieldValue('LED');

@@ -342,6 +342,27 @@ Blockly.Blocks['thymio_led_prox_ground'] = {
 	},
 };
 
+Blockly.Blocks['thymio_led_button'] = {
+	/**
+	 * Block to set Thymio button leds
+	 * 
+	 * @this Blockly.Block
+	 */
+	init : function()
+	{
+		this.setColour(Blockly.Blocks.thymio.ACTUATORS_HUE);
+		this.setHelpUrl(Blockly.Msg.TEXT_THYMIO_LED_BUTTON_HELPURL);
+		this.setTooltip(Blockly.Msg.TEXT_THYMIO_LED_BUTTON_TOOLTIP);
+		this.setPreviousStatement(true);
+		this.setNextStatement(true);
+		
+		this.appendValueInput('FORWARD').setCheck('Number').setAlign(Blockly.ALIGN_RIGHT).appendField('set button leds to forward');
+		this.appendValueInput('RIGHT').setCheck('Number').setAlign(Blockly.ALIGN_RIGHT).appendField('right');
+		this.appendValueInput('BACKWARD').setCheck('Number').setAlign(Blockly.ALIGN_RIGHT).appendField('backward');
+		this.appendValueInput('LEFT').setCheck('Number').setAlign(Blockly.ALIGN_RIGHT).appendField('left');
+	},
+};
+
 Blockly.Blocks['thymio_led_off'] = {
 	/**
 	 * Block to turn off Thymio LEDs.
