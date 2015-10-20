@@ -151,7 +151,7 @@ AeslTests = [
  '      <block type="thymio_compare">\n' + 
  '        <field name="OP">GT</field>\n' + 
  '        <value name="A">\n' + 
- '          <block type="thymio_get_sensor_state">\n' + 
+ '          <block type="thymio_sensor">\n' + 
  '            <field name="SENSOR">motor.left.speed</field>\n' + 
  '          </block>\n' + 
  '        </value>\n' + 
@@ -1851,7 +1851,7 @@ AeslTests = [
  '                    <field name="NUM">1</field> \n' + 
  '                  \n' + 
  '                  </shadow>\n' + 
- '                  <block type="thymio_get_sensor_state">\n' + 
+ '                  <block type="thymio_sensor">\n' + 
  '                    <field name="SENSOR">motor.left.speed</field>\n' + 
  '                  </block>\n' + 
  '                </value>\n' + 
@@ -1874,7 +1874,7 @@ AeslTests = [
  '                        <field name="NUM">1</field> \n' + 
  '                      \n' + 
  '                      </shadow>\n' + 
- '                      <block type="thymio_get_sensor_state">\n' + 
+ '                      <block type="thymio_sensor">\n' + 
  '                        <field name="SENSOR">motor.right.speed</field>\n' + 
  '                      </block>\n' + 
  '                    </value>\n' + 
@@ -2411,7 +2411,7 @@ AeslTests = [
  '      <block type="thymio_led_rgb">\n' + 
  '        <field name="LED">leds.top</field>\n' + 
  '        <value name="RED">\n' + 
- '          <block type="thymio_get_sensor_state">\n' + 
+ '          <block type="thymio_sensor">\n' + 
  '            <field name="SENSOR">prox.comm.rx</field>\n' + 
  '          </block>\n' + 
  '        </value>\n' + 
@@ -2466,7 +2466,7 @@ AeslTests = [
  '          <block type="thymio_compare">\n' + 
  '            <field name="OP">EQ</field>\n' + 
  '            <value name="A">\n' + 
- '              <block type="thymio_get_sensor_state">\n' + 
+ '              <block type="thymio_sensor">\n' + 
  '                <field name="SENSOR">prox.comm.rx</field>\n' + 
  '              </block>\n' + 
  '            </value>\n' + 
@@ -2509,7 +2509,7 @@ AeslTests = [
  '              <block type="thymio_compare">\n' + 
  '                <field name="OP">EQ</field>\n' + 
  '                <value name="A">\n' + 
- '                  <block type="thymio_get_sensor_state">\n' + 
+ '                  <block type="thymio_sensor">\n' + 
  '                    <field name="SENSOR">prox.comm.rx</field>\n' + 
  '                  </block>\n' + 
  '                </value>\n' + 
@@ -2676,7 +2676,7 @@ AeslTests = [
  '          <block type="thymio_compare">\n' + 
  '            <field name="OP">GT</field>\n' + 
  '            <value name="A">\n' + 
- '              <block type="thymio_get_sensor_state">\n' + 
+ '              <block type="thymio_sensor_prox">\n' + 
  '                <field name="SENSOR">prox.horizontal[2]</field>\n' + 
  '              </block>\n' + 
  '            </value>\n' + 
@@ -2690,7 +2690,7 @@ AeslTests = [
  '        <statement name="DO0">\n' + 
  '          <block type="thymio_sound_note">\n' + 
  '            <value name="FREQ">\n' + 
- '              <block type="thymio_get_sensor_state">\n' + 
+ '              <block type="thymio_sensor_prox">\n' + 
  '                <field name="SENSOR">prox.horizontal[2]</field>\n' + 
  '              </block>\n' + 
  '            </value>\n' + 
