@@ -3236,4 +3236,58 @@ AeslTests = [
  '		call leds.temperature(0,0)\n' + 
  '	end\n' + 
  ''],
+['sound and remote control leds',
+ '<xml xmlns="http://www.w3.org/1999/xhtml">\n' + 
+ '  <block type="thymio_led_rc_sound" x="138" y="113">\n' + 
+ '    <field name="LED">leds.rc</field>\n' + 
+ '    <value name="INTENSITY">\n' + 
+ '      <shadow type="math_number">\n' + 
+ '        <field name="NUM">32</field>\n' + 
+ '      </shadow>\n' + 
+ '    </value>\n' + 
+ '    <next>\n' + 
+ '      <block type="thymio_led_rc_sound">\n' + 
+ '        <field name="LED">leds.sound</field>\n' + 
+ '        <value name="INTENSITY">\n' + 
+ '          <shadow type="math_number">\n' + 
+ '            <field name="NUM">16</field>\n' + 
+ '          </shadow>\n' + 
+ '        </value>\n' + 
+ '      </block>\n' + 
+ '    </next>\n' + 
+ '  </block>\n' + 
+ '  <block type="thymio_event_button" x="137" y="187">\n' + 
+ '    <field name="BUTTON">button.forward</field>\n' + 
+ '    <field name="MODE">PRESS</field>\n' + 
+ '    <statement name="HANDLER">\n' + 
+ '      <block type="thymio_led_off">\n' + 
+ '        <field name="LED">leds.rc</field>\n' + 
+ '      </block>\n' + 
+ '    </statement>\n' + 
+ '  </block>\n' + 
+ '  <block type="thymio_event_button" x="137" y="262">\n' + 
+ '    <field name="BUTTON">button.backward</field>\n' + 
+ '    <field name="MODE">PRESS</field>\n' + 
+ '    <statement name="HANDLER">\n' + 
+ '      <block type="thymio_led_off">\n' + 
+ '        <field name="LED">leds.sound</field>\n' + 
+ '      </block>\n' + 
+ '    </statement>\n' + 
+ '  </block>\n' + 
+ '</xml>',
+ 'call leds.rc(32)\n' + 
+ 'call leds.sound(16)\n' + 
+ '\n' + 
+ '\n' + 
+ 'onevent button.forward\n' + 
+ '	when button.forward == 1 do\n' + 
+ '		call leds.rc(0)\n' + 
+ '	end\n' + 
+ '\n' + 
+ '\n' + 
+ 'onevent button.backward\n' + 
+ '	when button.backward == 1 do\n' + 
+ '		call leds.sound(0)\n' + 
+ '	end\n' + 
+ ''],
 ];
