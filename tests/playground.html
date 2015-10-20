@@ -525,6 +525,10 @@ h1 {
           </shadow>
         </value>
       </block>
+      <block type="thymio_unary"></block>
+      <block type="thymio_unary">
+        <field name="OP">abs</field>
+      </block>
       <block type="thymio_binary">
         <value name="A">
           <shadow type="math_number">
@@ -537,7 +541,9 @@ h1 {
           </shadow>
         </value>
       </block>
-      <block type="thymio_unary"></block>
+      <block type="thymio_unary">
+        <field name="OP">~</field>
+      </block>
     </category>
     <sep></sep>
     <category name="Variables" colour="330" custom="VARIABLE"></category>
