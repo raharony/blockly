@@ -160,7 +160,7 @@ Blockly.Blocks['thymio_event'] = {
 		eventList.push(['sound finished playing', 'sound.finished']);
 		eventList.push(['temperature read', 'temperature']);
 		eventList.push(['remote control signal', 'rc5']);
-		eventList.push(['motor PID executed', 'motor']);
+		eventList.push(['motor updated', 'motor']);
 		eventList.push(['first timer expired', 'timer0']);
 		eventList.push(['second timer expired', 'timer1']);
 
