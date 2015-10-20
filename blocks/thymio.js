@@ -12,8 +12,20 @@ goog.require('Blockly.Blocks');
  * Common HSV hue for all blocks in this category.
  */
 Blockly.Blocks.thymio.ACTUATORS_HUE = 60;
+Blockly.Blocks.thymio.LEDS_HUE = 160;
 Blockly.Blocks.thymio.SENSORS_HUE = 90;
 Blockly.Blocks.thymio.EVENTS_HUE = 10;
+
+/*
+Blockly.Blocks.colour.HUE = 20;
+Blockly.Blocks.loops.HUE = 120;
+Blockly.Blocks.texts.HUE = 160;
+Blockly.Blocks.logic.HUE = 210;
+Blockly.Blocks.math.HUE = 230;
+Blockly.Blocks.lists.HUE = 260;
+Blockly.Blocks.procedures.HUE = 290;
+Blockly.Blocks.variables.HUE = 330;
+*/
 
 Blockly.Blocks['thymio_when'] = {
 	/**
@@ -240,7 +252,7 @@ Blockly.Blocks['thymio_led'] = {
 	 */
 	init : function()
 	{
-		this.setColour(Blockly.Blocks.thymio.ACTUATORS_HUE);
+		this.setColour(Blockly.Blocks.thymio.LEDS_HUE);
 		this.setHelpUrl(Blockly.Msg.TEXT_THYMIO_LED_HELPURL);
 		this.setTooltip(Blockly.Msg.TEXT_THYMIO_LED_TOOLTIP);
 		this.setPreviousStatement(true);
@@ -259,7 +271,7 @@ Blockly.Blocks['thymio_led_rgb'] = {
 	 */
 	init : function()
 	{
-		this.setColour(Blockly.Blocks.thymio.ACTUATORS_HUE);
+		this.setColour(Blockly.Blocks.thymio.LEDS_HUE);
 		this.setHelpUrl(Blockly.Msg.TEXT_THYMIO_LED_RGB_HELPURL);
 		this.setTooltip(Blockly.Msg.TEXT_THYMIO_LED_RGB_TOOLTIP);
 		this.setPreviousStatement(true);
@@ -280,7 +292,7 @@ Blockly.Blocks['thymio_led_circle'] = {
 	 */
 	init : function()
 	{
-		this.setColour(Blockly.Blocks.thymio.ACTUATORS_HUE);
+		this.setColour(Blockly.Blocks.thymio.LEDS_HUE);
 		this.setHelpUrl(Blockly.Msg.TEXT_THYMIO_LED_CIRCLE_HELPURL);
 		this.setTooltip(Blockly.Msg.TEXT_THYMIO_LED_CIRCLE_TOOLTIP);
 		this.setPreviousStatement(true);
@@ -305,7 +317,7 @@ Blockly.Blocks['thymio_led_prox'] = {
 	 */
 	init : function()
 	{
-		this.setColour(Blockly.Blocks.thymio.ACTUATORS_HUE);
+		this.setColour(Blockly.Blocks.thymio.LEDS_HUE);
 		this.setHelpUrl(Blockly.Msg.TEXT_THYMIO_LED_PROX_HELPURL);
 		this.setTooltip(Blockly.Msg.TEXT_THYMIO_LED_PROX_TOOLTIP);
 		this.setPreviousStatement(true);
@@ -331,7 +343,7 @@ Blockly.Blocks['thymio_led_prox_ground'] = {
 	 */
 	init : function()
 	{
-		this.setColour(Blockly.Blocks.thymio.ACTUATORS_HUE);
+		this.setColour(Blockly.Blocks.thymio.LEDS_HUE);
 		this.setHelpUrl(Blockly.Msg.TEXT_THYMIO_LED_PROX_GROUND_HELPURL);
 		this.setTooltip(Blockly.Msg.TEXT_THYMIO_LED_PROX_GROUND_TOOLTIP);
 		this.setPreviousStatement(true);
@@ -350,7 +362,7 @@ Blockly.Blocks['thymio_led_button'] = {
 	 */
 	init : function()
 	{
-		this.setColour(Blockly.Blocks.thymio.ACTUATORS_HUE);
+		this.setColour(Blockly.Blocks.thymio.LEDS_HUE);
 		this.setHelpUrl(Blockly.Msg.TEXT_THYMIO_LED_BUTTON_HELPURL);
 		this.setTooltip(Blockly.Msg.TEXT_THYMIO_LED_BUTTON_TOOLTIP);
 		this.setPreviousStatement(true);
@@ -371,7 +383,7 @@ Blockly.Blocks['thymio_led_temperature'] = {
 	 */
 	init : function()
 	{
-		this.setColour(Blockly.Blocks.thymio.ACTUATORS_HUE);
+		this.setColour(Blockly.Blocks.thymio.LEDS_HUE);
 		this.setHelpUrl(Blockly.Msg.TEXT_THYMIO_LED_TEMPERATURE_HELPURL);
 		this.setTooltip(Blockly.Msg.TEXT_THYMIO_LED_TEMPERATURE_TOOLTIP);
 		this.setPreviousStatement(true);
@@ -390,7 +402,7 @@ Blockly.Blocks['thymio_led_rc_sound'] = {
 	 */
 	init : function()
 	{
-		this.setColour(Blockly.Blocks.thymio.ACTUATORS_HUE);
+		this.setColour(Blockly.Blocks.thymio.LEDS_HUE);
 		this.setHelpUrl(Blockly.Msg.TEXT_THYMIO_LED_RC_SOUND_HELPURL);
 		this.setTooltip(Blockly.Msg.TEXT_THYMIO_LED_RC_SOUND_TOOLTIP);
 		this.setPreviousStatement(true);
@@ -410,7 +422,7 @@ Blockly.Blocks['thymio_led_off'] = {
 	 */
 	init : function()
 	{
-		this.setColour(Blockly.Blocks.thymio.ACTUATORS_HUE);
+		this.setColour(Blockly.Blocks.thymio.LEDS_HUE);
 		this.setHelpUrl(Blockly.Msg.TEXT_THYMIO_LED_OFF_HELPURL);
 		this.setTooltip(Blockly.Msg.TEXT_THYMIO_LED_OFF_TOOLTIP);
 		this.setPreviousStatement(true);
