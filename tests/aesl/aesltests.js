@@ -3204,4 +3204,36 @@ AeslTests = [
  '		call leds.buttons(0,0,0,0)\n' + 
  '	end\n' + 
  ''],
+['temperature leds',
+ '<xml xmlns="http://www.w3.org/1999/xhtml">\n' + 
+ '  <block type="thymio_led_temperature" x="63" y="62">\n' + 
+ '    <value name="RED">\n' + 
+ '      <shadow type="math_number">\n' + 
+ '        <field name="NUM">16</field>\n' + 
+ '      </shadow>\n' + 
+ '    </value>\n' + 
+ '    <value name="BLUE">\n' + 
+ '      <shadow type="math_number">\n' + 
+ '        <field name="NUM">32</field>\n' + 
+ '      </shadow>\n' + 
+ '    </value>\n' + 
+ '  </block>\n' + 
+ '  <block type="thymio_event_button" x="63" y="137">\n' + 
+ '    <field name="BUTTON">button.center</field>\n' + 
+ '    <field name="MODE">PRESS</field>\n' + 
+ '    <statement name="HANDLER">\n' + 
+ '      <block type="thymio_led_off">\n' + 
+ '        <field name="LED">leds.temperature</field>\n' + 
+ '      </block>\n' + 
+ '    </statement>\n' + 
+ '  </block>\n' + 
+ '</xml>',
+ 'call leds.temperature(16,32)\n' + 
+ '\n' + 
+ '\n' + 
+ 'onevent button.center\n' + 
+ '	when button.center == 1 do\n' + 
+ '		call leds.temperature(0,0)\n' + 
+ '	end\n' + 
+ ''],
 ];
