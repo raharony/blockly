@@ -171,13 +171,53 @@ h1 {
   <div id="blocklyDiv"></div>
 
   <xml id="toolbox" style="display: none">
-    <category name="Events">
-      <block type="thymio_event"></block>
+    <category name="Events" colour="10">
       <block type="thymio_event_button"></block>
       <block type="thymio_event_prox"></block>
       <block type="thymio_event_prox_ground"></block>
+      <block type="thymio_actuator_set">
+        <field name="VARIABLE">timer.period[0]</field>
+        <value name="VALUE">
+          <shadow type="math_number">
+            <field name="NUM">1000</field>
+          </shadow>
+        </value>
+      </block>
+      <block type="thymio_event">
+        <field name="EVENT">timer0</field>
+      </block>
+      <block type="thymio_actuator_set">
+        <field name="VARIABLE">mic.threshold</field>
+                <value name="VALUE">
+          <shadow type="math_number">
+            <field name="NUM">40</field>
+          </shadow>
+        </value>
+      </block>
+      <block type="thymio_event">
+        <field name="EVENT">mic</field>
+      </block>
+      <block type="thymio_event">
+        <field name="EVENT">sound.finished</field>
+      </block>
+      <block type="thymio_event">
+        <field name="EVENT">prox.comm</field>
+      </block>
+      <block type="thymio_event">
+        <field name="EVENT">tap</field>
+      </block>
+      <block type="thymio_event">
+        <field name="EVENT">acc</field>
+      </block>
+      <block type="thymio_event">
+        <field name="EVENT">rc5</field>
+      </block>
+      <block type="thymio_event">
+        <field name="EVENT">motor</field>
+      </block>
     </category>
-    <category name="Actuators">
+    <category name="Actuators" colour="60">
+      <block type="thymio_motors_stop"></block>
       <block type="thymio_motors_start">
         <value name="SPEED">
           <shadow type="math_number">
@@ -185,7 +225,22 @@ h1 {
           </shadow>
         </value>
       </block>
-      <block type="thymio_motors_stop"></block>
+      <block type="thymio_motors_start">
+        <field name="COMMAND">TURNLEFT</field>
+        <value name="SPEED">
+          <shadow type="math_number">
+            <field name="NUM">300</field>
+          </shadow>
+        </value>
+      </block>
+      <block type="thymio_motors_start">
+        <field name="COMMAND">SPINCCW</field>
+        <value name="SPEED">
+          <shadow type="math_number">
+            <field name="NUM">300</field>
+          </shadow>
+        </value>
+      </block>
       <block type="thymio_actuator_set">
         <value name="VALUE">
           <shadow type="math_number">
@@ -193,6 +248,7 @@ h1 {
           </shadow>
         </value>
       </block>
+      <block type="thymio_sound_stop"></block>
       <block type="thymio_sound_system"></block>
       <block type="thymio_sound_note">
         <value name="FREQ">
@@ -206,10 +262,9 @@ h1 {
           </shadow>
         </value>
       </block>
-      <block type="thymio_sound_stop"></block>
       <block type="thymio_communication"></block>
     </category>
-    <category name="LEDs">
+    <category name="LEDs" colour="160">
       <block type="thymio_led_off"></block>
       <block type="thymio_led"></block>
       <block type="thymio_led_rgb">
@@ -367,7 +422,7 @@ h1 {
         </value>
       </block>
     </category>
-    <category name="Sensors">
+    <category name="Sensors" colour="230">
       <block type="thymio_button_pressed"></block>
       <block type="thymio_prox_check"></block>
       <block type="thymio_prox_ground_check"></block>
