@@ -228,6 +228,15 @@ Blockly.AESL['thymio_led_temperature'] = function(block)
 	return code;
 };
 
+Blockly.AESL['thymio_led_rc_sound'] = function(block)
+{
+	var led = block.getFieldValue('LED');
+	var intensity = Blockly.AESL.valueToCode(block, 'INTENSITY', Blockly.AESL.ORDER_NONE) || '0';
+
+	var code = 'call ' + led + '(' + intensity + ')\n';
+	return code;
+};
+
 Blockly.AESL['thymio_led_off'] = function(block)
 {
 	var led = block.getFieldValue('LED');

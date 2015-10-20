@@ -382,6 +382,26 @@ Blockly.Blocks['thymio_led_temperature'] = {
 	},
 };
 
+Blockly.Blocks['thymio_led_rc_sound'] = {
+	/**
+	 * Block to set Thymio rc and sound leds
+	 * 
+	 * @this Blockly.Block
+	 */
+	init : function()
+	{
+		this.setColour(Blockly.Blocks.thymio.ACTUATORS_HUE);
+		this.setHelpUrl(Blockly.Msg.TEXT_THYMIO_LED_RC_SOUND_HELPURL);
+		this.setTooltip(Blockly.Msg.TEXT_THYMIO_LED_RC_SOUND_TOOLTIP);
+		this.setPreviousStatement(true);
+		this.setNextStatement(true);
+		
+		var dropdown = new Blockly.FieldDropdown([['remote control', 'leds.rc'], ['microphone', 'leds.sound']]);
+		
+		this.appendValueInput('INTENSITY').setCheck('Number').setAlign(Blockly.ALIGN_RIGHT).appendField('set').appendField(dropdown, 'LED').appendField('led to');
+	},
+};
+
 Blockly.Blocks['thymio_led_off'] = {
 	/**
 	 * Block to turn off Thymio LEDs.
