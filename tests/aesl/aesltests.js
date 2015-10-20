@@ -3006,4 +3006,66 @@ AeslTests = [
  '		motor.right.target = -300\n' + 
  '	end\n' + 
  ''],
+['circle leds',
+ '<xml xmlns="http://www.w3.org/1999/xhtml">\n' + 
+ '  <block type="thymio_led_circle" x="138" y="38">\n' + 
+ '    <value name="CIRCLE0">\n' + 
+ '      <shadow type="math_number">\n' + 
+ '        <field name="NUM">0</field>\n' + 
+ '      </shadow>\n' + 
+ '    </value>\n' + 
+ '    <value name="CIRCLE1">\n' + 
+ '      <shadow type="math_number">\n' + 
+ '        <field name="NUM">4</field>\n' + 
+ '      </shadow>\n' + 
+ '    </value>\n' + 
+ '    <value name="CIRCLE2">\n' + 
+ '      <shadow type="math_number">\n' + 
+ '        <field name="NUM">8</field>\n' + 
+ '      </shadow>\n' + 
+ '    </value>\n' + 
+ '    <value name="CIRCLE3">\n' + 
+ '      <shadow type="math_number">\n' + 
+ '        <field name="NUM">12</field>\n' + 
+ '      </shadow>\n' + 
+ '    </value>\n' + 
+ '    <value name="CIRCLE4">\n' + 
+ '      <shadow type="math_number">\n' + 
+ '        <field name="NUM">16</field>\n' + 
+ '      </shadow>\n' + 
+ '    </value>\n' + 
+ '    <value name="CIRCLE5">\n' + 
+ '      <shadow type="math_number">\n' + 
+ '        <field name="NUM">20</field>\n' + 
+ '      </shadow>\n' + 
+ '    </value>\n' + 
+ '    <value name="CIRCLE6">\n' + 
+ '      <shadow type="math_number">\n' + 
+ '        <field name="NUM">24</field>\n' + 
+ '      </shadow>\n' + 
+ '    </value>\n' + 
+ '    <value name="CIRCLE7">\n' + 
+ '      <shadow type="math_number">\n' + 
+ '        <field name="NUM">28</field>\n' + 
+ '      </shadow>\n' + 
+ '    </value>\n' + 
+ '  </block>\n' + 
+ '  <block type="thymio_event_button" x="138" y="287">\n' + 
+ '    <field name="BUTTON">button.center</field>\n' + 
+ '    <field name="MODE">PRESS</field>\n' + 
+ '    <statement name="HANDLER">\n' + 
+ '      <block type="thymio_led_off">\n' + 
+ '        <field name="LED">leds.circle</field>\n' + 
+ '      </block>\n' + 
+ '    </statement>\n' + 
+ '  </block>\n' + 
+ '</xml>',
+ 'call leds.circle(0,4,8,12,16,20,24,28)\n' + 
+ '\n' + 
+ '\n' + 
+ 'onevent button.center\n' + 
+ '	when button.center == 1 do\n' + 
+ '		call leds.circle(0,0,0,0,0,0,0,0)\n' + 
+ '	end\n' + 
+ ''],
 ];
