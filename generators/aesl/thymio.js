@@ -172,8 +172,22 @@ Blockly.AESL['thymio_led_rgb'] = function(block)
 Blockly.AESL['thymio_led_off'] = function(block)
 {
 	var led = block.getFieldValue('LED');
+	
+	var offstr = '';
+	
+	if(led == 'leds.top' || led == 'leds.bottom.left' || led == 'leds.bottom.right') {
+		offstr = '0,0,0';
+	} else if(led == 'leds.circle' || led == 'leds.prox.h') {
+		offstr = '0,0,0,0,0,0,0,0';
+	} else if(led == 'leds.prox.v' || led == 'leds.temperature') {
+		offstr = '0,0';
+	} else if(led == 'leds.rc' || led == 'leds.sound') {
+		offstr = '0';
+	} else if(led == 'leds.buttons') {
+		offstr = '0,0,0,0';
+	}
 
-	var code = 'call ' + led + '(0,0,0)\n';
+	var code = 'call ' + led + '(' + offstr + ')\n';
 	return code;
 };
 

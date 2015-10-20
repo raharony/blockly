@@ -285,9 +285,21 @@ Blockly.Blocks['thymio_led_off'] = {
 		this.setTooltip(Blockly.Msg.TEXT_THYMIO_LED_OFF_TOOLTIP);
 		this.setPreviousStatement(true);
 		this.setNextStatement(true);
+		
+		var leds = [];
+		leds.push(['top led', 'leds.top']);
+		leds.push(['bottom left led', 'leds.bottom.left']);
+		leds.push(['bottom right led', 'leds.bottom.right']);
+		leds.push(['circle leds', 'leds.circle']);
+		leds.push(['horizontal proximity leds', 'leds.prox.h']);
+		leds.push(['ground proximity leds', 'leds.prox.v']);
+		leds.push(['remote control led', 'leds.rc']);
+		leds.push(['button leds', 'leds.buttons']);
+		leds.push(['temperature led', 'leds.temperature']);
+		leds.push(['microphone led', 'leds.sound']);
 
-		var dropdown = new Blockly.FieldDropdown([['top', 'leds.top'], ['bottom left', 'leds.bottom.left'], ['bottom right', 'leds.bottom.right']]);
-		this.appendDummyInput().appendField('turn off').appendField(dropdown, 'LED').appendField('led');
+		var dropdown = new Blockly.FieldDropdown(leds);
+		this.appendDummyInput().appendField('turn off').appendField(dropdown, 'LED');
 	},
 };
 
