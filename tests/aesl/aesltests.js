@@ -3068,4 +3068,66 @@ AeslTests = [
  '		call leds.circle(0,0,0,0,0,0,0,0)\n' + 
  '	end\n' + 
  ''],
+['horizontal prox leds',
+ '<xml xmlns="http://www.w3.org/1999/xhtml">\n' + 
+ '  <block type="thymio_led_prox" x="88" y="38">\n' + 
+ '    <value name="PROX0">\n' + 
+ '      <shadow type="math_number">\n' + 
+ '        <field name="NUM">0</field>\n' + 
+ '      </shadow>\n' + 
+ '    </value>\n' + 
+ '    <value name="PROX1">\n' + 
+ '      <shadow type="math_number">\n' + 
+ '        <field name="NUM">4</field>\n' + 
+ '      </shadow>\n' + 
+ '    </value>\n' + 
+ '    <value name="PROX2">\n' + 
+ '      <shadow type="math_number">\n' + 
+ '        <field name="NUM">8</field>\n' + 
+ '      </shadow>\n' + 
+ '    </value>\n' + 
+ '    <value name="PROX3">\n' + 
+ '      <shadow type="math_number">\n' + 
+ '        <field name="NUM">12</field>\n' + 
+ '      </shadow>\n' + 
+ '    </value>\n' + 
+ '    <value name="PROX4">\n' + 
+ '      <shadow type="math_number">\n' + 
+ '        <field name="NUM">16</field>\n' + 
+ '      </shadow>\n' + 
+ '    </value>\n' + 
+ '    <value name="PROX5">\n' + 
+ '      <shadow type="math_number">\n' + 
+ '        <field name="NUM">20</field>\n' + 
+ '      </shadow>\n' + 
+ '    </value>\n' + 
+ '    <value name="PROX6">\n' + 
+ '      <shadow type="math_number">\n' + 
+ '        <field name="NUM">24</field>\n' + 
+ '      </shadow>\n' + 
+ '    </value>\n' + 
+ '    <value name="PROX7">\n' + 
+ '      <shadow type="math_number">\n' + 
+ '        <field name="NUM">28</field>\n' + 
+ '      </shadow>\n' + 
+ '    </value>\n' + 
+ '  </block>\n' + 
+ '  <block type="thymio_event_button" x="87" y="287">\n' + 
+ '    <field name="BUTTON">button.center</field>\n' + 
+ '    <field name="MODE">PRESS</field>\n' + 
+ '    <statement name="HANDLER">\n' + 
+ '      <block type="thymio_led_off">\n' + 
+ '        <field name="LED">leds.prox.h</field>\n' + 
+ '      </block>\n' + 
+ '    </statement>\n' + 
+ '  </block>\n' + 
+ '</xml>',
+ 'call leds.prox.h(0,4,8,12,16,20,24,28)\n' + 
+ '\n' + 
+ '\n' + 
+ 'onevent button.center\n' + 
+ '	when button.center == 1 do\n' + 
+ '		call leds.prox.h(0,0,0,0,0,0,0,0)\n' + 
+ '	end\n' + 
+ ''],
 ];
