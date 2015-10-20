@@ -184,6 +184,21 @@ Blockly.AESL['thymio_led_circle'] = function(block)
 	return code;
 };
 
+Blockly.AESL['thymio_led_prox'] = function(block)
+{
+	var prox0 = Blockly.AESL.valueToCode(block, 'PROX0', Blockly.AESL.ORDER_NONE) || '0';
+	var prox1 = Blockly.AESL.valueToCode(block, 'PROX1', Blockly.AESL.ORDER_NONE) || '0';
+	var prox2 = Blockly.AESL.valueToCode(block, 'PROX2', Blockly.AESL.ORDER_NONE) || '0';
+	var prox3 = Blockly.AESL.valueToCode(block, 'PROX3', Blockly.AESL.ORDER_NONE) || '0';
+	var prox4 = Blockly.AESL.valueToCode(block, 'PROX4', Blockly.AESL.ORDER_NONE) || '0';
+	var prox5 = Blockly.AESL.valueToCode(block, 'PROX5', Blockly.AESL.ORDER_NONE) || '0';
+	var prox6 = Blockly.AESL.valueToCode(block, 'PROX6', Blockly.AESL.ORDER_NONE) || '0';
+	var prox7 = Blockly.AESL.valueToCode(block, 'PROX7', Blockly.AESL.ORDER_NONE) || '0';
+
+	var code = 'call leds.prox.h(' + prox0 + ',' + prox1 + ',' + prox2 + ',' + prox3 + ',' + prox4 + ',' + prox5 + ',' + prox6 + ',' + prox7 + ')\n';
+	return code;
+};
+
 Blockly.AESL['thymio_led_off'] = function(block)
 {
 	var led = block.getFieldValue('LED');

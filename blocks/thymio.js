@@ -297,6 +297,31 @@ Blockly.Blocks['thymio_led_circle'] = {
 	},
 };
 
+Blockly.Blocks['thymio_led_prox'] = {
+	/**
+	 * Block to set Thymio proximity leds
+	 * 
+	 * @this Blockly.Block
+	 */
+	init : function()
+	{
+		this.setColour(Blockly.Blocks.thymio.ACTUATORS_HUE);
+		this.setHelpUrl(Blockly.Msg.TEXT_THYMIO_LED_PROX_HELPURL);
+		this.setTooltip(Blockly.Msg.TEXT_THYMIO_LED_PROX_TOOLTIP);
+		this.setPreviousStatement(true);
+		this.setNextStatement(true);
+		
+		this.appendValueInput('PROX0').setCheck('Number').setAlign(Blockly.ALIGN_RIGHT).appendField('set horizontal proximity leds to front left');
+		this.appendValueInput('PROX1').setCheck('Number').setAlign(Blockly.ALIGN_RIGHT).appendField('front left/middle');
+		this.appendValueInput('PROX2').setCheck('Number').setAlign(Blockly.ALIGN_RIGHT).appendField('right');
+		this.appendValueInput('PROX3').setCheck('Number').setAlign(Blockly.ALIGN_RIGHT).appendField('front middle');
+		this.appendValueInput('PROX4').setCheck('Number').setAlign(Blockly.ALIGN_RIGHT).appendField('front right/middle');
+		this.appendValueInput('PROX5').setCheck('Number').setAlign(Blockly.ALIGN_RIGHT).appendField('front right');
+		this.appendValueInput('PROX6').setCheck('Number').setAlign(Blockly.ALIGN_RIGHT).appendField('rear left');
+		this.appendValueInput('PROX7').setCheck('Number').setAlign(Blockly.ALIGN_RIGHT).appendField('rear right');
+	},
+};
+
 Blockly.Blocks['thymio_led_off'] = {
 	/**
 	 * Block to turn off Thymio LEDs.
