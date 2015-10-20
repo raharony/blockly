@@ -199,6 +199,15 @@ Blockly.AESL['thymio_led_prox'] = function(block)
 	return code;
 };
 
+Blockly.AESL['thymio_led_prox_ground'] = function(block)
+{
+	var prox0 = Blockly.AESL.valueToCode(block, 'PROX0', Blockly.AESL.ORDER_NONE) || '0';
+	var prox1 = Blockly.AESL.valueToCode(block, 'PROX1', Blockly.AESL.ORDER_NONE) || '0';
+
+	var code = 'call leds.prox.v(' + prox0 + ',' + prox1 + ')\n';
+	return code;
+};
+
 Blockly.AESL['thymio_led_off'] = function(block)
 {
 	var led = block.getFieldValue('LED');

@@ -322,6 +322,26 @@ Blockly.Blocks['thymio_led_prox'] = {
 	},
 };
 
+
+Blockly.Blocks['thymio_led_prox_ground'] = {
+	/**
+	 * Block to set Thymio proximity leds
+	 * 
+	 * @this Blockly.Block
+	 */
+	init : function()
+	{
+		this.setColour(Blockly.Blocks.thymio.ACTUATORS_HUE);
+		this.setHelpUrl(Blockly.Msg.TEXT_THYMIO_LED_PROX_GROUND_HELPURL);
+		this.setTooltip(Blockly.Msg.TEXT_THYMIO_LED_PROX_GROUND_TOOLTIP);
+		this.setPreviousStatement(true);
+		this.setNextStatement(true);
+		
+		this.appendValueInput('PROX0').setCheck('Number').setAlign(Blockly.ALIGN_RIGHT).appendField('set ground proximity leds to left');
+		this.appendValueInput('PROX1').setCheck('Number').setAlign(Blockly.ALIGN_RIGHT).appendField('right');
+	},
+};
+
 Blockly.Blocks['thymio_led_off'] = {
 	/**
 	 * Block to turn off Thymio LEDs.
