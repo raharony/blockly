@@ -3162,4 +3162,46 @@ AeslTests = [
  '		call leds.prox.v(0,0)\n' + 
  '	end\n' + 
  ''],
+['button leds',
+ '<xml xmlns="http://www.w3.org/1999/xhtml">\n' + 
+ '  <block type="thymio_led_button" x="88" y="62">\n' + 
+ '    <value name="FORWARD">\n' + 
+ '      <shadow type="math_number">\n' + 
+ '        <field name="NUM">8</field>\n' + 
+ '      </shadow>\n' + 
+ '    </value>\n' + 
+ '    <value name="RIGHT">\n' + 
+ '      <shadow type="math_number">\n' + 
+ '        <field name="NUM">16</field>\n' + 
+ '      </shadow>\n' + 
+ '    </value>\n' + 
+ '    <value name="BACKWARD">\n' + 
+ '      <shadow type="math_number">\n' + 
+ '        <field name="NUM">24</field>\n' + 
+ '      </shadow>\n' + 
+ '    </value>\n' + 
+ '    <value name="LEFT">\n' + 
+ '      <shadow type="math_number">\n' + 
+ '        <field name="NUM">32</field>\n' + 
+ '      </shadow>\n' + 
+ '    </value>\n' + 
+ '  </block>\n' + 
+ '  <block type="thymio_event_button" x="88" y="187">\n' + 
+ '    <field name="BUTTON">button.center</field>\n' + 
+ '    <field name="MODE">PRESS</field>\n' + 
+ '    <statement name="HANDLER">\n' + 
+ '      <block type="thymio_led_off">\n' + 
+ '        <field name="LED">leds.buttons</field>\n' + 
+ '      </block>\n' + 
+ '    </statement>\n' + 
+ '  </block>\n' + 
+ '</xml>',
+ 'call leds.buttons(8,16,24,32)\n' + 
+ '\n' + 
+ '\n' + 
+ 'onevent button.center\n' + 
+ '	when button.center == 1 do\n' + 
+ '		call leds.buttons(0,0,0,0)\n' + 
+ '	end\n' + 
+ ''],
 ];
