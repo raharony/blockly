@@ -106,7 +106,7 @@ Blockly.AESL['thymio_event_prox'] = function(block)
 	var handler = Blockly.AESL.statementToCode(block, 'HANDLER');
 	
 	var condition = '';
-	if(mode == 'BLOCK') {
+	if(mode == 'BLOCK' || mode == 'PROX') {
 		condition = ' > 2000';
 	} else {
 		condition = ' < 1000';
@@ -131,7 +131,7 @@ Blockly.AESL['thymio_event_prox_ground'] = function(block)
 	var handler = Blockly.AESL.statementToCode(block, 'HANDLER');
 	
 	var condition = '';
-	if(mode == 'BLACK') {
+	if(mode == 'BLACK' || mode == 'PROX') {
 		condition = ' > 450';
 	} else {
 		condition = ' < 400';
@@ -212,7 +212,7 @@ Blockly.AESL['thymio_prox_check'] = function(block)
 	var mode = block.getFieldValue('MODE');
 	
 	var condition = '';
-	if(mode == 'BLOCK') {
+	if(mode == 'BLOCK' || mode == 'PROX') {
 		condition = ' > 2000';
 	} else {
 		condition = ' < 1000';
@@ -227,7 +227,7 @@ Blockly.AESL['thymio_prox_ground_check'] = function(block)
 	var mode = block.getFieldValue('MODE');
 	
 	var condition = '';
-	if(mode == 'BLACK') {
+	if(mode == 'BLACK' || mode == 'PROX') {
 		condition = ' > 450';
 	} else {
 		condition = ' < 400';

@@ -201,9 +201,9 @@ Blockly.Blocks['thymio_event_prox'] = {
 		sensorList.push(['rear right', 'prox.horizontal[6]']);
 		
 		var sensorDropdown = new Blockly.FieldDropdown(sensorList);
-		var modeDropdown = new Blockly.FieldDropdown([['blocked', 'BLOCK'], ['cleared', 'CLEAR']]);
+		var modeDropdown = new Blockly.FieldDropdown([['proximity', 'BLOCK'], ['no proximity', 'CLEAR']]);
 		
-		this.appendDummyInput().appendField('on').appendField(sensorDropdown, 'SENSOR').appendField('proximity sensor').appendField(modeDropdown, 'MODE');
+		this.appendDummyInput().appendField('on').appendField(sensorDropdown, 'SENSOR').appendField('sensor detecting').appendField(modeDropdown, 'MODE');
 		this.appendStatementInput('HANDLER');
 	},
 };
@@ -225,9 +225,9 @@ Blockly.Blocks['thymio_event_prox_ground'] = {
 		sensorList.push(['right', 'prox.ground.delta[1]']);
 		
 		var sensorDropdown = new Blockly.FieldDropdown(sensorList);
-		var modeDropdown = new Blockly.FieldDropdown([['black', 'BLACK'], ['white', 'WHITE']]);
+		var modeDropdown = new Blockly.FieldDropdown([['black', 'BLACK'], ['white', 'WHITE'], ['proximity', 'PROX'], ['no proximity', 'NOPROX']]);
 		
-		this.appendDummyInput().appendField('on').appendField(sensorDropdown, 'SENSOR').appendField('ground sensor').appendField(modeDropdown, 'MODE');
+		this.appendDummyInput().appendField('on').appendField(sensorDropdown, 'SENSOR').appendField('ground sensor detecting').appendField(modeDropdown, 'MODE');
 		this.appendStatementInput('HANDLER');
 	},
 };
@@ -398,10 +398,10 @@ Blockly.Blocks['thymio_prox_check'] = {
 		sensorList.push(['rear right', 'prox.horizontal[6]']);
 
 		var sensorDropdown = new Blockly.FieldDropdown(sensorList);
-		var modeDropdown = new Blockly.FieldDropdown([['blocked', 'BLOCK'], ['cleared', 'CLEAR']]);
+		var modeDropdown = new Blockly.FieldDropdown([['proximity', 'BLOCK'], ['no proximity', 'CLEAR']]);
 		
 		this.setOutput(true, 'Boolean');
-		this.appendDummyInput().appendField(sensorDropdown, 'SENSOR').appendField('proximity sensor').appendField(modeDropdown, 'MODE');
+		this.appendDummyInput().appendField(sensorDropdown, 'SENSOR').appendField('sensor detecting').appendField(modeDropdown, 'MODE');
 	},
 };
 
@@ -422,10 +422,10 @@ Blockly.Blocks['thymio_prox_ground_check'] = {
 		sensorList.push(['right', 'prox.ground.delta[1]']);
 
 		var sensorDropdown = new Blockly.FieldDropdown(sensorList);
-		var modeDropdown = new Blockly.FieldDropdown([['black', 'BLACK'], ['white', 'WHITE']]);
+		var modeDropdown = new Blockly.FieldDropdown([['black', 'BLACK'], ['white', 'WHITE'], ['proximity', 'PROX'], ['no proximity', 'NOPROX']]);
 		
 		this.setOutput(true, 'Boolean');
-		this.appendDummyInput().appendField(sensorDropdown, 'SENSOR').appendField('ground sensor').appendField(modeDropdown, 'MODE');
+		this.appendDummyInput().appendField(sensorDropdown, 'SENSOR').appendField('ground sensor detecting').appendField(modeDropdown, 'MODE');
 	},
 };
 
