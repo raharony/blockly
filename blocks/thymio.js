@@ -712,7 +712,7 @@ Blockly.Blocks['thymio_actuator_set'] = {
 		variables.push(['IR communication to transmit','prox.comm.tx']);
 
 		var dropdown = new Blockly.FieldDropdown(variables);
-		this.appendValueInput('VALUE').setCheck('Number').appendField('set Thymio').appendField(dropdown, 'VARIABLE').appendField('to');
+		this.appendValueInput('VALUE').setCheck('Number').appendField('set').appendField(dropdown, 'VARIABLE').appendField('to');
 	},
 };
 
