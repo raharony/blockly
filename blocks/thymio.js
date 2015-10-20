@@ -184,7 +184,7 @@ Blockly.Blocks['thymio_event_button'] = {
 		this.setTooltip(Blockly.Msg.TEXT_THYMIO_EVENT_BUTTON_TOOLTIP);
 
 		var buttonDropdown = new Blockly.FieldDropdown([['center', 'button.center'], ['forward', 'button.forward'], ['backward', 'button.backward'], ['left', 'button.left'], ['right', 'button.right']]);
-		var modeDropdown = new Blockly.FieldDropdown([['pressed', 'PRESS'], ['released', 'RELEASE']]);
+		var modeDropdown = new Blockly.FieldDropdown([['touched', 'PRESS'], ['released', 'RELEASE']]);
 		
 		this.appendDummyInput().appendField('on').appendField(buttonDropdown, 'BUTTON').appendField('button').appendField(modeDropdown, 'MODE');
 		this.appendStatementInput('HANDLER');
@@ -526,7 +526,7 @@ Blockly.Blocks['thymio_button_pressed'] = {
 
 		var buttonDropdown = new Blockly.FieldDropdown([['center', 'button.center'], ['forward', 'button.forward'], ['backward', 'button.backward'], ['left', 'button.left'], ['right', 'button.right']]);
 		this.setOutput(true, 'Boolean');
-		this.appendDummyInput().appendField(buttonDropdown, 'BUTTON').appendField('button pressed');
+		this.appendDummyInput().appendField(buttonDropdown, 'BUTTON').appendField('button touched');
 	},
 };
 
