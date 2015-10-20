@@ -272,6 +272,31 @@ Blockly.Blocks['thymio_led_rgb'] = {
 	},
 };
 
+Blockly.Blocks['thymio_led_circle'] = {
+	/**
+	 * Block to set Thymio circle leds
+	 * 
+	 * @this Blockly.Block
+	 */
+	init : function()
+	{
+		this.setColour(Blockly.Blocks.thymio.ACTUATORS_HUE);
+		this.setHelpUrl(Blockly.Msg.TEXT_THYMIO_LED_CIRCLE_HELPURL);
+		this.setTooltip(Blockly.Msg.TEXT_THYMIO_LED_CIRCLE_TOOLTIP);
+		this.setPreviousStatement(true);
+		this.setNextStatement(true);
+
+		this.appendValueInput('CIRCLE0').setCheck('Number').setAlign(Blockly.ALIGN_RIGHT).appendField('set circle leds to forward');
+		this.appendValueInput('CIRCLE1').setCheck('Number').setAlign(Blockly.ALIGN_RIGHT).appendField('forward right');
+		this.appendValueInput('CIRCLE2').setCheck('Number').setAlign(Blockly.ALIGN_RIGHT).appendField('right');
+		this.appendValueInput('CIRCLE3').setCheck('Number').setAlign(Blockly.ALIGN_RIGHT).appendField('backward right');
+		this.appendValueInput('CIRCLE4').setCheck('Number').setAlign(Blockly.ALIGN_RIGHT).appendField('backward');
+		this.appendValueInput('CIRCLE5').setCheck('Number').setAlign(Blockly.ALIGN_RIGHT).appendField('backward left');
+		this.appendValueInput('CIRCLE6').setCheck('Number').setAlign(Blockly.ALIGN_RIGHT).appendField('left');
+		this.appendValueInput('CIRCLE7').setCheck('Number').setAlign(Blockly.ALIGN_RIGHT).appendField('forward left');
+	},
+};
+
 Blockly.Blocks['thymio_led_off'] = {
 	/**
 	 * Block to turn off Thymio LEDs.

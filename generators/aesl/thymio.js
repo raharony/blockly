@@ -161,11 +161,26 @@ Blockly.AESL['thymio_led'] = function(block)
 Blockly.AESL['thymio_led_rgb'] = function(block)
 {
 	var led = block.getFieldValue('LED');
-	var red = Blockly.AESL.valueToCode(block, 'RED', Blockly.AESL.ORDER_NONE);
-	var green = Blockly.AESL.valueToCode(block, 'GREEN', Blockly.AESL.ORDER_NONE);
-	var blue = Blockly.AESL.valueToCode(block, 'BLUE', Blockly.AESL.ORDER_NONE);
+	var red = Blockly.AESL.valueToCode(block, 'RED', Blockly.AESL.ORDER_NONE) || '0';
+	var green = Blockly.AESL.valueToCode(block, 'GREEN', Blockly.AESL.ORDER_NONE) || '0';
+	var blue = Blockly.AESL.valueToCode(block, 'BLUE', Blockly.AESL.ORDER_NONE) || '0';
 
 	var code = 'call ' + led + '(' + red + ',' + green + ',' + blue + ')\n';
+	return code;
+};
+
+Blockly.AESL['thymio_led_circle'] = function(block)
+{
+	var circle0 = Blockly.AESL.valueToCode(block, 'CIRCLE0', Blockly.AESL.ORDER_NONE) || '0';
+	var circle1 = Blockly.AESL.valueToCode(block, 'CIRCLE1', Blockly.AESL.ORDER_NONE) || '0';
+	var circle2 = Blockly.AESL.valueToCode(block, 'CIRCLE2', Blockly.AESL.ORDER_NONE) || '0';
+	var circle3 = Blockly.AESL.valueToCode(block, 'CIRCLE3', Blockly.AESL.ORDER_NONE) || '0';
+	var circle4 = Blockly.AESL.valueToCode(block, 'CIRCLE4', Blockly.AESL.ORDER_NONE) || '0';
+	var circle5 = Blockly.AESL.valueToCode(block, 'CIRCLE5', Blockly.AESL.ORDER_NONE) || '0';
+	var circle6 = Blockly.AESL.valueToCode(block, 'CIRCLE6', Blockly.AESL.ORDER_NONE) || '0';
+	var circle7 = Blockly.AESL.valueToCode(block, 'CIRCLE7', Blockly.AESL.ORDER_NONE) || '0';
+
+	var code = 'call leds.circle(' + circle0 + ',' + circle1 + ',' + circle2 + ',' + circle3 + ',' + circle4 + ',' + circle5 + ',' + circle6 + ',' + circle7 + ')\n';
 	return code;
 };
 
