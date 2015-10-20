@@ -363,6 +363,25 @@ Blockly.Blocks['thymio_led_button'] = {
 	},
 };
 
+Blockly.Blocks['thymio_led_temperature'] = {
+	/**
+	 * Block to set Thymio temperature leds
+	 * 
+	 * @this Blockly.Block
+	 */
+	init : function()
+	{
+		this.setColour(Blockly.Blocks.thymio.ACTUATORS_HUE);
+		this.setHelpUrl(Blockly.Msg.TEXT_THYMIO_LED_TEMPERATURE_HELPURL);
+		this.setTooltip(Blockly.Msg.TEXT_THYMIO_LED_TEMPERATURE_TOOLTIP);
+		this.setPreviousStatement(true);
+		this.setNextStatement(true);
+		
+		this.appendValueInput('RED').setCheck('Number').setAlign(Blockly.ALIGN_RIGHT).appendField('set temperature leds to red');
+		this.appendValueInput('BLUE').setCheck('Number').setAlign(Blockly.ALIGN_RIGHT).appendField('blue');
+	},
+};
+
 Blockly.Blocks['thymio_led_off'] = {
 	/**
 	 * Block to turn off Thymio LEDs.

@@ -219,6 +219,15 @@ Blockly.AESL['thymio_led_button'] = function(block)
 	return code;
 };
 
+Blockly.AESL['thymio_led_temperature'] = function(block)
+{
+	var red = Blockly.AESL.valueToCode(block, 'RED', Blockly.AESL.ORDER_NONE) || '0';
+	var blue = Blockly.AESL.valueToCode(block, 'BLUE', Blockly.AESL.ORDER_NONE) || '0';
+
+	var code = 'call leds.temperature(' + red + ',' + blue + ')\n';
+	return code;
+};
+
 Blockly.AESL['thymio_led_off'] = function(block)
 {
 	var led = block.getFieldValue('LED');
