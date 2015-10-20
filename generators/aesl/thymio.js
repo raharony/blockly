@@ -318,11 +318,13 @@ Blockly.AESL['thymio_prox_ground_check'] = function(block)
 	return [sensor + condition, Blockly.AESL.ORDER_CONDITION];
 };
 
-Blockly.AESL['thymio_get_sensor_state'] = function(block)
+Blockly.AESL['thymio_sensor'] = function(block)
 {
 	var sensor = block.getFieldValue('SENSOR');
 	return [sensor, Blockly.AESL.ORDER_ATOMIC];
 };
+
+Blockly.AESL['thymio_sensor_prox'] = Blockly.AESL['thymio_sensor'];
 
 Blockly.AESL['thymio_motors_start'] = function(block)
 {

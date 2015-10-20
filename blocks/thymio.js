@@ -583,7 +583,7 @@ Blockly.Blocks['thymio_prox_ground_check'] = {
 	},
 };
 
-Blockly.Blocks['thymio_get_sensor_state'] = {
+Blockly.Blocks['thymio_sensor'] = {
 	/**
 	 * Block for retrieving a sensor state
 	 * 
@@ -591,20 +591,11 @@ Blockly.Blocks['thymio_get_sensor_state'] = {
 	 */
 	init : function()
 	{
-		this.setColour(Blockly.Blocks.thymio.SENSORS_HUE);
-		this.setHelpUrl(Blockly.Msg.TEXT_THYMIO_GET_SENSOR_STATE_HELPURL);
-		this.setTooltip(Blockly.Msg.TEXT_THYMIO_GET_SENSOR_STATE_TOOLTIP);
+		this.setColour(Blockly.Blocks.math.HUE);
+		this.setHelpUrl(Blockly.Msg.TEXT_THYMIO_SENSOR_HELPURL);
+		this.setTooltip(Blockly.Msg.TEXT_THYMIO_SENSOR_TOOLTIP);
 
 		var sensorList = [];		
-		sensorList.push(['front left proximity sensor', 'prox.horizontal[0]']);
-		sensorList.push(['front left/middle proximity sensor', 'prox.horizontal[1]']);
-		sensorList.push(['front middle proximity sensor', 'prox.horizontal[2]']);
-		sensorList.push(['front right/middle proximity sensor', 'prox.horizontal[3]']);
-		sensorList.push(['front right proximity sensor', 'prox.horizontal[4]']);
-		sensorList.push(['rear left proximity sensor', 'prox.horizontal[5]']);
-		sensorList.push(['rear right proximity sensor', 'prox.horizontal[6]']);
-		sensorList.push(['left ground sensor', 'prox.ground.delta[0]']);
-		sensorList.push(['right ground sensor', 'prox.ground.delta[1]']);
 		sensorList.push(['left motor speed', 'motor.left.speed']);
 		sensorList.push(['right motor speed', 'motor.right.speed']);
 		sensorList.push(['accelorometer x', 'acc[0]']);
@@ -618,7 +609,36 @@ Blockly.Blocks['thymio_get_sensor_state'] = {
 
 		var dropdown = new Blockly.FieldDropdown(sensorList);
 		this.setOutput(true, 'Number');
-		this.appendDummyInput().appendField('Thymio').appendField(dropdown, 'SENSOR');
+		this.appendDummyInput().appendField(dropdown, 'SENSOR').appendField('sensor value');
+	},
+};
+
+Blockly.Blocks['thymio_sensor_prox'] = {
+	/**
+	 * Block for retrieving a proximity sensor state
+	 * 
+	 * @this Blockly.Block
+	 */
+	init : function()
+	{
+		this.setColour(Blockly.Blocks.math.HUE);
+		this.setHelpUrl(Blockly.Msg.TEXT_THYMIO_SENSOR_PROX_HELPURL);
+		this.setTooltip(Blockly.Msg.TEXT_THYMIO_SENSOR_PROX_TOOLTIP);
+
+		var sensorList = [];
+		sensorList.push(['front left', 'prox.horizontal[0]']);
+		sensorList.push(['front left/middle', 'prox.horizontal[1]']);
+		sensorList.push(['front middle', 'prox.horizontal[2]']);
+		sensorList.push(['front right/middle', 'prox.horizontal[3]']);
+		sensorList.push(['front right', 'prox.horizontal[4]']);
+		sensorList.push(['rear left', 'prox.horizontal[5]']);
+		sensorList.push(['rear right', 'prox.horizontal[6]']);
+		sensorList.push(['left ground', 'prox.ground.delta[0]']);
+		sensorList.push(['right ground', 'prox.ground.delta[1]']);
+
+		var dropdown = new Blockly.FieldDropdown(sensorList);
+		this.setOutput(true, 'Number');
+		this.appendDummyInput().appendField(dropdown, 'SENSOR').appendField('proximity sensor closeness');
 	},
 };
 
