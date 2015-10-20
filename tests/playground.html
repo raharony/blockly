@@ -263,6 +263,14 @@ h1 {
         </value>
       </block>
       <block type="thymio_communication"></block>
+      <block type="thymio_actuator_set">
+        <field name="VARIABLE">prox.comm.tx</field>
+        <value name="VALUE">
+          <shadow type="math_number">
+            <field name="NUM">0</field>
+          </shadow>
+        </value>
+      </block>
     </category>
     <category name="LEDs" colour="160">
       <block type="thymio_led_off"></block>
