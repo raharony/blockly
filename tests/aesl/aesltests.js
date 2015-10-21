@@ -2490,7 +2490,7 @@ AeslTests = [
  '                  </block>\n' + 
  '                </value>\n' + 
  '                <next>\n' + 
- '                  <block type="thymio_actuator_set">\n' + 
+ '                  <block type="thymio_actuator_timer">\n' + 
  '                    <field name="VARIABLE">timer.period[0]</field>\n' + 
  '                    <value name="VALUE">\n' + 
  '                      <block type="math_number">\n' + 
@@ -2532,7 +2532,7 @@ AeslTests = [
  '                      </block>\n' + 
  '                    </value>\n' + 
  '                    <next>\n' + 
- '                      <block type="thymio_actuator_set">\n' + 
+ '                      <block type="thymio_actuator_timer">\n' + 
  '                        <field name="VARIABLE">timer.period[0]</field>\n' + 
  '                        <value name="VALUE">\n' + 
  '                          <block type="math_number">\n' + 
@@ -2589,7 +2589,7 @@ AeslTests = [
  '              </block>\n' + 
  '            </value>\n' + 
  '            <next>\n' + 
- '              <block type="thymio_actuator_set">\n' + 
+ '              <block type="thymio_actuator_timer">\n' + 
  '                <field name="VARIABLE">timer.period[0]</field>\n' + 
  '                <value name="VALUE">\n' + 
  '                  <block type="math_number">\n' + 
@@ -2637,7 +2637,7 @@ AeslTests = [
  '        <field name="LED">leds.top</field>\n' + 
  '        <field name="COLOR">#33ff33</field>\n' + 
  '        <next>\n' + 
- '          <block type="thymio_actuator_set">\n' + 
+ '          <block type="thymio_actuator_timer">\n' + 
  '            <field name="VARIABLE">timer.period[0]</field>\n' + 
  '            <value name="VALUE">\n' + 
  '              <block type="math_number">\n' + 
