@@ -138,39 +138,6 @@ Blockly.Blocks['thymio_subroutine_define'] = {
 	callType_ : 'procedures_callnoreturn'
 };
 
-Blockly.Blocks['thymio_event'] = {
-	/**
-	 * Block for Thymio events.
-	 * 
-	 * @this Blockly.Block
-	 */
-	init : function()
-	{
-		this.setColour(Blockly.Blocks.thymio.EVENTS_HUE);
-		this.setHelpUrl(Blockly.Msg.TEXT_THYMIO_EVENT_HELPURL);
-		this.setTooltip(Blockly.Msg.TEXT_THYMIO_EVENT_TOOLTIP);
-		
-		var eventList = [];		
-		eventList.push(['button values probed', 'buttons']);
-		eventList.push(['proximity sensors read', 'prox']);
-		eventList.push(['communication value received', 'prox.comm']);
-		eventList.push(['shock detected', 'tap']);
-		eventList.push(['accelerometer read', 'acc']);
-		eventList.push(['sound intensity above threshold', 'mic']);
-		eventList.push(['sound finished playing', 'sound.finished']);
-		eventList.push(['temperature read', 'temperature']);
-		eventList.push(['remote control signal', 'rc5']);
-		eventList.push(['motor updated', 'motor']);
-		eventList.push(['first timer expired', 'timer0']);
-		eventList.push(['second timer expired', 'timer1']);
-
-		var dropdown = new Blockly.FieldDropdown(eventList);
-		
-		this.appendDummyInput().appendField('on').appendField(dropdown, 'EVENT').appendField(' event');
-		this.appendStatementInput('HANDLER');
-	},
-};
-
 Blockly.Blocks['thymio_event_button'] = {
 	/**
 	 * Block for Thymio button event.
@@ -304,7 +271,7 @@ Blockly.Blocks['thymio_event_acc'] = {
 		
 		var eventList = [];		
 		eventList.push(['shock detected', 'tap']);
-		eventList.push(['read', 'acc']);
+		eventList.push(['updated', 'acc']);
 
 		var dropdown = new Blockly.FieldDropdown(eventList);
 		
@@ -332,6 +299,32 @@ Blockly.Blocks['thymio_event_receive'] = {
 		var dropdown = new Blockly.FieldDropdown(eventList);
 		
 		this.appendDummyInput().appendField('on').appendField(dropdown, 'EVENT').appendField('received');
+		this.appendStatementInput('HANDLER');
+	},
+};
+
+Blockly.Blocks['thymio_event_update'] = {
+	/**
+	 * Block for Thymio update events.
+	 * 
+	 * @this Blockly.Block
+	 */
+	init : function()
+	{
+		this.setColour(Blockly.Blocks.thymio.EVENTS_HUE);
+		this.setHelpUrl(Blockly.Msg.TEXT_THYMIO_EVENT_UPDATED_HELPURL);
+		this.setTooltip(Blockly.Msg.TEXT_THYMIO_EVENT_UPDATED_TOOLTIP);
+		
+		var eventList = [];		
+		eventList.push(['button values', 'buttons']);
+		eventList.push(['proximity sensors', 'prox']);
+		eventList.push(['temperature', 'temperature']);
+		eventList.push(['accelerometer', 'acc']);
+		eventList.push(['motor', 'motor']);
+
+		var dropdown = new Blockly.FieldDropdown(eventList);
+		
+		this.appendDummyInput().appendField('on').appendField(dropdown, 'EVENT').appendField('updated');
 		this.appendStatementInput('HANDLER');
 	},
 };

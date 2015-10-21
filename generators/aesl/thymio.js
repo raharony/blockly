@@ -153,6 +153,7 @@ Blockly.AESL['thymio_event_timer'] = Blockly.AESL['thymio_event'];
 Blockly.AESL['thymio_event_sound'] = Blockly.AESL['thymio_event'];
 Blockly.AESL['thymio_event_acc'] = Blockly.AESL['thymio_event'];
 Blockly.AESL['thymio_event_receive'] = Blockly.AESL['thymio_event'];
+Blockly.AESL['thymio_event_update'] = Blockly.AESL['thymio_event'];
 
 Blockly.AESL['thymio_led'] = function(block)
 {
