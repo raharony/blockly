@@ -3464,4 +3464,48 @@ AeslTests = [
  '\n' + 
  'item = prox.horizontal[5] + (motor.right.speed + (acc[1] + (temperature + (mic.intensity + (prox.comm.rx + rc5.command)))))\n' + 
  ''],
+['setting all actuators',
+ '<xml xmlns="http://www.w3.org/1999/xhtml">\n' + 
+ '  <block type="thymio_actuator_timer" x="88" y="113">\n' + 
+ '    <field name="VARIABLE">timer.period[1]</field>\n' + 
+ '    <value name="VALUE">\n' + 
+ '      <shadow type="math_number">\n' + 
+ '        <field name="NUM">1000</field>\n' + 
+ '      </shadow>\n' + 
+ '    </value>\n' + 
+ '    <next>\n' + 
+ '      <block type="thymio_actuator_mic">\n' + 
+ '        <value name="VALUE">\n' + 
+ '          <shadow type="math_number">\n' + 
+ '            <field name="NUM">40</field>\n' + 
+ '          </shadow>\n' + 
+ '        </value>\n' + 
+ '        <next>\n' + 
+ '          <block type="thymio_actuator_motor">\n' + 
+ '            <field name="VARIABLE">motor.right.target</field>\n' + 
+ '            <value name="VALUE">\n' + 
+ '              <shadow type="math_number">\n' + 
+ '                <field name="NUM">0</field>\n' + 
+ '              </shadow>\n' + 
+ '            </value>\n' + 
+ '            <next>\n' + 
+ '              <block type="thymio_actuator_comm">\n' + 
+ '                <value name="VALUE">\n' + 
+ '                  <shadow type="math_number">\n' + 
+ '                    <field name="NUM">27</field>\n' + 
+ '                  </shadow>\n' + 
+ '                </value>\n' + 
+ '              </block>\n' + 
+ '            </next>\n' + 
+ '          </block>\n' + 
+ '        </next>\n' + 
+ '      </block>\n' + 
+ '    </next>\n' + 
+ '  </block>\n' + 
+ '</xml>',
+ 'timer.period[1] = 1000\n' + 
+ 'mic.threshold = 40\n' + 
+ 'motor.right.target = 0\n' + 
+ 'prox.comm.tx = 27\n' + 
+ ''],
 ];
