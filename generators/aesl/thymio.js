@@ -338,7 +338,25 @@ Blockly.AESL['thymio_sensor'] = function(block)
 	return [sensor, Blockly.AESL.ORDER_ATOMIC];
 };
 
+Blockly.AESL['thymio_sensor_temperature'] = function(block)
+{
+	return ['temperature', Blockly.AESL.ORDER_ATOMIC];
+};
+
+Blockly.AESL['thymio_sensor_mic'] = function(block)
+{
+	return ['mic.intensity', Blockly.AESL.ORDER_ATOMIC];
+};
+
+Blockly.AESL['thymio_sensor_comm'] = function(block)
+{
+	return ['prox.comm.rx', Blockly.AESL.ORDER_ATOMIC];
+};
+
 Blockly.AESL['thymio_sensor_prox'] = Blockly.AESL['thymio_sensor'];
+Blockly.AESL['thymio_sensor_motor'] = Blockly.AESL['thymio_sensor'];
+Blockly.AESL['thymio_sensor_acc'] = Blockly.AESL['thymio_sensor'];
+Blockly.AESL['thymio_sensor_rc'] = Blockly.AESL['thymio_sensor'];
 
 Blockly.AESL['thymio_motors_start'] = function(block)
 {

@@ -662,33 +662,54 @@ Blockly.Blocks['thymio_prox_ground_check'] = {
 	},
 };
 
-Blockly.Blocks['thymio_sensor'] = {
+Blockly.Blocks['thymio_sensor_temperature'] = {
 	/**
-	 * Block for retrieving a sensor state
+	 * Block for retrieving the temperature sensor state
 	 * 
 	 * @this Blockly.Block
 	 */
 	init : function()
 	{
 		this.setColour(Blockly.Blocks.math.HUE);
-		this.setHelpUrl(Blockly.Msg.TEXT_THYMIO_SENSOR_HELPURL);
-		this.setTooltip(Blockly.Msg.TEXT_THYMIO_SENSOR_TOOLTIP);
+		this.setHelpUrl(Blockly.Msg.TEXT_THYMIO_SENSOR_TEMPERATURE_HELPURL);
+		this.setTooltip(Blockly.Msg.TEXT_THYMIO_SENSOR_TEMPERATURE_TOOLTIP);
 
-		var sensorList = [];		
-		sensorList.push(['left motor speed', 'motor.left.speed']);
-		sensorList.push(['right motor speed', 'motor.right.speed']);
-		sensorList.push(['accelorometer x', 'acc[0]']);
-		sensorList.push(['accelorometer y', 'acc[1]']);
-		sensorList.push(['accelorometer z', 'acc[2]']);
-		sensorList.push(['temperature', 'temperature']);
-		sensorList.push(['microphone intensity', 'mic.intensity']);
-		sensorList.push(['received IR communication', 'prox.comm.rx']);
-		sensorList.push(['remote control address', 'rc5.address']);
-		sensorList.push(['remote control command', 'rc5.command']);
-
-		var dropdown = new Blockly.FieldDropdown(sensorList);
 		this.setOutput(true, 'Number');
-		this.appendDummyInput().appendField(dropdown, 'SENSOR').appendField('sensor value');
+		this.appendDummyInput().appendField('temperature sensor value');
+	},
+};
+
+Blockly.Blocks['thymio_sensor_mic'] = {
+	/**
+	 * Block for retrieving the microphone intensity sensor state
+	 * 
+	 * @this Blockly.Block
+	 */
+	init : function()
+	{
+		this.setColour(Blockly.Blocks.math.HUE);
+		this.setHelpUrl(Blockly.Msg.TEXT_THYMIO_SENSOR_MIC_HELPURL);
+		this.setTooltip(Blockly.Msg.TEXT_THYMIO_SENSOR_MIC_TOOLTIP);
+
+		this.setOutput(true, 'Number');
+		this.appendDummyInput().appendField('microphone intensity value');
+	},
+};
+
+Blockly.Blocks['thymio_sensor_comm'] = {
+	/**
+	 * Block for retrieving the IR communication value
+	 * 
+	 * @this Blockly.Block
+	 */
+	init : function()
+	{
+		this.setColour(Blockly.Blocks.math.HUE);
+		this.setHelpUrl(Blockly.Msg.TEXT_THYMIO_SENSOR_COMM_HELPURL);
+		this.setTooltip(Blockly.Msg.TEXT_THYMIO_SENSOR_COMM_TOOLTIP);
+
+		this.setOutput(true, 'Number');
+		this.appendDummyInput().appendField('received IR communication value');
 	},
 };
 
@@ -718,6 +739,73 @@ Blockly.Blocks['thymio_sensor_prox'] = {
 		var dropdown = new Blockly.FieldDropdown(sensorList);
 		this.setOutput(true, 'Number');
 		this.appendDummyInput().appendField(dropdown, 'SENSOR').appendField('proximity sensor closeness');
+	},
+};
+
+Blockly.Blocks['thymio_sensor_motor'] = {
+	/**
+	 * Block for retrieving a motor sensor state
+	 * 
+	 * @this Blockly.Block
+	 */
+	init : function()
+	{
+		this.setColour(Blockly.Blocks.math.HUE);
+		this.setHelpUrl(Blockly.Msg.TEXT_THYMIO_SENSOR_MOTOR_HELPURL);
+		this.setTooltip(Blockly.Msg.TEXT_THYMIO_SENSOR_MOTOR_TOOLTIP);
+
+		var sensorList = [];
+		sensorList.push(['left', 'motor.left.speed']);
+		sensorList.push(['right', 'motor.right.speed']);
+
+		var dropdown = new Blockly.FieldDropdown(sensorList);
+		this.setOutput(true, 'Number');
+		this.appendDummyInput().appendField(dropdown, 'SENSOR').appendField('motor speed');
+	},
+};
+
+Blockly.Blocks['thymio_sensor_acc'] = {
+	/**
+	 * Block for retrieving a accelerometer sensor state
+	 * 
+	 * @this Blockly.Block
+	 */
+	init : function()
+	{
+		this.setColour(Blockly.Blocks.math.HUE);
+		this.setHelpUrl(Blockly.Msg.TEXT_THYMIO_SENSOR_ACC_HELPURL);
+		this.setTooltip(Blockly.Msg.TEXT_THYMIO_SENSOR_ACC_TOOLTIP);
+
+		var sensorList = [];
+		sensorList.push(['x', 'acc[0]']);
+		sensorList.push(['y', 'acc[1]']);
+		sensorList.push(['z', 'acc[2]']);
+
+		var dropdown = new Blockly.FieldDropdown(sensorList);
+		this.setOutput(true, 'Number');
+		this.appendDummyInput().appendField('accelerometer').appendField(dropdown, 'SENSOR').appendField('sensor value');
+	},
+};
+
+Blockly.Blocks['thymio_sensor_rc'] = {
+	/**
+	 * Block for retrieving a remote control sensor state
+	 * 
+	 * @this Blockly.Block
+	 */
+	init : function()
+	{
+		this.setColour(Blockly.Blocks.math.HUE);
+		this.setHelpUrl(Blockly.Msg.TEXT_THYMIO_SENSOR_RC_HELPURL);
+		this.setTooltip(Blockly.Msg.TEXT_THYMIO_SENSOR_RC_TOOLTIP);
+
+		var sensorList = [];
+		sensorList.push(['address', 'rc5.address']);
+		sensorList.push(['command', 'rc5.command']);
+
+		var dropdown = new Blockly.FieldDropdown(sensorList);
+		this.setOutput(true, 'Number');
+		this.appendDummyInput().appendField('received remote control').appendField(dropdown, 'SENSOR').appendField('value');
 	},
 };
 
