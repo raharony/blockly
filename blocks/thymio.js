@@ -211,6 +211,23 @@ Blockly.Blocks['thymio_event_prox_ground'] = {
 	},
 };
 
+Blockly.Blocks['thymio_event_shock'] = {
+	/**
+	 * Block for Thymio shock events.
+	 * 
+	 * @this Blockly.Block
+	 */
+	init : function()
+	{
+		this.setColour(Blockly.Blocks.thymio.EVENTS_HUE);
+		this.setHelpUrl(Blockly.Msg.TEXT_THYMIO_EVENT_SHOCK_HELPURL);
+		this.setTooltip(Blockly.Msg.TEXT_THYMIO_EVENT_SHOCK_TOOLTIP);
+		
+		this.appendDummyInput().appendField('on shock detected');
+		this.appendStatementInput('HANDLER');
+	},
+};
+
 Blockly.Blocks['thymio_event_timer'] = {
 	/**
 	 * Block for Thymio events.
@@ -253,29 +270,6 @@ Blockly.Blocks['thymio_event_sound'] = {
 		var dropdown = new Blockly.FieldDropdown(eventList);
 		
 		this.appendDummyInput().appendField('on sound').appendField(dropdown, 'EVENT');
-		this.appendStatementInput('HANDLER');
-	},
-};
-
-Blockly.Blocks['thymio_event_acc'] = {
-	/**
-	 * Block for Thymio accelerometer events.
-	 * 
-	 * @this Blockly.Block
-	 */
-	init : function()
-	{
-		this.setColour(Blockly.Blocks.thymio.EVENTS_HUE);
-		this.setHelpUrl(Blockly.Msg.TEXT_THYMIO_EVENT_ACC_HELPURL);
-		this.setTooltip(Blockly.Msg.TEXT_THYMIO_EVENT_ACC_TOOLTIP);
-		
-		var eventList = [];		
-		eventList.push(['shock detected', 'tap']);
-		eventList.push(['updated', 'acc']);
-
-		var dropdown = new Blockly.FieldDropdown(eventList);
-		
-		this.appendDummyInput().appendField('on accelerometer').appendField(dropdown, 'EVENT');
 		this.appendStatementInput('HANDLER');
 	},
 };

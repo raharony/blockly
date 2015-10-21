@@ -149,6 +149,14 @@ Blockly.AESL['thymio_event_prox_ground'] = function(block)
 	return null;
 };
 
+Blockly.AESL['thymio_event_shock'] = function(block)
+{
+	var handler = Blockly.AESL.statementToCode(block, 'HANDLER');
+	
+	Blockly.AESL.addEventHandler('tap', handler);
+	return null;
+};
+
 Blockly.AESL['thymio_event_timer'] = Blockly.AESL['thymio_event'];
 Blockly.AESL['thymio_event_sound'] = Blockly.AESL['thymio_event'];
 Blockly.AESL['thymio_event_acc'] = Blockly.AESL['thymio_event'];
