@@ -2550,7 +2550,7 @@ AeslTests = [
  '      </block>\n' + 
  '    </statement>\n' + 
  '  </block>\n' + 
- '  <block type="thymio_event" x="537" y="112">\n' + 
+ '  <block type="thymio_event_timer" x="537" y="112">\n' + 
  '    <field name="EVENT">timer0</field>\n' + 
  '    <statement name="HANDLER">\n' + 
  '      <block type="thymio_variable_set">\n' + 
@@ -2649,7 +2649,7 @@ AeslTests = [
  '      </block>\n' + 
  '    </statement>\n' + 
  '  </block>\n' + 
- '  <block type="thymio_event" x="88" y="163">\n' + 
+ '  <block type="thymio_event_timer" x="88" y="163">\n' + 
  '    <field name="EVENT">timer0</field>\n' + 
  '    <statement name="HANDLER">\n' + 
  '      <block type="thymio_led_off">\n' + 
