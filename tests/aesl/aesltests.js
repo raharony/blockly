@@ -97,7 +97,7 @@ AeslTests = [
  ''],
 ['button pressed and leds',
  '<xml xmlns="http://www.w3.org/1999/xhtml">\n' + 
- '  <block type="thymio_event" x="188" y="63">\n' + 
+ '  <block type="thymio_event_update" x="188" y="63">\n' + 
  '    <field name="EVENT">buttons</field>\n' + 
  '    <statement name="HANDLER">\n' + 
  '      <block type="controls_if">\n' + 
@@ -332,7 +332,7 @@ AeslTests = [
  ''],
 ['logical expression operator precedence 1',
  '<xml xmlns="http://www.w3.org/1999/xhtml">\n' + 
- '  <block type="thymio_event" x="38" y="63">\n' + 
+ '  <block type="thymio_event_update" x="38" y="63">\n' + 
  '    <field name="EVENT">buttons</field>\n' + 
  '    <statement name="HANDLER">\n' + 
  '      <block type="controls_if">\n' + 
@@ -397,7 +397,7 @@ AeslTests = [
  ''],
 ['logical expression operator precedence 2',
  '<xml xmlns="http://www.w3.org/1999/xhtml">\n' + 
- '  <block type="thymio_event" x="38" y="63">\n' + 
+ '  <block type="thymio_event_update" x="38" y="63">\n' + 
  '    <field name="EVENT">buttons</field>\n' + 
  '    <statement name="HANDLER">\n' + 
  '      <block type="controls_if">\n' + 
@@ -462,7 +462,7 @@ AeslTests = [
  ''],
 ['negation of logical literal',
  '<xml xmlns="http://www.w3.org/1999/xhtml">\n' + 
- '  <block type="thymio_event" x="138" y="37">\n' + 
+ '  <block type="thymio_event_update" x="138" y="37">\n' + 
  '    <field name="EVENT">buttons</field>\n' + 
  '    <statement name="HANDLER">\n' + 
  '      <block type="controls_if">\n' + 
@@ -588,7 +588,7 @@ AeslTests = [
  ''],
 ['complex example involving several events, conditions, loops and arithmetics',
  '<xml xmlns="http://www.w3.org/1999/xhtml">\n' + 
- '  <block type="thymio_event" x="38" y="-187">\n' + 
+ '  <block type="thymio_event_update" x="38" y="-187">\n' + 
  '    <field name="EVENT">buttons</field>\n' + 
  '    <statement name="HANDLER">\n' + 
  '      <block type="controls_if">\n' + 
@@ -907,7 +907,7 @@ AeslTests = [
  ''],
 ['setting and getting global variables',
  '<xml xmlns="http://www.w3.org/1999/xhtml">\n' + 
- '  <block type="thymio_event" x="63" y="87">\n' + 
+ '  <block type="thymio_event_update" x="63" y="87">\n' + 
  '    <field name="EVENT">buttons</field>\n' + 
  '    <statement name="HANDLER">\n' + 
  '      <block type="thymio_actuator_set">\n' + 
@@ -1500,7 +1500,7 @@ AeslTests = [
  ''],
 ['proximity checks',
  '<xml xmlns="http://www.w3.org/1999/xhtml">\n' + 
- '  <block type="thymio_event" x="13" y="13">\n' + 
+ '  <block type="thymio_event_update" x="13" y="13">\n' + 
  '    <field name="EVENT">prox</field>\n' + 
  '    <statement name="HANDLER">\n' + 
  '      <block type="controls_if">\n' + 
@@ -1818,7 +1818,7 @@ AeslTests = [
  ''],
 ['when condition',
  '<xml xmlns="http://www.w3.org/1999/xhtml">\n' + 
- '  <block type="thymio_event" x="62" y="63">\n' + 
+ '  <block type="thymio_event_update" x="62" y="63">\n' + 
  '    <field name="EVENT">prox</field>\n' + 
  '    <statement name="HANDLER">\n' + 
  '      <block type="thymio_when">\n' + 
@@ -2668,7 +2668,7 @@ AeslTests = [
  ''],
 ['play notes on proximity',
  '<xml xmlns="http://www.w3.org/1999/xhtml">\n' + 
- '  <block type="thymio_event" x="38" y="38">\n' + 
+ '  <block type="thymio_event_update" x="38" y="38">\n' + 
  '    <field name="EVENT">prox</field>\n' + 
  '    <statement name="HANDLER">\n' + 
  '      <block type="controls_if">\n' + 
@@ -3323,7 +3323,7 @@ AeslTests = [
  '      </block>\n' + 
  '    </statement>\n' + 
  '  </block>\n' + 
- '  <block type="thymio_event_acc" x="63" y="287">\n' + 
+ '  <block type="thymio_event_update" x="63" y="287">\n' + 
  '    <field name="EVENT">acc</field>\n' + 
  '    <statement name="HANDLER">\n' + 
  '      <block type="thymio_led_temperature">\n' + 
