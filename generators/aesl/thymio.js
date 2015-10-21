@@ -382,6 +382,8 @@ Blockly.AESL['thymio_actuator_set'] = function(block)
 	return code;
 };
 
+Blockly.AESL['thymio_actuator_timer'] = Blockly.AESL['thymio_actuator_set'];
+
 Blockly.AESL['thymio_variable_get'] = function(block)
 {
 	// Variable getter.

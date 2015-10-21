@@ -707,12 +707,35 @@ Blockly.Blocks['thymio_actuator_set'] = {
 		variables.push(['left motor speed', 'motor.left.target']);
 		variables.push(['right motor speed', 'motor.right.target']);
 		variables.push(['microphone threshold', 'mic.threshold']);
-		variables.push(['first timer period','timer.period[0]']);
-		variables.push(['second timer period','timer.period[1]']);
 		variables.push(['IR communication to transmit','prox.comm.tx']);
 
 		var dropdown = new Blockly.FieldDropdown(variables);
 		this.appendValueInput('VALUE').setCheck('Number').appendField('set').appendField(dropdown, 'VARIABLE').appendField('to');
+	},
+};
+
+Blockly.Blocks['thymio_actuator_timer'] = {
+	/**
+	 * Block for setting a Thymio timer period
+	 * 
+	 * @this Blockly.Block
+	 */
+	init : function()
+	{
+		this.setColour(Blockly.Blocks.thymio.ACTUATORS_HUE);
+		this.setHelpUrl(Blockly.Msg.TEXT_THYMIO_ACTUATOR_TIMER_HELPURL);
+		this.setTooltip(Blockly.Msg.TEXT_THYMIO_ACTUATOR_TIMER_TOOLTIP);
+		this.setPreviousStatement(true);
+		this.setNextStatement(true);
+
+		var variables = [];
+		variables.push(['first','timer.period[0]']);
+		variables.push(['second','timer.period[1]']);
+
+		var dropdown = new Blockly.FieldDropdown(variables);
+		this.appendValueInput('VALUE').setCheck('Number').appendField('set').appendField(dropdown, 'VARIABLE').appendField('timer period to');
+		this.appendDummyInput().appendField('milliseconds');
+		this.setInputsInline(true);
 	},
 };
 
