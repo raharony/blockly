@@ -267,6 +267,52 @@ Blockly.Blocks['thymio_event_timer'] = {
 	},
 };
 
+Blockly.Blocks['thymio_event_sound'] = {
+	/**
+	 * Block for Thymio sound events.
+	 * 
+	 * @this Blockly.Block
+	 */
+	init : function()
+	{
+		this.setColour(Blockly.Blocks.thymio.EVENTS_HUE);
+		this.setHelpUrl(Blockly.Msg.TEXT_THYMIO_EVENT_SOUND_HELPURL);
+		this.setTooltip(Blockly.Msg.TEXT_THYMIO_EVENT_SOUND_TOOLTIP);
+		
+		var eventList = [];		
+		eventList.push(['intensity above threshold', 'mic']);
+		eventList.push(['finished playing', 'sound.finished']);
+
+		var dropdown = new Blockly.FieldDropdown(eventList);
+		
+		this.appendDummyInput().appendField('on sound').appendField(dropdown, 'EVENT');
+		this.appendStatementInput('HANDLER');
+	},
+};
+
+Blockly.Blocks['thymio_event_acc'] = {
+	/**
+	 * Block for Thymio accelerometer events.
+	 * 
+	 * @this Blockly.Block
+	 */
+	init : function()
+	{
+		this.setColour(Blockly.Blocks.thymio.EVENTS_HUE);
+		this.setHelpUrl(Blockly.Msg.TEXT_THYMIO_EVENT_ACC_HELPURL);
+		this.setTooltip(Blockly.Msg.TEXT_THYMIO_EVENT_ACC_TOOLTIP);
+		
+		var eventList = [];		
+		eventList.push(['shock detected', 'tap']);
+		eventList.push(['read', 'acc']);
+
+		var dropdown = new Blockly.FieldDropdown(eventList);
+		
+		this.appendDummyInput().appendField('on accelerometer').appendField(dropdown, 'EVENT');
+		this.appendStatementInput('HANDLER');
+	},
+};
+
 Blockly.Blocks['thymio_led'] = {
 	/**
 	 * Block to set Thymio LEDs.
