@@ -186,9 +186,8 @@ h1 {
       <block type="thymio_event_timer">
         <field name="EVENT">timer0</field>
       </block>
-      <block type="thymio_actuator_set">
-        <field name="VARIABLE">mic.threshold</field>
-                <value name="VALUE">
+      <block type="thymio_actuator_mic">
+        <value name="VALUE">
           <shadow type="math_number">
             <field name="NUM">40</field>
           </shadow>
@@ -248,7 +247,7 @@ h1 {
           </shadow>
         </value>
       </block>
-      <block type="thymio_actuator_set">
+      <block type="thymio_actuator_motor">
         <value name="VALUE">
           <shadow type="math_number">
             <field name="NUM">0</field>
@@ -270,8 +269,7 @@ h1 {
         </value>
       </block>
       <block type="thymio_communication"></block>
-      <block type="thymio_actuator_set">
-        <field name="VARIABLE">prox.comm.tx</field>
+      <block type="thymio_actuator_comm">
         <value name="VALUE">
           <shadow type="math_number">
             <field name="NUM">0</field>

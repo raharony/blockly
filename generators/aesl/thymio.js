@@ -405,7 +405,7 @@ Blockly.AESL['thymio_motors_stop'] = function(block)
 };
 
 
-Blockly.AESL['thymio_actuator_set'] = function(block)
+Blockly.AESL['thymio_actuator'] = function(block)
 {
 	var variable = block.getFieldValue('VARIABLE');
 	var value = Blockly.AESL.valueToCode(block, 'VALUE', Blockly.AESL.ORDER_ASSIGNMENT) || '0';
@@ -414,7 +414,24 @@ Blockly.AESL['thymio_actuator_set'] = function(block)
 	return code;
 };
 
-Blockly.AESL['thymio_actuator_timer'] = Blockly.AESL['thymio_actuator_set'];
+Blockly.AESL['thymio_actuator_mic'] = function(block)
+{
+	var value = Blockly.AESL.valueToCode(block, 'VALUE', Blockly.AESL.ORDER_ASSIGNMENT) || '0';
+
+	var code = 'mic.threshold = ' + value + '\n';
+	return code;
+};
+
+Blockly.AESL['thymio_actuator_comm'] = function(block)
+{
+	var value = Blockly.AESL.valueToCode(block, 'VALUE', Blockly.AESL.ORDER_ASSIGNMENT) || '0';
+
+	var code = 'prox.comm.tx = ' + value + '\n';
+	return code;
+};
+
+Blockly.AESL['thymio_actuator_timer'] = Blockly.AESL['thymio_actuator'];
+Blockly.AESL['thymio_actuator_motor'] = Blockly.AESL['thymio_actuator'];
 
 Blockly.AESL['thymio_variable_get'] = function(block)
 {

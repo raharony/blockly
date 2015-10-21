@@ -856,28 +856,39 @@ Blockly.Blocks['thymio_motors_stop'] = {
 	},
 };
 
-Blockly.Blocks['thymio_actuator_set'] = {
+Blockly.Blocks['thymio_actuator_mic'] = {
 	/**
-	 * Block for setting a Thymio actuator
+	 * Block for setting a Thymio microphone threshold
 	 * 
 	 * @this Blockly.Block
 	 */
 	init : function()
 	{
 		this.setColour(Blockly.Blocks.thymio.ACTUATORS_HUE);
-		this.setHelpUrl(Blockly.Msg.TEXT_THYMIO_ACTUATOR_SET_HELPURL);
-		this.setTooltip(Blockly.Msg.TEXT_THYMIO_ACTUATOR_SET_TOOLTIP);
+		this.setHelpUrl(Blockly.Msg.TEXT_THYMIO_ACTUATOR_MIC_HELPURL);
+		this.setTooltip(Blockly.Msg.TEXT_THYMIO_ACTUATOR_MIC_TOOLTIP);
 		this.setPreviousStatement(true);
 		this.setNextStatement(true);
+	
+		this.appendValueInput('VALUE').setCheck('Number').appendField('set microphone threshold to');
+	},
+};
 
-		var variables = [];
-		variables.push(['left motor speed', 'motor.left.target']);
-		variables.push(['right motor speed', 'motor.right.target']);
-		variables.push(['microphone threshold', 'mic.threshold']);
-		variables.push(['IR communication to transmit','prox.comm.tx']);
-
-		var dropdown = new Blockly.FieldDropdown(variables);
-		this.appendValueInput('VALUE').setCheck('Number').appendField('set').appendField(dropdown, 'VARIABLE').appendField('to');
+Blockly.Blocks['thymio_actuator_comm'] = {
+	/**
+	 * Block for setting an IR communication to send
+	 * 
+	 * @this Blockly.Block
+	 */
+	init : function()
+	{
+		this.setColour(Blockly.Blocks.thymio.ACTUATORS_HUE);
+		this.setHelpUrl(Blockly.Msg.TEXT_THYMIO_ACTUATOR_COMM_HELPURL);
+		this.setTooltip(Blockly.Msg.TEXT_THYMIO_ACTUATOR_COMM_TOOLTIP);
+		this.setPreviousStatement(true);
+		this.setNextStatement(true);
+	
+		this.appendValueInput('VALUE').setCheck('Number').appendField('set IR communication to transmit to');
 	},
 };
 
@@ -903,6 +914,29 @@ Blockly.Blocks['thymio_actuator_timer'] = {
 		this.appendValueInput('VALUE').setCheck('Number').appendField('set').appendField(dropdown, 'VARIABLE').appendField('timer period to');
 		this.appendDummyInput().appendField('milliseconds');
 		this.setInputsInline(true);
+	},
+};
+
+Blockly.Blocks['thymio_actuator_motor'] = {
+	/**
+	 * Block for setting a Thymio motor actuator
+	 * 
+	 * @this Blockly.Block
+	 */
+	init : function()
+	{
+		this.setColour(Blockly.Blocks.thymio.ACTUATORS_HUE);
+		this.setHelpUrl(Blockly.Msg.TEXT_THYMIO_ACTUATOR_MOTOR_HELPURL);
+		this.setTooltip(Blockly.Msg.TEXT_THYMIO_ACTUATOR_MOTOR_TOOLTIP);
+		this.setPreviousStatement(true);
+		this.setNextStatement(true);
+
+		var variables = [];
+		variables.push(['left', 'motor.left.target']);
+		variables.push(['right', 'motor.right.target']);
+
+		var dropdown = new Blockly.FieldDropdown(variables);
+		this.appendValueInput('VALUE').setCheck('Number').appendField('set').appendField(dropdown, 'VARIABLE').appendField('motor speed to');
 	},
 };
 
