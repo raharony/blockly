@@ -244,6 +244,29 @@ Blockly.Blocks['thymio_event_prox_ground'] = {
 	},
 };
 
+Blockly.Blocks['thymio_event_timer'] = {
+	/**
+	 * Block for Thymio events.
+	 * 
+	 * @this Blockly.Block
+	 */
+	init : function()
+	{
+		this.setColour(Blockly.Blocks.thymio.EVENTS_HUE);
+		this.setHelpUrl(Blockly.Msg.TEXT_THYMIO_EVENT_TIMER_HELPURL);
+		this.setTooltip(Blockly.Msg.TEXT_THYMIO_EVENT_TIMER_TOOLTIP);
+		
+		var eventList = [];		
+		eventList.push(['first', 'timer0']);
+		eventList.push(['second', 'timer1']);
+
+		var dropdown = new Blockly.FieldDropdown(eventList);
+		
+		this.appendDummyInput().appendField('on').appendField(dropdown, 'EVENT').appendField('timer expired');
+		this.appendStatementInput('HANDLER');
+	},
+};
+
 Blockly.Blocks['thymio_led'] = {
 	/**
 	 * Block to set Thymio LEDs.
