@@ -3355,4 +3355,113 @@ AeslTests = [
  'onevent acc\n' + 
  '	call leds.temperature(acc[0],acc[1])\n' + 
  ''],
+['sensor sum',
+ '<xml xmlns="http://www.w3.org/1999/xhtml">\n' + 
+ '  <block type="thymio_variable_set" x="112" y="188">\n' + 
+ '    <field name="VAR">item</field>\n' + 
+ '    <value name="VALUE">\n' + 
+ '      <shadow type="math_number">\n' + 
+ '        <field name="NUM">0</field>\n' + 
+ '      </shadow>\n' + 
+ '      <block type="thymio_arithmetic">\n' + 
+ '        <field name="OP">+</field>\n' + 
+ '        <value name="A">\n' + 
+ '          <shadow type="math_number">\n' + 
+ '            <field name="NUM">1</field>\n' + 
+ '          </shadow>\n' + 
+ '          <block type="thymio_sensor_prox">\n' + 
+ '            <field name="SENSOR">prox.horizontal[5]</field>\n' + 
+ '          </block>\n' + 
+ '        </value>\n' + 
+ '        <value name="B">\n' + 
+ '          <shadow type="math_number">\n' + 
+ '            <field name="NUM">1</field>\n' + 
+ '          </shadow>\n' + 
+ '          <block type="thymio_arithmetic">\n' + 
+ '            <field name="OP">+</field>\n' + 
+ '            <value name="A">\n' + 
+ '              <shadow type="math_number">\n' + 
+ '                <field name="NUM">1</field>\n' + 
+ '              </shadow>\n' + 
+ '              <block type="thymio_sensor_motor">\n' + 
+ '                <field name="SENSOR">motor.right.speed</field>\n' + 
+ '              </block>\n' + 
+ '            </value>\n' + 
+ '            <value name="B">\n' + 
+ '              <shadow type="math_number">\n' + 
+ '                <field name="NUM">1</field>\n' + 
+ '              </shadow>\n' + 
+ '              <block type="thymio_arithmetic">\n' + 
+ '                <field name="OP">+</field>\n' + 
+ '                <value name="A">\n' + 
+ '                  <shadow type="math_number">\n' + 
+ '                    <field name="NUM">1</field>\n' + 
+ '                  </shadow>\n' + 
+ '                  <block type="thymio_sensor_acc">\n' + 
+ '                    <field name="SENSOR">acc[1]</field>\n' + 
+ '                  </block>\n' + 
+ '                </value>\n' + 
+ '                <value name="B">\n' + 
+ '                  <shadow type="math_number">\n' + 
+ '                    <field name="NUM">1</field>\n' + 
+ '                  </shadow>\n' + 
+ '                  <block type="thymio_arithmetic">\n' + 
+ '                    <field name="OP">+</field>\n' + 
+ '                    <value name="A">\n' + 
+ '                      <shadow type="math_number">\n' + 
+ '                        <field name="NUM">1</field>\n' + 
+ '                      </shadow>\n' + 
+ '                      <block type="thymio_sensor_temperature"></block>\n' + 
+ '                    </value>\n' + 
+ '                    <value name="B">\n' + 
+ '                      <shadow type="math_number">\n' + 
+ '                        <field name="NUM">1</field>\n' + 
+ '                      </shadow>\n' + 
+ '                      <block type="thymio_arithmetic">\n' + 
+ '                        <field name="OP">+</field>\n' + 
+ '                        <value name="A">\n' + 
+ '                          <shadow type="math_number">\n' + 
+ '                            <field name="NUM">1</field>\n' + 
+ '                          </shadow>\n' + 
+ '                          <block type="thymio_sensor_mic"></block>\n' + 
+ '                        </value>\n' + 
+ '                        <value name="B">\n' + 
+ '                          <shadow type="math_number">\n' + 
+ '                            <field name="NUM">1</field>\n' + 
+ '                          </shadow>\n' + 
+ '                          <block type="thymio_arithmetic">\n' + 
+ '                            <field name="OP">+</field>\n' + 
+ '                            <value name="A">\n' + 
+ '                              <shadow type="math_number">\n' + 
+ '                                <field name="NUM">1</field>\n' + 
+ '                              </shadow>\n' + 
+ '                              <block type="thymio_sensor_comm"></block>\n' + 
+ '                            </value>\n' + 
+ '                            <value name="B">\n' + 
+ '                              <shadow type="math_number">\n' + 
+ '                                <field name="NUM">1</field>\n' + 
+ '                              </shadow>\n' + 
+ '                              <block type="thymio_sensor_rc">\n' + 
+ '                                <field name="SENSOR">rc5.command</field>\n' + 
+ '                              </block>\n' + 
+ '                            </value>\n' + 
+ '                          </block>\n' + 
+ '                        </value>\n' + 
+ '                      </block>\n' + 
+ '                    </value>\n' + 
+ '                  </block>\n' + 
+ '                </value>\n' + 
+ '              </block>\n' + 
+ '            </value>\n' + 
+ '          </block>\n' + 
+ '        </value>\n' + 
+ '      </block>\n' + 
+ '    </value>\n' + 
+ '  </block>\n' + 
+ '</xml>',
+ 'var item\n' + 
+ '\n' + 
+ '\n' + 
+ 'item = prox.horizontal[5] + (motor.right.speed + (acc[1] + (temperature + (mic.intensity + (prox.comm.rx + rc5.command)))))\n' + 
+ ''],
 ];
