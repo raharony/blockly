@@ -3309,8 +3309,7 @@ AeslTests = [
  '      </block>\n' + 
  '    </statement>\n' + 
  '  </block>\n' + 
- '  <block type="thymio_event_acc" x="63" y="162">\n' + 
- '    <field name="EVENT">tap</field>\n' + 
+ '  <block type="thymio_event_shock" x="63" y="162">\n' + 
  '    <statement name="HANDLER">\n' + 
  '      <block type="thymio_sound_system">\n' + 
  '        <field name="SOUND">4</field>\n' + 
