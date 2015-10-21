@@ -2405,7 +2405,7 @@ AeslTests = [
  '      </block>\n' + 
  '    </statement>\n' + 
  '  </block>\n' + 
- '  <block type="thymio_event" x="138" y="237">\n' + 
+ '  <block type="thymio_event_receive" x="138" y="237">\n' + 
  '    <field name="EVENT">prox.comm</field>\n' + 
  '    <statement name="HANDLER">\n' + 
  '      <block type="thymio_led_rgb">\n' + 
@@ -2458,7 +2458,7 @@ AeslTests = [
  '  <block type="thymio_communication" x="63" y="62">\n' + 
  '    <field name="MODE">ENABLE</field>\n' + 
  '  </block>\n' + 
- '  <block type="thymio_event" x="62" y="113">\n' + 
+ '  <block type="thymio_event_receive" x="62" y="113">\n' + 
  '    <field name="EVENT">prox.comm</field>\n' + 
  '    <statement name="HANDLER">\n' + 
  '      <block type="thymio_when">\n' + 
@@ -2630,7 +2630,7 @@ AeslTests = [
  ''],
 ['remote control receiver',
  '<xml xmlns="http://www.w3.org/1999/xhtml">\n' + 
- '  <block type="thymio_event" x="88" y="38">\n' + 
+ '  <block type="thymio_event_receive" x="88" y="38">\n' + 
  '    <field name="EVENT">rc5</field>\n' + 
  '    <statement name="HANDLER">\n' + 
  '      <block type="thymio_led">\n' + 
