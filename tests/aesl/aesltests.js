@@ -3290,4 +3290,77 @@ AeslTests = [
  '		call leds.sound(0)\n' + 
  '	end\n' + 
  ''],
+['accelerometer and sound events',
+ '<xml xmlns="http://www.w3.org/1999/xhtml">\n' + 
+ '  <block type="thymio_event_sound" x="63" y="38">\n' + 
+ '    <field name="EVENT">mic</field>\n' + 
+ '    <statement name="HANDLER">\n' + 
+ '      <block type="thymio_led">\n' + 
+ '        <field name="LED">leds.top</field>\n' + 
+ '        <field name="COLOR">#33ff33</field>\n' + 
+ '      </block>\n' + 
+ '    </statement>\n' + 
+ '  </block>\n' + 
+ '  <block type="thymio_event_sound" x="388" y="38">\n' + 
+ '    <field name="EVENT">sound.finished</field>\n' + 
+ '    <statement name="HANDLER">\n' + 
+ '      <block type="thymio_led_off">\n' + 
+ '        <field name="LED">leds.top</field>\n' + 
+ '      </block>\n' + 
+ '    </statement>\n' + 
+ '  </block>\n' + 
+ '  <block type="thymio_event_acc" x="63" y="162">\n' + 
+ '    <field name="EVENT">tap</field>\n' + 
+ '    <statement name="HANDLER">\n' + 
+ '      <block type="thymio_sound_system">\n' + 
+ '        <field name="SOUND">4</field>\n' + 
+ '        <next>\n' + 
+ '          <block type="thymio_led">\n' + 
+ '            <field name="LED">leds.top</field>\n' + 
+ '            <field name="COLOR">#ff0000</field>\n' + 
+ '          </block>\n' + 
+ '        </next>\n' + 
+ '      </block>\n' + 
+ '    </statement>\n' + 
+ '  </block>\n' + 
+ '  <block type="thymio_event_acc" x="63" y="287">\n' + 
+ '    <field name="EVENT">acc</field>\n' + 
+ '    <statement name="HANDLER">\n' + 
+ '      <block type="thymio_led_temperature">\n' + 
+ '        <value name="RED">\n' + 
+ '          <shadow type="math_number">\n' + 
+ '            <field name="NUM">32</field>\n' + 
+ '          </shadow>\n' + 
+ '          <block type="thymio_sensor">\n' + 
+ '            <field name="SENSOR">acc[0]</field>\n' + 
+ '          </block>\n' + 
+ '        </value>\n' + 
+ '        <value name="BLUE">\n' + 
+ '          <shadow type="math_number">\n' + 
+ '            <field name="NUM">32</field>\n' + 
+ '          </shadow>\n' + 
+ '          <block type="thymio_sensor">\n' + 
+ '            <field name="SENSOR">acc[1]</field>\n' + 
+ '          </block>\n' + 
+ '        </value>\n' + 
+ '      </block>\n' + 
+ '    </statement>\n' + 
+ '  </block>\n' + 
+ '</xml>',
+ 'onevent mic\n' + 
+ '	call leds.top(6,32,6)\n' + 
+ '\n' + 
+ '\n' + 
+ 'onevent sound.finished\n' + 
+ '	call leds.top(0,0,0)\n' + 
+ '\n' + 
+ '\n' + 
+ 'onevent tap\n' + 
+ '	call sound.system(4)\n' + 
+ '	call leds.top(32,0,0)\n' + 
+ '\n' + 
+ '\n' + 
+ 'onevent acc\n' + 
+ '	call leds.temperature(acc[0],acc[1])\n' + 
+ ''],
 ];
