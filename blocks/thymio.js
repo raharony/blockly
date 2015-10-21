@@ -313,6 +313,29 @@ Blockly.Blocks['thymio_event_acc'] = {
 	},
 };
 
+Blockly.Blocks['thymio_event_receive'] = {
+	/**
+	 * Block for Thymio signal events.
+	 * 
+	 * @this Blockly.Block
+	 */
+	init : function()
+	{
+		this.setColour(Blockly.Blocks.thymio.EVENTS_HUE);
+		this.setHelpUrl(Blockly.Msg.TEXT_THYMIO_EVENT_RECEIVE_HELPURL);
+		this.setTooltip(Blockly.Msg.TEXT_THYMIO_EVENT_RECEIVE_TOOLTIP);
+		
+		var eventList = [];		
+		eventList.push(['IR communication', 'prox.comm']);
+		eventList.push(['remote control signal', 'rc5']);
+
+		var dropdown = new Blockly.FieldDropdown(eventList);
+		
+		this.appendDummyInput().appendField('on').appendField(dropdown, 'EVENT').appendField('received');
+		this.appendStatementInput('HANDLER');
+	},
+};
+
 Blockly.Blocks['thymio_led'] = {
 	/**
 	 * Block to set Thymio LEDs.
