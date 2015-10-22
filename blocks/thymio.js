@@ -43,7 +43,7 @@ Blockly.Blocks['thymio_when'] = {
 		
 		this.appendValueInput('WHEN').setCheck('Boolean').appendField('when');
 		this.appendStatementInput('DO').appendField('do');
-	},
+	}
 };
 
 Blockly.Blocks['thymio_for'] = {
@@ -90,7 +90,7 @@ Blockly.Blocks['thymio_for'] = {
 		if(Blockly.Names.equals(oldName, this.getFieldValue('ITER'))) {
 			this.setFieldValue(newName, 'ITER');
 		}
-	},
+	}
 };
 
 Blockly.Blocks['thymio_subroutine_define'] = {
@@ -155,7 +155,7 @@ Blockly.Blocks['thymio_event_button'] = {
 		
 		this.appendDummyInput().appendField('on').appendField(buttonDropdown, 'BUTTON').appendField('button').appendField(modeDropdown, 'MODE');
 		this.appendStatementInput('HANDLER');
-	},
+	}
 };
 
 Blockly.Blocks['thymio_event_prox'] = {
@@ -184,7 +184,7 @@ Blockly.Blocks['thymio_event_prox'] = {
 		
 		this.appendDummyInput().appendField('on').appendField(sensorDropdown, 'SENSOR').appendField('sensor detecting').appendField(modeDropdown, 'MODE');
 		this.appendStatementInput('HANDLER');
-	},
+	}
 };
 
 Blockly.Blocks['thymio_event_prox_ground'] = {
@@ -208,7 +208,7 @@ Blockly.Blocks['thymio_event_prox_ground'] = {
 		
 		this.appendDummyInput().appendField('on').appendField(sensorDropdown, 'SENSOR').appendField('ground sensor detecting').appendField(modeDropdown, 'MODE');
 		this.appendStatementInput('HANDLER');
-	},
+	}
 };
 
 Blockly.Blocks['thymio_event_shock'] = {
@@ -225,7 +225,7 @@ Blockly.Blocks['thymio_event_shock'] = {
 		
 		this.appendDummyInput().appendField('on shock detected');
 		this.appendStatementInput('HANDLER');
-	},
+	}
 };
 
 Blockly.Blocks['thymio_event_timer'] = {
@@ -248,7 +248,7 @@ Blockly.Blocks['thymio_event_timer'] = {
 		
 		this.appendDummyInput().appendField('on').appendField(dropdown, 'EVENT').appendField('timer expired');
 		this.appendStatementInput('HANDLER');
-	},
+	}
 };
 
 Blockly.Blocks['thymio_event_sound'] = {
@@ -271,7 +271,7 @@ Blockly.Blocks['thymio_event_sound'] = {
 		
 		this.appendDummyInput().appendField('on sound').appendField(dropdown, 'EVENT');
 		this.appendStatementInput('HANDLER');
-	},
+	}
 };
 
 Blockly.Blocks['thymio_event_receive'] = {
@@ -294,7 +294,7 @@ Blockly.Blocks['thymio_event_receive'] = {
 		
 		this.appendDummyInput().appendField('on').appendField(dropdown, 'EVENT').appendField('received');
 		this.appendStatementInput('HANDLER');
-	},
+	}
 };
 
 Blockly.Blocks['thymio_event_update'] = {
@@ -320,7 +320,7 @@ Blockly.Blocks['thymio_event_update'] = {
 		
 		this.appendDummyInput().appendField('on').appendField(dropdown, 'EVENT').appendField('updated');
 		this.appendStatementInput('HANDLER');
-	},
+	}
 };
 
 Blockly.Blocks['thymio_led'] = {
@@ -339,7 +339,7 @@ Blockly.Blocks['thymio_led'] = {
 
 		var dropdown = new Blockly.FieldDropdown([['top', 'leds.top'], ['bottom left', 'leds.bottom.left'], ['bottom right', 'leds.bottom.right']]);
 		this.appendDummyInput().appendField('set').appendField(dropdown, 'LED').appendField('led to').appendField(new Blockly.FieldColour('#ff0000'), 'COLOR');
-	},
+	}
 };
 
 Blockly.Blocks['thymio_led_rgb'] = {
@@ -360,7 +360,7 @@ Blockly.Blocks['thymio_led_rgb'] = {
 		this.appendValueInput('RED').setCheck('Number').setAlign(Blockly.ALIGN_RIGHT).appendField('set').appendField(dropdown, 'LED').appendField('led to red');
 		this.appendValueInput('GREEN').setCheck('Number').setAlign(Blockly.ALIGN_RIGHT).appendField('green');
 		this.appendValueInput('BLUE').setCheck('Number').setAlign(Blockly.ALIGN_RIGHT).appendField('blue');
-	},
+	}
 };
 
 Blockly.Blocks['thymio_led_circle'] = {
@@ -385,7 +385,7 @@ Blockly.Blocks['thymio_led_circle'] = {
 		this.appendValueInput('CIRCLE5').setCheck('Number').setAlign(Blockly.ALIGN_RIGHT).appendField('backward left');
 		this.appendValueInput('CIRCLE6').setCheck('Number').setAlign(Blockly.ALIGN_RIGHT).appendField('left');
 		this.appendValueInput('CIRCLE7').setCheck('Number').setAlign(Blockly.ALIGN_RIGHT).appendField('forward left');
-	},
+	}
 };
 
 Blockly.Blocks['thymio_led_prox'] = {
@@ -410,7 +410,7 @@ Blockly.Blocks['thymio_led_prox'] = {
 		this.appendValueInput('PROX5').setCheck('Number').setAlign(Blockly.ALIGN_RIGHT).appendField('front right');
 		this.appendValueInput('PROX6').setCheck('Number').setAlign(Blockly.ALIGN_RIGHT).appendField('rear left');
 		this.appendValueInput('PROX7').setCheck('Number').setAlign(Blockly.ALIGN_RIGHT).appendField('rear right');
-	},
+	}
 };
 
 
@@ -430,7 +430,7 @@ Blockly.Blocks['thymio_led_prox_ground'] = {
 		
 		this.appendValueInput('PROX0').setCheck('Number').setAlign(Blockly.ALIGN_RIGHT).appendField('set ground proximity leds to left');
 		this.appendValueInput('PROX1').setCheck('Number').setAlign(Blockly.ALIGN_RIGHT).appendField('right');
-	},
+	}
 };
 
 Blockly.Blocks['thymio_led_button'] = {
@@ -451,7 +451,7 @@ Blockly.Blocks['thymio_led_button'] = {
 		this.appendValueInput('RIGHT').setCheck('Number').setAlign(Blockly.ALIGN_RIGHT).appendField('right');
 		this.appendValueInput('BACKWARD').setCheck('Number').setAlign(Blockly.ALIGN_RIGHT).appendField('backward');
 		this.appendValueInput('LEFT').setCheck('Number').setAlign(Blockly.ALIGN_RIGHT).appendField('left');
-	},
+	}
 };
 
 Blockly.Blocks['thymio_led_temperature'] = {
@@ -470,7 +470,7 @@ Blockly.Blocks['thymio_led_temperature'] = {
 		
 		this.appendValueInput('RED').setCheck('Number').setAlign(Blockly.ALIGN_RIGHT).appendField('set temperature leds to red');
 		this.appendValueInput('BLUE').setCheck('Number').setAlign(Blockly.ALIGN_RIGHT).appendField('blue');
-	},
+	}
 };
 
 Blockly.Blocks['thymio_led_rc_sound'] = {
@@ -490,7 +490,7 @@ Blockly.Blocks['thymio_led_rc_sound'] = {
 		var dropdown = new Blockly.FieldDropdown([['remote control', 'leds.rc'], ['microphone', 'leds.sound']]);
 		
 		this.appendValueInput('INTENSITY').setCheck('Number').setAlign(Blockly.ALIGN_RIGHT).appendField('set').appendField(dropdown, 'LED').appendField('led to');
-	},
+	}
 };
 
 Blockly.Blocks['thymio_led_off'] = {
@@ -521,7 +521,7 @@ Blockly.Blocks['thymio_led_off'] = {
 
 		var dropdown = new Blockly.FieldDropdown(leds);
 		this.appendDummyInput().appendField('turn off').appendField(dropdown, 'LED');
-	},
+	}
 };
 
 Blockly.Blocks['thymio_sound_system'] = {
@@ -550,7 +550,7 @@ Blockly.Blocks['thymio_sound_system'] = {
 		var dropdown = new Blockly.FieldDropdown(soundList);
 		
 		this.appendDummyInput().appendField('play').appendField(dropdown, 'SOUND').appendField('sound');
-	},
+	}
 };
 
 Blockly.Blocks['thymio_sound_note'] = {
@@ -571,7 +571,7 @@ Blockly.Blocks['thymio_sound_note'] = {
 		this.appendValueInput('DURATION').setCheck('Number').appendField('Hz note for');
 		this.appendDummyInput().appendField('/ 60 seconds')
 		this.setInputsInline(true);
-	},
+	}
 };
 
 Blockly.Blocks['thymio_sound_stop'] = {
@@ -588,7 +588,7 @@ Blockly.Blocks['thymio_sound_stop'] = {
 		this.setPreviousStatement(true);
 		this.setNextStatement(true);
 		this.appendDummyInput().appendField('stop playing sound');
-	},
+	}
 };
 
 Blockly.Blocks['thymio_button_pressed'] = {
@@ -606,7 +606,7 @@ Blockly.Blocks['thymio_button_pressed'] = {
 		var buttonDropdown = new Blockly.FieldDropdown([['center', 'button.center'], ['forward', 'button.forward'], ['backward', 'button.backward'], ['left', 'button.left'], ['right', 'button.right']]);
 		this.setOutput(true, 'Boolean');
 		this.appendDummyInput().appendField(buttonDropdown, 'BUTTON').appendField('button touched');
-	},
+	}
 };
 
 Blockly.Blocks['thymio_prox_check'] = {
@@ -635,7 +635,7 @@ Blockly.Blocks['thymio_prox_check'] = {
 		
 		this.setOutput(true, 'Boolean');
 		this.appendDummyInput().appendField(sensorDropdown, 'SENSOR').appendField('sensor detecting').appendField(modeDropdown, 'MODE');
-	},
+	}
 };
 
 Blockly.Blocks['thymio_prox_ground_check'] = {
@@ -659,7 +659,7 @@ Blockly.Blocks['thymio_prox_ground_check'] = {
 		
 		this.setOutput(true, 'Boolean');
 		this.appendDummyInput().appendField(sensorDropdown, 'SENSOR').appendField('ground sensor detecting').appendField(modeDropdown, 'MODE');
-	},
+	}
 };
 
 Blockly.Blocks['thymio_sensor_temperature'] = {
@@ -676,7 +676,7 @@ Blockly.Blocks['thymio_sensor_temperature'] = {
 
 		this.setOutput(true, 'Number');
 		this.appendDummyInput().appendField('temperature sensor value');
-	},
+	}
 };
 
 Blockly.Blocks['thymio_sensor_mic'] = {
@@ -693,7 +693,7 @@ Blockly.Blocks['thymio_sensor_mic'] = {
 
 		this.setOutput(true, 'Number');
 		this.appendDummyInput().appendField('microphone intensity value');
-	},
+	}
 };
 
 Blockly.Blocks['thymio_sensor_comm'] = {
@@ -710,7 +710,7 @@ Blockly.Blocks['thymio_sensor_comm'] = {
 
 		this.setOutput(true, 'Number');
 		this.appendDummyInput().appendField('received IR communication value');
-	},
+	}
 };
 
 Blockly.Blocks['thymio_sensor_prox'] = {
@@ -739,7 +739,7 @@ Blockly.Blocks['thymio_sensor_prox'] = {
 		var dropdown = new Blockly.FieldDropdown(sensorList);
 		this.setOutput(true, 'Number');
 		this.appendDummyInput().appendField(dropdown, 'SENSOR').appendField('proximity sensor closeness');
-	},
+	}
 };
 
 Blockly.Blocks['thymio_sensor_motor'] = {
@@ -761,7 +761,7 @@ Blockly.Blocks['thymio_sensor_motor'] = {
 		var dropdown = new Blockly.FieldDropdown(sensorList);
 		this.setOutput(true, 'Number');
 		this.appendDummyInput().appendField(dropdown, 'SENSOR').appendField('motor speed');
-	},
+	}
 };
 
 Blockly.Blocks['thymio_sensor_acc'] = {
@@ -784,7 +784,7 @@ Blockly.Blocks['thymio_sensor_acc'] = {
 		var dropdown = new Blockly.FieldDropdown(sensorList);
 		this.setOutput(true, 'Number');
 		this.appendDummyInput().appendField('accelerometer').appendField(dropdown, 'SENSOR').appendField('sensor value');
-	},
+	}
 };
 
 Blockly.Blocks['thymio_sensor_rc'] = {
@@ -806,7 +806,7 @@ Blockly.Blocks['thymio_sensor_rc'] = {
 		var dropdown = new Blockly.FieldDropdown(sensorList);
 		this.setOutput(true, 'Number');
 		this.appendDummyInput().appendField('received remote control').appendField(dropdown, 'SENSOR').appendField('value');
-	},
+	}
 };
 
 Blockly.Blocks['thymio_motors_start'] = {
@@ -835,7 +835,7 @@ Blockly.Blocks['thymio_motors_start'] = {
 
 		var dropdown = new Blockly.FieldDropdown(commands);
 		this.appendValueInput('SPEED').setCheck('Number').appendField('start').appendField(dropdown, 'COMMAND').appendField('with speed');
-	},
+	}
 };
 
 Blockly.Blocks['thymio_motors_stop'] = {
@@ -853,7 +853,7 @@ Blockly.Blocks['thymio_motors_stop'] = {
 		this.setNextStatement(true);
 		
 		this.appendDummyInput().appendField('stop motors');
-	},
+	}
 };
 
 Blockly.Blocks['thymio_actuator_mic'] = {
@@ -871,7 +871,7 @@ Blockly.Blocks['thymio_actuator_mic'] = {
 		this.setNextStatement(true);
 	
 		this.appendValueInput('VALUE').setCheck('Number').appendField('set microphone threshold to');
-	},
+	}
 };
 
 Blockly.Blocks['thymio_actuator_comm'] = {
@@ -889,7 +889,7 @@ Blockly.Blocks['thymio_actuator_comm'] = {
 		this.setNextStatement(true);
 	
 		this.appendValueInput('VALUE').setCheck('Number').appendField('set IR communication to transmit to');
-	},
+	}
 };
 
 Blockly.Blocks['thymio_actuator_timer'] = {
@@ -914,7 +914,7 @@ Blockly.Blocks['thymio_actuator_timer'] = {
 		this.appendValueInput('VALUE').setCheck('Number').appendField('set').appendField(dropdown, 'VARIABLE').appendField('timer period to');
 		this.appendDummyInput().appendField('milliseconds');
 		this.setInputsInline(true);
-	},
+	}
 };
 
 Blockly.Blocks['thymio_actuator_motor'] = {
@@ -937,7 +937,7 @@ Blockly.Blocks['thymio_actuator_motor'] = {
 
 		var dropdown = new Blockly.FieldDropdown(variables);
 		this.appendValueInput('VALUE').setCheck('Number').appendField('set').appendField(dropdown, 'VARIABLE').appendField('motor speed to');
-	},
+	}
 };
 
 Blockly.Blocks['thymio_variable_get'] = {
@@ -1022,7 +1022,7 @@ Blockly.Blocks['thymio_variable_set'] = {
 			}, {
 				"type" : "input_value",
 				"name" : "VALUE",
-				"check": "Number",
+				"check": "Number"
 			}],
 			"previousStatement" : null,
 			"nextStatement" : null,
@@ -1103,7 +1103,7 @@ Blockly.Blocks['thymio_declare_array'] = {
 		if(Blockly.Names.equals(oldName, this.getFieldValue('VAR'))) {
 			this.setFieldValue(newName, 'VAR');
 		}
-	},
+	}
 };
 
 Blockly.Blocks['thymio_set_array'] = {
@@ -1149,7 +1149,7 @@ Blockly.Blocks['thymio_set_array'] = {
 		if(Blockly.Names.equals(oldName, this.getFieldValue('VAR'))) {
 			this.setFieldValue(newName, 'VAR');
 		}
-	},
+	}
 };
 
 Blockly.Blocks['thymio_get_array'] = {
@@ -1193,7 +1193,7 @@ Blockly.Blocks['thymio_get_array'] = {
 		if(Blockly.Names.equals(oldName, this.getFieldValue('VAR'))) {
 			this.setFieldValue(newName, 'VAR');
 		}
-	},
+	}
 };
 
 Blockly.Blocks['thymio_compare'] = {
@@ -1226,7 +1226,7 @@ Blockly.Blocks['thymio_compare'] = {
 			};
 			return TOOLTIPS[op];
 		});
-	},
+	}
 };
 
 Blockly.Blocks['thymio_arithmetic'] = {
