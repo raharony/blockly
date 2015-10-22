@@ -172,6 +172,8 @@ class Gen_compressed(threading.Thread):
     self.gen_generator("python")
     self.gen_generator("php")
     self.gen_generator("dart")
+    self.gen_generator("aesl")
+    self.gen_overrides()
 
   def gen_core(self):
     target_filename = "blockly_compressed.js"
@@ -242,6 +244,33 @@ class Gen_compressed(threading.Thread):
     filenames = glob.glob(
         os.path.join("generators", language, "*.js"))
     filenames.insert(0, os.path.join("generators", language + ".js"))
+    for filename in filenames:
+      f = open(filename)
+      params.append(("js_code", "".join(f.readlines())))
+      f.close()
+    filenames.insert(0, "[goog.provide]")
+
+    # Remove Blockly.Generator to be compatible with Blockly.
+    remove = "var Blockly={Generator:{}};"
+    self.do_compile(params, target_filename, filenames, remove)
+    
+  def gen_overrides(self):
+    target_filename = "overrides_compressed.js"
+    # Define the parameters for the POST request.
+    params = [
+        ("compilation_level", "SIMPLE_OPTIMIZATIONS"),
+        ("output_format", "json"),
+        ("output_info", "compiled_code"),
+        ("output_info", "warnings"),
+        ("output_info", "errors"),
+        ("output_info", "statistics"),
+      ]
+
+    # Read in all the source files.
+    # Add Blockly.Generator to be compatible with the compiler.
+    params.append(("js_code", "goog.provide('Blockly.Generator');"))
+    filenames = glob.glob(
+        os.path.join("overrides", "*.js"))
     for filename in filenames:
       f = open(filename)
       params.append(("js_code", "".join(f.readlines())))
