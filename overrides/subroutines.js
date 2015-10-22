@@ -4,10 +4,6 @@
  */
 'use strict';
 
-goog.require('Blockly.Field');
-goog.require('Blockly.Names');
-goog.require('Blockly.Workspace');
-
 /**
  * Construct the blocks required by the flyout for the procedure category.
  * @param {!Array.<!Blockly.Block>} blocks List of blocks to show.

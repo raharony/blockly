@@ -4,9 +4,6 @@
  */
 'use strict';
 
-goog.require('Blockly.Workspace');
-goog.require('goog.string');
-
 /**
  * Construct the blocks required by the flyout for the variable category.
  * 
