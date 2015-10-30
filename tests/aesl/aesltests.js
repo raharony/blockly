@@ -1386,7 +1386,7 @@ AeslTests = [
  '<xml xmlns="http://www.w3.org/1999/xhtml">\n' + 
  '  <block type="thymio_event_prox" x="63" y="38">\n' + 
  '    <field name="SENSOR">prox.horizontal[2]</field>\n' + 
- '    <field name="MODE">BLOCK</field>\n' + 
+ '    <field name="MODE">PROX</field>\n' + 
  '    <statement name="HANDLER">\n' + 
  '      <block type="thymio_actuator_motor">\n' + 
  '        <field name="VARIABLE">motor.left.target</field>\n' + 
@@ -1429,7 +1429,7 @@ AeslTests = [
  '  </block>\n' + 
  '  <block type="thymio_event_prox" x="63" y="163">\n' + 
  '    <field name="SENSOR">prox.horizontal[2]</field>\n' + 
- '    <field name="MODE">CLEAR</field>\n' + 
+ '    <field name="MODE">NOPROX</field>\n' + 
  '    <statement name="HANDLER">\n' + 
  '      <block type="thymio_actuator_motor">\n' + 
  '        <field name="VARIABLE">motor.left.target</field>\n' + 
@@ -2846,7 +2846,7 @@ AeslTests = [
  '  </block>\n' + 
  '  <block type="thymio_event_prox" x="613" y="188">\n' + 
  '    <field name="SENSOR">prox.horizontal[0]</field>\n' + 
- '    <field name="MODE">BLOCK</field>\n' + 
+ '    <field name="MODE">PROX</field>\n' + 
  '    <statement name="HANDLER">\n' + 
  '      <block type="thymio_motors_start">\n' + 
  '        <field name="COMMAND">TURNLEFT</field>\n' + 
@@ -2874,7 +2874,7 @@ AeslTests = [
  '  </block>\n' + 
  '  <block type="thymio_event_prox" x="613" y="263">\n' + 
  '    <field name="SENSOR">prox.horizontal[4]</field>\n' + 
- '    <field name="MODE">BLOCK</field>\n' + 
+ '    <field name="MODE">PROX</field>\n' + 
  '    <statement name="HANDLER">\n' + 
  '      <block type="thymio_motors_start">\n' + 
  '        <field name="COMMAND">TURNRIGHT</field>\n' + 
@@ -2902,7 +2902,7 @@ AeslTests = [
  '  </block>\n' + 
  '  <block type="thymio_event_prox" x="613" y="338">\n' + 
  '    <field name="SENSOR">prox.horizontal[5]</field>\n' + 
- '    <field name="MODE">BLOCK</field>\n' + 
+ '    <field name="MODE">PROX</field>\n' + 
  '    <statement name="HANDLER">\n' + 
  '      <block type="thymio_motors_start">\n' + 
  '        <field name="COMMAND">TURNBACKWARDLEFT</field>\n' + 
@@ -2930,7 +2930,7 @@ AeslTests = [
  '  </block>\n' + 
  '  <block type="thymio_event_prox" x="613" y="413">\n' + 
  '    <field name="SENSOR">prox.horizontal[6]</field>\n' + 
- '    <field name="MODE">BLOCK</field>\n' + 
+ '    <field name="MODE">PROX</field>\n' + 
  '    <statement name="HANDLER">\n' + 
  '      <block type="thymio_motors_start">\n' + 
  '        <field name="COMMAND">TURNBACKWARDRIGHT</field>\n' + 
