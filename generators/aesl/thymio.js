@@ -106,7 +106,7 @@ Blockly.AESL['thymio_event_prox'] = function(block)
 	var handler = Blockly.AESL.statementToCode(block, 'HANDLER');
 	
 	var condition = '';
-	if(mode == 'BLOCK' || mode == 'PROX') {
+	if(mode == 'PROX') {
 		condition = ' > 2000';
 	} else {
 		condition = ' < 1000';
@@ -308,7 +308,7 @@ Blockly.AESL['thymio_prox_check'] = function(block)
 	var mode = block.getFieldValue('MODE');
 	
 	var condition = '';
-	if(mode == 'BLOCK' || mode == 'PROX') {
+	if(mode == 'PROX') {
 		condition = ' > 2000';
 	} else {
 		condition = ' < 1000';

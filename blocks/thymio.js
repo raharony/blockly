@@ -36,13 +36,13 @@ Blockly.Blocks['thymio_when'] = {
 	init : function()
 	{
 		this.setColour(Blockly.Blocks.logic.HUE);
-		this.setHelpUrl(Blockly.Msg.TEXT_THYMIO_WHEN_HELPURL);
-		this.setTooltip(Blockly.Msg.TEXT_THYMIO_WHEN_TOOLTIP);
+		this.setHelpUrl(Blockly.Msg.THYMIO_WHEN_HELPURL);
+		this.setTooltip(Blockly.Msg.THYMIO_WHEN_TOOLTIP);
 		this.setPreviousStatement(true);
 	    this.setNextStatement(true);
 		
-		this.appendValueInput('WHEN').setCheck('Boolean').appendField('when');
-		this.appendStatementInput('DO').appendField('do');
+		this.appendValueInput('WHEN').setCheck('Boolean').appendField(Blockly.Msg.THYMIO_WHEN_WHEN);
+		this.appendStatementInput('DO').appendField(Blockly.Msg.THYMIO_WHEN_DO);
 	}
 };
 
@@ -55,8 +55,8 @@ Blockly.Blocks['thymio_for'] = {
 	init : function()
 	{
 		this.setColour(Blockly.Blocks.loops.HUE);
-		this.setHelpUrl(Blockly.Msg.TEXT_THYMIO_FOR_HELPURL);
-		this.setTooltip(Blockly.Msg.TEXT_THYMIO_FOR_TOOLTIP);
+		this.setHelpUrl(Blockly.Msg.THYMIO_FOR_HELPURL);
+		this.setTooltip(Blockly.Msg.THYMIO_FOR_TOOLTIP);
 		this.setPreviousStatement(true);
 		this.setNextStatement(true);
 
@@ -64,8 +64,8 @@ Blockly.Blocks['thymio_for'] = {
 		var fromField = new Blockly.FieldTextInput('1', Blockly.FieldTextInput.numberValidator);
 		var toField = new Blockly.FieldTextInput('10', Blockly.FieldTextInput.numberValidator);
 
-		this.appendDummyInput().appendField('for').appendField(variableField, 'ITER').appendField('from').appendField(fromField, 'FROM').appendField('to').appendField(toField, 'TO');
-		this.appendStatementInput('DO').appendField('do');
+		this.appendDummyInput().appendField(Blockly.Msg.THYMIO_FOR_FOR).appendField(variableField, 'ITER').appendField(Blockly.Msg.THYMIO_FOR_FROM).appendField(fromField, 'FROM').appendField(Blockly.Msg.THYMIO_FOR_TO).appendField(toField, 'TO');
+		this.appendStatementInput('DO').appendField(Blockly.Msg.THYMIO_FOR_DO);
 	},
 	/**
 	 * Return all variables referenced by this block.
@@ -102,12 +102,12 @@ Blockly.Blocks['thymio_subroutine_define'] = {
 	init : function()
 	{
 		this.setColour(Blockly.Blocks.procedures.HUE);
-		this.setHelpUrl(Blockly.Msg.TEXT_THYMIO_SUBROUTINE_DEFINE_HELPURL);
-		this.setTooltip(Blockly.Msg.TEXT_THYMIO_SUBROUTINE_DEFINE_TOOLTIP);
+		this.setHelpUrl(Blockly.Msg.THYMIO_SUBROUTINE_DEFINE_HELPURL);
+		this.setTooltip(Blockly.Msg.THYMIO_SUBROUTINE_DEFINE_TOOLTIP);
 
 		var nameField = new Blockly.FieldTextInput('name', Blockly.Procedures.rename);
 
-		this.appendDummyInput().appendField('subroutine').appendField(nameField, 'NAME');
+		this.appendDummyInput().appendField(Blockly.Msg.THYMIO_SUBROUTINE_DEFINE_SUBROUTINE).appendField(nameField, 'NAME');
 		this.appendStatementInput('STACK');
 	},
 	/**
@@ -146,14 +146,29 @@ Blockly.Blocks['thymio_event_button'] = {
 	 */
 	init : function()
 	{
-		this.setColour(Blockly.Blocks.thymio.EVENTS_HUE);
-		this.setHelpUrl(Blockly.Msg.TEXT_THYMIO_EVENT_BUTTON_HELPURL);
-		this.setTooltip(Blockly.Msg.TEXT_THYMIO_EVENT_BUTTON_TOOLTIP);
-
-		var buttonDropdown = new Blockly.FieldDropdown([['center', 'button.center'], ['forward', 'button.forward'], ['backward', 'button.backward'], ['left', 'button.left'], ['right', 'button.right']]);
-		var modeDropdown = new Blockly.FieldDropdown([['touched', 'PRESS'], ['released', 'RELEASE']]);
+		this.jsonInit({
+			"message0" : Blockly.Msg.THYMIO_EVENT_BUTTON,
+			"args0" : [{
+				"type" : "field_dropdown",
+				"name" : "BUTTON",
+				"options" : [
+					[Blockly.Msg.THYMIO_EVENT_BUTTON_CENTER, 'button.center'],
+					[Blockly.Msg.THYMIO_EVENT_BUTTON_FORWARD, 'button.forward'],
+					[Blockly.Msg.THYMIO_EVENT_BUTTON_BACKWARD, 'button.backward'],
+					[Blockly.Msg.THYMIO_EVENT_BUTTON_LEFT, 'button.left'],
+					[Blockly.Msg.THYMIO_EVENT_BUTTON_RIGHT, 'button.right']]
+			}, {
+				"type" : "field_dropdown",
+				"name" : "MODE",
+				"options" : [
+					[Blockly.Msg.THYMIO_EVENT_BUTTON_PRESS, 'PRESS'],
+					[Blockly.Msg.THYMIO_EVENT_BUTTON_RELEASE, 'RELEASE']]
+			}]
+		});
 		
-		this.appendDummyInput().appendField('on').appendField(buttonDropdown, 'BUTTON').appendField('button').appendField(modeDropdown, 'MODE');
+		this.setColour(Blockly.Blocks.thymio.EVENTS_HUE);
+		this.setHelpUrl(Blockly.Msg.THYMIO_EVENT_BUTTON_HELPURL);
+		this.setTooltip(Blockly.Msg.THYMIO_EVENT_BUTTON_TOOLTIP);
 		this.appendStatementInput('HANDLER');
 	}
 };
@@ -166,23 +181,31 @@ Blockly.Blocks['thymio_event_prox'] = {
 	 */
 	init : function()
 	{
+		this.jsonInit({
+			"message0" : Blockly.Msg.THYMIO_EVENT_PROX,
+			"args0" : [{
+				"type" : "field_dropdown",
+				"name" : "SENSOR",
+				"options" : [
+					[Blockly.Msg.THYMIO_EVENT_PROX_FRONT_LEFT, 'prox.horizontal[0]'],
+					[Blockly.Msg.THYMIO_EVENT_PROX_FRONT_LEFT_MIDDLE, 'prox.horizontal[1]'],
+					[Blockly.Msg.THYMIO_EVENT_PROX_FRONT_MIDDLE, 'prox.horizontal[2]'],
+					[Blockly.Msg.THYMIO_EVENT_PROX_FRONT_RIGHT_MIDDLE, 'prox.horizontal[3]'],
+					[Blockly.Msg.THYMIO_EVENT_PROX_FRONT_RIGHT, 'prox.horizontal[4]'],
+					[Blockly.Msg.THYMIO_EVENT_PROX_REAR_LEFT, 'prox.horizontal[5]'],
+					[Blockly.Msg.THYMIO_EVENT_PROX_REAR_RIGHT, 'prox.horizontal[6]']]
+			}, {
+				"type" : "field_dropdown",
+				"name" : "MODE",
+				"options" : [
+					[Blockly.Msg.THYMIO_EVENT_PROX_PROX, 'PROX'],
+					[Blockly.Msg.THYMIO_EVENT_PROX_NOPROX, 'NOPROX']]
+			}]
+		});
+		
 		this.setColour(Blockly.Blocks.thymio.EVENTS_HUE);
-		this.setHelpUrl(Blockly.Msg.TEXT_THYMIO_EVENT_PROX_HELPURL);
-		this.setTooltip(Blockly.Msg.TEXT_THYMIO_EVENT_PROX_TOOLTIP);
-
-		var sensorList = [];
-		sensorList.push(['front left', 'prox.horizontal[0]']);
-		sensorList.push(['front left/middle', 'prox.horizontal[1]']);
-		sensorList.push(['front middle', 'prox.horizontal[2]']);
-		sensorList.push(['front right/middle', 'prox.horizontal[3]']);
-		sensorList.push(['front right', 'prox.horizontal[4]']);
-		sensorList.push(['rear left', 'prox.horizontal[5]']);
-		sensorList.push(['rear right', 'prox.horizontal[6]']);
-		
-		var sensorDropdown = new Blockly.FieldDropdown(sensorList);
-		var modeDropdown = new Blockly.FieldDropdown([['proximity', 'BLOCK'], ['no proximity', 'CLEAR']]);
-		
-		this.appendDummyInput().appendField('on').appendField(sensorDropdown, 'SENSOR').appendField('sensor detecting').appendField(modeDropdown, 'MODE');
+		this.setHelpUrl(Blockly.Msg.THYMIO_EVENT_PROX_HELPURL);
+		this.setTooltip(Blockly.Msg.THYMIO_EVENT_PROX_TOOLTIP);
 		this.appendStatementInput('HANDLER');
 	}
 };
@@ -195,18 +218,28 @@ Blockly.Blocks['thymio_event_prox_ground'] = {
 	 */
 	init : function()
 	{
+		this.jsonInit({
+			"message0" : Blockly.Msg.THYMIO_EVENT_PROX_GROUND,
+			"args0" : [{
+				"type" : "field_dropdown",
+				"name" : "SENSOR",
+				"options" : [
+					[Blockly.Msg.THYMIO_EVENT_PROX_GROUND_LEFT, 'prox.ground.delta[0]'],
+					[Blockly.Msg.THYMIO_EVENT_PROX_GROUND_RIGHT, 'prox.ground.delta[1]']]
+			}, {
+				"type" : "field_dropdown",
+				"name" : "MODE",
+				"options" : [
+					[Blockly.Msg.THYMIO_EVENT_PROX_GROUND_BLACK, 'BLACK'],
+					[Blockly.Msg.THYMIO_EVENT_PROX_GROUND_WHITE, 'WHITE'],
+					[Blockly.Msg.THYMIO_EVENT_PROX_GROUND_PROX, 'PROX'],
+					[Blockly.Msg.THYMIO_EVENT_PROX_GROUND_NOPROX, 'NOPROX']]
+			}]
+		});
+		
 		this.setColour(Blockly.Blocks.thymio.EVENTS_HUE);
-		this.setHelpUrl(Blockly.Msg.TEXT_THYMIO_EVENT_PROX_GROUND_HELPURL);
-		this.setTooltip(Blockly.Msg.TEXT_THYMIO_EVENT_PROX_GROUND_TOOLTIP);
-
-		var sensorList = [];
-		sensorList.push(['left', 'prox.ground.delta[0]']);
-		sensorList.push(['right', 'prox.ground.delta[1]']);
-		
-		var sensorDropdown = new Blockly.FieldDropdown(sensorList);
-		var modeDropdown = new Blockly.FieldDropdown([['black', 'BLACK'], ['white', 'WHITE'], ['proximity', 'PROX'], ['no proximity', 'NOPROX']]);
-		
-		this.appendDummyInput().appendField('on').appendField(sensorDropdown, 'SENSOR').appendField('ground sensor detecting').appendField(modeDropdown, 'MODE');
+		this.setHelpUrl(Blockly.Msg.THYMIO_EVENT_PROX_GROUND_HELPURL);
+		this.setTooltip(Blockly.Msg.THYMIO_EVENT_PROX_GROUND_TOOLTIP);
 		this.appendStatementInput('HANDLER');
 	}
 };
@@ -220,10 +253,10 @@ Blockly.Blocks['thymio_event_shock'] = {
 	init : function()
 	{
 		this.setColour(Blockly.Blocks.thymio.EVENTS_HUE);
-		this.setHelpUrl(Blockly.Msg.TEXT_THYMIO_EVENT_SHOCK_HELPURL);
-		this.setTooltip(Blockly.Msg.TEXT_THYMIO_EVENT_SHOCK_TOOLTIP);
+		this.setHelpUrl(Blockly.Msg.THYMIO_EVENT_SHOCK_HELPURL);
+		this.setTooltip(Blockly.Msg.THYMIO_EVENT_SHOCK_TOOLTIP);
 		
-		this.appendDummyInput().appendField('on shock detected');
+		this.appendDummyInput().appendField(Blockly.Msg.THYMIO_EVENT_SHOCK);
 		this.appendStatementInput('HANDLER');
 	}
 };
@@ -236,17 +269,20 @@ Blockly.Blocks['thymio_event_timer'] = {
 	 */
 	init : function()
 	{
+		this.jsonInit({
+			"message0" : Blockly.Msg.THYMIO_EVENT_TIMER,
+			"args0" : [{
+				"type" : "field_dropdown",
+				"name" : "EVENT",
+				"options" : [
+					[Blockly.Msg.THYMIO_EVENT_TIMER_FIRST, 'timer0'],
+					[Blockly.Msg.THYMIO_EVENT_TIMER_SECOND, 'timer1']]
+			}]
+		});
+		
 		this.setColour(Blockly.Blocks.thymio.EVENTS_HUE);
-		this.setHelpUrl(Blockly.Msg.TEXT_THYMIO_EVENT_TIMER_HELPURL);
-		this.setTooltip(Blockly.Msg.TEXT_THYMIO_EVENT_TIMER_TOOLTIP);
-		
-		var eventList = [];		
-		eventList.push(['first', 'timer0']);
-		eventList.push(['second', 'timer1']);
-
-		var dropdown = new Blockly.FieldDropdown(eventList);
-		
-		this.appendDummyInput().appendField('on').appendField(dropdown, 'EVENT').appendField('timer expired');
+		this.setHelpUrl(Blockly.Msg.THYMIO_EVENT_TIMER_HELPURL);
+		this.setTooltip(Blockly.Msg.THYMIO_EVENT_TIMER_TOOLTIP);
 		this.appendStatementInput('HANDLER');
 	}
 };
@@ -259,17 +295,20 @@ Blockly.Blocks['thymio_event_sound'] = {
 	 */
 	init : function()
 	{
+		this.jsonInit({
+			"message0" : Blockly.Msg.THYMIO_EVENT_SOUND,
+			"args0" : [{
+				"type" : "field_dropdown",
+				"name" : "EVENT",
+				"options" : [
+					[Blockly.Msg.THYMIO_EVENT_SOUND_MIC, 'mic'],
+					[Blockly.Msg.THYMIO_EVENT_SOUND_FINISHED, 'sound.finished']]
+			}]
+		});
+		
 		this.setColour(Blockly.Blocks.thymio.EVENTS_HUE);
-		this.setHelpUrl(Blockly.Msg.TEXT_THYMIO_EVENT_SOUND_HELPURL);
-		this.setTooltip(Blockly.Msg.TEXT_THYMIO_EVENT_SOUND_TOOLTIP);
-		
-		var eventList = [];		
-		eventList.push(['intensity above threshold', 'mic']);
-		eventList.push(['finished playing', 'sound.finished']);
-
-		var dropdown = new Blockly.FieldDropdown(eventList);
-		
-		this.appendDummyInput().appendField('on sound').appendField(dropdown, 'EVENT');
+		this.setHelpUrl(Blockly.Msg.THYMIO_EVENT_SOUND_HELPURL);
+		this.setTooltip(Blockly.Msg.THYMIO_EVENT_SOUND_TOOLTIP);
 		this.appendStatementInput('HANDLER');
 	}
 };
@@ -282,17 +321,20 @@ Blockly.Blocks['thymio_event_receive'] = {
 	 */
 	init : function()
 	{
+		this.jsonInit({
+			"message0" : Blockly.Msg.THYMIO_EVENT_RECEIVE,
+			"args0" : [{
+				"type" : "field_dropdown",
+				"name" : "EVENT",
+				"options" : [
+					[Blockly.Msg.THYMIO_EVENT_RECEIVE_COMM, 'prox.comm'],
+					[Blockly.Msg.THYMIO_EVENT_RECEIVE_RC, 'rc5']]
+			}]
+		});
+		
 		this.setColour(Blockly.Blocks.thymio.EVENTS_HUE);
-		this.setHelpUrl(Blockly.Msg.TEXT_THYMIO_EVENT_RECEIVE_HELPURL);
-		this.setTooltip(Blockly.Msg.TEXT_THYMIO_EVENT_RECEIVE_TOOLTIP);
-		
-		var eventList = [];		
-		eventList.push(['IR communication', 'prox.comm']);
-		eventList.push(['remote control signal', 'rc5']);
-
-		var dropdown = new Blockly.FieldDropdown(eventList);
-		
-		this.appendDummyInput().appendField('on').appendField(dropdown, 'EVENT').appendField('received');
+		this.setHelpUrl(Blockly.Msg.THYMIO_EVENT_RECEIVE_HELPURL);
+		this.setTooltip(Blockly.Msg.THYMIO_EVENT_RECEIVE_TOOLTIP);
 		this.appendStatementInput('HANDLER');
 	}
 };
@@ -305,20 +347,23 @@ Blockly.Blocks['thymio_event_update'] = {
 	 */
 	init : function()
 	{
+		this.jsonInit({
+			"message0" : Blockly.Msg.THYMIO_EVENT_UPDATE,
+			"args0" : [{
+				"type" : "field_dropdown",
+				"name" : "EVENT",
+				"options" : [
+					[Blockly.Msg.THYMIO_EVENT_UPDATE_BUTTONS, 'buttons'],
+					[Blockly.Msg.THYMIO_EVENT_UPDATE_PROX, 'prox'],
+					[Blockly.Msg.THYMIO_EVENT_UPDATE_TEMPERATURE, 'temperature'],
+					[Blockly.Msg.THYMIO_EVENT_UPDATE_ACC, 'acc'],
+					[Blockly.Msg.THYMIO_EVENT_UPDATE_MOTOR, 'motor']]
+			}]
+		});
+		
 		this.setColour(Blockly.Blocks.thymio.EVENTS_HUE);
-		this.setHelpUrl(Blockly.Msg.TEXT_THYMIO_EVENT_UPDATED_HELPURL);
-		this.setTooltip(Blockly.Msg.TEXT_THYMIO_EVENT_UPDATED_TOOLTIP);
-		
-		var eventList = [];		
-		eventList.push(['button values', 'buttons']);
-		eventList.push(['proximity sensors', 'prox']);
-		eventList.push(['temperature', 'temperature']);
-		eventList.push(['accelerometer', 'acc']);
-		eventList.push(['motor', 'motor']);
-
-		var dropdown = new Blockly.FieldDropdown(eventList);
-		
-		this.appendDummyInput().appendField('on').appendField(dropdown, 'EVENT').appendField('updated');
+		this.setHelpUrl(Blockly.Msg.THYMIO_EVENT_UPDATED_HELPURL);
+		this.setTooltip(Blockly.Msg.THYMIO_EVENT_UPDATED_TOOLTIP);
 		this.appendStatementInput('HANDLER');
 	}
 };
@@ -331,14 +376,27 @@ Blockly.Blocks['thymio_led'] = {
 	 */
 	init : function()
 	{
+		this.jsonInit({
+			"message0" : Blockly.Msg.THYMIO_LED,
+			"args0" : [{
+				"type" : "field_dropdown",
+				"name" : "LED",
+				"options" : [
+					[Blockly.Msg.THYMIO_LED_TOP, 'leds.top'],
+					[Blockly.Msg.THYMIO_LED_BOTTOM_LEFT, 'leds.bottom.left'],
+					[Blockly.Msg.THYMIO_LED_BOTTOM_RIGHT, 'leds.bottom.right']]
+			}, {
+				"type" : "field_colour",
+				"name" : "COLOR",
+				"colour" : "#ff0000"
+			}]
+		});
+		
 		this.setColour(Blockly.Blocks.thymio.LEDS_HUE);
-		this.setHelpUrl(Blockly.Msg.TEXT_THYMIO_LED_HELPURL);
-		this.setTooltip(Blockly.Msg.TEXT_THYMIO_LED_TOOLTIP);
+		this.setHelpUrl(Blockly.Msg.THYMIO_LED_HELPURL);
+		this.setTooltip(Blockly.Msg.THYMIO_LED_TOOLTIP);
 		this.setPreviousStatement(true);
 		this.setNextStatement(true);
-
-		var dropdown = new Blockly.FieldDropdown([['top', 'leds.top'], ['bottom left', 'leds.bottom.left'], ['bottom right', 'leds.bottom.right']]);
-		this.appendDummyInput().appendField('set').appendField(dropdown, 'LED').appendField('led to').appendField(new Blockly.FieldColour('#ff0000'), 'COLOR');
 	}
 };
 
@@ -350,16 +408,38 @@ Blockly.Blocks['thymio_led_rgb'] = {
 	 */
 	init : function()
 	{
+		this.jsonInit({
+			"message0" : Blockly.Msg.THYMIO_LED_RGB,
+			"args0" : [{
+				"type" : "field_dropdown",
+				"name" : "LED",
+				"options" : [
+					[Blockly.Msg.THYMIO_LED_RGB_TOP, 'leds.top'],
+					[Blockly.Msg.THYMIO_LED_RGB_BOTTOM_LEFT, 'leds.bottom.left'],
+					[Blockly.Msg.THYMIO_LED_RGB_BOTTOM_RIGHT, 'leds.bottom.right']]
+			}, {
+				"type" : "input_value",
+				"name" : "RED",
+				"check" : "Number",
+				"align" : "RIGHT"
+			}, {
+				"type" : "input_value",
+				"name" : "GREEN",
+				"check" : "Number",
+				"align" : "RIGHT"
+			}, {
+				"type" : "input_value",
+				"name" : "BLUE",
+				"check" : "Number",
+				"align" : "RIGHT"
+			}]
+		});
+		
 		this.setColour(Blockly.Blocks.thymio.LEDS_HUE);
-		this.setHelpUrl(Blockly.Msg.TEXT_THYMIO_LED_RGB_HELPURL);
-		this.setTooltip(Blockly.Msg.TEXT_THYMIO_LED_RGB_TOOLTIP);
+		this.setHelpUrl(Blockly.Msg.THYMIO_LED_RGB_HELPURL);
+		this.setTooltip(Blockly.Msg.THYMIO_LED_RGB_TOOLTIP);
 		this.setPreviousStatement(true);
 		this.setNextStatement(true);
-
-		var dropdown = new Blockly.FieldDropdown([['top', 'leds.top'], ['bottom left', 'leds.bottom.left'], ['bottom right', 'leds.bottom.right']]);
-		this.appendValueInput('RED').setCheck('Number').setAlign(Blockly.ALIGN_RIGHT).appendField('set').appendField(dropdown, 'LED').appendField('led to red');
-		this.appendValueInput('GREEN').setCheck('Number').setAlign(Blockly.ALIGN_RIGHT).appendField('green');
-		this.appendValueInput('BLUE').setCheck('Number').setAlign(Blockly.ALIGN_RIGHT).appendField('blue');
 	}
 };
 
@@ -371,20 +451,56 @@ Blockly.Blocks['thymio_led_circle'] = {
 	 */
 	init : function()
 	{
+		this.jsonInit({
+			"message0" : Blockly.Msg.THYMIO_LED_CIRCLE,
+			"args0" : [{
+				"type" : "input_value",
+				"name" : "CIRCLE0",
+				"check" : "Number",
+				"align" : "RIGHT"
+			}, {
+				"type" : "input_value",
+				"name" : "CIRCLE1",
+				"check" : "Number",
+				"align" : "RIGHT"
+			}, {
+				"type" : "input_value",
+				"name" : "CIRCLE2",
+				"check" : "Number",
+				"align" : "RIGHT"
+			}, {
+				"type" : "input_value",
+				"name" : "CIRCLE3",
+				"check" : "Number",
+				"align" : "RIGHT"
+			}, {
+				"type" : "input_value",
+				"name" : "CIRCLE4",
+				"check" : "Number",
+				"align" : "RIGHT"
+			}, {
+				"type" : "input_value",
+				"name" : "CIRCLE5",
+				"check" : "Number",
+				"align" : "RIGHT"
+			}, {
+				"type" : "input_value",
+				"name" : "CIRCLE6",
+				"check" : "Number",
+				"align" : "RIGHT"
+			}, {
+				"type" : "input_value",
+				"name" : "CIRCLE7",
+				"check" : "Number",
+				"align" : "RIGHT"
+			}]
+		});
+		
 		this.setColour(Blockly.Blocks.thymio.LEDS_HUE);
-		this.setHelpUrl(Blockly.Msg.TEXT_THYMIO_LED_CIRCLE_HELPURL);
-		this.setTooltip(Blockly.Msg.TEXT_THYMIO_LED_CIRCLE_TOOLTIP);
+		this.setHelpUrl(Blockly.Msg.THYMIO_LED_CIRCLE_HELPURL);
+		this.setTooltip(Blockly.Msg.THYMIO_LED_CIRCLE_TOOLTIP);
 		this.setPreviousStatement(true);
 		this.setNextStatement(true);
-
-		this.appendValueInput('CIRCLE0').setCheck('Number').setAlign(Blockly.ALIGN_RIGHT).appendField('set circle leds to forward');
-		this.appendValueInput('CIRCLE1').setCheck('Number').setAlign(Blockly.ALIGN_RIGHT).appendField('forward right');
-		this.appendValueInput('CIRCLE2').setCheck('Number').setAlign(Blockly.ALIGN_RIGHT).appendField('right');
-		this.appendValueInput('CIRCLE3').setCheck('Number').setAlign(Blockly.ALIGN_RIGHT).appendField('backward right');
-		this.appendValueInput('CIRCLE4').setCheck('Number').setAlign(Blockly.ALIGN_RIGHT).appendField('backward');
-		this.appendValueInput('CIRCLE5').setCheck('Number').setAlign(Blockly.ALIGN_RIGHT).appendField('backward left');
-		this.appendValueInput('CIRCLE6').setCheck('Number').setAlign(Blockly.ALIGN_RIGHT).appendField('left');
-		this.appendValueInput('CIRCLE7').setCheck('Number').setAlign(Blockly.ALIGN_RIGHT).appendField('forward left');
 	}
 };
 
@@ -396,20 +512,56 @@ Blockly.Blocks['thymio_led_prox'] = {
 	 */
 	init : function()
 	{
+		this.jsonInit({
+			"message0" : Blockly.Msg.THYMIO_LED_PROX,
+			"args0" : [{
+				"type" : "input_value",
+				"name" : "PROX0",
+				"check" : "Number",
+				"align" : "RIGHT"
+			}, {
+				"type" : "input_value",
+				"name" : "PROX1",
+				"check" : "Number",
+				"align" : "RIGHT"
+			}, {
+				"type" : "input_value",
+				"name" : "PROX2",
+				"check" : "Number",
+				"align" : "RIGHT"
+			}, {
+				"type" : "input_value",
+				"name" : "PROX3",
+				"check" : "Number",
+				"align" : "RIGHT"
+			}, {
+				"type" : "input_value",
+				"name" : "PROX4",
+				"check" : "Number",
+				"align" : "RIGHT"
+			}, {
+				"type" : "input_value",
+				"name" : "PROX5",
+				"check" : "Number",
+				"align" : "RIGHT"
+			}, {
+				"type" : "input_value",
+				"name" : "PROX6",
+				"check" : "Number",
+				"align" : "RIGHT"
+			}, {
+				"type" : "input_value",
+				"name" : "PROX7",
+				"check" : "Number",
+				"align" : "RIGHT"
+			}]
+		});
+		
 		this.setColour(Blockly.Blocks.thymio.LEDS_HUE);
-		this.setHelpUrl(Blockly.Msg.TEXT_THYMIO_LED_PROX_HELPURL);
-		this.setTooltip(Blockly.Msg.TEXT_THYMIO_LED_PROX_TOOLTIP);
+		this.setHelpUrl(Blockly.Msg.THYMIO_LED_PROX_HELPURL);
+		this.setTooltip(Blockly.Msg.THYMIO_LED_PROX_TOOLTIP);
 		this.setPreviousStatement(true);
 		this.setNextStatement(true);
-		
-		this.appendValueInput('PROX0').setCheck('Number').setAlign(Blockly.ALIGN_RIGHT).appendField('set horizontal proximity leds to front left');
-		this.appendValueInput('PROX1').setCheck('Number').setAlign(Blockly.ALIGN_RIGHT).appendField('front left/middle');
-		this.appendValueInput('PROX2').setCheck('Number').setAlign(Blockly.ALIGN_RIGHT).appendField('right');
-		this.appendValueInput('PROX3').setCheck('Number').setAlign(Blockly.ALIGN_RIGHT).appendField('front middle');
-		this.appendValueInput('PROX4').setCheck('Number').setAlign(Blockly.ALIGN_RIGHT).appendField('front right/middle');
-		this.appendValueInput('PROX5').setCheck('Number').setAlign(Blockly.ALIGN_RIGHT).appendField('front right');
-		this.appendValueInput('PROX6').setCheck('Number').setAlign(Blockly.ALIGN_RIGHT).appendField('rear left');
-		this.appendValueInput('PROX7').setCheck('Number').setAlign(Blockly.ALIGN_RIGHT).appendField('rear right');
 	}
 };
 
@@ -422,14 +574,26 @@ Blockly.Blocks['thymio_led_prox_ground'] = {
 	 */
 	init : function()
 	{
+		this.jsonInit({
+			"message0" : Blockly.Msg.THYMIO_LED_PROX_GROUND,
+			"args0" : [{
+				"type" : "input_value",
+				"name" : "PROX0",
+				"check" : "Number",
+				"align" : "RIGHT"
+			}, {
+				"type" : "input_value",
+				"name" : "PROX1",
+				"check" : "Number",
+				"align" : "RIGHT"
+			}]
+		});
+		
 		this.setColour(Blockly.Blocks.thymio.LEDS_HUE);
-		this.setHelpUrl(Blockly.Msg.TEXT_THYMIO_LED_PROX_GROUND_HELPURL);
-		this.setTooltip(Blockly.Msg.TEXT_THYMIO_LED_PROX_GROUND_TOOLTIP);
+		this.setHelpUrl(Blockly.Msg.THYMIO_LED_PROX_GROUND_HELPURL);
+		this.setTooltip(Blockly.Msg.THYMIO_LED_PROX_GROUND_TOOLTIP);
 		this.setPreviousStatement(true);
 		this.setNextStatement(true);
-		
-		this.appendValueInput('PROX0').setCheck('Number').setAlign(Blockly.ALIGN_RIGHT).appendField('set ground proximity leds to left');
-		this.appendValueInput('PROX1').setCheck('Number').setAlign(Blockly.ALIGN_RIGHT).appendField('right');
 	}
 };
 
@@ -441,16 +605,36 @@ Blockly.Blocks['thymio_led_button'] = {
 	 */
 	init : function()
 	{
+		this.jsonInit({
+			"message0" : Blockly.Msg.THYMIO_LED_BUTTON,
+			"args0" : [{
+				"type" : "input_value",
+				"name" : "FORWARD",
+				"check" : "Number",
+				"align" : "RIGHT"
+			}, {
+				"type" : "input_value",
+				"name" : "RIGHT",
+				"check" : "Number",
+				"align" : "RIGHT"
+			}, {
+				"type" : "input_value",
+				"name" : "BACKWARD",
+				"check" : "Number",
+				"align" : "RIGHT"
+			}, {
+				"type" : "input_value",
+				"name" : "LEFT",
+				"check" : "Number",
+				"align" : "RIGHT"
+			}]
+		});
+		
 		this.setColour(Blockly.Blocks.thymio.LEDS_HUE);
-		this.setHelpUrl(Blockly.Msg.TEXT_THYMIO_LED_BUTTON_HELPURL);
-		this.setTooltip(Blockly.Msg.TEXT_THYMIO_LED_BUTTON_TOOLTIP);
+		this.setHelpUrl(Blockly.Msg.THYMIO_LED_BUTTON_HELPURL);
+		this.setTooltip(Blockly.Msg.THYMIO_LED_BUTTON_TOOLTIP);
 		this.setPreviousStatement(true);
 		this.setNextStatement(true);
-		
-		this.appendValueInput('FORWARD').setCheck('Number').setAlign(Blockly.ALIGN_RIGHT).appendField('set button leds to forward');
-		this.appendValueInput('RIGHT').setCheck('Number').setAlign(Blockly.ALIGN_RIGHT).appendField('right');
-		this.appendValueInput('BACKWARD').setCheck('Number').setAlign(Blockly.ALIGN_RIGHT).appendField('backward');
-		this.appendValueInput('LEFT').setCheck('Number').setAlign(Blockly.ALIGN_RIGHT).appendField('left');
 	}
 };
 
@@ -462,14 +646,26 @@ Blockly.Blocks['thymio_led_temperature'] = {
 	 */
 	init : function()
 	{
+		this.jsonInit({
+			"message0" : Blockly.Msg.THYMIO_LED_TEMPERATURE,
+			"args0" : [{
+				"type" : "input_value",
+				"name" : "RED",
+				"check" : "Number",
+				"align" : "RIGHT"
+			}, {
+				"type" : "input_value",
+				"name" : "BLUE",
+				"check" : "Number",
+				"align" : "RIGHT"
+			}]
+		});
+		
 		this.setColour(Blockly.Blocks.thymio.LEDS_HUE);
-		this.setHelpUrl(Blockly.Msg.TEXT_THYMIO_LED_TEMPERATURE_HELPURL);
-		this.setTooltip(Blockly.Msg.TEXT_THYMIO_LED_TEMPERATURE_TOOLTIP);
+		this.setHelpUrl(Blockly.Msg.THYMIO_LED_TEMPERATURE_HELPURL);
+		this.setTooltip(Blockly.Msg.THYMIO_LED_TEMPERATURE_TOOLTIP);
 		this.setPreviousStatement(true);
 		this.setNextStatement(true);
-		
-		this.appendValueInput('RED').setCheck('Number').setAlign(Blockly.ALIGN_RIGHT).appendField('set temperature leds to red');
-		this.appendValueInput('BLUE').setCheck('Number').setAlign(Blockly.ALIGN_RIGHT).appendField('blue');
 	}
 };
 
@@ -481,15 +677,27 @@ Blockly.Blocks['thymio_led_rc_sound'] = {
 	 */
 	init : function()
 	{
+		this.jsonInit({
+			"message0" : Blockly.Msg.THYMIO_LED_RC_SOUND,
+			"args0" : [{
+				"type" : "field_dropdown",
+				"name" : "LED",
+				"options" : [
+					[Blockly.Msg.THYMIO_LED_RC_SOUND_RC, 'leds.rc'],
+					[Blockly.Msg.THYMIO_LED_RC_SOUND_SOUND, 'leds.sound']]
+			}, {
+				"type" : "input_value",
+				"name" : "INTENSITY",
+				"check" : "Number",
+				"align" : "RIGHT"
+			}]
+		});
+		
 		this.setColour(Blockly.Blocks.thymio.LEDS_HUE);
-		this.setHelpUrl(Blockly.Msg.TEXT_THYMIO_LED_RC_SOUND_HELPURL);
-		this.setTooltip(Blockly.Msg.TEXT_THYMIO_LED_RC_SOUND_TOOLTIP);
+		this.setHelpUrl(Blockly.Msg.THYMIO_LED_RC_SOUND_HELPURL);
+		this.setTooltip(Blockly.Msg.THYMIO_LED_RC_SOUND_TOOLTIP);
 		this.setPreviousStatement(true);
 		this.setNextStatement(true);
-		
-		var dropdown = new Blockly.FieldDropdown([['remote control', 'leds.rc'], ['microphone', 'leds.sound']]);
-		
-		this.appendValueInput('INTENSITY').setCheck('Number').setAlign(Blockly.ALIGN_RIGHT).appendField('set').appendField(dropdown, 'LED').appendField('led to');
 	}
 };
 
@@ -501,26 +709,30 @@ Blockly.Blocks['thymio_led_off'] = {
 	 */
 	init : function()
 	{
+		this.jsonInit({
+			"message0" : Blockly.Msg.THYMIO_LED_OFF,
+			"args0" : [{
+				"type" : "field_dropdown",
+				"name" : "LED",
+				"options" : [
+					[Blockly.Msg.THYMIO_LED_OFF_TOP, 'leds.top'],
+					[Blockly.Msg.THYMIO_LED_OFF_BOTTOM_LEFT, 'leds.bottom.left'],
+					[Blockly.Msg.THYMIO_LED_OFF_BOTTOM_RIGHT, 'leds.bottom.right'],
+					[Blockly.Msg.THYMIO_LED_OFF_CIRCLE, 'leds.circle'],
+					[Blockly.Msg.THYMIO_LED_OFF_PROX_H, 'leds.prox.h'],
+					[Blockly.Msg.THYMIO_LED_OFF_PROX_V, 'leds.prox.v'],
+					[Blockly.Msg.THYMIO_LED_OFF_RC, 'leds.rc'],
+					[Blockly.Msg.THYMIO_LED_OFF_BUTTONS, 'leds.buttons'],
+					[Blockly.Msg.THYMIO_LED_OFF_TEMPERATURE, 'leds.temperature'],
+					[Blockly.Msg.THYMIO_LED_OFF_MICROPHONE, 'leds.sound']]
+			}]
+		});
+		
 		this.setColour(Blockly.Blocks.thymio.LEDS_HUE);
-		this.setHelpUrl(Blockly.Msg.TEXT_THYMIO_LED_OFF_HELPURL);
-		this.setTooltip(Blockly.Msg.TEXT_THYMIO_LED_OFF_TOOLTIP);
+		this.setHelpUrl(Blockly.Msg.THYMIO_LED_OFF_HELPURL);
+		this.setTooltip(Blockly.Msg.THYMIO_LED_OFF_TOOLTIP);
 		this.setPreviousStatement(true);
 		this.setNextStatement(true);
-		
-		var leds = [];
-		leds.push(['top led', 'leds.top']);
-		leds.push(['bottom left led', 'leds.bottom.left']);
-		leds.push(['bottom right led', 'leds.bottom.right']);
-		leds.push(['circle leds', 'leds.circle']);
-		leds.push(['horizontal proximity leds', 'leds.prox.h']);
-		leds.push(['ground proximity leds', 'leds.prox.v']);
-		leds.push(['remote control led', 'leds.rc']);
-		leds.push(['button leds', 'leds.buttons']);
-		leds.push(['temperature led', 'leds.temperature']);
-		leds.push(['microphone led', 'leds.sound']);
-
-		var dropdown = new Blockly.FieldDropdown(leds);
-		this.appendDummyInput().appendField('turn off').appendField(dropdown, 'LED');
 	}
 };
 
@@ -532,24 +744,28 @@ Blockly.Blocks['thymio_sound_system'] = {
 	 */
 	init : function()
 	{
+		this.jsonInit({
+			"message0" : Blockly.Msg.THYMIO_SOUND_SYSTEM,
+			"args0" : [{
+				"type" : "field_dropdown",
+				"name" : "SOUND",
+				"options" : [
+					[Blockly.Msg.THYMIO_SOUND_SYSTEM_STARTUP, '0'],
+					[Blockly.Msg.THYMIO_SOUND_SYSTEM_SHUTDOWN, '1'],
+					[Blockly.Msg.THYMIO_SOUND_SYSTEM_ARROW, '2'],
+					[Blockly.Msg.THYMIO_SOUND_SYSTEM_CENTRAL, '3'],
+					[Blockly.Msg.THYMIO_SOUND_SYSTEM_SCARY, '4'],
+					[Blockly.Msg.THYMIO_SOUND_SYSTEM_COLLISION, '5'],
+					[Blockly.Msg.THYMIO_SOUND_SYSTEM_TARGET_FRIENDLY, '6'],
+					[Blockly.Msg.THYMIO_SOUND_SYSTEM_TARGET_DETECTED, '7']]
+			}]
+		});
+		
 		this.setColour(Blockly.Blocks.thymio.ACTUATORS_HUE);
-		this.setHelpUrl(Blockly.Msg.TEXT_THYMIO_SOUND_SYSTEM_HELPURL);
-		this.setTooltip(Blockly.Msg.TEXT_THYMIO_SOUND_SYSTEM_TOOLTIP);
+		this.setHelpUrl(Blockly.Msg.THYMIO_SOUND_SYSTEM_HELPURL);
+		this.setTooltip(Blockly.Msg.THYMIO_SOUND_SYSTEM_TOOLTIP);
 		this.setPreviousStatement(true);
 		this.setNextStatement(true);
-		
-		var soundList = [];
-		soundList.push(['startup', '0']);
-		soundList.push(['shutdown', '1']);
-		soundList.push(['arrow', '2']);
-		soundList.push(['central', '3']);
-		soundList.push(['scary', '4']);
-		soundList.push(['collision', '5']);
-		soundList.push(['target friendly', '6']);
-		soundList.push(['target detected', '7']);
-		var dropdown = new Blockly.FieldDropdown(soundList);
-		
-		this.appendDummyInput().appendField('play').appendField(dropdown, 'SOUND').appendField('sound');
 	}
 };
 
@@ -561,16 +777,24 @@ Blockly.Blocks['thymio_sound_note'] = {
 	 */
 	init : function()
 	{
+		this.jsonInit({
+			"message0" : Blockly.Msg.THYMIO_SOUND_NOTE,
+			"args0" : [{
+				"type" : "input_value",
+				"name" : "FREQ",
+				"check" : "Number"
+			}, {
+				"type" : "input_value",
+				"name" : "DURATION",
+				"check" : "Number"
+			}]
+		});
+		
 		this.setColour(Blockly.Blocks.thymio.ACTUATORS_HUE);
-		this.setHelpUrl(Blockly.Msg.TEXT_THYMIO_SOUND_NOTE_HELPURL);
-		this.setTooltip(Blockly.Msg.TEXT_THYMIO_SOUND_NOTE_TOOLTIP);
+		this.setHelpUrl(Blockly.Msg.THYMIO_SOUND_NOTE_HELPURL);
+		this.setTooltip(Blockly.Msg.THYMIO_SOUND_NOTE_TOOLTIP);
 		this.setPreviousStatement(true);
 		this.setNextStatement(true);
-		
-		this.appendValueInput('FREQ').setCheck('Number').appendField('play');
-		this.appendValueInput('DURATION').setCheck('Number').appendField('Hz note for');
-		this.appendDummyInput().appendField('/ 60 seconds')
-		this.setInputsInline(true);
 	}
 };
 
@@ -583,11 +807,11 @@ Blockly.Blocks['thymio_sound_stop'] = {
 	init : function()
 	{
 		this.setColour(Blockly.Blocks.thymio.ACTUATORS_HUE);
-		this.setHelpUrl(Blockly.Msg.TEXT_THYMIO_SOUND_STOP_HELPURL);
-		this.setTooltip(Blockly.Msg.TEXT_THYMIO_SOUND_STOP_TOOLTIP);
+		this.setHelpUrl(Blockly.Msg.THYMIO_SOUND_STOP_HELPURL);
+		this.setTooltip(Blockly.Msg.THYMIO_SOUND_STOP_TOOLTIP);
 		this.setPreviousStatement(true);
 		this.setNextStatement(true);
-		this.appendDummyInput().appendField('stop playing sound');
+		this.appendDummyInput().appendField(Blockly.Msg.THYMIO_SOUND_STOP);
 	}
 };
 
@@ -599,13 +823,24 @@ Blockly.Blocks['thymio_button_pressed'] = {
 	 */
 	init : function()
 	{
+		this.jsonInit({
+			"message0" : Blockly.Msg.THYMIO_BUTTON_PRESSED,
+			"args0" : [{
+				"type" : "field_dropdown",
+				"name" : "BUTTON",
+				"options" : [
+					[Blockly.Msg.THYMIO_BUTTON_PRESSED_CENTER, 'button.center'],
+					[Blockly.Msg.THYMIO_BUTTON_PRESSED_FORWARD, 'button.forward'],
+					[Blockly.Msg.THYMIO_BUTTON_PRESSED_BACKWARD, 'button.backward'],
+					[Blockly.Msg.THYMIO_BUTTON_PRESSED_LEFT, 'button.left'],
+					[Blockly.Msg.THYMIO_BUTTON_PRESSED_RIGHT, 'button.right']]
+			}]
+		});
+		
 		this.setColour(Blockly.Blocks.logic.HUE);
-		this.setHelpUrl(Blockly.Msg.TEXT_THYMIO_BUTTON_PRESSED_HELPURL);
-		this.setTooltip(Blockly.Msg.TEXT_THYMIO_BUTTON_PRESSED_TOOLTIP);
-
-		var buttonDropdown = new Blockly.FieldDropdown([['center', 'button.center'], ['forward', 'button.forward'], ['backward', 'button.backward'], ['left', 'button.left'], ['right', 'button.right']]);
+		this.setHelpUrl(Blockly.Msg.THYMIO_BUTTON_PRESSED_HELPURL);
+		this.setTooltip(Blockly.Msg.THYMIO_BUTTON_PRESSED_TOOLTIP);
 		this.setOutput(true, 'Boolean');
-		this.appendDummyInput().appendField(buttonDropdown, 'BUTTON').appendField('button touched');
 	}
 };
 
@@ -617,24 +852,32 @@ Blockly.Blocks['thymio_prox_check'] = {
 	 */
 	init : function()
 	{
+		this.jsonInit({
+			"message0" : Blockly.Msg.THYMIO_PROX_CHECK,
+			"args0" : [{
+				"type" : "field_dropdown",
+				"name" : "SENSOR",
+				"options" : [
+					[Blockly.Msg.THYMIO_PROX_CHECK_FRONT_LEFT, 'prox.horizontal[0]'],
+					[Blockly.Msg.THYMIO_PROX_CHECK_FRONT_LEFT_MIDDLE, 'prox.horizontal[1]'],
+					[Blockly.Msg.THYMIO_PROX_CHECK_FRONT_MIDDLE, 'prox.horizontal[2]'],
+					[Blockly.Msg.THYMIO_PROX_CHECK_FRONT_RIGHT_MIDDLE, 'prox.horizontal[3]'],
+					[Blockly.Msg.THYMIO_PROX_CHECK_FRONT_RIGHT, 'prox.horizontal[4]'],
+					[Blockly.Msg.THYMIO_PROX_CHECK_REAR_LEFT, 'prox.horizontal[5]'],
+					[Blockly.Msg.THYMIO_PROX_CHECK_REAR_RIGHT, 'prox.horizontal[6]']]
+			}, {
+				"type" : "field_dropdown",
+				"name" : "MODE",
+				"options" : [
+					[Blockly.Msg.THYMIO_PROX_CHECK_PROX, 'PROX'],
+					[Blockly.Msg.THYMIO_PROX_CHECK_NOPROX, 'NOPROX']]
+			}]
+		});
+		
 		this.setColour(Blockly.Blocks.logic.HUE);
-		this.setHelpUrl(Blockly.Msg.TEXT_THYMIO_PROX_CHECK_HELPURL);
-		this.setTooltip(Blockly.Msg.TEXT_THYMIO_PROX_CHECK_TOOLTIP);
-		
-		var sensorList = [];
-		sensorList.push(['front left', 'prox.horizontal[0]']);
-		sensorList.push(['front left/middle', 'prox.horizontal[1]']);
-		sensorList.push(['front middle', 'prox.horizontal[2]']);
-		sensorList.push(['front right/middle', 'prox.horizontal[3]']);
-		sensorList.push(['front right', 'prox.horizontal[4]']);
-		sensorList.push(['rear left', 'prox.horizontal[5]']);
-		sensorList.push(['rear right', 'prox.horizontal[6]']);
-
-		var sensorDropdown = new Blockly.FieldDropdown(sensorList);
-		var modeDropdown = new Blockly.FieldDropdown([['proximity', 'BLOCK'], ['no proximity', 'CLEAR']]);
-		
+		this.setHelpUrl(Blockly.Msg.THYMIO_PROX_CHECK_HELPURL);
+		this.setTooltip(Blockly.Msg.THYMIO_PROX_CHECK_TOOLTIP);
 		this.setOutput(true, 'Boolean');
-		this.appendDummyInput().appendField(sensorDropdown, 'SENSOR').appendField('sensor detecting').appendField(modeDropdown, 'MODE');
 	}
 };
 
@@ -646,19 +889,29 @@ Blockly.Blocks['thymio_prox_ground_check'] = {
 	 */
 	init : function()
 	{
+		this.jsonInit({
+			"message0" : Blockly.Msg.THYMIO_PROX_GROUND_CHECK,
+			"args0" : [{
+				"type" : "field_dropdown",
+				"name" : "SENSOR",
+				"options" : [
+					[Blockly.Msg.THYMIO_PROX_GROUND_CHECK_LEFT, 'prox.ground.delta[0]'],
+					[Blockly.Msg.THYMIO_PROX_GROUND_CHECK_RIGHT, 'prox.ground.delta[1]']]
+			}, {
+				"type" : "field_dropdown",
+				"name" : "MODE",
+				"options" : [
+					[Blockly.Msg.THYMIO_PROX_GROUND_CHECK_BLACK, 'BLACK'],
+					[Blockly.Msg.THYMIO_PROX_GROUND_CHECK_WHITE, 'WHITE'],
+					[Blockly.Msg.THYMIO_PROX_GROUND_CHECK_PROX, 'PROX'],
+					[Blockly.Msg.THYMIO_PROX_GROUND_CHECK_NOPROX, 'NOPROX']]
+			}]
+		});
+		
 		this.setColour(Blockly.Blocks.logic.HUE);
-		this.setHelpUrl(Blockly.Msg.TEXT_THYMIO_PROX_GROUND_CHECK_HELPURL);
-		this.setTooltip(Blockly.Msg.TEXT_THYMIO_PROX_GROUND_CHECK_TOOLTIP);
-		
-		var sensorList = [];
-		sensorList.push(['left', 'prox.ground.delta[0]']);
-		sensorList.push(['right', 'prox.ground.delta[1]']);
-
-		var sensorDropdown = new Blockly.FieldDropdown(sensorList);
-		var modeDropdown = new Blockly.FieldDropdown([['black', 'BLACK'], ['white', 'WHITE'], ['proximity', 'PROX'], ['no proximity', 'NOPROX']]);
-		
+		this.setHelpUrl(Blockly.Msg.THYMIO_PROX_GROUND_CHECK_HELPURL);
+		this.setTooltip(Blockly.Msg.THYMIO_PROX_GROUND_CHECK_TOOLTIP);
 		this.setOutput(true, 'Boolean');
-		this.appendDummyInput().appendField(sensorDropdown, 'SENSOR').appendField('ground sensor detecting').appendField(modeDropdown, 'MODE');
 	}
 };
 
@@ -671,11 +924,11 @@ Blockly.Blocks['thymio_sensor_temperature'] = {
 	init : function()
 	{
 		this.setColour(Blockly.Blocks.math.HUE);
-		this.setHelpUrl(Blockly.Msg.TEXT_THYMIO_SENSOR_TEMPERATURE_HELPURL);
-		this.setTooltip(Blockly.Msg.TEXT_THYMIO_SENSOR_TEMPERATURE_TOOLTIP);
+		this.setHelpUrl(Blockly.Msg.THYMIO_SENSOR_TEMPERATURE_HELPURL);
+		this.setTooltip(Blockly.Msg.THYMIO_SENSOR_TEMPERATURE_TOOLTIP);
 
 		this.setOutput(true, 'Number');
-		this.appendDummyInput().appendField('temperature sensor value');
+		this.appendDummyInput().appendField(Blockly.Msg.THYMIO_SENSOR_TEMPERATURE);
 	}
 };
 
@@ -688,11 +941,11 @@ Blockly.Blocks['thymio_sensor_mic'] = {
 	init : function()
 	{
 		this.setColour(Blockly.Blocks.math.HUE);
-		this.setHelpUrl(Blockly.Msg.TEXT_THYMIO_SENSOR_MIC_HELPURL);
-		this.setTooltip(Blockly.Msg.TEXT_THYMIO_SENSOR_MIC_TOOLTIP);
+		this.setHelpUrl(Blockly.Msg.THYMIO_SENSOR_MIC_HELPURL);
+		this.setTooltip(Blockly.Msg.THYMIO_SENSOR_MIC_TOOLTIP);
 
 		this.setOutput(true, 'Number');
-		this.appendDummyInput().appendField('microphone intensity value');
+		this.appendDummyInput().appendField(Blockly.Msg.THYMIO_SENSOR_MIC);
 	}
 };
 
@@ -705,11 +958,11 @@ Blockly.Blocks['thymio_sensor_comm'] = {
 	init : function()
 	{
 		this.setColour(Blockly.Blocks.math.HUE);
-		this.setHelpUrl(Blockly.Msg.TEXT_THYMIO_SENSOR_COMM_HELPURL);
-		this.setTooltip(Blockly.Msg.TEXT_THYMIO_SENSOR_COMM_TOOLTIP);
+		this.setHelpUrl(Blockly.Msg.THYMIO_SENSOR_COMM_HELPURL);
+		this.setTooltip(Blockly.Msg.THYMIO_SENSOR_COMM_TOOLTIP);
 
 		this.setOutput(true, 'Number');
-		this.appendDummyInput().appendField('received IR communication value');
+		this.appendDummyInput().appendField(Blockly.Msg.THYMIO_SENSOR_COMM);
 	}
 };
 
@@ -721,24 +974,28 @@ Blockly.Blocks['thymio_sensor_prox'] = {
 	 */
 	init : function()
 	{
+		this.jsonInit({
+			"message0" : Blockly.Msg.THYMIO_SENSOR_PROX,
+			"args0" : [{
+				"type" : "field_dropdown",
+				"name" : "SENSOR",
+				"options" : [
+					[Blockly.Msg.THYMIO_SENSOR_PROX_FRONT_LEFT, 'prox.horizontal[0]'],
+					[Blockly.Msg.THYMIO_SENSOR_PROX_FRONT_LEFT_MIDDLE, 'prox.horizontal[1]'],
+					[Blockly.Msg.THYMIO_SENSOR_PROX_FRONT_MIDDLE, 'prox.horizontal[2]'],
+					[Blockly.Msg.THYMIO_SENSOR_PROX_FRONT_RIGHT_MIDDLE, 'prox.horizontal[3]'],
+					[Blockly.Msg.THYMIO_SENSOR_PROX_FRONT_RIGHT, 'prox.horizontal[4]'],
+					[Blockly.Msg.THYMIO_SENSOR_PROX_REAR_LEFT, 'prox.horizontal[5]'],
+					[Blockly.Msg.THYMIO_SENSOR_PROX_REAR_RIGHT, 'prox.horizontal[6]'],
+					[Blockly.Msg.THYMIO_SENSOR_PROX_GROUND_LEFT, 'prox.ground.delta[0]'],
+					[Blockly.Msg.THYMIO_SENSOR_PROX_GROUND_RIGHT, 'prox.ground.delta[1]']]
+			}]
+		});
+		
 		this.setColour(Blockly.Blocks.math.HUE);
-		this.setHelpUrl(Blockly.Msg.TEXT_THYMIO_SENSOR_PROX_HELPURL);
-		this.setTooltip(Blockly.Msg.TEXT_THYMIO_SENSOR_PROX_TOOLTIP);
-
-		var sensorList = [];
-		sensorList.push(['front left', 'prox.horizontal[0]']);
-		sensorList.push(['front left/middle', 'prox.horizontal[1]']);
-		sensorList.push(['front middle', 'prox.horizontal[2]']);
-		sensorList.push(['front right/middle', 'prox.horizontal[3]']);
-		sensorList.push(['front right', 'prox.horizontal[4]']);
-		sensorList.push(['rear left', 'prox.horizontal[5]']);
-		sensorList.push(['rear right', 'prox.horizontal[6]']);
-		sensorList.push(['left ground', 'prox.ground.delta[0]']);
-		sensorList.push(['right ground', 'prox.ground.delta[1]']);
-
-		var dropdown = new Blockly.FieldDropdown(sensorList);
+		this.setHelpUrl(Blockly.Msg.THYMIO_SENSOR_PROX_HELPURL);
+		this.setTooltip(Blockly.Msg.THYMIO_SENSOR_PROX_TOOLTIP);
 		this.setOutput(true, 'Number');
-		this.appendDummyInput().appendField(dropdown, 'SENSOR').appendField('proximity sensor closeness');
 	}
 };
 
@@ -750,17 +1007,21 @@ Blockly.Blocks['thymio_sensor_motor'] = {
 	 */
 	init : function()
 	{
+		this.jsonInit({
+			"message0" : Blockly.Msg.THYMIO_SENSOR_MOTOR,
+			"args0" : [{
+				"type" : "field_dropdown",
+				"name" : "SENSOR",
+				"options" : [
+					[Blockly.Msg.THYMIO_SENSOR_MOTOR_LEFT, 'motor.left.speed'],
+					[Blockly.Msg.THYMIO_SENSOR_MOTOR_RIGHT, 'motor.right.speed']]
+			}]
+		});
+		
 		this.setColour(Blockly.Blocks.math.HUE);
-		this.setHelpUrl(Blockly.Msg.TEXT_THYMIO_SENSOR_MOTOR_HELPURL);
-		this.setTooltip(Blockly.Msg.TEXT_THYMIO_SENSOR_MOTOR_TOOLTIP);
-
-		var sensorList = [];
-		sensorList.push(['left', 'motor.left.speed']);
-		sensorList.push(['right', 'motor.right.speed']);
-
-		var dropdown = new Blockly.FieldDropdown(sensorList);
+		this.setHelpUrl(Blockly.Msg.THYMIO_SENSOR_MOTOR_HELPURL);
+		this.setTooltip(Blockly.Msg.THYMIO_SENSOR_MOTOR_TOOLTIP);
 		this.setOutput(true, 'Number');
-		this.appendDummyInput().appendField(dropdown, 'SENSOR').appendField('motor speed');
 	}
 };
 
@@ -772,18 +1033,22 @@ Blockly.Blocks['thymio_sensor_acc'] = {
 	 */
 	init : function()
 	{
+		this.jsonInit({
+			"message0" : Blockly.Msg.THYMIO_SENSOR_ACC,
+			"args0" : [{
+				"type" : "field_dropdown",
+				"name" : "SENSOR",
+				"options" : [
+					[Blockly.Msg.THYMIO_SENSOR_ACC_X, 'acc[0]'],
+					[Blockly.Msg.THYMIO_SENSOR_ACC_Y, 'acc[1]'],
+					[Blockly.Msg.THYMIO_SENSOR_ACC_Z, 'acc[2]']]
+			}]
+		});
+		
 		this.setColour(Blockly.Blocks.math.HUE);
-		this.setHelpUrl(Blockly.Msg.TEXT_THYMIO_SENSOR_ACC_HELPURL);
-		this.setTooltip(Blockly.Msg.TEXT_THYMIO_SENSOR_ACC_TOOLTIP);
-
-		var sensorList = [];
-		sensorList.push(['x', 'acc[0]']);
-		sensorList.push(['y', 'acc[1]']);
-		sensorList.push(['z', 'acc[2]']);
-
-		var dropdown = new Blockly.FieldDropdown(sensorList);
+		this.setHelpUrl(Blockly.Msg.THYMIO_SENSOR_ACC_HELPURL);
+		this.setTooltip(Blockly.Msg.THYMIO_SENSOR_ACC_TOOLTIP);
 		this.setOutput(true, 'Number');
-		this.appendDummyInput().appendField('accelerometer').appendField(dropdown, 'SENSOR').appendField('sensor value');
 	}
 };
 
@@ -795,17 +1060,21 @@ Blockly.Blocks['thymio_sensor_rc'] = {
 	 */
 	init : function()
 	{
+		this.jsonInit({
+			"message0" : Blockly.Msg.THYMIO_SENSOR_RC,
+			"args0" : [{
+				"type" : "field_dropdown",
+				"name" : "SENSOR",
+				"options" : [
+					[Blockly.Msg.THYMIO_SENSOR_RC_ADDRESS, 'rc5.address'],
+					[Blockly.Msg.THYMIO_SENSOR_RC_COMMAND, 'rc5.command']]
+			}]
+		});
+		
 		this.setColour(Blockly.Blocks.math.HUE);
-		this.setHelpUrl(Blockly.Msg.TEXT_THYMIO_SENSOR_RC_HELPURL);
-		this.setTooltip(Blockly.Msg.TEXT_THYMIO_SENSOR_RC_TOOLTIP);
-
-		var sensorList = [];
-		sensorList.push(['address', 'rc5.address']);
-		sensorList.push(['command', 'rc5.command']);
-
-		var dropdown = new Blockly.FieldDropdown(sensorList);
+		this.setHelpUrl(Blockly.Msg.THYMIO_SENSOR_RC_HELPURL);
+		this.setTooltip(Blockly.Msg.THYMIO_SENSOR_RC_TOOLTIP);
 		this.setOutput(true, 'Number');
-		this.appendDummyInput().appendField('received remote control').appendField(dropdown, 'SENSOR').appendField('value');
 	}
 };
 
@@ -817,24 +1086,32 @@ Blockly.Blocks['thymio_motors_start'] = {
 	 */
 	init : function()
 	{
+		this.jsonInit({
+			"message0" : Blockly.Msg.THYMIO_MOTORS_START,
+			"args0" : [{
+				"type" : "field_dropdown",
+				"name" : "COMMAND",
+				"options" : [
+					[Blockly.Msg.THYMIO_MOTORS_START_FORWARD, 'FORWARD'],
+					[Blockly.Msg.THYMIO_MOTORS_START_BACKWARD, 'BACKWARD'],
+					[Blockly.Msg.THYMIO_MOTORS_START_TURNLEFT, 'TURNLEFT'],
+					[Blockly.Msg.THYMIO_MOTORS_START_TURNRIGHT, 'TURNRIGHT'],
+					[Blockly.Msg.THYMIO_MOTORS_START_TURNBACKWARDLEFT, 'TURNBACKWARDLEFT'],
+					[Blockly.Msg.THYMIO_MOTORS_START_TURNBACKWARDRIGHT, 'TURNBACKWARDRIGHT'],
+					[Blockly.Msg.THYMIO_MOTORS_START_SPINCCW, 'SPINCCW'],
+					[Blockly.Msg.THYMIO_MOTORS_START_SPINCW, 'SPINCW']]
+			}, {
+				"type" : "input_value",
+				"name" : "SPEED",
+				"check" : "Number"
+			}]
+		});
+		
 		this.setColour(Blockly.Blocks.thymio.ACTUATORS_HUE);
-		this.setHelpUrl(Blockly.Msg.TEXT_THYMIO_MOTORS_START_HELPURL);
-		this.setTooltip(Blockly.Msg.TEXT_THYMIO_MOTORS_START_TOOLTIP);
+		this.setHelpUrl(Blockly.Msg.THYMIO_MOTORS_START_HELPURL);
+		this.setTooltip(Blockly.Msg.THYMIO_MOTORS_START_TOOLTIP);
 		this.setPreviousStatement(true);
 		this.setNextStatement(true);
-		
-		var commands = [];
-		commands.push(['driving forward', 'FORWARD']);
-		commands.push(['driving backward', 'BACKWARD']);
-		commands.push(['turning left', 'TURNLEFT']);
-		commands.push(['turning right', 'TURNRIGHT']);
-		commands.push(['turning backward left', 'TURNBACKWARDLEFT']);
-		commands.push(['turning backward right', 'TURNBACKWARDRIGHT']);
-		commands.push(['spinning counterclockwise', 'SPINCCW']);
-		commands.push(['spinning clockwise', 'SPINCW']);		
-
-		var dropdown = new Blockly.FieldDropdown(commands);
-		this.appendValueInput('SPEED').setCheck('Number').appendField('start').appendField(dropdown, 'COMMAND').appendField('with speed');
 	}
 };
 
@@ -847,12 +1124,12 @@ Blockly.Blocks['thymio_motors_stop'] = {
 	init : function()
 	{
 		this.setColour(Blockly.Blocks.thymio.ACTUATORS_HUE);
-		this.setHelpUrl(Blockly.Msg.TEXT_THYMIO_MOTORS_STOP_HELPURL);
-		this.setTooltip(Blockly.Msg.TEXT_THYMIO_MOTORS_STOP_TOOLTIP);
+		this.setHelpUrl(Blockly.Msg.THYMIO_MOTORS_STOP_HELPURL);
+		this.setTooltip(Blockly.Msg.THYMIO_MOTORS_STOP_TOOLTIP);
 		this.setPreviousStatement(true);
 		this.setNextStatement(true);
 		
-		this.appendDummyInput().appendField('stop motors');
+		this.appendDummyInput().appendField(Blockly.Msg.THYMIO_MOTORS_STOP);
 	}
 };
 
@@ -865,12 +1142,12 @@ Blockly.Blocks['thymio_actuator_mic'] = {
 	init : function()
 	{
 		this.setColour(Blockly.Blocks.thymio.ACTUATORS_HUE);
-		this.setHelpUrl(Blockly.Msg.TEXT_THYMIO_ACTUATOR_MIC_HELPURL);
-		this.setTooltip(Blockly.Msg.TEXT_THYMIO_ACTUATOR_MIC_TOOLTIP);
+		this.setHelpUrl(Blockly.Msg.THYMIO_ACTUATOR_MIC_HELPURL);
+		this.setTooltip(Blockly.Msg.THYMIO_ACTUATOR_MIC_TOOLTIP);
 		this.setPreviousStatement(true);
 		this.setNextStatement(true);
 	
-		this.appendValueInput('VALUE').setCheck('Number').appendField('set microphone threshold to');
+		this.appendValueInput('VALUE').setCheck('Number').appendField(Blockly.Msg.THYMIO_ACTUATOR_MIC);
 	}
 };
 
@@ -883,12 +1160,12 @@ Blockly.Blocks['thymio_actuator_comm'] = {
 	init : function()
 	{
 		this.setColour(Blockly.Blocks.thymio.ACTUATORS_HUE);
-		this.setHelpUrl(Blockly.Msg.TEXT_THYMIO_ACTUATOR_COMM_HELPURL);
-		this.setTooltip(Blockly.Msg.TEXT_THYMIO_ACTUATOR_COMM_TOOLTIP);
+		this.setHelpUrl(Blockly.Msg.THYMIO_ACTUATOR_COMM_HELPURL);
+		this.setTooltip(Blockly.Msg.THYMIO_ACTUATOR_COMM_TOOLTIP);
 		this.setPreviousStatement(true);
 		this.setNextStatement(true);
 	
-		this.appendValueInput('VALUE').setCheck('Number').appendField('set IR communication to transmit to');
+		this.appendValueInput('VALUE').setCheck('Number').appendField(Blockly.Msg.THYMIO_ACTUATOR_COMM);
 	}
 };
 
@@ -900,19 +1177,26 @@ Blockly.Blocks['thymio_actuator_timer'] = {
 	 */
 	init : function()
 	{
+		this.jsonInit({
+			"message0" : Blockly.Msg.THYMIO_ACTUATOR_TIMER,
+			"args0" : [{
+				"type" : "field_dropdown",
+				"name" : "VARIABLE",
+				"options" : [
+					[Blockly.Msg.THYMIO_ACTUATOR_TIMER_FIRST, 'timer.period[0]'],
+					[Blockly.Msg.THYMIO_ACTUATOR_TIMER_SECOND, 'timer.period[1]']]
+			}, {
+				"type" : "input_value",
+				"name" : "VALUE",
+				"check" : "Number"
+			}]
+		});
+		
 		this.setColour(Blockly.Blocks.thymio.ACTUATORS_HUE);
-		this.setHelpUrl(Blockly.Msg.TEXT_THYMIO_ACTUATOR_TIMER_HELPURL);
-		this.setTooltip(Blockly.Msg.TEXT_THYMIO_ACTUATOR_TIMER_TOOLTIP);
+		this.setHelpUrl(Blockly.Msg.THYMIO_ACTUATOR_TIMER_HELPURL);
+		this.setTooltip(Blockly.Msg.THYMIO_ACTUATOR_TIMER_TOOLTIP);
 		this.setPreviousStatement(true);
 		this.setNextStatement(true);
-
-		var variables = [];
-		variables.push(['first','timer.period[0]']);
-		variables.push(['second','timer.period[1]']);
-
-		var dropdown = new Blockly.FieldDropdown(variables);
-		this.appendValueInput('VALUE').setCheck('Number').appendField('set').appendField(dropdown, 'VARIABLE').appendField('timer period to');
-		this.appendDummyInput().appendField('milliseconds');
 		this.setInputsInline(true);
 	}
 };
@@ -925,18 +1209,26 @@ Blockly.Blocks['thymio_actuator_motor'] = {
 	 */
 	init : function()
 	{
+		this.jsonInit({
+			"message0" : Blockly.Msg.THYMIO_ACTUATOR_MOTOR,
+			"args0" : [{
+				"type" : "field_dropdown",
+				"name" : "VARIABLE",
+				"options" : [
+					[Blockly.Msg.THYMIO_ACTUATOR_MOTOR_LEFT, 'motor.left.target'],
+					[Blockly.Msg.THYMIO_ACTUATOR_MOTOR_RIGHT, 'motor.right.target']]
+			}, {
+				"type" : "input_value",
+				"name" : "VALUE",
+				"check" : "Number"
+			}]
+		});
+		
 		this.setColour(Blockly.Blocks.thymio.ACTUATORS_HUE);
-		this.setHelpUrl(Blockly.Msg.TEXT_THYMIO_ACTUATOR_MOTOR_HELPURL);
-		this.setTooltip(Blockly.Msg.TEXT_THYMIO_ACTUATOR_MOTOR_TOOLTIP);
+		this.setHelpUrl(Blockly.Msg.THYMIO_ACTUATOR_MOTOR_HELPURL);
+		this.setTooltip(Blockly.Msg.THYMIO_ACTUATOR_MOTOR_TOOLTIP);
 		this.setPreviousStatement(true);
 		this.setNextStatement(true);
-
-		var variables = [];
-		variables.push(['left', 'motor.left.target']);
-		variables.push(['right', 'motor.right.target']);
-
-		var dropdown = new Blockly.FieldDropdown(variables);
-		this.appendValueInput('VALUE').setCheck('Number').appendField('set').appendField(dropdown, 'VARIABLE').appendField('motor speed to');
 	}
 };
 
@@ -1014,7 +1306,7 @@ Blockly.Blocks['thymio_variable_set'] = {
 	init : function()
 	{
 		this.jsonInit({
-			"message0" : Blockly.Msg.VARIABLES_SET,
+			"message0" : Blockly.Msg.THYMIO_VARIABLE_SET,
 			"args0" : [{
 				"type" : "field_variable",
 				"name" : "VAR",
@@ -1071,14 +1363,23 @@ Blockly.Blocks['thymio_declare_array'] = {
 	 */
 	init : function()
 	{
+		this.jsonInit({
+			"message0" : Blockly.Msg.THYMIO_DECLARE_ARRAY,
+			"args0" : [{
+				"type" : "field_variable",
+				"name" : "VAR",
+				"variable" : Blockly.Msg.VARIABLES_DEFAULT_NAME
+			}, {
+				"type" : "field_input",
+				"name" : "SIZE",
+				"text" : "3"
+			}]
+		});
+		
 		this.setColour(Blockly.Blocks.variables.HUE);
-		this.setHelpUrl(Blockly.Msg.TEXT_THYMIO_DECLARE_ARRAY_HELPURL);
-		this.setTooltip(Blockly.Msg.TEXT_THYMIO_DECLARE_ARRAY_TOOLTIP);
-
-		var variableField = new Blockly.FieldVariable(Blockly.Msg.VARIABLES_DEFAULT_NAME);
-		var sizeField = new Blockly.FieldTextInput('3', Blockly.FieldTextInput.numberValidator);
-
-		this.appendDummyInput().appendField('declare').appendField(variableField, 'VAR').appendField('as array of size').appendField(sizeField, 'SIZE');
+		this.setHelpUrl(Blockly.Msg.THYMIO_DECLARE_ARRAY_HELPURL);
+		this.setTooltip(Blockly.Msg.THYMIO_DECLARE_ARRAY_TOOLTIP);
+		this.getField('SIZE').setChangeHandler(Blockly.FieldTextInput.numberValidator);
 	},
 	/**
 	 * Return all variables referenced by this block.
@@ -1114,16 +1415,28 @@ Blockly.Blocks['thymio_set_array'] = {
 	 */
 	init : function()
 	{
+		this.jsonInit({
+			"message0" : Blockly.Msg.THYMIO_SET_ARRAY,
+			"args0" : [{
+				"type" : "field_variable",
+				"name" : "VAR",
+				"variable" : Blockly.Msg.VARIABLES_DEFAULT_NAME
+			}, {
+				"type" : "input_value",
+				"name" : "INDEX",
+				"check": "Number"
+			}, {
+				"type" : "input_value",
+				"name" : "VALUE",
+				"check": "Number"
+			}]
+		});
+		
 		this.setColour(Blockly.Blocks.variables.HUE);
-		this.setHelpUrl(Blockly.Msg.TEXT_THYMIO_SET_ARRAY_HELPURL);
-		this.setTooltip(Blockly.Msg.TEXT_THYMIO_SET_ARRAY_TOOLTIP);
+		this.setHelpUrl(Blockly.Msg.THYMIO_SET_ARRAY_HELPURL);
+		this.setTooltip(Blockly.Msg.THYMIO_SET_ARRAY_TOOLTIP);
 		this.setPreviousStatement(true);
 		this.setNextStatement(true);
-
-		var variableField = new Blockly.FieldVariable(Blockly.Msg.VARIABLES_DEFAULT_NAME);
-
-	    this.appendValueInput('INDEX').setCheck('Number').appendField('set array').appendField(variableField, 'VAR').appendField('element');
-	    this.appendValueInput('VALUE').setCheck('Number').appendField('to');
 	    this.setInputsInline(true);
 	},
 	/**
@@ -1160,14 +1473,23 @@ Blockly.Blocks['thymio_get_array'] = {
 	 */
 	init : function()
 	{
-		this.setColour(Blockly.Blocks.variables.HUE);
-		this.setHelpUrl(Blockly.Msg.TEXT_THYMIO_GET_ARRAY_HELPURL);
-		this.setTooltip(Blockly.Msg.TEXT_THYMIO_GET_ARRAY_TOOLTIP);
-
-		var variableField = new Blockly.FieldVariable(Blockly.Msg.VARIABLES_DEFAULT_NAME);
+		this.jsonInit({
+			"message0" : Blockly.Msg.THYMIO_GET_ARRAY,
+			"args0" : [{
+				"type" : "field_variable",
+				"name" : "VAR",
+				"variable" : Blockly.Msg.VARIABLES_DEFAULT_NAME
+			}, {
+				"type" : "input_value",
+				"name" : "INDEX",
+				"check": "Number"
+			}]
+		});
 		
+		this.setColour(Blockly.Blocks.variables.HUE);
+		this.setHelpUrl(Blockly.Msg.THYMIO_GET_ARRAY_HELPURL);
+		this.setTooltip(Blockly.Msg.THYMIO_GET_ARRAY_TOOLTIP);
 		this.setOutput(true, 'Number');
-		this.appendValueInput('INDEX').setCheck('Number').appendField('get array').appendField(variableField, 'VAR').appendField('element');
 	    this.setInputsInline(true);
 	},
 	/**
@@ -1237,8 +1559,8 @@ Blockly.Blocks['thymio_arithmetic'] = {
 	init : function()
 	{
 		this.setColour(Blockly.Blocks.math.HUE);
-		this.setHelpUrl(Blockly.Msg.TEXT_THYMIO_ARITHMETIC_HELPURL);
-		this.setTooltip(Blockly.Msg.TEXT_THYMIO_ARITHMETIC_TOOLTIP);
+		this.setHelpUrl(Blockly.Msg.THYMIO_ARITHMETIC_HELPURL);
+		this.setTooltip(Blockly.Msg.THYMIO_ARITHMETIC_TOOLTIP);
 		
 		var operators = [];
 		
@@ -1262,21 +1584,32 @@ Blockly.Blocks['thymio_binary'] = {
 	 */
 	init : function()
 	{
+		this.jsonInit({
+			"message0" : Blockly.Msg.THYMIO_BINARY,
+			"args0" : [{
+				"type" : "field_dropdown",
+				"name" : "OP",
+				"options" : [
+					[Blockly.Msg.THYMIO_BINARY_LEFT_SHIFT, '<<'],
+					[Blockly.Msg.THYMIO_BINARY_RIGHT_SHIFT, '>>'],
+					[Blockly.Msg.THYMIO_BINARY_AND, '&'],
+					[Blockly.Msg.THYMIO_BINARY_OR, '|'],
+					[Blockly.Msg.THYMIO_BINARY_XOR, '^']]
+			},{
+				"type" : "input_value",
+				"name" : "A",
+				"check" : "Number"
+			}, {
+				"type" : "input_value",
+				"name" : "B",
+				"check": "Number"
+			}]
+		});
+		
 		this.setColour(Blockly.Blocks.math.HUE);
-		this.setHelpUrl(Blockly.Msg.TEXT_THYMIO_BINARY_HELPURL);
-		this.setTooltip(Blockly.Msg.TEXT_THYMIO_BINARY_TOOLTIP);
-		
-		var operators = [];
-		
-		operators.push(['left shift', '<<']);
-		operators.push(['right shift', '>>']);
-		operators.push(['and', '&']);
-		operators.push(['or', '|']);
-		operators.push(['xor', '^']);
-		
+		this.setHelpUrl(Blockly.Msg.THYMIO_BINARY_HELPURL);
+		this.setTooltip(Blockly.Msg.THYMIO_BINARY_TOOLTIP);
 		this.setOutput(true, 'Number');
-		this.appendValueInput('A').setCheck('Number').appendField('binary');
-		this.appendValueInput('B').setCheck('Number').appendField(new Blockly.FieldDropdown(operators), 'OP');
 		this.setInputsInline(true);
 	}
 };
@@ -1288,18 +1621,26 @@ Blockly.Blocks['thymio_unary'] = {
 	 */
 	init : function()
 	{
+		this.jsonInit({
+			"message0" : Blockly.Msg.THYMIO_UNNARY,
+			"args0" : [{
+				"type" : "field_dropdown",
+				"name" : "OP",
+				"options" : [
+					[Blockly.Msg.THYMIO_UNNARY_NEGATIVE, '-'],
+					[Blockly.Msg.THYMIO_UNNARY_ABSOLUTE, 'abs'],
+					[Blockly.Msg.THYMIO_UNNARY_BINARY_NOT, '~']]
+			}, {
+				"type" : "input_value",
+				"name" : "VALUE",
+				"check": "Number"
+			}]
+		});
+		
 		this.setColour(Blockly.Blocks.math.HUE);
-		this.setHelpUrl(Blockly.Msg.TEXT_THYMIO_UNARY_HELPURL);
-		this.setTooltip(Blockly.Msg.TEXT_THYMIO_UNARY_TOOLTIP);
-		
-		var operators = [];
-		
-		operators.push(['negative', '-']);
-		operators.push(['absolute', 'abs']);
-		operators.push(['binary not', '~']);
-		
+		this.setHelpUrl(Blockly.Msg.THYMIO_UNARY_HELPURL);
+		this.setTooltip(Blockly.Msg.THYMIO_UNARY_TOOLTIP);
 		this.setOutput(true, 'Number');
-		this.appendValueInput('VALUE').setCheck('Number').appendField(new Blockly.FieldDropdown(operators), 'OP');
 	}
 };
 
@@ -1310,14 +1651,21 @@ Blockly.Blocks['thymio_communication'] = {
 	 */
 	init : function()
 	{
+		this.jsonInit({
+			"message0" : Blockly.Msg.THYMIO_COMMUNICATION,
+			"args0" : [{
+				"type" : "field_dropdown",
+				"name" : "MODE",
+				"options" : [
+					[Blockly.Msg.THYMIO_COMMUNICATION_ENABLE, 'ENABLE'],
+					[Blockly.Msg.THYMIO_COMMUNICATION_DISABLE, 'DISABLE']]
+			}]
+		});
+		
 		this.setColour(Blockly.Blocks.thymio.ACTUATORS_HUE);
-		this.setHelpUrl(Blockly.Msg.TEXT_THYMIO_COMMUNICATION_HELPURL);
-		this.setTooltip(Blockly.Msg.TEXT_THYMIO_COMMUNICATION_TOOLTIP);
+		this.setHelpUrl(Blockly.Msg.THYMIO_COMMUNICATION_HELPURL);
+		this.setTooltip(Blockly.Msg.THYMIO_COMMUNICATION_TOOLTIP);
 		this.setPreviousStatement(true);
 		this.setNextStatement(true);
-		
-		var modeDropdown = new Blockly.FieldDropdown([['enable', 'ENABLE'], ['disable', 'DISABLE']]);
-		
-		this.appendDummyInput().appendField(modeDropdown, 'MODE').appendField('IR communication');
 	}
 };
