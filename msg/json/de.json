@@ -394,8 +394,6 @@
 	"THYMIO_LED_RGB_TOOLTIP": "Setzt eine LED auf eine bestimmte Farbe durch RGB-Werte",
 	"THYMIO_LED_TEMPERATURE_HELPURL": "https://www.thymio.org/de:start",
 	"THYMIO_LED_TEMPERATURE_TOOLTIP": "Setzt die Temperatur-LED",
-	"THYMIO_LED_HELPURL": "https://www.thymio.org/de:start",
-	"THYMIO_LED_TOOLTIP": "Setzt eine LED auf eine bestimmte Farbe",
 	"THYMIO_MOTORS_START_HELPURL": "https://www.thymio.org/de:start",
 	"THYMIO_MOTORS_START_TOOLTIP": "Startet die Motoren des Roboters",
 	"THYMIO_MOTORS_STOP_HELPURL": "https://www.thymio.org/de:start",
