@@ -62,7 +62,7 @@ Blockly.Field.cacheReference_ = 0;
 /**
  * Maximum characters of text to display before adding an ellipsis.
  */
-Blockly.Field.prototype.maxDisplayLength = 50;
+Blockly.Field.prototype.maxDisplayLength = 70;
 
 /**
  * Block this field is attached to.  Starts as null, then in set in init.

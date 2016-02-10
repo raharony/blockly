@@ -393,7 +393,7 @@
 	"THYMIO_LED_CIRCLE": "iluminar círculo de LEDs delantero %1 delantero derecho %2 derecho %3 tracero derecho %4 trasero %5 tracero izquiérdo %6 izquiérdo %7 delantero izquiérdo %8",
 	"THYMIO_LED_PROX_HELPURL": "https://www.thymio.org/es:thymiotutorielp2",
 	"THYMIO_LED_PROX_TOOLTIP": "Configurar los LEDs de los sensores de proximidad",
-	"THYMIO_LED_PROX": "iluminar los LEDs de los sensores horizontales de proximidad delantero izquierdo %1 delantero central-izquiérdo %2 delantero central/izquiérda %3 delantero central/derecha %4 delantero central-derecho %5 delantero derecho %6 trasero izquiérdo %7 trasero derecho %8",
+	"THYMIO_LED_PROX": "iluminar los LEDs de los sensores de proximidad delantero izquierdo %1 delantero central-izquiérdo %2 delantero central/izquiérda %3 delantero central/derecha %4 delantero central-derecho %5 delantero derecho %6 trasero izquiérdo %7 trasero derecho %8",
 	"THYMIO_LED_PROX_GROUND_HELPURL": "https://www.thymio.org/es:thymiotutorielp2",
 	"THYMIO_LED_PROX_GROUND_TOOLTIP": "Configurar los LEDs de los sensores de proximidad de la parte infeiror",
 	"THYMIO_LED_PROX_GROUND": "iluminar los LEDs de los sensores inferior-izquiérdo %1 inferior-derecho %2",

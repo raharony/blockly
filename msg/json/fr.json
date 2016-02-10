@@ -395,7 +395,7 @@
 	"THYMIO_LED_CIRCLE": "allumer la LED du cercle avant %1 avant droite %2 droite %3 arrière droite %4 arrière %5 arrière gauche %6 gauche %7 avant gauche %8",
 	"THYMIO_LED_PROX_HELPURL": "https://www.thymio.org/fr:thymiotutorielp2",
 	"THYMIO_LED_PROX_TOOLTIP": "Définir les LED des capteurs de proximités",
-	"THYMIO_LED_PROX": "allumer les LED des capteurs horizontaux de proximité avant gauche %1 avant gauche/central %2 avant central/gauche %3 avant central/droite %4 avant droite/centrale %5 avant droite %6 arrière gauche %7 arrière droite %8",
+	"THYMIO_LED_PROX": "allumer les LED des capteurs de proximité avant gauche %1 avant gauche/central %2 avant central/gauche %3 avant central/droite %4 avant droite/centrale %5 avant droite %6 arrière gauche %7 arrière droite %8",
 	"THYMIO_LED_PROX_GROUND_HELPURL": "https://www.thymio.org/fr:thymiotutorielp2",
 	"THYMIO_LED_PROX_GROUND_TOOLTIP": "Définir les LED des capteurs de sol",
 	"THYMIO_LED_PROX_GROUND": "allumer les LED des capteurs de sol gauche %1 droite %2",
