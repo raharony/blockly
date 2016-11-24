@@ -370,8 +370,8 @@ Blockly.AESL['thymio_motors_start'] = function(block)
 		leftTarget = speed;
 		rightTarget = speed;
 	} else if(command == 'BACKWARD') {
-		leftTarget = -speed;
-		rightTarget = -speed;
+		leftTarget = '-' + speed;
+		rightTarget = '-' + speed;
 	} else if(command == 'TURNLEFT') {
 		leftTarget = 0;
 		rightTarget = speed;
@@ -380,16 +380,16 @@ Blockly.AESL['thymio_motors_start'] = function(block)
 		rightTarget = 0;
 	} else if(command == 'TURNBACKWARDLEFT') {
 		leftTarget = 0;
-		rightTarget = -speed;
+		rightTarget = '-' + speed;
 	} else if(command == 'TURNBACKWARDRIGHT') {
-		leftTarget = -speed;
+		leftTarget = '-' + speed;
 		rightTarget = 0;
 	} else if(command == 'SPINCCW') {
-		leftTarget = -speed;
+		leftTarget = '-' + speed;
 		rightTarget = speed;
 	} else if(command == 'SPINCW') {
 		leftTarget = speed;
-		rightTarget = -speed;
+		rightTarget = '-' + speed;
 	}
 
 	var code = 'motor.left.target = ' + leftTarget + '\n' +
