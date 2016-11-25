@@ -61,8 +61,8 @@ Blockly.Blocks['thymio_for'] = {
 		this.setNextStatement(true);
 
 		var variableField = new Blockly.FieldVariable('');
-		var fromField = new Blockly.FieldTextInput('1', Blockly.FieldTextInput.numberValidator);
-		var toField = new Blockly.FieldTextInput('10', Blockly.FieldTextInput.numberValidator);
+		var fromField = new Blockly.FieldNumber(1, -32768, 32767);
+		var toField = new Blockly.FieldNumber(10, -32768, 32767);
 
 		this.appendDummyInput().appendField(Blockly.Msg.THYMIO_FOR_FOR).appendField(variableField, 'ITER').appendField(Blockly.Msg.THYMIO_FOR_FROM).appendField(fromField, 'FROM').appendField(Blockly.Msg.THYMIO_FOR_TO).appendField(toField, 'TO');
 		this.appendStatementInput('DO').appendField(Blockly.Msg.THYMIO_FOR_DO);
@@ -117,8 +117,9 @@ Blockly.Blocks['thymio_subroutine_define'] = {
 	 */
 	dispose : function()
 	{
-		var name = this.getFieldValue('NAME');
-		Blockly.Procedures.disposeCallers(name, this.workspace);
+		// FIXME: commenting function Blockly.Procedures.disposeCallers as it is not avilable any more, but something else shoud be done
+		//var name = this.getFieldValue('NAME');
+		//Blockly.Procedures.disposeCallers(name, this.workspace);
 		// Call parent's destructor.
 		this.constructor.prototype.dispose.apply(this, arguments);
 	},
@@ -1370,16 +1371,15 @@ Blockly.Blocks['thymio_declare_array'] = {
 				"name" : "VAR",
 				"variable" : Blockly.Msg.VARIABLES_DEFAULT_NAME
 			}, {
-				"type" : "field_input",
+				"type" : "field_number",
 				"name" : "SIZE",
-				"text" : "3"
+				"value" : 3
 			}]
 		});
 		
 		this.setColour(Blockly.Blocks.variables.HUE);
 		this.setHelpUrl(Blockly.Msg.THYMIO_DECLARE_ARRAY_HELPURL);
 		this.setTooltip(Blockly.Msg.THYMIO_DECLARE_ARRAY_TOOLTIP);
-		this.getField('SIZE').setChangeHandler(Blockly.FieldTextInput.numberValidator);
 	},
 	/**
 	 * Return all variables referenced by this block.

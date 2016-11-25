@@ -22,7 +22,7 @@ function load(xml)
 	workspace.clear();
 	
 	var dom = Blockly.Xml.textToDom(xml);
-	Blockly.Xml.domToWorkspace(workspace, dom);
+	Blockly.Xml.domToWorkspace(dom, workspace);
 }
 
 function save()

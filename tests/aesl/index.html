@@ -53,7 +53,7 @@ function run()
 		
 		// Create a headless workspace.
 		var workspace = new Blockly.Workspace();
-		Blockly.Xml.domToWorkspace(workspace, xml);
+		Blockly.Xml.domToWorkspace(xml, workspace);
 		
 		var code = Blockly.AESL.workspaceToCode(workspace);
 		

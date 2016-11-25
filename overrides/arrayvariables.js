@@ -19,7 +19,7 @@
 Blockly.Variables.flyoutCategory = function(blocks, gaps, margin, workspace)
 {
 	if(Blockly.Blocks['thymio_declare_array']) {
-		var block = Blockly.Block.obtain(workspace, 'thymio_declare_array');
+		var block = workspace.newBlock('thymio_declare_array');
 		block.initSvg();
 		blocks.push(block);
 		gaps.push(margin * 2);
@@ -36,16 +36,16 @@ Blockly.Variables.flyoutCategory = function(blocks, gaps, margin, workspace)
 		if(variableList[i] === defaultVariable) {
 			continue;
 		}
-		var getBlock = Blockly.Blocks['thymio_variable_get'] ? Blockly.Block.obtain(workspace, 'thymio_variable_get') : null;
+		var getBlock = Blockly.Blocks['thymio_variable_get'] ? workspace.newBlock('thymio_variable_get') : null;
 		getBlock && getBlock.initSvg();
-		var setBlock = Blockly.Blocks['thymio_variable_set'] ? Blockly.Block.obtain(workspace, 'thymio_variable_set') : null;
+		var setBlock = Blockly.Blocks['thymio_variable_set'] ? workspace.newBlock('thymio_variable_set') : null;
 		setBlock && setBlock.initSvg();
-		var getArrayBlock = Blockly.Blocks['thymio_get_array'] ? Blockly.Block.obtain(workspace, 'thymio_get_array') : null;
+		var getArrayBlock = Blockly.Blocks['thymio_get_array'] ? workspace.newBlock('thymio_get_array') : null;
 		getArrayBlock && getArrayBlock.initSvg();
-		var setArrayBlock = Blockly.Blocks['thymio_set_array'] ? Blockly.Block.obtain(workspace, 'thymio_set_array') : null;
+		var setArrayBlock = Blockly.Blocks['thymio_set_array'] ? workspace.newBlock('thymio_set_array') : null;
 		setArrayBlock && setArrayBlock.initSvg();
 		
-		var setValueBlock = Blockly.Blocks['math_number'] ? Blockly.Block.obtain(workspace, 'math_number') : null;
+		var setValueBlock = Blockly.Blocks['math_number'] ? workspace.newBlock('math_number') : null;
 		if(setValueBlock) {
 			setValueBlock.setShadow(true);
 			setValueBlock.initSvg();
@@ -53,7 +53,7 @@ Blockly.Variables.flyoutCategory = function(blocks, gaps, margin, workspace)
 			setValueBlock.render();
 		}
 		
-		var getArrayIndexBlock = Blockly.Blocks['math_number'] ? Blockly.Block.obtain(workspace, 'math_number') : null;
+		var getArrayIndexBlock = Blockly.Blocks['math_number'] ? workspace.newBlock('math_number') : null;
 		if(getArrayIndexBlock) {
 			getArrayIndexBlock.setShadow(true);
 			getArrayIndexBlock.initSvg();
@@ -62,7 +62,7 @@ Blockly.Variables.flyoutCategory = function(blocks, gaps, margin, workspace)
 			getArrayIndexBlock.render();
 		}		
 		
-		var setArrayIndexBlock = Blockly.Blocks['math_number'] ? Blockly.Block.obtain(workspace, 'math_number') : null;
+		var setArrayIndexBlock = Blockly.Blocks['math_number'] ? workspace.newBlock('math_number') : null;
 		if(setArrayIndexBlock) {
 			setArrayIndexBlock.setShadow(true);
 			setArrayIndexBlock.initSvg();
@@ -71,7 +71,7 @@ Blockly.Variables.flyoutCategory = function(blocks, gaps, margin, workspace)
 			setArrayIndexBlock.render();
 		}
 		
-		var setArrayValueBlock = Blockly.Blocks['math_number'] ? Blockly.Block.obtain(workspace, 'math_number') : null;
+		var setArrayValueBlock = Blockly.Blocks['math_number'] ? workspace.newBlock('math_number') : null;
 		if(setArrayValueBlock) {
 			setArrayValueBlock.setShadow(true);
 			setArrayValueBlock.initSvg();

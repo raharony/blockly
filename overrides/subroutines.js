@@ -13,7 +13,7 @@
  */
 Blockly.Procedures.flyoutCategory = function(blocks, gaps, margin, workspace) {
   if (Blockly.Blocks['thymio_subroutine_define']) {
-    var block = Blockly.Block.obtain(workspace, 'thymio_subroutine_define');
+    var block = workspace.newBlock('thymio_subroutine_define');
     block.initSvg();
     blocks.push(block);
     gaps.push(margin * 2);
@@ -25,7 +25,7 @@ Blockly.Procedures.flyoutCategory = function(blocks, gaps, margin, workspace) {
 
   function populateProcedures(procedureList, templateName) {
     for (var x = 0; x < procedureList.length; x++) {
-      var block = Blockly.Block.obtain(workspace, templateName);
+      var block = workspace.newBlock(templateName);
       block.setFieldValue(procedureList[x][0], 'NAME');
       var tempIds = [];
       for (var t = 0; t < procedureList[x][1].length; t++) {

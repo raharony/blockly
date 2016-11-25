@@ -42,7 +42,6 @@ function start() {
            maxBlocks: Infinity,
            media: '../media/',
            readOnly: false,
-           realtime: false,
            rtl: false,
            scrollbars: true,
            toolbox: toolbox,
@@ -55,9 +54,6 @@ function start() {
               scaleSpeed: 1.1
              },
           });
-  if (Blockly.Realtime.isEnabled()) {
-    enableRealtimeSpecificUi();
-  }
 }
 
 function toXml() {
@@ -71,7 +67,7 @@ function toXml() {
 function fromXml() {
   var input = document.getElementById('importExport');
   var xml = Blockly.Xml.textToDom(input.value);
-  Blockly.Xml.domToWorkspace(workspace, xml);
+  Blockly.Xml.domToWorkspace(xml, workspace);
 }
 
 function toCode(lang) {

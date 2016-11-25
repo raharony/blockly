@@ -119,11 +119,11 @@ function update()
 	workspace.clear();
 	
 	var dom = Blockly.Xml.textToDom(testXml);
-	Blockly.Xml.domToWorkspace(workspace, dom);
+	Blockly.Xml.domToWorkspace(dom, workspace);
 	
-	workspace.zoomReset({
-		stopPropagation: function(e) {} // pass fake event handler 
-	});
+// 	workspace.zoomReset({
+// 		stopPropagation: function(e) {} // pass fake event handler 
+// 	});
 	
 	var testActual = Blockly['AESL'].workspaceToCode(workspace);
 	
