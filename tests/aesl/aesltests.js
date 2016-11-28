@@ -1477,11 +1477,11 @@ AeslTests = [
  '		motor.right.target = 500\n' + 
  '	end\n' + 
  '\n' + 
- '	when prox.ground.delta[0] < 400 do\n' + 
+ '	when prox.ground.delta[0] > 450 do\n' + 
  '		call leds.bottom.left(6,32,6)\n' + 
  '	end\n' + 
  '\n' + 
- '	when prox.ground.delta[0] > 450 do\n' + 
+ '	when prox.ground.delta[0] < 400 do\n' + 
  '		call leds.bottom.left(0,0,0)\n' + 
  '	end\n' + 
  '\n' + 
@@ -1490,11 +1490,11 @@ AeslTests = [
  '		motor.right.target = 0\n' + 
  '	end\n' + 
  '\n' + 
- '	when prox.ground.delta[1] < 400 do\n' + 
+ '	when prox.ground.delta[1] > 450 do\n' + 
  '		call leds.bottom.right(6,32,6)\n' + 
  '	end\n' + 
  '\n' + 
- '	when prox.ground.delta[1] > 450 do\n' + 
+ '	when prox.ground.delta[1] < 400 do\n' + 
  '		call leds.bottom.right(0,0,0)\n' + 
  '	end\n' + 
  ''],
@@ -1712,13 +1712,13 @@ AeslTests = [
  '\n' + 
  'onevent prox\n' + 
  '	if active > 0 then\n' + 
- '		if prox.ground.delta[0] > 450 and prox.ground.delta[1] > 450 then\n' + 
+ '		if prox.ground.delta[0] < 400 and prox.ground.delta[1] < 400 then\n' + 
  '			motor.left.target = 500\n' + 
  '			motor.right.target = 500\n' + 
- '		elseif prox.ground.delta[0] > 450 and prox.ground.delta[1] < 400 then\n' + 
+ '		elseif prox.ground.delta[0] < 400 and prox.ground.delta[1] > 450 then\n' + 
  '			motor.left.target = -500\n' + 
  '			motor.right.target = -250\n' + 
- '		elseif prox.ground.delta[0] < 400 and prox.ground.delta[1] > 450 then\n' + 
+ '		elseif prox.ground.delta[0] > 450 and prox.ground.delta[1] < 400 then\n' + 
  '			motor.left.target = -250\n' + 
  '			motor.right.target = -500\n' + 
  '		else\n' + 
@@ -1918,7 +1918,7 @@ AeslTests = [
  '  </block>\n' + 
  '</xml>',
  'onevent prox\n' + 
- '	when prox.ground.delta[0] > 450 or prox.ground.delta[1] > 450 do\n' + 
+ '	when prox.ground.delta[0] < 400 or prox.ground.delta[1] < 400 do\n' + 
  '		motor.left.target = motor.left.speed + 100\n' + 
  '		motor.right.target = motor.right.speed + 100\n' + 
  '	end\n' + 
